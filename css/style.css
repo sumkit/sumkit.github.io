@@ -6,3 +6,8 @@
 	font-size: xx-large;
 	font-family: "Arial", Arial, sans-serif;
 }
+
+.content {
+	margin-left: 10px;
+	margin-right: 10px;
+}
