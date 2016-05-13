@@ -1,4 +1,4 @@
-.name {
+h1.name {
 	background-color: #b3b3ff;
 	padding: 10px;
 	color: #ffffff;
@@ -7,7 +7,7 @@
 	font-family: "Arial", Arial, sans-serif;
 }
 
-.content {
-	padding-left: 10px;
-	padding-right: 10px;
+div.content {
+	margin-left: 50px;
+	margin-right: 50px;
 }
