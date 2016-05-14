@@ -16,6 +16,7 @@ div.content {
 	background-color: #F2F2F2;
 	border-radius: 5px;
 	box-shadow: 0 0 6px #B2B2B2;
+	display: inline-block;
 	padding: 10px 18px;
 	position: relative;
 	vertical-align: top;
@@ -35,7 +36,7 @@ div.content {
 	width:  20px;
 }
 .left {
-	float: left;   
+	float: right;   
 	margin: 5px 45px 5px 20px;         
 }
 .left::before {
