@@ -43,3 +43,8 @@ div.content {
 	box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4 );
 	left: -9px;           
 }
+
+table {
+	width: 100%;
+	padding: 10px;
+}
