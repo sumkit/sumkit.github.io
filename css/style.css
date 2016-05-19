@@ -47,7 +47,9 @@ div.content {
 table {
 	width: 100%;
 	margin: 15px;
-	padding: 15px;
+}
+td { 
+    padding: 10px;
 }
 object {
 	margin: 15px;
