@@ -6,13 +6,6 @@ h1.name {
 	font-size: xx-large;
 	font-family: "Arial", Arial, sans-serif;
 }
-h1.tartan {
-	background-image: "media/tartan.jpg";
-	padding: 10px;
-	text-align:center;
-	font-size: xx-large;
-	font-family: "Arial", Arial, sans-serif;
-}
 
 div.content {
 	margin-left: 10px;
