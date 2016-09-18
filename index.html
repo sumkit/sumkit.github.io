@@ -8,7 +8,7 @@
 
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
+    
 	<title>Summer Kitahara</title>
 </head>
 <body>
@@ -39,7 +39,7 @@
                       <li><p><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> (203)-554-7367</p></li>
                       <li><p><span class="glyphicon glyphicon-link" aria-hidden="true"></span> <a href="https://www.linkedin.com/in/summerkitahara">LinkedIn</a></p></li>
                       <li><p><span class="glyphicon glyphicon-link" aria-hidden="true"></span> <a href="https://github.com/sumkit">GitHub</a></p></li>
-                    </ul>
+                </ul>
             </li>
 	        <li><a href="#resume"><span class="glyphicon glyphicon-list-alt"></span></a></li>
 	      </ul>
@@ -47,44 +47,41 @@
 	  </div><!-- /.container-fluid -->
 	</nav>
     
-    <div style="position: fixed;
-  top: 100px;
-  left: 40%;
-  z-index: 999;
-  width: 100%;
-                color: red;
-                font-size: 40px;
-                background:rgba(255,255,255,40);">Under Construction!</div>
+<!--
+    <h1 style="position: fixed;
+               top: 100px; left: 32%;
+               z-index: 999; width: 100%; color: red;
+                font-size: 40px; background-color:rgba(255,255,255,40);">Under Construction!</h1>
+-->
     
-    <div id="home" class="slideshow-container"></div>
+    <div id="home">
+        <div class="parallax-home">
+            <h1 class="transparent-home">Summer Kitahara</h1>
+        </div>
+    </div>
+    
+    <table>
+      <tr>
+            <td><img src="media/headshot.jpg" alt=""></td>
+            <td><div class="bubble left">Welcome to my website! Here's a little about me. I am a junior at Carnegie Mellon University double majoring with a Bachelor of Science in Computer Science and Human-Computer Interaction. I am currently the lead Android developer at EnvoyNow, a food delivery startup, and a teaching assistant for J2EE Web Application Development. I am a proud member and captain of CMU's Women's NCAA Golf Team. I am passionate about problem solving, women in engineering, golf, and traveling. </div></td>	
+      </tr>
+    </table>
 
-	<table>
-	  <tr>
-	    <td><img src="media/headshot.jpg" alt=""></td>
-	    <td><div class="bubble left">Welcome to my website! Here's a little about me. I am a junior at Carnegie Mellon University double majoring with a Bachelor of Science in Computer Science and Human-Computer Interaction. I am currently the lead Android developer at EnvoyNow, a food delivery startup, and a teaching assistant for J2EE Web Application Development. I am a proud member and captain of CMU's Women's NCAA Golf Team. I am passionate about problem solving, women in engineering, golf, and traveling. </div></td>	
-	  </tr>
-	</table>
-    
     <div id="work">
-        <div class="parallax-envoy">
-            <h3 class="transparent">EnvoyNow</h3>
-            <p class="transparent">Lead Android developer for EnvoyNow, a startup for food delivery at 24 universities. Building app to emulate the iOS app and adding new features. 100+ downloads in first month. Improve algorithm to assign "Envoys" to customers.</p>
-            <p class="transparent"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> <a href="https://play.google.com/store/apps/details?id=com.zaptech.envoynow&hl=en">Google Play Store</a></p>
+        <div class="right-half">
+            <h2 id="title" class="transparent"></h2>
+            <p id="body" class="transparent"></p>
+            <p id="link" class="transparent"></p>
         </div>
-        <div class="parallax-umbrella">
-            <h3 class="transparent">Umbrella</h3>
-            <p class="transparent">Android application uses Bluetooth-based messaging and crowdsourcing to combat gender-based violence and the bystander effect.</p>
-            <p class="transparent"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> <a href="https://github.com/sumkit/Budgie">GitHub</a></p>
-        </div>
-        <div class="parallax-budgie">
-            <h3 class="transparent">Budgie</h3>
-            <p class="transparent">Android application to manage and categorize expenses. Features include reading prices off of the receipt instead of manual input (implements Microsoft's Oxford Optical Character Recognition API) and pie charts to show spending distribution.</p>
-            <p><span class="glyphicon glyphicon-link" aria-hidden="true"></span> <a href="https://github.com/sumkit/umbrella">GitHub</a></p>
-        </div>   
+        <div class="parallax-envoy"></div>
+        
+        <div class="parallax-umbrella"></div>
+        
+        <div class="parallax-budgie"></div>   
     </div>
     
     <div class="parallax-golf" id="golf">
-        <h3 class="transparent">CMU Women's NCAA Golf Team</h3>
+        <h2 class="transparent">CMU Women's NCAA Golf Team</h2>
         <ul class="transparent">
             <li>May 2016 - <a href="http://athletics.cmu.edu/sports/wgolf/2015-16/releases/20160512gcdyff">Women's Golf Coaches Association Division III All-Region East Team</a></li>
             <li>April 2016 - <a href="http://athletics.cmu.edu/generalnews/2015-2016/banquet2016">Thomas B. Craig & LaVerne Craig Tartan Award</a></li>
@@ -103,67 +100,95 @@
 	<!-- Bootstrap: Latest compiled and minified JavaScript -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.5/waypoints.min.js"></script>
     <script>
-		var slideIndex = 0;
-		createSlides();
-
-		function createSlides() {
-            var files = [];
+        $( document ).ready(function() {
+            var box = document.getElementsByClassName("right-half")[0];
+            box.style.visibility = "hidden";
             
-            files.push("media/travel/pittsburgh2.jpg");
-            files.push("media/travel/pittsburgh1.jpg");
-            files.push("media/travel/pittsburgh3.jpg");
+            $('#work').waypoint(function() {
+                console.log("home");
+                var box = document.getElementsByClassName("right-half")[0];
+                box.style.visibility = "hidden";
+            }, {
+                offset: '60%'
+            });
+            $('#golf').waypoint(function() {
+                var box = document.getElementsByClassName("right-half")[0];
+                box.style.visibility = "hidden";
+            }, {
+                offset: '50%'
+            });
+            $('.parallax-envoy').waypoint(function() {
+                var box = document.getElementsByClassName("right-half")[0];
+                box.style.visibility = "visible";
+                var title = document.getElementById("title");
+                title.innerHTML="EnvoyNow";
+                var body = document.getElementById("body");
+                body.innerHTML = "Android application to manage and categorize expenses. Features include reading prices off of the receipt instead of manual input (implements Microsoft's Oxford Optical Character Recognition API) and pie charts to show spending distribution.";
+            }, {
+                offset: '30%'
+            });
+            $('.parallax-budgie').waypoint(function() {
+                var box = document.getElementsByClassName("right-half")[0];
+                box.style.visibility = "visible";
+                var title = document.getElementById("title");
+                title.innerHTML="Budgie";
+                var body = document.getElementById("body");
+                body.innerHTML = "Android application to manage and categorize expenses. Features include reading prices off of the receipt instead of manual input (implements Microsoft's Oxford Optical Character Recognition API) and pie charts to show spending distribution.";
+                var link = document.getElementById("link");
+                link.innerHTML="<a href=\"http://www.envoynow.co/\"><span class=\"glyphicon glyphicon-link\" aria-hidden=\"true\"></span> EnvoyNow</a>;"
+            }, {
+                offset: '50%'
+            });
+            $('.parallax-budgie').waypoint(function() {
+                var box = document.getElementsByClassName("right-half")[0];
+                box.style.visibility = "visible";
+                var title = document.getElementById("title");
+                title.innerHTML="Umbrella";
+                var body = document.getElementById("body");
+                body.innerHTML = "Android application uses Bluetooth-based messaging and crowdsourcing to combat gender-based violence and the bystander effect.";
+                var link = document.getElementById("link");
+                link.innerHTML="<a href=\"https://github.com/sumkit/umbrella\"><span class=\"glyphicon glyphicon-link\" aria-hidden=\"true\"></span> GitHub</a>;"
+            }, {
+                offset: '80%'
+            });
+            $('.parallax-umbrella').waypoint(function() {
+                var box = document.getElementsByClassName("right-half")[0];
+                box.style.visibility = "visible";
+                var title = document.getElementById("title");
+                title.innerHTML="Umbrella";
+                var body = document.getElementById("body");
+                body.innerHTML = "Android application uses Bluetooth-based messaging and crowdsourcing to combat gender-based violence and the bystander effect.";
+                var link = document.getElementById("link");
+                link.innerHTML="<a href=\"https://github.com/sumkit/umbrella\"><span class=\"glyphicon glyphicon-link\" aria-hidden=\"true\"></span> GitHub</a>;"
+            }, {
+                offset: '50%'
+            });
+            $('.parallax-umbrella').waypoint(function() {
+                var box = document.getElementsByClassName("right-half")[0];
+                box.style.visibility = "visible";
+                var title = document.getElementById("title");
+                title.innerHTML="Umbrella";
+                var body = document.getElementById("body");
+                body.innerHTML = "Android application uses Bluetooth-based messaging and crowdsourcing to combat gender-based violence and the bystander effect.";
+                var link = document.getElementById("link");
+                link.innerHTML="<a href=\"https://github.com/sumkit/umbrella\"><span class=\"glyphicon glyphicon-link\" aria-hidden=\"true\"></span> GitHub</a>;"
+            }, {
+                offset: '10%'
+            });
+            $('.parallax-umbrella').waypoint(function() {
+                var box = document.getElementsByClassName("right-half")[0];
+                box.style.visibility = "visible";
+                var title = document.getElementById("title");
+                title.innerHTML="EnvoyNow";
+                var body = document.getElementById("body");
+                body.innerHTML = "Android application to manage and categorize expenses. Features include reading prices off of the receipt instead of manual input (implements Microsoft's Oxford Optical Character Recognition API) and pie charts to show spending distribution.";
+            }, {
+                offset: '70%'
+            });
             
-            files.push("media/travel/sanfran1.jpg");
-            files.push("media/travel/sanfran2.jpg");
-        
-            files.push("media/travel/tokyo2.jpg");
-            files.push("media/travel/tokyo3.jpg");
-            files.push("media/travel/tokyo1.jpg");
-            
-            files.push("media/travel/chicago1.jpg");
-            files.push("media/travel/chicago2.jpg");
-            
-            files.push("media/travel/london1.jpg");
-            files.push("media/travel/london2.jpg");
-            files.push("media/travel/london3.jpg");
-            
-            files.push("media/travel/toronto1.jpg");
-            files.push("media/travel/toronto2.jpg");
-            
-            var i;
-            var container = document.getElementsByClassName("slideshow-container")[0];
-			for (i=0; i < files.length; i++) {
-				var outsideDiv = document.createElement("div");
-                outsideDiv.className = "slide";
-                
-				var img = document.createElement("img");
-				img.src = files[i];
-                img.className = "slide-image";
-                
-                var text = document.createElement("div");
-                text.className = "slideshow-text";
-                text.innerHTML = "Summer Kitahara";
-                
-				outsideDiv.appendChild(img);
-                outsideDiv.appendChild(text)
-                container.appendChild(outsideDiv);
-			}
-            showSlides();
-		}
-
-		function showSlides() {
-		    var i;
-		    var slides = document.getElementsByClassName("slide");
-		    for (i = 0; i < slides.length; i++) {
-		       slides[i].style.display = "none";
-		    }
-		    slideIndex++;
-		    if (slideIndex> slides.length) {slideIndex = 1}
-		    slides[slideIndex-1].style.display = "block";
-		    setTimeout(showSlides, 3000); // Change image every 2 seconds
-		}
-	</script>
+        });
+    </script>
 </body>
 </html>
