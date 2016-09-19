@@ -45,40 +45,17 @@ object {
 
 div.parallax-envoy {
     background:rgba(255,0,0,0.25);
-    background-image: url("/media/envoy/envoy1.jpg"), url("/media/envoy/envoy2.jpg");
-    min-height: 600px;
-     /* parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: left, center;
-    background-repeat: no-repeat, no-repeat;
-    background-size: 18%, 18%;
+    min-height: 500px;
 }
 
 div.parallax-umbrella {
     background:rgba(0,0,255,0.25);
-    background-image: url("/media/hackathons/umbrella1.jpg"), url("/media/hackathons/umbrella2.jpg");
     min-height: 500px;
-     /* parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: left, center;
-    background-repeat: no-repeat, no-repeat;
-    background-size: 18%, 18%;
 }
 
 div.parallax-budgie {
     background:rgba(0,255,0,0.25);
     min-height: 500px;
-/*
-    background-image: url("/media/hackathons/budgie1.jpg"), url("/media/hackathons/budgie2.jpg"), 
-        url("/media/hackathons/budgie3.jpg");
-*/
-     /* parallax scrolling effect */
-/*
-    background-attachment: fixed;
-    background-position: left, center, right;
-    background-repeat: no-repeat, no-repeat, no-repeat;
-    background-size: 18%, 18%, 18%;
-*/
 }
 
 div.parallax-golf {
