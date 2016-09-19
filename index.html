@@ -77,7 +77,11 @@
         
         <div class="parallax-umbrella"></div>
         
-        <div class="parallax-budgie"></div>   
+        <div class="parallax-budgie">
+            <img src="/media/hackathons/budgie1.jpg" alt="">
+            <img src="/media/hackathons/budgie2.jpg" alt="">
+            <img src="/media/hackathons/budgie3.jpg" alt="">
+        </div>   
     </div>
     
     <div class="parallax-golf" id="golf">
@@ -119,6 +123,18 @@
             }, {
                 offset: '50%'
             });
+            $('#golf').waypoint(function() {
+                var box = document.getElementsByClassName("right-half")[0];
+                box.style.visibility = "visible";
+                var title = document.getElementById("title");
+                title.innerHTML="Budgie";
+                var body = document.getElementById("body");
+                body.innerHTML = "Android application to manage and categorize expenses. Features include reading prices off of the receipt instead of manual input (implements Microsoft's Oxford Optical Character Recognition API) and pie charts to show spending distribution.";
+                var link = document.getElementById("link");
+                link.innerHTML="<a href=\"http://www.envoynow.co/\"><span class=\"glyphicon glyphicon-link\" aria-hidden=\"true\"></span> EnvoyNow</a>;"
+            }, {
+                offset: '75%'
+            });
             $('.parallax-envoy').waypoint(function() {
                 var box = document.getElementsByClassName("right-half")[0];
                 box.style.visibility = "visible";
@@ -128,6 +144,18 @@
                 body.innerHTML = "Android application to manage and categorize expenses. Features include reading prices off of the receipt instead of manual input (implements Microsoft's Oxford Optical Character Recognition API) and pie charts to show spending distribution.";
             }, {
                 offset: '30%'
+            });
+            $('.parallax-budgie').waypoint(function() {
+                var box = document.getElementsByClassName("right-half")[0];
+                box.style.visibility = "visible";
+                var title = document.getElementById("title");
+                title.innerHTML="Budgie";
+                var body = document.getElementById("body");
+                body.innerHTML = "Android application to manage and categorize expenses. Features include reading prices off of the receipt instead of manual input (implements Microsoft's Oxford Optical Character Recognition API) and pie charts to show spending distribution.";
+                var link = document.getElementById("link");
+                link.innerHTML="<a href=\"http://www.envoynow.co/\"><span class=\"glyphicon glyphicon-link\" aria-hidden=\"true\"></span> EnvoyNow</a>;"
+            }, {
+                offset: '20%'
             });
             $('.parallax-budgie').waypoint(function() {
                 var box = document.getElementsByClassName("right-half")[0];
@@ -151,7 +179,7 @@
                 var link = document.getElementById("link");
                 link.innerHTML="<a href=\"https://github.com/sumkit/umbrella\"><span class=\"glyphicon glyphicon-link\" aria-hidden=\"true\"></span> GitHub</a>;"
             }, {
-                offset: '80%'
+                offset: '65%'
             });
             $('.parallax-umbrella').waypoint(function() {
                 var box = document.getElementsByClassName("right-half")[0];

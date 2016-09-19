@@ -67,14 +67,18 @@ div.parallax-umbrella {
 
 div.parallax-budgie {
     background:rgba(0,255,0,0.25);
+    min-height: 500px;
+/*
     background-image: url("/media/hackathons/budgie1.jpg"), url("/media/hackathons/budgie2.jpg"), 
         url("/media/hackathons/budgie3.jpg");
-    min-height: 500px;
+*/
      /* parallax scrolling effect */
+/*
     background-attachment: fixed;
     background-position: left, center, right;
     background-repeat: no-repeat, no-repeat, no-repeat;
     background-size: 18%, 18%, 18%;
+*/
 }
 
 div.parallax-golf {
