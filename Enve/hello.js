@@ -13,6 +13,7 @@ function handleClientLoad() {
  * Check if current user has authorized this application.
  */
 function checkAuth() {
+  console.log("checkauth")
   gapi.auth.authorize(
     {
       'client_id': CLIENT_ID,
@@ -90,7 +91,6 @@ function start() {
     'clientId':CLIENT_ID,
     'scope':'profile'
   }).then(function() {
-    console.log("init");
     window.setTimeout(checkAuth, 1);
   });
 };
