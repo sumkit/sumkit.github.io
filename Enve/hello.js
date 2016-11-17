@@ -30,14 +30,12 @@ function checkAuth() {
 function handleAuthResult(authResult) {
   var authorizeDiv = document.getElementById('authorize-div');
   if (authResult && !authResult.error) {
-    console.log("none")
     // Hide auth UI, then load client library.
     authorizeDiv.style.display = 'none';
     loadGmailApi();
   } else {
     // Show auth UI, allowing the user to initiate authorization by
     // clicking authorize button.
-    console.log("inline")
     authorizeDiv.style.display = 'inline';
   }
 }
@@ -79,6 +77,8 @@ function handleAuthClick(event) {
 }
 
 function start() {
+    console.log("start");
+
   gapi.client.init({
     'apiKey': API_KEY,
     'discoveryDocs': [SCOPES],
