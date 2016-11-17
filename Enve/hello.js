@@ -87,7 +87,8 @@ function start() {
   gapi.client.init({
     'apiKey': API_KEY,
     'discoveryDocs': SCOPES,
-    'clientId':CLIENT_ID
+    'clientId':CLIENT_ID,
+    'scope':'profile'
   }).then(function() {
     console.log("init");
     window.setTimeout(checkAuth, 1);
