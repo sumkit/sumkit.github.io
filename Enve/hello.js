@@ -185,6 +185,10 @@ function sendEmail() {
             'raw': base64EncodedEmail
           }
         }); 
-        request.execute(function(response) {});
+        request.execute(function() {
+            $('#address').val('');
+            $('#subject').val('');
+            $('#body').val('');
+        });
     }
 }
