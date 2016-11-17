@@ -84,8 +84,9 @@ function start() {
     gapi.client.load('gmail', 'v1', getInbox);
     gapi.client.load('gmail', 'v1', getUnread);
     gapi.client.load('gmail', 'v1', listLabels);
+    console.log("init")
   }).then(function(response) {
-    console.log(response);
+    console.log("response: "+response);
   }, function(reason) {
     console.log('Error: ' + reason.result.error.message);
   });
@@ -96,7 +97,6 @@ function start() {
  * is loaded.
  */
 function loadGmailApi() {
-  // console.log("here")
   gapi.load('client', start);
 }
 
