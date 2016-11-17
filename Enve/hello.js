@@ -80,13 +80,10 @@ function start() {
   gapi.client.init({
     'apiKey': API_KEY,
     'discoveryDocs': SCOPES,
+    'clientId':CLIENT_ID
   }).then(function() {
     console.log("init");
     window.setTimeout(checkAuth, 1);
-  }).then(function(response) {
-    console.log("response: "+response);
-  }, function(reason) {
-    console.log('Error: ' + reason.result.error.message);
   });
 };
 
