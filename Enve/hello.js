@@ -13,7 +13,6 @@ function handleClientLoad() {
  * Check if current user has authorized this application.
  */
 function checkAuth() {
-  console.log("checkauth")
   gapi.auth.authorize(
     {
       'client_id': CLIENT_ID,
@@ -52,8 +51,7 @@ function listLabels() {
   request.execute(function(resp) {
     var labels = resp.labels;
     appendPre('Labels:');
-
-    if (labels && labels.length > 0) {
+    if (labels != null) {
       for (i = 0; i < labels.length; i++) {
         var label = labels[i];
         appendPre(label.name)
@@ -76,18 +74,8 @@ function listLabels() {
 //   return false;
 // }
 
-function updateSigninStatus(isSignedIn) {
-  if (isSignedIn) {
-    makeApiCall();
-  }
-}
-
 function handleAuthClick(event) {
   gapi.auth2.getAuthInstance().signIn();
-}
-
-function handleSignoutClick(event) {
-  gapi.auth2.getAuthInstance().signOut();
 }
 
 function start() {
@@ -137,7 +125,7 @@ function getInbox() {
         'id': this.id
       });
 
-      messageRequest.execute(displayMessage);
+//      messageRequest.execute(displayMessage);
     });
   });
 }
@@ -156,7 +144,7 @@ function getUnread() {
         'id': this.id
       });
 
-      // messageRequest.execute(displayMessage);
+    messageRequest.execute(displayMessage);
     });
   });
 } 
