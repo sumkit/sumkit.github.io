@@ -2,7 +2,8 @@
 // Developer Console, https://console.developers.google.com
 var CLIENT_ID = '571876370007-1peoaj3v39c15glembj915jl4eaib8a2.apps.googleusercontent.com';
 var API_KEY = 'AIzaSyClrfIxWqPqslBjRtKrHi1U6zKJP7Uequk'
-var SCOPES = ['https://www.googleapis.com/auth/gmail.readonly'];
+var SCOPES = ['https://www.googleapis.com/auth/gmail.readonly',
+             'https://www.googleapis.com/auth/gmail.send'];
 
 function handleClientLoad() {
   gapi.client.setApiKey(API_KEY);
@@ -156,4 +157,34 @@ function displayMessage(message) {
         console.log(this.value);
     }
   })
+}
+
+/**
+ * Send Email.
+ */
+function sendEmail() {
+    var addresses = $('#address').val().replace(/\s/g,'').split(',');
+    var subject = $('#subject').val();
+    for(var i=0; i < addresses.length; i++) {
+        var email = ''; //email RFC 5322 formatted String
+        var headers = {'To': addresses[i],
+            'Subject': subject};
+        
+        for(var header in headers) {
+            email += header;
+            email += ": "+headers[header]+"\r\n";
+        }
+        email += "\r\n";
+        email += $('#body').val();
+        
+        // Using the js-base64 library for encoding: https://www.npmjs.com/package/js-base64
+        var base64EncodedEmail = btoa(email);
+        var request = gapi.client.gmail.users.messages.send({
+          'userId': 'me',
+          'resource': {
+            'raw': base64EncodedEmail
+          }
+        }); 
+        request.execute(function(response) {});
+    }
 }
