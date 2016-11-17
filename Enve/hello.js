@@ -53,7 +53,7 @@ function listLabels() {
     var labels = resp.labels;
     appendPre('Labels:');
     if (labels != null) {
-      for (i = 0; i < labels.length; i++) {
+      for (var i = 0; i < labels.length; i++) {
         var label = labels[i];
         appendPre(label.name)
       }
