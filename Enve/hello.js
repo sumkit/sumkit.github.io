@@ -76,6 +76,12 @@ function listLabels() {
 //   return false;
 // }
 
+function updateSigninStatus(isSignedIn) {
+  if (isSignedIn) {
+    makeApiCall();
+  }
+}
+
 function handleAuthClick(event) {
   gapi.auth2.getAuthInstance().signIn();
 }
@@ -162,8 +168,4 @@ function displayMessage(message) {
         console.log(this.value);
     }
   })
-  //   console.log(message.snippet);
-
-  // var date = new Date(message.internalDate);
-  // console.log(date.toString("MMM dd"));
 }
