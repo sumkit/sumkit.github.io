@@ -20,11 +20,6 @@ function checkAuth() {
       'scope': SCOPES.join(' '),
       'immediate': false
     }, handleAuthResult);
-  // gapi.auth.authorize({
-  //   client_id: CLIENT_ID,
-  //   scope: SCOPES,
-  //   immediate: true
-  // }, handleAuthResult);
 }
 
 /**
