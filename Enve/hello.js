@@ -82,9 +82,7 @@ function start() {
     'discoveryDocs': SCOPES,
   }).then(function() {
     console.log("init");
-    gapi.client.load('gmail', 'v1', getInbox);
-    gapi.client.load('gmail', 'v1', getUnread);
-    gapi.client.load('gmail', 'v1', listLabels);
+    window.setTimeout(checkAuth, 1);
   }).then(function(response) {
     console.log("response: "+response);
   }, function(reason) {
@@ -97,7 +95,9 @@ function start() {
  * is loaded.
  */
 function loadGmailApi() {
-  gapi.load('client', start);
+    gapi.client.load('gmail', 'v1', getInbox);
+    gapi.client.load('gmail', 'v1', getUnread);
+    gapi.client.load('gmail', 'v1', listLabels);
 }
 
 /**
