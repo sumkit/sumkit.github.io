@@ -77,11 +77,9 @@ function handleAuthClick(event) {
 }
 
 function start() {
-    console.log("start");
-
   gapi.client.init({
     'apiKey': API_KEY,
-    'discoveryDocs': [SCOPES],
+    'discoveryDocs': SCOPES,
   }).then(function() {
     console.log("init");
     gapi.client.load('gmail', 'v1', getInbox);
