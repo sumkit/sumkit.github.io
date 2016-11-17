@@ -3,7 +3,6 @@
 var CLIENT_ID = '571876370007-1peoaj3v39c15glembj915jl4eaib8a2.apps.googleusercontent.com';
 var API_KEY = 'AIzaSyClrfIxWqPqslBjRtKrHi1U6zKJP7Uequk'
 var SCOPES = ['https://www.googleapis.com/auth/gmail.readonly'];
-// var SCOPES = 'https://www.googleapis.com/auth/gmail.readonly';
 
 function handleClientLoad() {
   gapi.client.setApiKey(API_KEY);
@@ -69,11 +68,19 @@ function listLabels() {
  *
  * @param {Event} event Button click event.
  */
+// function handleAuthClick(event) {
+//   gapi.auth.authorize(
+//     {client_id: CLIENT_ID, scope: SCOPES, immediate: false},
+//     handleAuthResult);
+//   return false;
+// }
+
 function handleAuthClick(event) {
-  gapi.auth.authorize(
-    {client_id: CLIENT_ID, scope: SCOPES, immediate: false},
-    handleAuthResult);
-  return false;
+  gapi.auth2.getAuthInstance().signIn();
+}
+
+function handleSignoutClick(event) {
+  gapi.auth2.getAuthInstance().signOut();
 }
 
 function start() {
