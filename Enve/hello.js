@@ -81,10 +81,10 @@ function start() {
     'apiKey': API_KEY,
     'discoveryDocs': [SCOPES],
   }).then(function() {
+    console.log("init");
     gapi.client.load('gmail', 'v1', getInbox);
     gapi.client.load('gmail', 'v1', getUnread);
     gapi.client.load('gmail', 'v1', listLabels);
-    console.log("init")
   }).then(function(response) {
     console.log("response: "+response);
   }, function(reason) {
