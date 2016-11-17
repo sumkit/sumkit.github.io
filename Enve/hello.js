@@ -96,7 +96,7 @@ function start() {
  * is loaded.
  */
 function loadGmailApi() {
-  console.log("here")
+  // console.log("here")
   gapi.load('client', start);
 }
 
