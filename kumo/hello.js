@@ -176,6 +176,7 @@ function sendEmail() {
         }
         email += "\r\n";
         email += $('#body').val();
+        email += "\r\n\r\nSent from kumo"
         
         // Using the js-base64 library for encoding: https://www.npmjs.com/package/js-base64
         var base64EncodedEmail = btoa(email);
@@ -186,7 +187,7 @@ function sendEmail() {
           }
         }); 
         request.execute(function(response) {
-            console.log(response);
+            console.log(response.code == null);
             $('#address').val('');
             $('#subject').val('');
             $('#body').val('');
