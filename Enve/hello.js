@@ -185,7 +185,8 @@ function sendEmail() {
             'raw': base64EncodedEmail
           }
         }); 
-        request.execute(function() {
+        request.execute(function(response) {
+            console.log(response);
             $('#address').val('');
             $('#subject').val('');
             $('#body').val('');
