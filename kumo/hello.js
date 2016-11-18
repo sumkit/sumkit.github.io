@@ -40,29 +40,6 @@ function handleAuthResult(authResult) {
   }
 }
 
- /**
- * Print all Labels in the authorized user's inbox. If no labels
- * are found an appropriate message is printed.
- */
-function listLabels() {
-  var request = gapi.client.gmail.users.labels.list({
-    'userId': 'me'
-  });
-
-  request.execute(function(resp) {
-    var labels = resp.labels;
-    appendPre('Labels:');
-    if (labels != null) {
-      for (var i = 0; i < labels.length; i++) {
-        var label = labels[i];
-        appendPre(label.name)
-      }
-    } else {
-      appendPre('No Labels found.');
-    }
-  });
-  }
-
 /**
  * Initiate auth flow in response to user clicking authorize button.
  *
@@ -97,7 +74,6 @@ function start() {
 function loadGmailApi() {
     gapi.client.load('gmail', 'v1', getInbox);
     gapi.client.load('gmail', 'v1', getUnread);
-    gapi.client.load('gmail', 'v1', listLabels);
 }
 
 /**
@@ -176,7 +152,7 @@ function sendEmail() {
         }
         email += "\r\n";
         email += $('#body').val();
-        email += "\r\n\r\nSent from kumo"
+        email += "\r\n\r\nSent from kumo. Try it at www.summerkitahara.com/kumo/hello"
         
         // Using the js-base64 library for encoding: https://www.npmjs.com/package/js-base64
         var base64EncodedEmail = btoa(email);
