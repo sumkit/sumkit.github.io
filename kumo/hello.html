@@ -1,15 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Eve</title>
+    <title>kumo</title>
     <meta charset="UTF-8">
+    <script type="text/javascript" src="oriDomi-master/oridomi.min.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/jonobr1/two.js/master/build/two.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script type="text/javascript" src="hello.js"></script>
 	<script src="https://apis.google.com/js/client.js?onload=start"></script>
 <!--    <script type="text/javascript" src="https://cdn.rawgit.com/DmitryBaranovskiy/raphael/master/raphael.min.js"></script>-->
-    <script type="text/javascript" src="https://cdn.rawgit.com/jonobr1/two.js/master/build/two.min.js"></script>
+    
 </head>
 <body bgcolor="#8ac5ff">
+    <script>
+        var windowWidth = $(window).width();
+        var windowHeight = $(window).height();
+        var two = new Two({ width: windowWidth, height: windowHeight, fullscreen: true}).appendTo(document.body);
+        var last = 0;
+        while(last < windowWidth-10) {
+            for(var i = 0; i < 7; i++) {
+                var negOne = Math.pow(-1, i);
+                var circle = two.makeCircle(last+70+(i*30), 100+(negOne*30), 50);
+                circle.fill = "#FFFFFF";
+                circle.noStroke();
+                two.update();
+            }
+            last = last + 70+(i*30)+50;
+        }
+        
+        var text = two.makeText("test", 300, 400, {});
+        text.fill = "#ffffff";
+        text.size = 20;
+        two.update();
+    </script>
+    
 	<div id="authorize-div" style="display: none">
       <span>Authorize access to Gmail API</span>
       <!--Button for the user to click to initiate auth sequence -->
@@ -27,5 +51,37 @@
     </div>
 
     <a href="https://accounts.google.com/logout">Logout</a>
+    
+    <div background-color="#ffffff" class="demo">
+        <pre>
+
+Dear Summer,
+    This is an email. Why is Javascript so annoying? 
+I hope you finish this shit ASAP. 
+
+Best,
+Summer
+
+</pre>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var temp
+            if (!OriDomi.isSupported) {
+                //exit
+              document.getElementById('unsupported').style.display = 'block';
+              return;
+            }
+            temp = new OriDomi('.demo', {
+                hPanels: 2,
+                ripple: true
+              });
+              
+            return setTimeout(function() {
+                  return temp.stairs(20, 'bottom');
+            }, 1000);
+        });
+    </script>
 </body>
 </html>
