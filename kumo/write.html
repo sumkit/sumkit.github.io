@@ -19,40 +19,43 @@
       </button>
     </div>
 <body bgcolor="#8ac5ff">
-    <div style="background-image:url('media/papers.png'); background-repeat: no-repeat;" class="demo">
-        <pre>
-            Dear Summer,
-                This is an email. Why is Javascript so annoying? 
-            I hope you finish this shit ASAP. 
-
-            Best,
-            Summer
-        </pre>
+    <div id="oridomi">
+        <img src="media/papers.png" alt="" width="50%">
+        <textarea style="width: 500px; left: 5%; top: 5%; position: absolute;" cols="10" rows="50"></textarea>
     </div>
-    
-    <div id="write">
-        <p><input id="address"></p>
-        <p><input id="subject"></p>
-        <p><input id="body"></p>
-        <p><button onclick="sendEmail()">Send</button></p>
+    <div style="display:none;" id="envelope_div">
+        <img id="envelope" id = "img" src="media/envelope_front.png" alt="">
     </div>
-    
+    <div style="display:none;" id="text">
+        <p>To: <input type="text"></p>
+        <p>From: <input type="text"></p>
+    </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var temp
             if (!OriDomi.isSupported) {
-                //exit
-              document.getElementById('unsupported').style.display = 'block';
+              alert("OriDomi is not supposed on your browser.");
               return;
             }
-            temp = new OriDomi('.demo', {
+            var temp = new OriDomi('#oridomi', {
                 hPanels: 3,
                 ripple: true
               });
-              
-            return setTimeout(function() {
-                  return temp.stairs(20, 'bottom');
-            }, 1000);
+            return $('#oridomi').click(function(event) {
+                temp.stairs(100, 'bottom');
+                
+                document.getElementById("envelope_div").style.display = "inline";
+                
+                var left = $("#envelope").offset().left;
+                var top = $("#envelope").offset().top;
+                var width = $("#envelope").height()/4;
+                left += width;
+                var height = $("#envelope").height()/2;
+                top += height;
+                document.getElementById("text").style.left = left + "px";
+                document.getElementById("text").style.top = top+"px";
+                document.getElementById("text").style.position = "absolute";
+                document.getElementById("text").style.display="block";
+            });
         });
     </script>
 </body>

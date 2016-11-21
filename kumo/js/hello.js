@@ -29,6 +29,7 @@ function checkAuth() {
  */
 function handleAuthResult(authResult) {
   var authorizeDiv = document.getElementById('authorize-div');
+    
   if (authResult && !authResult.error) {
     // Hide auth UI, then load client library.
     authorizeDiv.style.display = 'none';
