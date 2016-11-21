@@ -76,18 +76,6 @@ function loadGmailApi() {
     gapi.client.load('gmail', 'v1', getUnread);
 }
 
-/**
- * Append a pre element to the body containing the given message
- * as its text node.
- *
- * @param {string} message Text to be placed in pre element.
- */
-function appendPre(message) {
-  var pre = document.getElementById('output');
-  var textContent = document.createTextNode(message + '\n');
-  pre.appendChild(textContent);
-}
-
 function getInbox() {
   var request = gapi.client.gmail.users.messages.list({
     'userId': 'me',
@@ -163,7 +151,6 @@ function sendEmail() {
           }
         }); 
         request.execute(function(response) {
-            console.log(response.code == null);
             $('#address').val('');
             $('#subject').val('');
             $('#body').val('');

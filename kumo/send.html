@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>kumo</title>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="js/oridomi.min.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/jonobr1/two.js/master/build/two.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hello.js"></script>
+	<script src="https://apis.google.com/js/client.js?onload=start"></script>
+<!--    <script type="text/javascript" src="https://cdn.rawgit.com/DmitryBaranovskiy/raphael/master/raphael.min.js"></script>-->
+    
+</head>
+<body bgcolor="#8ac5ff">
+        
+    <div style="background-image:url('media/papers.png'); background-repeat: no-repeat;" class="demo">
+        <pre>
+
+Dear Summer,
+    This is an email. Why is Javascript so annoying? 
+I hope you finish this shit ASAP. 
+
+Best,
+Summer
+
+</pre>
+    </div>
+    <p><button onclick="sendEmail()">Send</button></p>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var temp
+            if (!OriDomi.isSupported) {
+                //exit
+              document.getElementById('unsupported').style.display = 'block';
+              return;
+            }
+            temp = new OriDomi('.demo', {
+                hPanels: 3,
+                ripple: true
+              });
+              
+            return setTimeout(function() {
+                  return temp.stairs(20, 'bottom');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
