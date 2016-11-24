@@ -20,8 +20,8 @@
     </div>
 <body bgcolor="#8ac5ff">
     <div id="draft">
-        <img src="media/papers.png" alt="" style="width:60%; height:90%;">
-        <textarea id="draft_text" style="width:40%; height:60%; left: 5%; top: 5%; position: absolute;"></textarea>
+        <img id="draft_img" src="media/papers.png" alt="" style="width:60%; height:90%;">
+        <textarea id="draft_text" style="width:40%; height:50%; left: 5%; top: 5%; position: absolute;"></textarea>
     </div>
     <div id="oridomi">
         <img src="media/papers.png" alt="" style="width:60%; height:90%;">
@@ -35,7 +35,7 @@
         <p>To: <input type="text"></p>
         <p>From: <input type="text"></p>
     </div>
-    <button onclick="unfold()">Unfold</button>
+    <button onclick="unfold()">Edit</button>
     <script>
         var temp;
         document.addEventListener('DOMContentLoaded', function() {
@@ -44,6 +44,7 @@
               alert("OriDomi is not supposed on your browser.");
               return;
             }
+            
             return;
         });
         function fold() {
