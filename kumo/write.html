@@ -19,10 +19,15 @@
       </button>
     </div>
 <body bgcolor="#8ac5ff">
-    <div id="oridomi">
-        <img src="media/papers.png" alt="" width="50%">
-        <textarea style="width: 500px; left: 5%; top: 5%; position: absolute;" cols="10" rows="50"></textarea>
+    <div id="draft">
+        <img src="media/papers.png" alt="" style="width:60%; height:90%;">
+        <textarea id="draft_text" style="width:40%; height:60%; left: 5%; top: 5%; position: absolute;"></textarea>
     </div>
+    <div id="oridomi">
+        <img src="media/papers.png" alt="" style="width:60%; height:90%;">
+        <textarea style="width:40%; height:60%; left: 5%; top: 5%; position: absolute;"></textarea>
+    </div>
+    <button onclick="fold()">Send</button>
     <div style="display:none;" id="envelope_div">
         <img id="envelope" id = "img" src="media/envelope_front.png" alt="">
     </div>
@@ -30,33 +35,48 @@
         <p>To: <input type="text"></p>
         <p>From: <input type="text"></p>
     </div>
+    <button onclick="unfold()">Unfold</button>
     <script>
+        var temp;
         document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById("oridomi").style.display="none";
             if (!OriDomi.isSupported) {
               alert("OriDomi is not supposed on your browser.");
               return;
             }
-            var temp = new OriDomi('#oridomi', {
-                hPanels: 3,
-                ripple: true
-              });
-            return $('#oridomi').click(function(event) {
-//                temp.stairs(100, 'bottom');
-                
-                document.getElementById("envelope_div").style.display = "inline";
-                
-                var left = $("#envelope").offset().left;
-                var top = $("#envelope").offset().top;
-                var width = $("#envelope").height()/4;
-                left += width;
-                var height = $("#envelope").height()/2;
-                top += height;
-                document.getElementById("text").style.left = left + "px";
-                document.getElementById("text").style.top = top+"px";
-                document.getElementById("text").style.position = "absolute";
-                document.getElementById("text").style.display="block";
-            });
+            return;
         });
+        function fold() {
+//            var text = document.getElementById("draft_text").innerHTML;
+            document.getElementById("draft").style.display="none";
+            
+            document.getElementById("oridomi").style.display = "block";
+//            document.getElementById("oridomi_text").innerHTML = text;
+            
+            temp = new OriDomi('#oridomi', {
+                    hPanels: 3,
+                    ripple: true
+                  });
+            temp.setRipple().stairs(50, 'bottom');
+            
+            document.getElementById("envelope_div").style.display = "inline";
+//            document.getElementById("oridomi").style.display="none";
+
+            var left = $("#envelope").offset().left;
+            var top = $("#envelope").offset().top;
+            var width = $("#envelope").height()/4;
+            left += width;
+            var height = $("#envelope").height()/2;
+            top += height;
+            document.getElementById("text").style.left = left + "px";
+            document.getElementById("text").style.top = top+"px";
+            document.getElementById("text").style.position = "absolute";
+            document.getElementById("text").style.display="block";
+        }
+        function unfold() {
+            document.getElementById("draft").style.display="inline";
+            document.getElementById("oridomi").style.display = "none";
+        }
     </script>
 </body>
 </html>
