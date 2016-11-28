@@ -15,19 +15,8 @@
     <script>
         var windowWidth = $(window).width();
         var windowHeight = $(window).height();
-        var two = new Two({ width: windowWidth, height: 190, fullscreen: false}).appendTo(document.body);  
-//        var two = new Two({ width: windowWidth, height: 190, fullscreen: false}).appendTo(document.body);
-//        var last = 0;
-//        while(last < windowWidth-10) {
-//            for(var i = 0; i < 7; i++) {
-//                var negOne = Math.pow(-1, i);
-//                var circle = two.makeCircle(last+70+(i*30), 100+(negOne*30), 50);
-//                circle.fill = "#FFFFFF";
-//                circle.noStroke();
-//                two.update();
-//            }
-//            last = last + 70+(i*30)+50;
-//        }
+        var two = new Two({ width: windowWidth, height: 300, fullscreen: false}).appendTo(document.body);  
+
         var env = two.makeRectangle(200,100,windowWidth/4, windowHeight/3);
         env.fill = "#ffffff";
         env.stroke = "#507C5C";
@@ -38,6 +27,19 @@
         text.noStroke();
         
         two.update();
+        
+        two = new Two({ width: windowWidth, height: 190, fullscreen: false}).appendTo(document.body);
+        var last = 0;
+        while(last < windowWidth-10) {
+            for(var i = 0; i < 7; i++) {
+                var negOne = Math.pow(-1, i);
+                var circle = two.makeCircle(last+70+(i*30), 100+(negOne*30), 50);
+                circle.fill = "#FFFFFF";
+                circle.noStroke();
+                two.update();
+            }
+            last = last + 70+(i*30)+50;
+        }
     </script>
     
 	<div id="authorize-div" style="display: none">
