@@ -136,7 +136,7 @@ function displayMessage(message) {
         
         var text = two.makeText("message", windowWidth/3, windowHeight/2);
         text.fill="#507C5C";
-        text.translate = two.makeVector(200,200);
+        text.translate = new Two.Vector(200,200);
 //        text.noStroke();
         
         two.update();
