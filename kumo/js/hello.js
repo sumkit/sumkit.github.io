@@ -124,11 +124,6 @@ function displayMessage(message) {
   windowHeight -= 190;
   $.each(headers, function() {
     if(this.name.toLowerCase() === "subject") {
-        console.log("hi");
-        var windowWidth = $(window).width();
-        var windowHeight = $(window).height();
-        var two = new Two({ width: windowWidth, height: 300, fullscreen: false}).appendTo(document.body);  
-
         var env = two.makeRectangle(200,500,500,300);
         env.fill = "#ffffff";
         env.stroke = "#507C5C";
@@ -141,7 +136,11 @@ function displayMessage(message) {
         
         two.update();
     }
-  })
+  });
+    $("#clear").click(function() {
+        console.log('here');
+        two.clear();
+    });
 }
 
 /**
