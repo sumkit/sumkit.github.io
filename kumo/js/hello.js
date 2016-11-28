@@ -124,6 +124,8 @@ function displayMessage(message) {
   windowHeight -= 190;
   $.each(headers, function() {
     if(this.name.toLowerCase() === "subject") {
+      console.log("here");
+
         var env = two.makeRectangle(windowWidth/4, windowHeight/3, windowWidth/4, windowHeight/3);
         env.fill = "#ffffff";
         env.stroke = "orangered";
