@@ -124,6 +124,7 @@ function displayMessage(message) {
   windowHeight -= 190;
   $.each(headers, function() {
     if(this.name.toLowerCase() === "subject") {
+        console.log("hi");
         var windowWidth = $(window).width();
         var windowHeight = $(window).height();
         var two = new Two({ width: windowWidth, height: 300, fullscreen: true}).appendTo(document.body);  
