@@ -125,7 +125,7 @@ function displayMessage(message) {
   $.each(headers, function() {
     if(this.name.toLowerCase() === "subject") {
         var env = two.makeRectangle(windowWidth/4, windowHeight/3, windowWidth/4, windowHeight/3);
-        env.fill("#ffffff");
+        env.fill = "#ffffff";
         env.stroke = "orangered";
         env.linewidth = 6;
         var text = new two.makeText("message", windowWidth/3, windowHeight/2, {});
