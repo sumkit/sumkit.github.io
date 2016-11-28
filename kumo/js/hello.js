@@ -134,8 +134,8 @@ function displayMessage(message) {
         env.linewidth = 6;
         
         var text = two.makeText("message", windowWidth/3, windowHeight/2,{});
-        text.fill="orangered";
-        text.noStroke();
+        text.fill="#507C5C";
+//        text.noStroke();
         
         two.update();
     }
