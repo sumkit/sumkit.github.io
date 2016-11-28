@@ -127,7 +127,7 @@ function displayMessage(message) {
         console.log("hi");
         var windowWidth = $(window).width();
         var windowHeight = $(window).height();
-        var two = new Two({ width: windowWidth, height: 300, fullscreen: true}).appendTo(document.body);  
+        var two = new Two({ width: windowWidth, height: 300, fullscreen: false}).appendTo(document.body);  
 
         var env = two.makeRectangle(200,500,500,300);
         env.fill = "#ffffff";
