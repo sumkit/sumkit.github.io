@@ -124,15 +124,14 @@ function displayMessage(message) {
   windowHeight -= 190;
   $.each(headers, function() {
     if(this.name.toLowerCase() === "subject") {
-      console.log("here");
 
-        var env = two.makeRectangle(windowWidth/4, windowHeight/3, windowWidth/4, windowHeight/3);
-        env.fill = "#ffffff";
-        env.stroke = "orangered";
-        env.linewidth = 6;
-        var text = two.makeText("message", windowWidth/3, windowHeight/2,{});
-        text.fill="orangered";
-        text.noStroke();
+//        var env = two.makeRectangle(windowWidth/4, windowHeight/3, windowWidth/4, windowHeight/3);
+//        env.fill = "#ffffff";
+//        env.stroke = "orangered";
+//        env.linewidth = 6;
+//        var text = two.makeText("message", windowWidth/3, windowHeight/2,{});
+//        text.fill="orangered";
+//        text.noStroke();
     }
   })
 }
