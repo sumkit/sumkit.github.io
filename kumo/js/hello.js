@@ -129,13 +129,14 @@ function displayMessage(message) {
         var windowHeight = $(window).height();
         var two = new Two({ width: windowWidth, height: 300, fullscreen: true}).appendTo(document.body);  
 
-        var env = two.makeRectangle(200,500,windowWidth/4, windowHeight/3);
+        var env = two.makeRectangle(200,500,500,300);
         env.fill = "#ffffff";
         env.stroke = "#507C5C";
         env.linewidth = 6;
         
         var text = two.makeText("message", windowWidth/3, windowHeight/2);
         text.fill="#507C5C";
+        text.translate = two.makeVector(200,200);
 //        text.noStroke();
         
         two.update();
