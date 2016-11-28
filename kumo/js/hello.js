@@ -133,7 +133,7 @@ function displayMessage(message) {
         env.stroke = "#507C5C";
         env.linewidth = 6;
         
-        var text = two.makeText("message", windowWidth/3, windowHeight/2,{});
+        var text = two.makeText("message", windowWidth/3, windowHeight/2);
         text.fill="#507C5C";
 //        text.noStroke();
         
