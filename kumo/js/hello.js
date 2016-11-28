@@ -33,7 +33,6 @@ function handleAuthResult(authResult) {
   if (authResult && !authResult.error) {
     // Hide auth UI, then load client library.
     authorizeDiv.style.display = 'none';
-      console.log("here");
     loadGmailApi();
   } else {
     // Show auth UI, allowing the user to initiate authorization by
@@ -118,9 +117,20 @@ function getUnread() {
 
 function displayMessage(message) {
   var headers = message.payload.headers;
+  var windowWidth = $(window).width();
+  var windowHeight = $(window).height();
+  var two = new Two({ width: windowWidth, height: 190, fullscreen: false}).appendTo(document.body);  
+    
+  windowHeight -= 190;
   $.each(headers, function() {
     if(this.name.toLowerCase() === "subject") {
-        console.log(this.value);
+        var env = two.makeRectangle(windowWidth/4, windowHeight/3, windowWidth/4, windowHeight/3);
+        env.fill("#ffffff");
+        env.stroke = "orangered";
+        env.linewidth = 6;
+        var text = new two.makeText("message", windowWidth/3, windowHeight/2, {});
+        text.fill="orangered";
+        text.noStroke();
     }
   })
 }
