@@ -128,8 +128,10 @@ function displayMessage(message) {
  * Send Email.
  */
 function sendEmail() {
-    var addresses = $('#address').val().replace(/\s/g,'').split(',');
-    var subject = $('#subject').val();
+    var textDiv = document.getElementById("text");
+    var addresses = textDiv.getElementsByClassName("addresses")[0].value;
+    var subject = textDiv.getElementsByClassName("subject")[0].value;
+    addresses = addresses.replace(/\s/g,'').split(',');
     for(var i=0; i < addresses.length; i++) {
         var email = ''; //email RFC 5322 formatted String
         var headers = {'To': addresses[i],
