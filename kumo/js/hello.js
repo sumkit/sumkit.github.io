@@ -124,20 +124,20 @@ function displayMessage(message) {
   windowHeight -= 190;
   $.each(headers, function() {
     if(this.name.toLowerCase() === "subject") {
-//        var windowWidth = $(window).width();
-//        var windowHeight = $(window).height();
-//        var two = new Two({ width: windowWidth, height: 300, fullscreen: true}).appendTo(document.body);  
-//
-//        var env = two.makeRectangle(200,500,windowWidth/4, windowHeight/3);
-//        env.fill = "#ffffff";
-//        env.stroke = "#507C5C";
-//        env.linewidth = 6;
-//        
-//        var text = two.makeText("message", windowWidth/3, windowHeight/2,{});
-//        text.fill="orangered";
-//        text.noStroke();
-//        
-//        two.update();
+        var windowWidth = $(window).width();
+        var windowHeight = $(window).height();
+        var two = new Two({ width: windowWidth, height: 300, fullscreen: true}).appendTo(document.body);  
+
+        var env = two.makeRectangle(200,500,windowWidth/4, windowHeight/3);
+        env.fill = "#ffffff";
+        env.stroke = "#507C5C";
+        env.linewidth = 6;
+        
+        var text = two.makeText("message", windowWidth/3, windowHeight/2,{});
+        text.fill="orangered";
+        text.noStroke();
+        
+        two.update();
     }
   })
 }
