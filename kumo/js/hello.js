@@ -194,6 +194,8 @@ function displayMessage(message) {
     console.log(rect.cx);
     rect.cx = rect.cx || 300;
     rect.animate({cx: rect.cx}, 1000, "backOut");
+    rect.cx = rect.cx == 300 ? 100 : 300;
+});
     
 //    this.cx = this.cx == 300 ? 100 : 300;
 //    var anim = Raphael.animation({fill:'red', path:'M400 100L490 190'}, 1000,"bounce"); 
