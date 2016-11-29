@@ -195,7 +195,6 @@ function displayMessage(message) {
     rect.attr("x") = rect.attr("x") || 300;
     rect.animate({cx: rect.attr("x")}, 1000, "backOut");
     rect.attr("x") = rect.attr("x") == 300 ? 100 : 300;
-});
     
 //    this.cx = this.cx == 300 ? 100 : 300;
 //    var anim = Raphael.animation({fill:'red', path:'M400 100L490 190'}, 1000,"bounce"); 
