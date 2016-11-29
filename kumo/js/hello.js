@@ -183,8 +183,10 @@ function displayMessage(message) {
     fromsubj.attr("font-family", "arial");
     fromsubj.attr("text-anchor", "start");
     
-    var anim = Raphael.animation({x: 200}, 1000, "cubic-bezier(0,1,1,0)").delay(500).repeat(3);
+    var anim = Raphael.animation({x: 200}, 2000, "cubic-bezier(1,1,0,0)").delay(500).repeat(3);
     rect.animate(anim);
+    t.animateWidth(rect);
+    fromsubj.animateWith(rect);
 }
 
 /**
