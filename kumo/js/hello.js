@@ -111,12 +111,13 @@ function getUnread() {
       });
 
     messageRequest.execute(displayMessage);
-        console.log(displayMessage.payload.body);
+        
     });
   });
 } 
 
 function displayMessage(message) {
+    console.log(displayMessage.payload.body);
   var headers = message.payload.headers;
   var windowWidth = $(window).width();
   var windowHeight = $(window).height();
