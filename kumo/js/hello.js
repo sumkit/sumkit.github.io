@@ -148,6 +148,8 @@ function displayMessage(message) {
         rect.attr("stroke-width", "4");
         
         var t = paper.text(50, 50, "To:\nSubject:");
+        text.attr("fill", "#000");
+        text.attr("stroke", "none");
     }
   });
 }
