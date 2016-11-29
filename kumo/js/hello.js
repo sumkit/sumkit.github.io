@@ -165,7 +165,8 @@ function displayMessage(message) {
     rect.attr("stroke-width", "8");
     rect.dblclick(function() {
         var letter = paper.image("media/papers.png",0,0,windowWidth/3, windowHeight/2);
-        console.log(letter);
+//        console.log(letter);
+        console.log(document.getElementById("#"+letter));
         
         var oridomi = new OriDomi('#'+letter.id, {
             vPanels: 3,
