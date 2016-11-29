@@ -136,6 +136,7 @@ function displayMessage(message) {
 //        text.noStroke();
         
         two.update();
+        break;
     }
   });
     $("#clear").click(function() {
