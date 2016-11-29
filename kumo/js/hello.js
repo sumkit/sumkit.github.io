@@ -163,13 +163,13 @@ function displayMessage(message) {
     t.attr("font-family", "arial");
     t.attr("text-anchor", "end");
     
-    var fromsubj = paper.text(270, 200, from+"\n"+subject);
+    var fromsubj = paper.text(280, 200, from+"\n"+subject);
     fromsubj.attr("fill", "#000");
     fromsubj.attr("stroke", "none");
     fromsubj.attr("font-size", "20px");
     fromsubj.attr("font-weight", "normal");
     fromsubj.attr("font-family", "arial");
-    t.attr("text-anchor", "start");
+    fromsubj.attr("text-anchor", "start");
 }
 
 /**
