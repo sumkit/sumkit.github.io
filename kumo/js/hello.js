@@ -154,6 +154,9 @@ function displayMessage(message) {
     // Sets the stroke attribute of the circle to green
     rect.attr("stroke", "#507C5C");
     rect.attr("stroke-width", "8");
+    rect.dblclick(function() {
+       console.log('WHAT'); 
+    });
 
     var t = paper.text(150, 200, "From: \nSubject: ");
     t.attr("fill", "#000");
