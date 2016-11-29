@@ -183,7 +183,7 @@ function displayMessage(message) {
     fromsubj.attr("font-family", "arial");
     fromsubj.attr("text-anchor", "start");
     
-    var anim = Raphael.animation({x: 10}, 2000, "backOut").delay(500).repeat(3);
+    var anim = Raphael.animation({x: 10}, 2000, "backOut").delay(1000);
     rect.animate(anim);
     t.animateWith(rect);
     fromsubj.animateWith(rect);
