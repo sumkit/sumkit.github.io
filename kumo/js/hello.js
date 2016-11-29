@@ -185,7 +185,7 @@ function displayMessage(message) {
     
     var anim = Raphael.animation({x: 10}, 2000, "backOut").delay(500).repeat(3);
     rect.animate(anim);
-    t.animateWidth(rect);
+    t.animateWith(rect);
     fromsubj.animateWith(rect);
 }
 
