@@ -120,7 +120,7 @@ function displayMessage(message) {
   var windowWidth = $(window).width();
   var windowHeight = $(window).height();
 //  var two = new Two({ width: windowWidth, height: 190, fullscreen: true}).appendTo(document.body);  
-  var paper = Raphael(50, 100, 800, 800);
+  var paper = Raphael(40, 30, 510, 310);
     
   windowHeight -= 190;
     var subject = "";
