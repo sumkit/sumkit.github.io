@@ -136,7 +136,7 @@ function displayMessage(message) {
 //        text.noStroke();
         
         
-        two.click(function(frameCount) {
+        text.click(function(frameCount) {
             console.log("clicked");
             two.clear();
         });
