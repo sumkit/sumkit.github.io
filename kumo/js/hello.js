@@ -155,7 +155,7 @@ function displayMessage(message) {
     rect.attr("stroke", "#507C5C");
     rect.attr("stroke-width", "8");
 
-    var t = paper.text(120, 200, "From: \nSubject: ");
+    var t = paper.text(150, 200, "From: \nSubject: ");
     t.attr("fill", "#000");
     t.attr("stroke", "none");
     t.attr("font-size", "20px");
@@ -163,7 +163,7 @@ function displayMessage(message) {
     t.attr("font-family", "arial");
     t.attr("text-anchor", "end");
     
-    var fromsubj = paper.text(280, 200, from+"\n"+subject);
+    var fromsubj = paper.text(250, 200, from+"\n"+subject);
     fromsubj.attr("fill", "#000");
     fromsubj.attr("stroke", "none");
     fromsubj.attr("font-size", "20px");
