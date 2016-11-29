@@ -135,15 +135,10 @@ function displayMessage(message) {
         text.translate = new Two.Vector(200,200);
 //        text.noStroke();
         
-        var clear = two.makeRectangle(500,200,50,50);
-        clear.fill = "#507C5C";
-        clear.stroke = "#ffffff";
-        clear.linewidth = 4;
-        clear.bind('click', function() {
+        two.bind('click', function() {
             console.log("clicked");
-            console.log('here');
             two.clear();
-        })
+        });
         
         two.update();
     }
