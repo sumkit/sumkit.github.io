@@ -156,7 +156,7 @@ function displayMessage(message) {
   });
         
     // Creates rectangle with rounded corners at x = 50, y = 40
-    var rect = paper.rect(0,0, 500, 300, 10);
+    var rect = paper.rect(210,0, 500, 300, 10);
     // Sets the fill attribute of the rectangle to white
     rect.attr("fill", "#ffffff");
 
@@ -183,7 +183,7 @@ function displayMessage(message) {
     fromsubj.attr("font-family", "arial");
     fromsubj.attr("text-anchor", "start");
     
-    var anim = Raphael.animation({x: -200}, 2000, "cubic-bezier(1,1,0,0)").delay(500).repeat(3);
+    var anim = Raphael.animation({x: 10}, 2000, "backOut").delay(500).repeat(3);
     rect.animate(anim);
     t.animateWidth(rect);
     fromsubj.animateWith(rect);
