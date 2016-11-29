@@ -126,7 +126,6 @@ function displayMessage(message) {
     var subject = "";
     var from = "";
   $.each(headers, function() {
-      console.log(this.name.toLowerCase());
     if(this.name.toLowerCase() === "subject") {
 //        var env = two.makeRectangle(200,500,500,300);
 //        env.fill = "#ffffff";
@@ -159,16 +158,18 @@ function displayMessage(message) {
     var t = paper.text(100, 100, "From:\nSubject:");
     t.attr("fill", "#000");
     t.attr("stroke", "none");
-    t.attr("font-size", "25px");
+    t.attr("font-size", "20px");
     t.attr("font-weight", "bold");
     t.attr("font-family", "arial");
+    t.attr("text-anchor", "start");
     
-    var fromsubj = paper.text(150, 100, from+"\n"+subject);
+    var fromsubj = paper.text(170, 100, from+"\n"+subject);
     fromsubj.attr("fill", "#000");
     fromsubj.attr("stroke", "none");
-    fromsubj.attr("font-size", "25px");
+    fromsubj.attr("font-size", "20px");
     fromsubj.attr("font-weight", "normal");
     fromsubj.attr("font-family", "arial");
+    t.attr("text-anchor", "start");
 }
 
 /**
