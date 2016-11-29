@@ -117,7 +117,7 @@ function getUnread() {
 } 
 
 function displayMessage(message) {
-    console.log(displayMessage.payload.body);
+    console.log(message.payload.body);
   var headers = message.payload.headers;
   var windowWidth = $(window).width();
   var windowHeight = $(window).height();
