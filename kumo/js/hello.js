@@ -129,7 +129,7 @@ function displayMessage(message) {
   var windowWidth = $(window).width();
   var windowHeight = $(window).height();
 //  var two = new Two({ width: windowWidth, height: 190, fullscreen: true}).appendTo(document.body);  
-  var paper = Raphael(40, 30, 510, 310);
+  var paper = Raphael(40, 30, windowHeight/2, windowWidth);
     
   windowHeight -= 190;
     var subject = "";
@@ -183,7 +183,8 @@ function displayMessage(message) {
     fromsubj.attr("font-family", "arial");
     fromsubj.attr("text-anchor", "start");
     
-    rect.animate({x: 200}, 1000, "cubic-bezier(0,1,1,0)");
+    var anim = Raphael.animation({x: 200}, 1000, "cubic-bezier(0,1,1,0)").delay(500).repeat(3);
+    rect.animate(anim);
 }
 
 /**
