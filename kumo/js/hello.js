@@ -119,31 +119,32 @@ function displayMessage(message) {
   var headers = message.payload.headers;
   var windowWidth = $(window).width();
   var windowHeight = $(window).height();
-  var two = new Two({ width: windowWidth, height: 190, fullscreen: true}).appendTo(document.body);  
+//  var two = new Two({ width: windowWidth, height: 190, fullscreen: true}).appendTo(document.body);  
+  var paper = Raphael(50, 100, 800, 800);
     
   windowHeight -= 190;
   $.each(headers, function() {
       console.log(this.name.toLowerCase());
     if(this.name.toLowerCase() === "subject") {
-        var env = two.makeRectangle(200,500,500,300);
-        env.fill = "#ffffff";
-        env.stroke = "#507C5C";
-        env.linewidth = 6;
-        
-        var text = two.makeText("message", windowWidth/3, windowHeight/2);
-        text.fill="#507C5C";
-        text.translate = new Two.Vector(200,200);
-//        text.noStroke();
-        
-        
-        text.click(function(frameCount) {
-            console.log("clicked");
-            two.clear();
-        });
-        
-                two.update();
+//        var env = two.makeRectangle(200,500,500,300);
+//        env.fill = "#ffffff";
+//        env.stroke = "#507C5C";
+//        env.linewidth = 6;
+//        
+//        var text = two.makeText("message", windowWidth/3, windowHeight/2);
+//        text.fill="#507C5C";
+//        text.translate = new Two.Vector(200,200);
+////        text.noStroke();
+//        
+//        two.update();
 
-        
+        // Creates circle at x = 50, y = 40, with radius 10
+        var circle = paper.rect(50, 40, 500, 300);
+        // Sets the fill attribute of the circle to red (#f00)
+        circle.attr("fill", "#ffffff");
+
+        // Sets the stroke attribute of the circle to white
+        circle.attr("stroke", "#507C5C");
     }
   });
 }
