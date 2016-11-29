@@ -113,10 +113,6 @@ function getUnread() {
     messageRequest.execute(displayMessage);
     });
   });
-    
-    var to = document.createElement("textarea");
-    to.value = "hi test";
-    document.appendChild(to);
 } 
 
 function displayMessage(message) {
@@ -127,6 +123,8 @@ function displayMessage(message) {
   var paper = Raphael(50, 100, 800, 800);
     
   windowHeight -= 190;
+    var subject = "";
+    var from = "";
   $.each(headers, function() {
       console.log(this.name.toLowerCase());
     if(this.name.toLowerCase() === "subject") {
@@ -142,23 +140,35 @@ function displayMessage(message) {
 //        
 //        two.update();
 
-        // Creates rectangle with rounded corners at x = 50, y = 40
-        var rect = paper.rect(50, 40, 500, 300, 10);
-        // Sets the fill attribute of the rectangle to white
-        rect.attr("fill", "#ffffff");
-
-        // Sets the stroke attribute of the circle to green
-        rect.attr("stroke", "#507C5C");
-        rect.attr("stroke-width", "8");
-        
-        var t = paper.text(80, 80, "To:\nSubject:");
-        t.attr("fill", "#000");
-        t.attr("stroke", "none");
-        t.attr("font-size", "30px");
-        t.attr("font-weight", "bold");
-        t.attr("font-family", "arial");
+        subject = this.name.toLowerCase();
+    }
+    if(this.name.toLowerCase() === "from") {
+        from = this.name.toLowerCase();
     }
   });
+        
+    // Creates rectangle with rounded corners at x = 50, y = 40
+    var rect = paper.rect(50, 40, 500, 300, 10);
+    // Sets the fill attribute of the rectangle to white
+    rect.attr("fill", "#ffffff");
+
+    // Sets the stroke attribute of the circle to green
+    rect.attr("stroke", "#507C5C");
+    rect.attr("stroke-width", "8");
+
+    var t = paper.text(80, 80, "From:\nSubject:");
+    t.attr("fill", "#000");
+    t.attr("stroke", "none");
+    t.attr("font-size", "30px");
+    t.attr("font-weight", "bold");
+    t.attr("font-family", "arial");
+    
+    var fromsubj = paper.text(110, 80, from+"\n"+subject);
+    fromsubj.attr("fill", "#000");
+    fromsubj.attr("stroke", "none");
+    fromsubj.attr("font-size", "30px");
+    fromsubj.attr("font-weight", "normal");
+    fromsubj.attr("font-family", "arial");
 }
 
 /**
