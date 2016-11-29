@@ -150,6 +150,9 @@ function displayMessage(message) {
         var t = paper.text(80, 80, "To:\nSubject:");
         t.attr("fill", "#000");
         t.attr("stroke", "none");
+        t.attr("font-size", "30px");
+        t.attr("font-weight", "bold");
+        t.attr("font-family", "arial");
     }
   });
 }
