@@ -6,7 +6,7 @@ var SCOPES = ['https://www.googleapis.com/auth/gmail.readonly',
              'https://www.googleapis.com/auth/gmail.send'];
 
 $(document).ready(function() {
-    var paper = Raphael(300, 150, 200, 200);
+    var paper = Raphael(700, 150, 200, 200);
     var mailbox = paper.image("media/mailbox.png", 0,0, 200, 200);
     mailbox.click(function() {
         gapi.client.load('gmail', 'v1', getUnread);
