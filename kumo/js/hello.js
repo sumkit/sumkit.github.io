@@ -145,11 +145,11 @@ function displayMessage(message) {
 
         // Sets the stroke attribute of the circle to green
         rect.attr("stroke", "#507C5C");
-        rect.attr("stroke-width", "4");
+        rect.attr("stroke-width", "8");
         
         var t = paper.text(50, 50, "To:\nSubject:");
-        text.attr("fill", "#000");
-        text.attr("stroke", "none");
+        t.attr("fill", "#000");
+        t.attr("stroke", "none");
     }
   });
 }
