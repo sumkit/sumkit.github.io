@@ -184,8 +184,20 @@ function displayMessage(message) {
     fromsubj.attr("font-family", "arial");
     fromsubj.attr("text-anchor", "start");
     
-    var anim = Raphael.animation({fill:'red', path:'M400 100L490 190'}, 1000,"bounce"); 
-    rect.animate(anim.delay(500));
+    var testpath = paper.path('M100 100L190 190');
+
+    var temp = testpath.clone();
+      temp.translate(400,0);
+      testpath.animate({path: temp.attr('path')}, 1000);
+      temp.remove();
+
+    console.log(rect);
+    rect.cx = rect.cx || 300;
+    rect.animate({cx: rect.cx}, 1000, "backOut");
+    
+//    this.cx = this.cx == 300 ? 100 : 300;
+//    var anim = Raphael.animation({fill:'red', path:'M400 100L490 190'}, 1000,"bounce"); 
+//    rect.animate(anim.delay(500));
 }
 
 /**
