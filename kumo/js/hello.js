@@ -163,7 +163,7 @@ function displayMessage(message) {
     t.attr("font-family", "arial");
     t.attr("text-anchor", "end");
     
-    var fromsubj = paper.text(250, 200, from+"\n"+subject);
+    var fromsubj = paper.text(200, 200, from+"\n"+subject);
     fromsubj.attr("fill", "#000");
     fromsubj.attr("stroke", "none");
     fromsubj.attr("font-size", "20px");
