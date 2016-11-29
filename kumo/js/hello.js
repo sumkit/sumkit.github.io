@@ -113,6 +113,10 @@ function getUnread() {
     messageRequest.execute(displayMessage);
     });
   });
+    
+    var to = document.createElement("textarea");
+    to.value = "hi test";
+    document.appendChild(to);
 } 
 
 function displayMessage(message) {
