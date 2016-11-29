@@ -184,14 +184,14 @@ function displayMessage(message) {
     fromsubj.attr("font-family", "arial");
     fromsubj.attr("text-anchor", "start");
     
-    var testpath = paper.path('M100 100L190 190');
+//    var testpath = paper.path('M100 100L190 190');
+//
+//    var temp = testpath.clone();
+//      temp.translate(400,0);
+//      testpath.animate({path: temp.attr('path')}, 1000);
+//      temp.remove();
 
-    var temp = testpath.clone();
-      temp.translate(400,0);
-      testpath.animate({path: temp.attr('path')}, 1000);
-      temp.remove();
-
-    console.log(rect);
+    console.log(rect.cx);
     rect.cx = rect.cx || 300;
     rect.animate({cx: rect.cx}, 1000, "backOut");
     
