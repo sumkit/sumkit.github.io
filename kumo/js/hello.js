@@ -155,7 +155,7 @@ function displayMessage(message) {
     rect.attr("stroke", "#507C5C");
     rect.attr("stroke-width", "8");
 
-    var t = paper.text(90, 200, "From: \nSubject: ");
+    var t = paper.text(120, 200, "From: \nSubject: ");
     t.attr("fill", "#000");
     t.attr("stroke", "none");
     t.attr("font-size", "20px");
