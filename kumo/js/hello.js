@@ -138,13 +138,14 @@ function displayMessage(message) {
 //        
 //        two.update();
 
-        // Creates circle at x = 50, y = 40, with radius 10
-        var circle = paper.rect(50, 40, 500, 300);
-        // Sets the fill attribute of the circle to red (#f00)
-        circle.attr("fill", "#ffffff");
+        // Creates rectangle with rounded corners at x = 50, y = 40
+        var rect = paper.rect(50, 40, 500, 300, 10);
+        // Sets the fill attribute of the rectangle to white
+        rect.attr("fill", "#ffffff");
 
-        // Sets the stroke attribute of the circle to white
-        circle.attr("stroke", "#507C5C");
+        // Sets the stroke attribute of the circle to green
+        rect.attr("stroke", "#507C5C");
+        rect.attr("stroke-width", 10);
     }
   });
 }
