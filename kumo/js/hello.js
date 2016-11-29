@@ -192,8 +192,8 @@ function displayMessage(message) {
 //      temp.remove();
 
     console.log(rect.attr("x"));
-    rect.attr("x", 300);
-    rect.animate({cx: rect.attr("x")}, 1000, "backOut");
+    rect.attr("x", 500);
+    rect.animate({cx: rect.attr("x")}, 10000, "backOut");
     rect.attr("x", 100);
     
 //    this.cx = this.cx == 300 ? 100 : 300;
