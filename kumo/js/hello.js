@@ -140,10 +140,10 @@ function displayMessage(message) {
 //        
 //        two.update();
 
-        subject = this.name.toLowerCase();
+        subject = this.value;
     }
     if(this.name.toLowerCase() === "from") {
-        from = this.name.toLowerCase();
+        from = this.value;
     }
   });
         
@@ -156,17 +156,17 @@ function displayMessage(message) {
     rect.attr("stroke", "#507C5C");
     rect.attr("stroke-width", "8");
 
-    var t = paper.text(80, 80, "From:\nSubject:");
+    var t = paper.text(100, 100, "From:\nSubject:");
     t.attr("fill", "#000");
     t.attr("stroke", "none");
-    t.attr("font-size", "30px");
+    t.attr("font-size", "25px");
     t.attr("font-weight", "bold");
     t.attr("font-family", "arial");
     
-    var fromsubj = paper.text(110, 80, from+"\n"+subject);
+    var fromsubj = paper.text(150, 100, from+"\n"+subject);
     fromsubj.attr("fill", "#000");
     fromsubj.attr("stroke", "none");
-    fromsubj.attr("font-size", "30px");
+    fromsubj.attr("font-size", "25px");
     fromsubj.attr("font-weight", "normal");
     fromsubj.attr("font-family", "arial");
 }
