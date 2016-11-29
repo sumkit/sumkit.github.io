@@ -5,6 +5,14 @@ var API_KEY = 'AIzaSyClrfIxWqPqslBjRtKrHi1U6zKJP7Uequk'
 var SCOPES = ['https://www.googleapis.com/auth/gmail.readonly',
              'https://www.googleapis.com/auth/gmail.send'];
 
+$(document).ready(function() {
+    var paper = Raphael(300, 150, 200, 200);
+    var mailbox = paper.image("media/mailbox.png", 0,0, 200, 200);
+    mailbox.click(function() {
+        gapi.client.load('gmail', 'v1', getUnread);
+    });
+});
+
 function handleClientLoad() {
   gapi.client.setApiKey(API_KEY);
   window.setTimeout(checkAuth, 1);
@@ -74,7 +82,6 @@ function start() {
  */
 function loadGmailApi() {
     gapi.client.load('gmail', 'v1', getInbox);
-    gapi.client.load('gmail', 'v1', getUnread);
 }
 
 function getInbox() {
@@ -176,6 +183,9 @@ function displayMessage(message) {
     fromsubj.attr("font-weight", "normal");
     fromsubj.attr("font-family", "arial");
     fromsubj.attr("text-anchor", "start");
+    
+    var anim = Raphael.animation({fill:"red"}, 1000,"bounce"); 
+    rect.animate(anim.delay(500));
 }
 
 /**
