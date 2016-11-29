@@ -184,7 +184,7 @@ function displayMessage(message) {
     fromsubj.attr("font-family", "arial");
     fromsubj.attr("text-anchor", "start");
     
-    var anim = Raphael.animation({fill:"red"}, 1000,"bounce"); 
+    var anim = Raphael.animation({fill:'red', path:'M400 100L490 190'}, 1000,"bounce"); 
     rect.animate(anim.delay(500));
 }
 
