@@ -125,7 +125,6 @@ function getUnread() {
 
 function displayMessage(message) {
     var bodyMsg = atob(message.payload.body.data);
-    console.log(bodyMsg);
   var headers = message.payload.headers;
   var windowWidth = $(window).width();
   var windowHeight = $(window).height();
@@ -184,21 +183,7 @@ function displayMessage(message) {
     fromsubj.attr("font-family", "arial");
     fromsubj.attr("text-anchor", "start");
     
-//    var testpath = paper.path('M100 100L190 190');
-//
-//    var temp = testpath.clone();
-//      temp.translate(400,0);
-//      testpath.animate({path: temp.attr('path')}, 1000);
-//      temp.remove();
-
-    console.log(rect.attr("x"));
-    rect.attr("x", 500);
-    rect.animate({cx: rect.attr("x")}, 10000, "backOut");
-    rect.attr("x", 100);
-    
-//    this.cx = this.cx == 300 ? 100 : 300;
-//    var anim = Raphael.animation({fill:'red', path:'M400 100L490 190'}, 1000,"bounce"); 
-//    rect.animate(anim.delay(500));
+    rect.animate({x: 200}, 1000, "cubic-bezier(0,1,1,0)");
 }
 
 /**
