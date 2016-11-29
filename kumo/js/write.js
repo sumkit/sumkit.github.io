@@ -17,8 +17,8 @@ function fold() {
 
     temp = new OriDomi('#oridomi', {
             hPanels: 3,
-            ripple: true
-          });
+            ripple: 0
+    });
     temp.setRipple().stairs(50, 'bottom');
 
     document.getElementById("envelope_div").style.display = "inline";

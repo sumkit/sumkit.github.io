@@ -164,7 +164,14 @@ function displayMessage(message) {
     rect.attr("stroke", "#507C5C");
     rect.attr("stroke-width", "8");
     rect.dblclick(function() {
-       console.log('WHAT'); 
+        var letter = paper.image("media/papers.png",0,0,windowWidth/3, windowHeight/2);
+        console.log(letter);
+        
+        var oridomi = new OriDomi('#'+letter.id, {
+            vPanels: 3,
+            ripple: 2
+        });
+        oridomi.accordian(16);
     });
 
     var t = paper.text(150, 200, "From: \nSubject: ");
