@@ -135,12 +135,13 @@ function displayMessage(message) {
         text.translate = new Two.Vector(200,200);
 //        text.noStroke();
         
-        two.bind('click', function() {
+        two.update();
+        
+        two.bind('click', function(frameCount) {
             console.log("clicked");
             two.clear();
         });
         
-        two.update();
     }
   });
 }
