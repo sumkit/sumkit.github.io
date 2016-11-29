@@ -129,7 +129,7 @@ function displayMessage(message) {
   var windowWidth = $(window).width();
   var windowHeight = $(window).height();
 //  var two = new Two({ width: windowWidth, height: 190, fullscreen: true}).appendTo(document.body);  
-  var paper = Raphael(40, 30, windowHeight/2, windowWidth);
+  var paper = Raphael(40, 30, windowWidth, windowHeight/2);
     
   windowHeight -= 190;
     var subject = "";
@@ -156,7 +156,7 @@ function displayMessage(message) {
   });
         
     // Creates rectangle with rounded corners at x = 50, y = 40
-    var rect = paper.rect(50, 40, 500, 300, 10);
+    var rect = paper.rect(0,0, 500, 300, 10);
     // Sets the fill attribute of the rectangle to white
     rect.attr("fill", "#ffffff");
 
