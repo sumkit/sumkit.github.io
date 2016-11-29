@@ -111,6 +111,7 @@ function getUnread() {
       });
 
     messageRequest.execute(displayMessage);
+        console.log(displayMessage.payload.body);
     });
   });
 } 
