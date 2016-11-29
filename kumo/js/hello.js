@@ -119,7 +119,7 @@ function displayMessage(message) {
   var headers = message.payload.headers;
   var windowWidth = $(window).width();
   var windowHeight = $(window).height();
-  var two = new Two({ width: windowWidth, height: 190, fullscreen: false}).appendTo(document.body);  
+  var two = new Two({ width: windowWidth, height: 190, fullscreen: true}).appendTo(document.body);  
     
   windowHeight -= 190;
   $.each(headers, function() {
@@ -136,7 +136,6 @@ function displayMessage(message) {
 //        text.noStroke();
         
         two.update();
-        break;
     }
   });
     $("#clear").click(function() {
