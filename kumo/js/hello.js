@@ -117,7 +117,7 @@ function getUnread() {
 } 
 
 function displayMessage(message) {
-    console.log(message.payload.body.data);
+    console.log(atob(message.payload.body.data));
   var headers = message.payload.headers;
   var windowWidth = $(window).width();
   var windowHeight = $(window).height();
