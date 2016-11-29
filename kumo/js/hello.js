@@ -191,10 +191,10 @@ function displayMessage(message) {
 //      testpath.animate({path: temp.attr('path')}, 1000);
 //      temp.remove();
 
-    console.log(rect.cx);
-    rect.cx = rect.cx || 300;
-    rect.animate({cx: rect.cx}, 1000, "backOut");
-    rect.cx = rect.cx == 300 ? 100 : 300;
+    console.log(rect.attr("x"));
+    rect.attr("x") = rect.attr("x") || 300;
+    rect.animate({cx: rect.attr("x")}, 1000, "backOut");
+    rect.attr("x") = rect.attr("x") == 300 ? 100 : 300;
 });
     
 //    this.cx = this.cx == 300 ? 100 : 300;
