@@ -21,17 +21,17 @@
     <div id="draft">
         <img src="media/papers.png" alt="" style="width:50%; height:70%;">
         <textarea class="draft_text" style="width:33%; height:50%; left: 5%; top: 5%; position: absolute;"></textarea>
+        <button onclick="fold()">Pack</button>
     </div>
-    <button onclick="fold()">Pack</button>
     <div id="oridomi">
         <img src="media/papers.png" alt="" style="width:50%; height:70%;">
         <textarea class="oridami_text" style="width:33%; height:50%; left: 5%; top: 5%; position: absolute;"></textarea>
+        <button onclick="unfold()">Edit</button>
     </div>
     
-    <button onclick="unfold()">Edit</button>
-    <button onclick="sendEmail()">Send</button>
     <div style="display:none;" id="envelope_div">
         <img id="envelope" id = "img" src="media/envelope_front.png" alt="">
+        <button onclick="sendEmail()">Send</button>
     </div>
     <div style="display:none;" id="text">
         <p class="addresses">To: <input type="text"></p>
