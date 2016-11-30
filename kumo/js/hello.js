@@ -160,8 +160,16 @@ function displayMessage(message) {
     rect.dblclick(function(event) {
         var paper2 = Raphael(windowWidth/8, windowHeight/3, windowWidth, (5/8)*windowHeight);
         var letter = paper2.image("media/papers.png",0,0,windowWidth/3, windowHeight/2);
-        console.log(document.getElementsByTagName("svg").length);
-
+        var svgs = document.getElementsByTagName("svg");
+        var svg = svgs[svgs.length-1];
+        var img = svg.getElementsByTagName("image")[0];
+        temp = new OriDomi(img, {
+                vPanels: 3,
+                ripple: 0
+        });
+        temp.setRipple().stairs(50, 'top');
+        
+        
         var thisMsg = unreadMsgs[unreadMsgs.length-1];
         var bodyText = paper.text(30,80, atob(thisMsg.payload.body.data));
         bodyText.attr("fill", "#000");
