@@ -22,12 +22,12 @@ $(document).ready(function() {
         gapi.client.load('gmail', 'v1', getUnread);
     });
     
-    var inbox = paper.image("media/inbox.png",0,0,windowWidth/8, windowWidth/8);
+    var inbox = paper.image("media/inbox.png",0,0,windowWidth/5, windowWidth/5);
     inbox.click(function() {
         gapi.client.load('gmail', 'v1', getInbox);
     });
     
-    var pencil = paper.image("media/crayon.png",0,windowHeight/2,windowWidth/6,windowHeight/4);
+    var pencil = paper.image("media/crayon.png",0,windowHeight/2,windowWidth/12,windowHeight/8);
     pencil.click(function() {
         console.log("pencil");
     });
