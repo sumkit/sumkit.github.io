@@ -14,12 +14,17 @@
 <body bgcolor="#8ac5ff">
     <script>
         var windowWidth = $(window).width();
+        var windowHeight = $(window).height();
+        var paper = Raphael(0,0,windowWidth, windowHeight/4);
+        
         var two = new Two({ width: windowWidth, height: 190, fullscreen: false}).appendTo(document.body);
         var last = 0;
         while(last < windowWidth-10) {
             for(var i = 0; i < 7; i++) {
                 var negOne = Math.pow(-1, i);
-                var circle = two.makeCircle(last+70+(i*30), 100+(negOne*30), 50);
+//                var circle = two.makeCircle(last+70+(i*30), 100+(negOne*30), 50);
+                var circle = paper.circle(last+(i*30), 10+(negOne*30), windowWidth/2)
+                
                 circle.fill = "#FFFFFF";
                 circle.noStroke();
                 two.update();
@@ -37,6 +42,18 @@
     </div>
        
     <a href="https://accounts.google.com/logout">Logout</a>
+    
+    <!-- Email messages papers -->
+    <div id="draft">
+        <img src="media/papers.png" alt="" style="width:50%; height:70%;">
+        <textarea class="draft_text" style="width:33%; height:50%; left: 5%; top: 5%; position: absolute;"></textarea>
+        <button onclick="fold()">Pack</button>
+    </div>
+    <div id="oridomi">
+        <img src="media/papers.png" alt="" style="width:50%; height:70%;">
+        <textarea class="oridami_text" style="width:33%; height:50%; left: 5%; top: 5%; position: absolute;"></textarea>
+        <button onclick="unfold()">Edit</button>
+    </div>
     
 </body>
 </html>

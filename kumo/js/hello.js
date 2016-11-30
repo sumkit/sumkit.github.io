@@ -165,7 +165,7 @@ function displayMessage(message) {
 //    var rect = paper.rect(210,0, 500, 300, 10);
     // Sets the fill attribute of the rectangle to white
     rect.attr("fill", "#ffffff");
-    // Sets the stroke attribute of the circle to green with width 8
+    // Sets the stroke attribute of the rectangle to green with width 8
     rect.attr("stroke", "#507C5C");
     rect.attr("stroke-width", "8");
     
