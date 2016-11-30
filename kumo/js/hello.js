@@ -152,7 +152,6 @@ function displayMessage(message) {
     rect.attr("stroke", "#507C5C");
     rect.attr("stroke-width", "8");
     
-    console.log(rect.id);
     unreadMap[rect.id] = message;
     
     rect.dblclick(function(event) {
@@ -160,11 +159,13 @@ function displayMessage(message) {
         var thisMsg = unreadMap[event.srcElement.raphaelid];
         var body = paper.text(0,0, atob(thisMsg.payload.body.data));
         
-        var oridomi = new OriDomi('#'+event.srcElement.raphaelid, {
-            vPanels: 3,
-            ripple: 2
-        });
-        oridomi.accordian(16);
+        var id = document.getElementById(event.srcElement.raphaelid);
+        console.log(id);
+        var oridomi = new OriDomi(id);
+        oridomi.oriDomi('vPanels', 3);
+        oridomi.oriDomi('rippe', 2);
+        oridomi.oriDomi('acordian', 16);
+//        oridomi.accordian(16);
     });
 
     var t = paper.text(150, 200, "From: \nSubject: ");
