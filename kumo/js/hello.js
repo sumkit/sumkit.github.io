@@ -148,7 +148,7 @@ function displayMessage(message) {
   });
         
     // Creates rectangle with rounded corners at x = 50, y = 40
-    var rect = paper.rect(210,0, 500, 300, 10);
+    var rect = paper.rect(210,0, windowWidth/3, windowHeight/2, 10);
     // Sets the fill attribute of the rectangle to white
     rect.attr("fill", "#ffffff");
     // Sets the stroke attribute of the circle to green with width 8
