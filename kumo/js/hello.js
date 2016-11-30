@@ -150,10 +150,10 @@ function displayMessage(message) {
     rect.attr("stroke", "#507C5C");
     rect.attr("stroke-width", "8");
     
-    rect.dblclick(function() {
+    rect.dblclick(function(event) {
         var letter = paper.image("media/papers.png",0,0,windowWidth/3, windowHeight/2);
         var letterImg = document.getElementsByClassName("image")[0];
-        console.log(document.getElementsByClassName("image"));
+        console.log(event);
         
         var oridomi = new OriDomi('#'+letterImg.id, {
             vPanels: 3,
