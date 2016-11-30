@@ -12,7 +12,7 @@ var unreadMsgs = [];
 var i = 1;
 
 $(document).ready(function() {
-    var paper = Raphael(700, windowHeight/4, 200, 200);
+    var paper = Raphael((3/4)*windowWidth, windowHeight/3, windowWidth/4, windowWidth/4);
     var mailbox = paper.image("media/mailbox.png", 0,0, 200, 200);
     mailbox.click(function() {
         gapi.client.load('gmail', 'v1', getUnread);
