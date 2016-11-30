@@ -147,8 +147,7 @@ function displayMessage(message) {
     }
   });
         
-    // Creates rectangle with rounded corners at x = 50, y = 40
-    console.log(windowHeight);
+    // Creates rectangle with rounded corners (10) at x = 50, y = 40
     var rect = paper.rect(5,5, (2/3)*windowWidth, windowHeight/2, 10);
     // Sets the fill attribute of the rectangle to white
     rect.attr("fill", "#ffffff");
