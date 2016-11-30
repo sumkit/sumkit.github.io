@@ -185,7 +185,7 @@ function displayMessage(message) {
         bodyText.attr("text-anchor", "start");
     });
 
-    var t = paper.text(150, 200, "From: \nSubject: ");
+    var t = paper.text(windowWidth/8,20, "From: \nSubject: ");
     t.attr("fill", "#000");
     t.attr("stroke", "none");
     t.attr("font-size", "20px");
@@ -193,7 +193,7 @@ function displayMessage(message) {
     t.attr("font-family", "arial");
     t.attr("text-anchor", "end");
     
-    var fromsubj = paper.text(200, 200, from+"\n"+subject);
+    var fromsubj = paper.text(windowWidth/4,20, from+"\n"+subject);
     fromsubj.attr("fill", "#000");
     fromsubj.attr("stroke", "none");
     fromsubj.attr("font-size", "20px");
