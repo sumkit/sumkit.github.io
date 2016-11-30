@@ -21,6 +21,7 @@
             var i;
             for(i = 0; i < 7; i++) {
                 var negOne = Math.pow(-1, i);
+                negOne = negOne/2;
                 var circle = paper.circle(last+(i*radius), radius+(negOne*radius), radius);
                 circle.attr("fill", "#ffffff");
                 circle.attr("stroke-width", "0");
