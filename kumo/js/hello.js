@@ -5,7 +5,7 @@ var API_KEY = 'AIzaSyClrfIxWqPqslBjRtKrHi1U6zKJP7Uequk'
 var SCOPES = ['https://www.googleapis.com/auth/gmail.readonly',
              'https://www.googleapis.com/auth/gmail.send'];
 
-var unreadMsgs = []; //key: raphael envelope rect id, value: Gmail message object
+var unreadMsgs = []; 
 
 $(document).ready(function() {
     var paper = Raphael(700, 150, 200, 200);
@@ -106,7 +106,7 @@ function getInbox() {
 }
 
 function getUnread() {
-    unreadMap = [];
+    unreadMsgs = [];
     
   var request = gapi.client.gmail.users.messages.list({
     'userId': 'me',
@@ -126,7 +126,7 @@ function getUnread() {
 } 
 
 function displayMessage(message) {
-    unreadMsgs = unreadMsgs.push(message);
+    unreadMsgs.push(message);
     var bodyMsg = atob(message.payload.body.data);
   var headers = message.payload.headers;
   var windowWidth = $(window).width();
@@ -161,9 +161,9 @@ function displayMessage(message) {
         var id = document.getElementById(event.srcElement.raphaelid);
         console.log(event.srcElement);
         var oridomi = new OriDomi(id);
-        oridomi.oriDomi('vPanels', 3);
-        oridomi.oriDomi('rippe', 2);
-        oridomi.oriDomi('acordian', 16);
+//        oridomi.oriDomi('vPanels', 3);
+//        oridomi.oriDomi('rippe', 2);
+        oridomi.acordian(16);
 //        oridomi.accordian(16);
     });
 
