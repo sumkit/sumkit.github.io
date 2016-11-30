@@ -4,7 +4,6 @@
     <title>kumo</title>
     <meta charset="UTF-8">
     <script type="text/javascript" src="js/oridomi.min.js"></script>
-    <script type="text/javascript" src="https://cdn.rawgit.com/jonobr1/two.js/master/build/two.min.js"></script>
     <script type="text/javascript" src="https://cdn.rawgit.com/DmitryBaranovskiy/raphael/master/raphael.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script type="text/javascript" src="js/hello.js"></script>
@@ -24,10 +23,8 @@
                 var negOne = Math.pow(-1, i);
 //                var circle = two.makeCircle(last+70+(i*30), 100+(negOne*30), 50);
                 var circle = paper.circle(last+(i*30), 10+(negOne*30), windowWidth/2)
-                
-                circle.fill = "#FFFFFF";
+                circle.attr("fill", "#ffffff");
                 circle.noStroke();
-                two.update();
             }
             last = last + 70+(i*30)+50;
         }
@@ -44,6 +41,7 @@
     <a href="https://accounts.google.com/logout">Logout</a>
     
     <!-- Email messages papers -->
+<!--
     <div id="draft">
         <img src="media/papers.png" alt="" style="width:50%; height:70%;">
         <textarea class="draft_text" style="width:33%; height:50%; left: 5%; top: 5%; position: absolute;"></textarea>
@@ -54,6 +52,7 @@
         <textarea class="oridami_text" style="width:33%; height:50%; left: 5%; top: 5%; position: absolute;"></textarea>
         <button onclick="unfold()">Edit</button>
     </div>
+-->
     
 </body>
 </html>
