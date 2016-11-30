@@ -163,8 +163,15 @@ function displayMessage(message) {
         var svgs = document.getElementsByTagName("svg");
         var svg = svgs[svgs.length-1];
         var img = svg.getElementsByTagName("image")[0];
-        var folded = new OriDomi(img);
-        folded.accordion(30);
+        
+//        var folded = new OriDomi(img);
+//        folded.accordion(30);
+        
+        var temp = new OriDomi('image', {
+                hPanels: 3,
+                ripple: 0
+        });
+        temp.setRipple().stairs(50, 'bottom');
         
         var thisMsg = unreadMsgs[unreadMsgs.length-1];
         var bodyText = paper.text(30,80, atob(thisMsg.payload.body.data));
