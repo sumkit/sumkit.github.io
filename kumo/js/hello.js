@@ -193,10 +193,7 @@ function displayMessage(message) {
     
     rect.dblclick(function(event) {
         var oridomi = document.getElementById("oridomi");
-        oridomi.style = "display: block";
-        oridomi.style = "position: absolute";
-        oridomi.style = "z-index:1000";
-        oridomi.style = "top: 100px";
+        oridomi.style = "display: block; position: absolute; z-index:1000; top: 100px;";
         var temp = new OriDomi('#oridomi', {
                 hPanels: 3,
                 ripple: 0
