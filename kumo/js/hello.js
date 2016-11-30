@@ -135,7 +135,6 @@ function displayMessage(message) {
     var bodyMsg = atob(message.payload.body.data);
   var headers = message.payload.headers;
   var paper = Raphael(windowWidth/8, windowHeight/3, windowWidth, (5/8)*windowHeight);
-//    var paper = Raphael(40, 190, windowWidth, windowHeight/2);
     
     var subject = "";
     var from = "";
@@ -148,8 +147,8 @@ function displayMessage(message) {
     }
   });
         
-    // Creates rectangle with rounded corners (10) at x = 50, y = 40
-    var rect = paper.rect(210,0, (2/3)*windowWidth, windowHeight/2, 10);
+    // Creates rectangle with rounded corners (10) at x = 50, y = 0
+    var rect = paper.rect(windowWidth/8,0, (2/3)*windowWidth, windowHeight/2, 10);
 //    var rect = paper.rect(210,0, 500, 300, 10);
     // Sets the fill attribute of the rectangle to white
     rect.attr("fill", "#ffffff");
