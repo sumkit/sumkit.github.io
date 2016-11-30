@@ -156,17 +156,13 @@ function displayMessage(message) {
     rect.dblclick(function(event) {
         var letter = paper.image("media/papers.png",0,0,windowWidth/3, windowHeight/2);
         var thisMsg = unreadMsgs[unreadMsgs.length-1];
-        var body = paper.text(0,0, atob(thisMsg.payload.body.data));
-        
-        var id = document.getElementById(event.srcElement.raphaelid);
-        var oridomi = new OriDomi(letter, {
-            vPanels: 4,
-            ripple: 0
-        });
-//        oridomi.oriDomi('vPanels', 3);
-//        oridomi.oriDomi('rippe', 2);
-        oridomi.setRipple().stairs(50, 'top');
-//        oridomi.accordian(16);
+        var bodyText = paper.text(0,0, atob(thisMsg.payload.body.data));
+        bodyText.attr("fill", "#000");
+        bodyText.attr("stroke", "none");
+        bodyText.attr("font-size", "12px");
+        bodyText.attr("font-weight", "bold");
+        bodyText.attr("font-family", "arial");
+        bodyText.attr("text-anchor", "start");
     });
 
     var t = paper.text(150, 200, "From: \nSubject: ");
