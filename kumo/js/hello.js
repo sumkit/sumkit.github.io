@@ -180,8 +180,9 @@ function displayMessage(message) {
         var folded = new OriDomi(img);
         folded.accordion(30);
         
-        console.log(atob(thisMsg.payload.body.data));
         var thisMsg = unreadMsgs[unreadMsgs.length-1];
+        console.log(atob(thisMsg.payload.body.data));
+
         var bodyText = paper.text((windowWidth/8)+20, (windowHeight/3)+20, atob(thisMsg.payload.body.data));
         bodyText.attr("fill", "#000");
         bodyText.attr("stroke", "none");
