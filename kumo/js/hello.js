@@ -164,7 +164,7 @@ function displayMessage(message) {
         var svg = svgs[svgs.length-1];
         var img = svg.getElementsByTagName("image")[0];
         console.log(img);
-        var temp = new OriDomi(img, {
+        var temp = new OriDomi($("image"), {
                 hPanels: 3,
                 ripple: 0
         });
