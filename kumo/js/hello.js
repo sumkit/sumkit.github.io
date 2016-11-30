@@ -5,11 +5,15 @@ var API_KEY = 'AIzaSyClrfIxWqPqslBjRtKrHi1U6zKJP7Uequk'
 var SCOPES = ['https://www.googleapis.com/auth/gmail.readonly',
              'https://www.googleapis.com/auth/gmail.send'];
 
+//window dimensions
+var windowWidth = $(window).width();
+var windowHeight = $(window).height();
+
 var unreadMsgs = []; 
 var i = 1;
 
 $(document).ready(function() {
-    var paper = Raphael(700, 150, 200, 200);
+    var paper = Raphael(700, windowHeight/4, 200, 200);
     var mailbox = paper.image("media/mailbox.png", 0,0, 200, 200);
     mailbox.click(function() {
         gapi.client.load('gmail', 'v1', getUnread);
@@ -131,8 +135,6 @@ function displayMessage(message) {
     unreadMsgs.push(message);
     var bodyMsg = atob(message.payload.body.data);
   var headers = message.payload.headers;
-  var windowWidth = $(window).width();
-  var windowHeight = $(window).height();
   var paper = Raphael(40, 30, windowWidth, windowHeight/2);
     
   windowHeight -= 190;
@@ -148,7 +150,7 @@ function displayMessage(message) {
   });
         
     // Creates rectangle with rounded corners at x = 50, y = 40
-    var rect = paper.rect(210,0, windowWidth/3, windowHeight/2, 10);
+    var rect = paper.rect(windowHeight/4,0, windowWidth/3, windowHeight/2, 10);
     // Sets the fill attribute of the rectangle to white
     rect.attr("fill", "#ffffff");
     // Sets the stroke attribute of the circle to green with width 8
