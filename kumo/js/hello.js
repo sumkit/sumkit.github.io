@@ -167,7 +167,7 @@ function displayMessage(message) {
 //        var folded = new OriDomi(img);
 //        folded.accordion(30);
         
-        var temp = new OriDomi('image', {
+        var temp = new OriDomi('svg', {
                 hPanels: 3,
                 ripple: 0
         });
