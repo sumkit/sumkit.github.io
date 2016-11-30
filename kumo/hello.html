@@ -11,24 +11,6 @@
     
 </head>
 <body bgcolor="#8ac5ff">
-    <script>
-        var windowWidth = $(window).width();
-        var windowHeight = $(window).height();
-        var radius = windowWidth/20;
-        var paper = Raphael(0,0,windowWidth, (3*radius)+20);        
-        var last = 0;
-        while(last < windowWidth) {
-            var i;
-            for(i = 0; i < 7; i++) {
-                var negOne = Math.pow(-1, i);
-                negOne = negOne;
-                var circle = paper.circle(last+(i*(3/4)*radius), (1.5*radius)+(negOne*(2/3)*radius), radius);
-                circle.attr("fill", "#ffffff");
-                circle.attr("stroke-width", "0");
-            }
-            last = last +(i*radius)+radius;
-        }
-    </script>
     
 	<div id="authorize-div" style="display: none">
       <span>Authorize access to Gmail API</span>

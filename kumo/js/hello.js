@@ -13,6 +13,8 @@ var inboxMsgs = [];
 var i = 1;
 
 $(document).ready(function() {
+    drawClouds();
+
     var paper = Raphael(0, 0, windowWidth, windowHeight);
     var mailbox = paper.image("media/mailbox.png", (3/4)*windowWidth,windowHeight/3, 
                               windowWidth/4, windowWidth/4);
@@ -30,6 +32,25 @@ $(document).ready(function() {
         console.log("pencil");
     });
 });
+
+function drawClouds() {
+    var windowWidth = $(window).width();
+    var windowHeight = $(window).height();
+    var radius = windowWidth/20;
+    var paper = Raphael(0,0,windowWidth, (3*radius)+20);        
+    var last = 0;
+    while(last < windowWidth) {
+        var i;
+        for(i = 0; i < 7; i++) {
+            var negOne = Math.pow(-1, i);
+            negOne = negOne;
+            var circle = paper.circle(last+(i*(3/4)*radius), (1.5*radius)+(negOne*(2/3)*radius), radius);
+            circle.attr("fill", "#ffffff");
+            circle.attr("stroke-width", "0");
+        }
+        last = last +(i*radius)+radius;
+    }
+}
 
 function handleClientLoad() {
   gapi.client.setApiKey(API_KEY);
