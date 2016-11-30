@@ -26,7 +26,9 @@ $(document).ready(function() {
     });
     
     var pencil = paper.image("media/crayon.png",0,windowHeight/2,windowWidth/6,windowHeight/4);
-    
+    pencil.click(function() {
+        console.log("pencil");
+    });
 });
 
 function handleClientLoad() {
@@ -178,6 +180,7 @@ function displayMessage(message) {
         var folded = new OriDomi(img);
         folded.accordion(30);
         
+        console.log(atob(thisMsg.payload.body.data));
         var thisMsg = unreadMsgs[unreadMsgs.length-1];
         var bodyText = paper.text((windowWidth/8)+20, (windowHeight/3)+20, atob(thisMsg.payload.body.data));
         bodyText.attr("fill", "#000");
