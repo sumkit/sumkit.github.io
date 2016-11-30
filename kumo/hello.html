@@ -18,13 +18,14 @@
         var last = 0;
         var radius = windowWidth/20;
         while(last < windowWidth) {
-            for(var i = 0; i < 7; i++) {
+            var i;
+            for(i = 0; i < 7; i++) {
                 var negOne = Math.pow(-1, i);
                 var circle = paper.circle(last+(i*radius), radius+(negOne*radius), radius);
                 circle.attr("fill", "#ffffff");
                 circle.attr("stroke-width", "0");
             }
-            last = last +(i*30)+radius;
+            last = last +(i*radius)+(2*radius);
         }
     </script>
     
