@@ -156,6 +156,7 @@ function displayMessage(message) {
     rect.dblclick(function(event) {
         var letter = paper.image("media/papers.png",0,0,windowWidth/3, windowHeight/2);
         var thisMsg = unreadMsgs[unreadMsgs.length-1];
+        console.log(atob(thisMsg.payload.body.data));
         var bodyText = paper.text(0,0, atob(thisMsg.payload.body.data));
         bodyText.attr("fill", "#000");
         bodyText.attr("stroke", "none");
