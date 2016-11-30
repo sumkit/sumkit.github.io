@@ -166,7 +166,7 @@ function displayMessage(message) {
     rect.dblclick(function() {
         var letter = paper.image("media/papers.png",0,0,windowWidth/3, windowHeight/2);
 //        console.log(letter);
-        console.log(document.getElementById(letter));
+        console.log(document.getElementById(letter.id));
         
         var oridomi = new OriDomi('#'+letter.id, {
             vPanels: 3,
