@@ -192,31 +192,33 @@ function displayMessage(message) {
     
     
     rect.dblclick(function(event) {
+        var oridomi = document.getElementById("oridomi");
+        oridomi.style = "display: inline";
         var temp = new OriDomi('#oridomi', {
                 hPanels: 3,
                 ripple: 0
         });
         temp.setRipple().stairs(50, 'bottom');
         
-        var paper2 = Raphael(windowWidth/8, windowHeight/3, windowWidth, (5/8)*windowHeight);
-        var letter = paper2.image("media/papers.png",0,0,windowWidth/3, windowHeight/2);
-        var svgs = document.getElementsByTagName("svg");
-        var svg = svgs[svgs.length-1];
-        var img = svg.getElementsByTagName("image")[0];
+//        var paper2 = Raphael(windowWidth/8, windowHeight/3, windowWidth, (5/8)*windowHeight);
+//        var letter = paper2.image("media/papers.png",0,0,windowWidth/3, windowHeight/2);
+//        var svgs = document.getElementsByTagName("svg");
+//        var svg = svgs[svgs.length-1];
+//        var img = svg.getElementsByTagName("image")[0];
         
-        var folded = new OriDomi(img);
-        folded.accordion(30);
+//        var folded = new OriDomi(img);
+//        folded.accordion(30);
         
         var thisMsg = unreadMsgs[unreadMsgs.length-1];
         console.log(atob(thisMsg.payload.body.data));
 
-        var bodyText = paper.text(20, 20, atob(thisMsg.payload.body.data));
-        bodyText.attr("fill", "#000");
-        bodyText.attr("stroke", "none");
-        bodyText.attr("font-size", "12px");
-        bodyText.attr("font-weight", "normal");
-        bodyText.attr("font-family", "arial");
-        bodyText.attr("text-anchor", "start");
+//        var bodyText = paper.text(20, 20, atob(thisMsg.payload.body.data));
+//        bodyText.attr("fill", "#000");
+//        bodyText.attr("stroke", "none");
+//        bodyText.attr("font-size", "12px");
+//        bodyText.attr("font-weight", "normal");
+//        bodyText.attr("font-family", "arial");
+//        bodyText.attr("text-anchor", "start");
     });
 
     var frontStr = "From: "+from+"\nSubject: "+subject;
