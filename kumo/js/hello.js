@@ -153,7 +153,7 @@ function displayMessage(message) {
     rect.dblclick(function() {
         var letter = paper.image("media/papers.png",0,0,windowWidth/3, windowHeight/2);
         var letterImg = document.getElementsByClassName("image")[0];
-        console.log(letterImg);
+        console.log(document.getElementsByClassName("image"));
         
         var oridomi = new OriDomi('#'+letterImg.id, {
             vPanels: 3,
