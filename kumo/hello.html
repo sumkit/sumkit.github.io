@@ -16,17 +16,17 @@
         var windowHeight = $(window).height();
         var paper = Raphael(0,0,windowWidth, windowHeight/4);        
         var last = 0;
-        var radius = windowWidth/12;
+        var radius = windowWidth/15;
         while(last < windowWidth) {
             var i;
             for(i = 0; i < 7; i++) {
                 var negOne = Math.pow(-1, i);
-                negOne = negOne/2;
-                var circle = paper.circle(last+(i*(radius/2)), radius+(negOne*radius), radius);
+                negOne = negOne;
+                var circle = paper.circle(last+(i*(2/3)*radius), radius+(negOne*(2/3)*radius), radius);
                 circle.attr("fill", "#ffffff");
                 circle.attr("stroke-width", "0");
             }
-            last = last +(i*radius)+(2*radius);
+            last = last +(i*radius)+radius;
         }
     </script>
     
