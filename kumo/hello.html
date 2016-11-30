@@ -14,9 +14,7 @@
     <script>
         var windowWidth = $(window).width();
         var windowHeight = $(window).height();
-        var paper = Raphael(0,0,windowWidth, windowHeight/4);
-        
-        var two = new Two({ width: windowWidth, height: 190, fullscreen: false}).appendTo(document.body);
+        var paper = Raphael(0,0,windowWidth, windowHeight/4);        
         var last = 0;
         while(last < windowWidth-10) {
             for(var i = 0; i < 7; i++) {
