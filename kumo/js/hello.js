@@ -188,32 +188,22 @@ function displayMessage(message) {
         bodyText.attr("text-anchor", "start");
     });
 
-    var t = paper.text((3/4)*windowWidth,windowHeight/4, "From: \nSubject: ");
+    var frontStr = "From: "+from+"\nSubject: "+subject;
+    var t = paper.text((3/4)*windowWidth,windowHeight/4, frontStr);
     t.attr("fill", "#000");
     t.attr("stroke", "none");
     t.attr("font-size", "20px");
-    t.attr("font-weight", "bold");
+    t.attr("font-weight", "normal");
     t.attr("font-family", "arial");
-    t.attr("text-anchor", "end");
-    
-    var fromsubj = paper.text(windowWidth,windowHeight/4, from+"\n"+subject);
-    fromsubj.attr("fill", "#000");
-    fromsubj.attr("stroke", "none");
-    fromsubj.attr("font-size", "20px");
-    fromsubj.attr("font-weight", "normal");
-    fromsubj.attr("font-family", "arial");
-    fromsubj.attr("text-anchor", "start");
+    t.attr("text-anchor", "start");
     
     var anim1 = Raphael.animation({x: 10}, 2000, "backOut", function() {
     }).delay(200*i);
-    var anim2 = Raphael.animation({x: windowWidth/4}, 2000, "backOut",function() {
-    }).delay(200*i);
-    var anim3 = Raphael.animation({x: windowWidth/2}, 2000, "backOut",function() {
-    }).delay(200*i);
+    var anim2 = Raphael.animation({x: windowWidth/6}, 2000, "backOut",function() {
+    });
     i++;
     rect.animate(anim1);
     t.animateWith(rect, anim1, anim2);
-    fromsubj.animateWith(rect, anim1, anim3);
 }
 
 /**
