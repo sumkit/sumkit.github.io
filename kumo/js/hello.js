@@ -5,6 +5,8 @@ var API_KEY = 'AIzaSyClrfIxWqPqslBjRtKrHi1U6zKJP7Uequk'
 var SCOPES = ['https://www.googleapis.com/auth/gmail.readonly',
              'https://www.googleapis.com/auth/gmail.send'];
 
+var unreadMap = {}; //key: raphael envelope rect id, value: Gmail message object
+
 $(document).ready(function() {
     var paper = Raphael(700, 150, 200, 200);
     var mailbox = paper.image("media/mailbox.png", 0,0, 200, 200);
@@ -104,6 +106,8 @@ function getInbox() {
 }
 
 function getUnread() {
+    unreadMap = {};
+    
   var request = gapi.client.gmail.users.messages.list({
     'userId': 'me',
     'labelIds': 'UNREAD',
@@ -116,9 +120,7 @@ function getUnread() {
         'userId': 'me',
         'id': this.id
       });
-
-    messageRequest.execute(displayMessage);
-        
+      messageRequest.execute(displayMessage);   
     });
   });
 } 
@@ -150,12 +152,15 @@ function displayMessage(message) {
     rect.attr("stroke", "#507C5C");
     rect.attr("stroke-width", "8");
     
+    console.log(rect.id);
+    unreadMap[rect.id] = message;
+    
     rect.dblclick(function(event) {
         var letter = paper.image("media/papers.png",0,0,windowWidth/3, windowHeight/2);
-        var letterImg = document.getElementsByClassName("image")[0];
-        console.log(event);
+        var thisMsg = unreadMap[event.srcElement.raphaelid];
+        var body = paper.text(0,0, atob(thisMsg.payload.body.data));
         
-        var oridomi = new OriDomi('#'+letterImg.id, {
+        var oridomi = new OriDomi('#'+event.srcElement.raphaelid, {
             vPanels: 3,
             ripple: 2
         });
@@ -212,7 +217,9 @@ function sendEmail() {
           'resource': {
             'raw': base64EncodedEmail
           }
-        }); 
+        });
+        
+        //empty input fields 
         request.execute(function(response) {
             $('#address').val('');
             $('#subject').val('');
