@@ -128,7 +128,6 @@ function displayMessage(message) {
   var headers = message.payload.headers;
   var windowWidth = $(window).width();
   var windowHeight = $(window).height();
-//  var two = new Two({ width: windowWidth, height: 190, fullscreen: true}).appendTo(document.body);  
   var paper = Raphael(40, 30, windowWidth, windowHeight/2);
     
   windowHeight -= 190;
@@ -136,18 +135,6 @@ function displayMessage(message) {
     var from = "";
   $.each(headers, function() {
     if(this.name.toLowerCase() === "subject") {
-//        var env = two.makeRectangle(200,500,500,300);
-//        env.fill = "#ffffff";
-//        env.stroke = "#507C5C";
-//        env.linewidth = 6;
-//        
-//        var text = two.makeText("message", windowWidth/3, windowHeight/2);
-//        text.fill="#507C5C";
-//        text.translate = new Two.Vector(200,200);
-////        text.noStroke();
-//        
-//        two.update();
-
         subject = this.value;
     }
     if(this.name.toLowerCase() === "from") {
@@ -159,16 +146,16 @@ function displayMessage(message) {
     var rect = paper.rect(210,0, 500, 300, 10);
     // Sets the fill attribute of the rectangle to white
     rect.attr("fill", "#ffffff");
-
-    // Sets the stroke attribute of the circle to green
+    // Sets the stroke attribute of the circle to green with width 8
     rect.attr("stroke", "#507C5C");
     rect.attr("stroke-width", "8");
+    
     rect.dblclick(function() {
         var letter = paper.image("media/papers.png",0,0,windowWidth/3, windowHeight/2);
-        console.log(letter.id)
-        console.log(document.getElementById(letter.id));
+        var letterImg = document.getElementsByClassName("image")[0];
+        console.log(letterImg);
         
-        var oridomi = new OriDomi('#'+letter.id, {
+        var oridomi = new OriDomi('#'+letterImg.id, {
             vPanels: 3,
             ripple: 2
         });
