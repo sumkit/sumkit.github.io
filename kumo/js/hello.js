@@ -160,7 +160,7 @@ function displayMessage(message) {
         var body = paper.text(0,0, atob(thisMsg.payload.body.data));
         
         var id = document.getElementById(event.srcElement.raphaelid);
-        console.log(id);
+        console.log(event.srcElement);
         var oridomi = new OriDomi(id);
         oridomi.oriDomi('vPanels', 3);
         oridomi.oriDomi('rippe', 2);
