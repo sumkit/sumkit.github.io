@@ -5,7 +5,6 @@ var API_KEY = 'AIzaSyClrfIxWqPqslBjRtKrHi1U6zKJP7Uequk'
 var SCOPES = ['https://www.googleapis.com/auth/gmail.readonly',
              'https://www.googleapis.com/auth/gmail.send'];
 
-//window dimensions
 var windowWidth = $(window).width();
 var windowHeight = $(window).height();
 
@@ -150,7 +149,8 @@ function displayMessage(message) {
   });
         
     // Creates rectangle with rounded corners at x = 50, y = 40
-    var rect = paper.rect(windowHeight/4,0, windowWidth/3, windowHeight/2, 10);
+    console.log(windowHeight);
+    var rect = paper.rect(windowWidth/3,0, windowWidth/3, windowHeight/2, 10);
     // Sets the fill attribute of the rectangle to white
     rect.attr("fill", "#ffffff");
     // Sets the stroke attribute of the circle to green with width 8
