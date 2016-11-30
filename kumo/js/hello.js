@@ -165,7 +165,7 @@ function displayMessage(message) {
     rect.attr("stroke-width", "8");
     rect.dblclick(function() {
         var letter = paper.image("media/papers.png",0,0,windowWidth/3, windowHeight/2);
-//        console.log(letter);
+        console.log(letter.id)
         console.log(document.getElementById(letter.id));
         
         var oridomi = new OriDomi('#'+letter.id, {
@@ -191,7 +191,7 @@ function displayMessage(message) {
     fromsubj.attr("font-family", "arial");
     fromsubj.attr("text-anchor", "start");
     
-    var anim = Raphael.animation({x: 10}, 2000, "backOut").delay(1000);
+    var anim = Raphael.animation({x: 10}, 2000, "backOut").delay(500);
     rect.animate(anim);
     t.animateWith(rect);
     fromsubj.animateWith(rect);
