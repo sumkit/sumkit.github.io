@@ -20,7 +20,7 @@ $(document).ready(function() {
         gapi.client.load('gmail', 'v1', getUnread);
     });
     
-    var inbox = paper.image("media/inbox.png",0,0,windowWidth/5, windowWidth/5);
+    var inbox = paper.image("media/inbox.png",0,0,windowWidth/8, windowWidth/8);
     inbox.click(function() {
         gapi.client.load('gmail', 'v1', getInbox);
     });
