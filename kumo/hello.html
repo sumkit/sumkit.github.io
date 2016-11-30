@@ -19,11 +19,11 @@
         while(last < windowWidth-10) {
             for(var i = 0; i < 7; i++) {
                 var negOne = Math.pow(-1, i);
-                var circle = paper.circle(last+20+(i*30), 20+(negOne*30), 20)
+                var circle = paper.circle(last+(i*30), (negOne*30), windowWidth/12);
                 circle.attr("fill", "#ffffff");
                 circle.attr("stroke-width", "0");
             }
-            last = last + 70+(i*30)+50;
+            last = last +(i*30)+(windowWidth/12);
         }
     </script>
     
