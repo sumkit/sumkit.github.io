@@ -162,11 +162,11 @@ function displayMessage(message) {
         console.log(event.srcElement);
         var oridomi = new OriDomi(event.srcElement, {
             vPanels: 4,
-            ripple: 2
+            ripple: 0
         });
 //        oridomi.oriDomi('vPanels', 3);
 //        oridomi.oriDomi('rippe', 2);
-        oridomi.accordion(16);
+        oridomi.setRipple().stairs(50, 'top');
 //        oridomi.accordian(16);
     });
 
