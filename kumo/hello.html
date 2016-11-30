@@ -14,15 +14,15 @@
     <script>
         var windowWidth = $(window).width();
         var windowHeight = $(window).height();
-        var paper = Raphael(0,0,windowWidth, windowHeight/4);        
-        var last = 0;
         var radius = windowWidth/15;
+        var paper = Raphael(0,0,windowWidth, (3*radius));        
+        var last = 0;
         while(last < windowWidth) {
             var i;
             for(i = 0; i < 7; i++) {
                 var negOne = Math.pow(-1, i);
                 negOne = negOne;
-                var circle = paper.circle(last+(i*(3/4)*radius), 100+radius+(negOne*(2/3)*radius), radius);
+                var circle = paper.circle(last+(i*(3/4)*radius), (1.5*radius)+(negOne*(2/3)*radius), radius);
                 circle.attr("fill", "#ffffff");
                 circle.attr("stroke-width", "0");
             }
