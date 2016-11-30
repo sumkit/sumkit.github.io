@@ -12,10 +12,16 @@ var unreadMsgs = [];
 var i = 1;
 
 $(document).ready(function() {
-    var paper = Raphael((3/4)*windowWidth, windowHeight/3, windowWidth/4, windowWidth/4);
-    var mailbox = paper.image("media/mailbox.png", 0,0, windowWidth/4, windowWidth/4);
+    var paper = Raphael(0, 0, windowWidth/4, windowWidth/4);
+    var mailbox = paper.image("media/mailbox.png", (3/4)*windowWidth,windowHeight/3, 
+                              windowWidth/4, windowWidth/4);
     mailbox.click(function() {
         gapi.client.load('gmail', 'v1', getUnread);
+    });
+    
+    var inbox = paper.image("media/inbox.png",0,0,windowWidth/5, windowWidth/5);
+    inbox.click(function() {
+        gapi.client.load('gmail', 'v1', getInbox);
     });
 });
 
@@ -47,7 +53,6 @@ function handleAuthResult(authResult) {
   if (authResult && !authResult.error) {
     // Hide auth UI, then load client library.
     authorizeDiv.style.display = 'none';
-    loadGmailApi();
   } else {
     // Show auth UI, allowing the user to initiate authorization by
     // clicking authorize button.
@@ -82,14 +87,7 @@ function start() {
   });
 };
 
-/**
- * Load Gmail API client library. List labels once client library
- * is loaded.
- */
-function loadGmailApi() {
-    gapi.client.load('gmail', 'v1', getInbox);
-}
-
+//Get all emails in inbox (read and unread)
 function getInbox() {
   var request = gapi.client.gmail.users.messages.list({
     'userId': 'me',
@@ -109,6 +107,7 @@ function getInbox() {
   });
 }
 
+//fetch only unread emails from user's inbox
 function getUnread() {
     unreadMsgs = [];
     i=1;
@@ -164,14 +163,8 @@ function displayMessage(message) {
         var svg = svgs[svgs.length-1];
         var img = svg.getElementsByTagName("image")[0];
         
-//        var folded = new OriDomi(img);
-//        folded.accordion(30);
-        
-        var temp = new OriDomi('svg', {
-                hPanels: 3,
-                ripple: 0
-        });
-        temp.setRipple().stairs(50, 'bottom');
+        var folded = new OriDomi(img);
+        folded.accordion(30);
         
         var thisMsg = unreadMsgs[unreadMsgs.length-1];
         var bodyText = paper.text(30,80, atob(thisMsg.payload.body.data));
