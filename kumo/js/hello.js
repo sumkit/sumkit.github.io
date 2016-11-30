@@ -185,7 +185,7 @@ function displayMessage(message) {
         bodyText.attr("text-anchor", "start");
     });
 
-    var t = paper.text(windowWidth/2,windowHeight/4, "From: \nSubject: ");
+    var t = paper.text((3/4)*windowWidth,windowHeight/4, "From: \nSubject: ");
     t.attr("fill", "#000");
     t.attr("stroke", "none");
     t.attr("font-size", "20px");
@@ -193,7 +193,7 @@ function displayMessage(message) {
     t.attr("font-family", "arial");
     t.attr("text-anchor", "end");
     
-    var fromsubj = paper.text(windowWidth/4,windowHeight/4, from+"\n"+subject);
+    var fromsubj = paper.text(windowWidth,windowHeight/4, from+"\n"+subject);
     fromsubj.attr("fill", "#000");
     fromsubj.attr("stroke", "none");
     fromsubj.attr("font-size", "20px");
@@ -202,18 +202,13 @@ function displayMessage(message) {
     fromsubj.attr("text-anchor", "start");
     
     var anim1 = Raphael.animation({x: 10}, 2000, "backOut", function() {
-        console.log("callback1")
     }).delay(200*i);
-    var anim2 = Raphael.animation({x: 100}, 2000, "backOut",function() {
-        console.log("callback2")
+    var anim2 = Raphael.animation({x: windowWidth/4}, 2000, "backOut",function() {
     }).delay(200*i);
-    var anim3 = Raphael.animation({x: 10}, 2000, "backOut",function() {
-        console.log("callback3")
+    var anim3 = Raphael.animation({x: windowWidth/2}, 2000, "backOut",function() {
     }).delay(200*i);
     i++;
     rect.animate(anim1);
-//    t.animate(anim2);
-//    fromsubj.animate(anim3);
     t.animateWith(rect, anim1, anim2);
     fromsubj.animateWith(rect, anim1, anim3);
 }
