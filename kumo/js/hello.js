@@ -13,7 +13,7 @@ var i = 1;
 
 $(document).ready(function() {
     var paper = Raphael((3/4)*windowWidth, windowHeight/3, windowWidth/4, windowWidth/4);
-    var mailbox = paper.image("media/mailbox.png", 0,0, 200, 200);
+    var mailbox = paper.image("media/mailbox.png", 0,0, windowWidth/4, windowWidth/4);
     mailbox.click(function() {
         gapi.client.load('gmail', 'v1', getUnread);
     });
@@ -125,7 +125,7 @@ function getUnread() {
         'userId': 'me',
         'id': this.id
       });
-      messageRequest.execute(displayMessage);   
+      messageRequest.execute(displayMessage);
     });
   });
 } 
@@ -134,7 +134,7 @@ function displayMessage(message) {
     unreadMsgs.push(message);
     var bodyMsg = atob(message.payload.body.data);
   var headers = message.payload.headers;
-  var paper = Raphael(40, 30, windowWidth, windowHeight/2);
+  var paper = Raphael(windowWidth/8, windowHeight/3, windowWidth, (5/8)*windowHeight);
     
     var subject = "";
     var from = "";
@@ -149,7 +149,7 @@ function displayMessage(message) {
         
     // Creates rectangle with rounded corners at x = 50, y = 40
     console.log(windowHeight);
-    var rect = paper.rect(windowWidth/3,0, (2/3)*windowWidth, windowHeight/2, 10);
+    var rect = paper.rect(5,5, (2/3)*windowWidth, windowHeight/2, 10);
     // Sets the fill attribute of the rectangle to white
     rect.attr("fill", "#ffffff");
     // Sets the stroke attribute of the circle to green with width 8
