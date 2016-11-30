@@ -12,7 +12,7 @@ var unreadMsgs = [];
 var i = 1;
 
 $(document).ready(function() {
-    var paper = Raphael(0, 0, windowWidth/4, windowWidth/4);
+    var paper = Raphael(0, 0, windowWidth, windowWidth/2);
     var mailbox = paper.image("media/mailbox.png", (3/4)*windowWidth,windowHeight/3, 
                               windowWidth/4, windowWidth/4);
     mailbox.click(function() {
