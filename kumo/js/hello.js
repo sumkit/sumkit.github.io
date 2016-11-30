@@ -163,8 +163,7 @@ function displayMessage(message) {
         var svgs = document.getElementsByTagName("svg");
         var svg = svgs[svgs.length-1];
         var img = svg.getElementsByTagName("image")[0];
-        console.log($("image"));
-        var temp = new OriDomi($("image"), {
+        var temp = new OriDomi($("svg"), {
                 hPanels: 3,
                 ripple: 0
         });
@@ -200,8 +199,8 @@ function displayMessage(message) {
     var anim = Raphael.animation({x: 10}, 2000, "backOut").delay(500*i);
     i++;
     rect.animate(anim);
-    t.animateWith(rect);
-    fromsubj.animateWith(rect);
+    t.animateWith(rect, anim);
+    fromsubj.animateWith(rect, anim);
 }
 
 /**
