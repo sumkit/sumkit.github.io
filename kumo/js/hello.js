@@ -161,7 +161,7 @@ function displayMessage(message) {
         bodyText.attr("fill", "#000");
         bodyText.attr("stroke", "none");
         bodyText.attr("font-size", "12px");
-        bodyText.attr("font-weight", "bold");
+        bodyText.attr("font-weight", "normal");
         bodyText.attr("font-family", "arial");
         bodyText.attr("text-anchor", "start");
     });
