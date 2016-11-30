@@ -211,8 +211,8 @@ function displayMessage(message) {
         console.log("callback3")
     }).delay(500*i);
     i++;
-    rect.animate(anim1);
-    t.animate(anim2);
+//    rect.animate(anim1);
+//    t.animate(anim2);
     fromsubj.animate(anim3);
 //    t.animateWith(rect, null, anim2);
 //    fromsubj.animateWith(rect, null, anim3);
