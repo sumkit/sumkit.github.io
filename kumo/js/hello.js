@@ -163,11 +163,11 @@ function displayMessage(message) {
         var svgs = document.getElementsByTagName("svg");
         var svg = svgs[svgs.length-1];
         var img = svg.getElementsByTagName("image")[0];
-        temp = new OriDomi(img, {
-                vPanels: 3,
+        var temp = new OriDomi(img, {
+                hPanels: 3,
                 ripple: 0
         });
-        temp.setRipple().stairs(50, 'top');
+        temp.setRipple().stairs(50, 'bottom');
         
         
         var thisMsg = unreadMsgs[unreadMsgs.length-1];
