@@ -212,8 +212,10 @@ function displayMessage(message) {
     });
     i++;
     rect.animate(anim1);
-    t.animateWith(rect, null, anim2);
-    fromsubj.animateWith(rect, null, anim3);
+    t.animate(anim2);
+    fromsubj.animate(anim3);
+//    t.animateWith(rect, null, anim2);
+//    fromsubj.animateWith(rect, null, anim3);
 }
 
 /**
