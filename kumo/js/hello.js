@@ -163,6 +163,7 @@ function displayMessage(message) {
         var svgs = document.getElementsByTagName("svg");
         var svg = svgs[svgs.length-1];
         var img = svg.getElementsByTagName("image")[0];
+        console.log(img);
         var temp = new OriDomi(img, {
                 hPanels: 3,
                 ripple: 0
