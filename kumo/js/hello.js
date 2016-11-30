@@ -201,13 +201,19 @@ function displayMessage(message) {
     fromsubj.attr("font-family", "arial");
     fromsubj.attr("text-anchor", "start");
     
-    var anim1 = Raphael.animation({x: 10}, 2000, "backOut").delay(500*i);
-    var anim2 = Raphael.animation({x: 150}, 2000, "backOut");
-    var anim3 = Raphael.animation({x: 200}, 2000, "backOut");
+    var anim1 = Raphael.animation({x: 10}, 2000, "backOut", function() {
+        console.log("callback1")
+    }).delay(500*i);
+    var anim2 = Raphael.animation({x: 150}, 2000, "backOut",function() {
+        console.log("callback2")
+    });
+    var anim3 = Raphael.animation({x: 200}, 2000, "backOut",function() {
+        console.log("callback3")
+    });
     i++;
     rect.animate(anim1);
-    t.animateWith(rect, anim1, anim2);
-    fromsubj.animateWith(rect, anim1, anim3);
+    t.animateWith(rect, null, anim2);
+    fromsubj.animateWith(rect, null, anim3);
 }
 
 /**
