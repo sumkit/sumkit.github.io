@@ -179,7 +179,7 @@ function displayMessage(message) {
         folded.accordion(30);
         
         var thisMsg = unreadMsgs[unreadMsgs.length-1];
-        var bodyText = paper.text(30,80, atob(thisMsg.payload.body.data));
+        var bodyText = paper.text((windowWidth/8)+20, (windowHeight/3)+20, atob(thisMsg.payload.body.data));
         bodyText.attr("fill", "#000");
         bodyText.attr("stroke", "none");
         bodyText.attr("font-size", "12px");
