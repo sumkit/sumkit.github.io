@@ -206,8 +206,8 @@ function displayMessage(message) {
     var anim3 = Raphael.animation({x: 200}, 2000, "backOut");
     i++;
     rect.animate(anim1);
-    t.animateWith(rect, null, anim2);
-    fromsubj.animateWith(rect, null, anim3);
+    t.animateWith(rect, anim1, anim2);
+    fromsubj.animateWith(rect, anim1, anim3);
 }
 
 /**
