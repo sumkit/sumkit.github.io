@@ -6,6 +6,7 @@ var SCOPES = ['https://www.googleapis.com/auth/gmail.readonly',
              'https://www.googleapis.com/auth/gmail.send'];
 
 var unreadMsgs = []; 
+var i = 1;
 
 $(document).ready(function() {
     var paper = Raphael(700, 150, 200, 200);
@@ -107,6 +108,7 @@ function getInbox() {
 
 function getUnread() {
     unreadMsgs = [];
+    i=1;
     
   var request = gapi.client.gmail.users.messages.list({
     'userId': 'me',
@@ -182,7 +184,8 @@ function displayMessage(message) {
     fromsubj.attr("font-family", "arial");
     fromsubj.attr("text-anchor", "start");
     
-    var anim = Raphael.animation({x: 10}, 2000, "backOut").delay(500);
+    var anim = Raphael.animation({x: 10}, 2000, "backOut").delay(500*i);
+    i++;
     rect.animate(anim);
     t.animateWith(rect);
     fromsubj.animateWith(rect);
