@@ -192,6 +192,12 @@ function displayMessage(message) {
     
     
     rect.dblclick(function(event) {
+        var temp = new OriDomi('#oridomi', {
+                hPanels: 3,
+                ripple: 0
+        });
+        temp.setRipple().stairs(50, 'bottom');
+        
         var paper2 = Raphael(windowWidth/8, windowHeight/3, windowWidth, (5/8)*windowHeight);
         var letter = paper2.image("media/papers.png",0,0,windowWidth/3, windowHeight/2);
         var svgs = document.getElementsByTagName("svg");
