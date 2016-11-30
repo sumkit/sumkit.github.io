@@ -102,7 +102,7 @@ function getInbox() {
         'id': this.id
       });
 
-//      messageRequest.execute(displayMessage);
+      messageRequest.execute(displayMessage);
     });
   });
 }
