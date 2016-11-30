@@ -163,7 +163,7 @@ function displayMessage(message) {
         var oridomi = new OriDomi(event.srcElement);
 //        oridomi.oriDomi('vPanels', 3);
 //        oridomi.oriDomi('rippe', 2);
-        oridomi.acordian(16);
+        oridomi.accordion(16);
 //        oridomi.accordian(16);
     });
 
