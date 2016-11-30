@@ -185,7 +185,7 @@ function displayMessage(message) {
         bodyText.attr("text-anchor", "start");
     });
 
-    var t = paper.text(windowWidth/8,windowHeight/4, "From: \nSubject: ");
+    var t = paper.text(windowWidth/2,windowHeight/4, "From: \nSubject: ");
     t.attr("fill", "#000");
     t.attr("stroke", "none");
     t.attr("font-size", "20px");
