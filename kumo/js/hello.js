@@ -136,7 +136,7 @@ function displayMessage(message) {
   var headers = message.payload.headers;
   var paper = Raphael(40, 30, windowWidth, windowHeight/2);
     
-  windowHeight -= 190;
+//  windowHeight -= 190;
     var subject = "";
     var from = "";
   $.each(headers, function() {
