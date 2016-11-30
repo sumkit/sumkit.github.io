@@ -5,7 +5,7 @@ var API_KEY = 'AIzaSyClrfIxWqPqslBjRtKrHi1U6zKJP7Uequk'
 var SCOPES = ['https://www.googleapis.com/auth/gmail.readonly',
              'https://www.googleapis.com/auth/gmail.send'];
 
-var unreadMap = {}; //key: raphael envelope rect id, value: Gmail message object
+var unreadMsgs = []; //key: raphael envelope rect id, value: Gmail message object
 
 $(document).ready(function() {
     var paper = Raphael(700, 150, 200, 200);
@@ -106,7 +106,7 @@ function getInbox() {
 }
 
 function getUnread() {
-    unreadMap = {};
+    unreadMap = [];
     
   var request = gapi.client.gmail.users.messages.list({
     'userId': 'me',
@@ -126,6 +126,7 @@ function getUnread() {
 } 
 
 function displayMessage(message) {
+    unreadMsgs = unreadMsgs.push(message);
     var bodyMsg = atob(message.payload.body.data);
   var headers = message.payload.headers;
   var windowWidth = $(window).width();
@@ -152,11 +153,9 @@ function displayMessage(message) {
     rect.attr("stroke", "#507C5C");
     rect.attr("stroke-width", "8");
     
-    unreadMap[rect.id] = message;
-    
     rect.dblclick(function(event) {
         var letter = paper.image("media/papers.png",0,0,windowWidth/3, windowHeight/2);
-        var thisMsg = unreadMap[event.srcElement.raphaelid];
+        var thisMsg = unreadMsgs[unreadMsgs.length-1];
         var body = paper.text(0,0, atob(thisMsg.payload.body.data));
         
         var id = document.getElementById(event.srcElement.raphaelid);
