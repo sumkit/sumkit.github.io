@@ -206,10 +206,10 @@ function displayMessage(message) {
     }).delay(500*i);
     var anim2 = Raphael.animation({x: 150}, 2000, "backOut",function() {
         console.log("callback2")
-    });
+    }).delay(500*i);
     var anim3 = Raphael.animation({x: 200}, 2000, "backOut",function() {
         console.log("callback3")
-    });
+    }).delay(500*i);
     i++;
     rect.animate(anim1);
     t.animate(anim2);
