@@ -8,7 +8,8 @@ var SCOPES = ['https://www.googleapis.com/auth/gmail.readonly',
 var windowWidth = $(window).width();
 var windowHeight = $(window).height();
 
-var unreadMsgs = []; 
+var unreadMsgs = [];
+var inboxMsgs = [];
 var i = 1;
 
 $(document).ready(function() {
@@ -92,7 +93,7 @@ function getInbox() {
   var request = gapi.client.gmail.users.messages.list({
     'userId': 'me',
     'labelIds': 'INBOX',
-    'maxResults': 10
+    'maxResults': 20
   });
 
   request.execute(function(response) {
@@ -124,13 +125,21 @@ function getUnread() {
         'userId': 'me',
         'id': this.id
       });
-      messageRequest.execute(displayMessage);
+      messageRequest.execute(handleUnread);
     });
   });
 } 
 
-function displayMessage(message) {
+function handleUnread(message) {
     unreadMsgs.push(message);
+    displayMessage(message);
+}
+function handleInbox(message) {
+    inboxMsgs.push(message);
+    displayMessage(message);
+}
+
+function displayMessage(message) {
     var bodyMsg = atob(message.payload.body.data);
   var headers = message.payload.headers;
   var paper = Raphael(windowWidth/8, windowHeight/3, windowWidth, (5/8)*windowHeight);
