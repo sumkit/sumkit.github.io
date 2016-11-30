@@ -200,8 +200,8 @@ function displayMessage(message) {
     fromsubj.attr("text-anchor", "start");
     
     var anim1 = Raphael.animation({x: 10}, 2000, "backOut").delay(500*i);
-    var anim2 = Raphael.animation({x: 150}, 2000, "backOut").delay(500*i);
-    var anim3 = Raphael.animation({x: 200}, 2000, "backOut").delay(500*i);
+    var anim2 = Raphael.animation({x: 150}, 2000, "backOut");
+    var anim3 = Raphael.animation({x: 200}, 2000, "backOut");
     i++;
     rect.animate(anim1);
     t.animateWith(rect, null, anim2);
