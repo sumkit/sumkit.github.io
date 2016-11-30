@@ -156,12 +156,13 @@ function displayMessage(message) {
     rect.attr("stroke", "#507C5C");
     rect.attr("stroke-width", "8");
     
+    var paper2 = Raphael(windowWidth/8, windowHeight/3, windowWidth, (5/8)*windowHeight);
+    var letter = paper2.image("media/papers.png",0,0,windowWidth/3, windowHeight/2);
+    
     rect.dblclick(function(event) {
         var paper2 = Raphael(windowWidth/8, windowHeight/3, windowWidth, (5/8)*windowHeight);
-        var letter = paper2.image("media/papers.png",0,0,windowWidth/3, windowHeight/2);
+//        var letter = paper2.image("media/papers.png",0,0,windowWidth/3, windowHeight/2);
         var thisMsg = unreadMsgs[unreadMsgs.length-1];
-        console.log(letter.id);
-        console.log(document.getElementById(letter.id));
         var bodyText = paper.text(30,80, atob(thisMsg.payload.body.data));
         bodyText.attr("fill", "#000");
         bodyText.attr("stroke", "none");
