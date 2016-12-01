@@ -197,7 +197,7 @@ function displayMessage(message) {
         var oridomi = document.getElementsByClassName("modal-dialog")[0].getElementsByClassName("modal-content")[0].getElementsByClassName("modal-body")[0];
         //.getElementById("oridomi");
         console.log(oridomi);
-        var temp = new OriDomi(oridomi, {
+        var temp = new OriDomi('#emailModal', {
                 hPanels: 3,
                 ripple: 0
         });
