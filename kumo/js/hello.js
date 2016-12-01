@@ -15,22 +15,22 @@ var i = 1;
 $(document).ready(function() {
     drawClouds();
 
-    var paper = Raphael(0, 0, windowWidth, windowHeight);
-    var mailbox = paper.image("media/mailbox.png", (3/4)*windowWidth,windowHeight/3, 
-                              windowWidth/4, windowWidth/4);
-    mailbox.click(function() {
-        gapi.client.load('gmail', 'v1', getUnread);
-    });
-    
-    var inbox = paper.image("media/inbox.png",0,0,windowWidth/5, windowWidth/5);
-    inbox.click(function() {
-        gapi.client.load('gmail', 'v1', getInbox);
-    });
-    
-    var pencil = paper.image("media/crayon.png",0,windowHeight/2,windowWidth/12,windowHeight/8);
-    pencil.click(function() {
-        console.log("pencil");
-    });
+//    var paper = Raphael(0, 0, windowWidth, windowHeight);
+//    var mailbox = paper.image("media/mailbox.png", (3/4)*windowWidth,windowHeight/3, 
+//                              windowWidth/4, windowWidth/4);
+//    mailbox.click(function() {
+//        gapi.client.load('gmail', 'v1', getUnread);
+//    });
+//    
+//    var inbox = paper.image("media/inbox.png",0,0,windowWidth/5, windowWidth/5);
+//    inbox.click(function() {
+//        gapi.client.load('gmail', 'v1', getInbox);
+//    });
+//    
+//    var pencil = paper.image("media/crayon.png",0,windowHeight/2,windowWidth/12,windowHeight/8);
+//    pencil.click(function() {
+//        console.log("pencil");
+//    });
 });
 
 function drawClouds() {
