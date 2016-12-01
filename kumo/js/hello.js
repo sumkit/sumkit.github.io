@@ -15,8 +15,8 @@ var i = 1;
 $(document).ready(function() {
     drawClouds();
 
-    var paper = Raphael(0, 0, windowWidth, windowHeight);
-    var mailbox = paper.image("media/mailbox.png", (3/4)*windowWidth,windowHeight/3, 
+    var paper = Raphael((3/4)*windowWidth, 0, windowWidth, windowHeight);
+    var mailbox = paper.image("media/mailbox.png", 0,0, 
                               windowWidth/4, windowWidth/4);
     mailbox.click(function() {
         gapi.client.load('gmail', 'v1', getUnread);
