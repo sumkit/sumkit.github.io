@@ -33,6 +33,7 @@ $(document).ready(function() {
 //    });
 });
 
+//draw clouds made up of white circles on top of page
 function drawClouds() {
     var windowWidth = $(window).width();
     var windowHeight = $(window).height();
@@ -45,7 +46,7 @@ function drawClouds() {
             var negOne = Math.pow(-1, i);
             negOne = negOne;
             var circle = paper.circle(last+(i*(3/4)*radius), (1.5*radius)+(negOne*(2/3)*radius), radius);
-            circle.attr("fill", "#000");
+            circle.attr("fill", "#ffffff");
             circle.attr("stroke-width", "0");
         }
         last = last +(i*radius)+radius;
