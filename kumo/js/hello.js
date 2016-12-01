@@ -167,8 +167,9 @@ function handleInbox(message) {
 }
 
 function displayMessage(message) {
-    var bodyMsg = atob(message.payload.body.data);
     console.log(message.payload.body);
+    var bodyMsg = atob(message.payload.body.data);
+    
   var headers = message.payload.headers;
   var paper = Raphael(windowWidth/8, windowHeight/3, windowWidth, (5/8)*windowHeight);
     
