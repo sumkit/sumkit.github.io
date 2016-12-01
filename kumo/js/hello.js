@@ -27,10 +27,10 @@ $(document).ready(function() {
         gapi.client.load('gmail', 'v1', getInbox);
     });
     
-//    var pencil = paper.image("media/crayon.png",0,windowHeight/2,windowWidth/12,windowHeight/8);
-//    pencil.click(function() {
-//        console.log("pencil");
-//    });
+    var pencil = paper.image("media/crayon.png",0,windowHeight/2,windowWidth/12,windowHeight/8);
+    pencil.click(function() {
+        $("#writeModal").modal('toggle');
+    });
 });
 
 //draw clouds made up of white circles on top of page
