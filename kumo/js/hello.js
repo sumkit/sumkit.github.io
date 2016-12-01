@@ -194,7 +194,7 @@ function displayMessage(message) {
     
     rect.dblclick(function(event) {
         $("#emailModal").modal('toggle');
-        var oridomi = document.getElementById("oridomi").getElementsByClassName("modal-dialog")[0].getElementsByClassName("modal-content")[0].getElementsByClassName("modal-body")[0].getElementById("oridomi");
+        var oridomi = document.getElementsByClassName("modal-dialog")[0].getElementsByClassName("modal-content")[0].getElementsByClassName("modal-body")[0].getElementById("oridomi");
         console.log(oridomi);
         var temp = new OriDomi('#oridomi', {
                 hPanels: 3,
