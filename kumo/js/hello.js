@@ -27,7 +27,7 @@ $(document).ready(function() {
         gapi.client.load('gmail', 'v1', getInbox);
     });
     
-    var pencil = paper.image("media/crayon.png",0,windowHeight/2,windowWidth/15,windowHeight/12);
+    var pencil = paper.image("media/crayon.png",0,0.75*windowHeight,windowWidth/15,windowHeight/12);
     pencil.click(function() {
         $("#writeModal").modal('toggle');
     });
