@@ -194,8 +194,8 @@ function displayMessage(message) {
     
     rect.dblclick(function(event) {
         $("#emailModal").modal('toggle');
-        var oridomi = document.getElementById("oridomi");
-        oridomi.style = "display: block;"
+        var oridomi = document.getElementById("oridomi").getElementsByClassName("modal-dialog")[0].getElementsByClassName("modal-content")[0].getElementsByClassName("modal-body")[0].getElementById("oridomi");
+        console.log(oridomi);
         var temp = new OriDomi('#oridomi', {
                 hPanels: 3,
                 ripple: 0
@@ -210,9 +210,6 @@ function displayMessage(message) {
         
 //        var folded = new OriDomi(img);
 //        folded.accordion(30);
-        
-        var thisMsg = unreadMsgs[unreadMsgs.length-1];
-        console.log(atob(thisMsg.payload.body.data));
 
 //        var bodyText = paper.text(20, 20, atob(thisMsg.payload.body.data));
 //        bodyText.attr("fill", "#000");
