@@ -16,7 +16,7 @@ $(document).ready(function() {
     drawClouds();
 
     var paper = Raphael((3/4)*windowWidth, 0, windowWidth, windowHeight);
-    var mailbox = paper.image("media/mailbox.png", 0,0, 
+    var mailbox = paper.image("media/mailbox.png", 0,windowHeight/2, 
                               windowWidth/4, windowWidth/4);
     mailbox.click(function() {
         gapi.client.load('gmail', 'v1', getUnread);
@@ -199,8 +199,6 @@ function displayMessage(message) {
     rect.dblclick(function(event) {
         $("#emailModal").modal('toggle');
         var oridomi = document.getElementById("oridomi");
-        //.getElementById("oridomi");
-        console.log(oridomi);
         var temp = new OriDomi('#oridomi', {
                 hPanels: 3,
                 ripple: 0
