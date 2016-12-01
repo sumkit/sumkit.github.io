@@ -31,6 +31,11 @@ $(document).ready(function() {
     var pencil = paper.image("media/crayon.png",0,0.75*windowHeight,windowWidth/15,windowHeight/12);
     pencil.click(function() {
         $("#writeModal").modal('toggle');
+        var temp = new OriDomi('#writeOridomi', {
+                hPanels: 3,
+                ripple: 0
+        });
+        temp.setRipple().stairs(50, 'bottom');
     });
 });
 
@@ -211,12 +216,10 @@ function displayMessage(message, tag) {
         var bodyText = "";
         if(message.payload.body.data != null) {
             bodyText = atob(message.payload.body.data);
-        } 
-        
+        }
         
         $("#emailModal").modal('toggle');
-        var oridomi = document.getElementById("emailOridomi");
-        var temp = new OriDomi('#oridomi', {
+        var temp = new OriDomi('#emailOridomi', {
                 hPanels: 3,
                 ripple: 0
         });
@@ -232,11 +235,8 @@ function displayMessage(message, tag) {
     t.attr("font-family", "arial");
     t.attr("text-anchor", "start");
     
-    var anim1 = Raphael.animation({x: 10}, 2000, "backOut", function() {
-    }).delay(200*i);
-    var anim2 = Raphael.animation({x: windowWidth/6}, 2000, "backOut",function() {
-    });
-    i++;
+    var anim1 = Raphael.animation({x: 10}, 2000, "backOut", function() {}).delay(200*i);
+    var anim2 = Raphael.animation({x: windowWidth/6}, 2000, "backOut",function() {});
     rect.animate(anim1);
     t.animateWith(rect, anim1, anim2);
 }
