@@ -168,6 +168,7 @@ function handleInbox(message) {
 
 function displayMessage(message) {
     var bodyMsg = atob(message.payload.body.data);
+    console.log(message.payload.body);
   var headers = message.payload.headers;
   var paper = Raphael(windowWidth/8, windowHeight/3, windowWidth, (5/8)*windowHeight);
     
@@ -194,7 +195,7 @@ function displayMessage(message) {
     
     rect.dblclick(function(event) {
         $("#emailModal").modal('toggle');
-        var oridomi = document.getElementsByClassName("modal-dialog")[0].getElementsByClassName("modal-content")[0].getElementsByClassName("modal-body")[0];
+        var oridomi = document.getElementsById("oridomi");
         //.getElementById("oridomi");
         console.log(oridomi);
         var temp = new OriDomi('#oridomi', {
