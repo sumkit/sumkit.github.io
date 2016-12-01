@@ -45,7 +45,7 @@ function drawClouds() {
             var negOne = Math.pow(-1, i);
             negOne = negOne;
             var circle = paper.circle(last+(i*(3/4)*radius), (1.5*radius)+(negOne*(2/3)*radius), radius);
-            circle.attr("fill", "#ffffff");
+            circle.attr("fill", "#000");
             circle.attr("stroke-width", "0");
         }
         last = last +(i*radius)+radius;
