@@ -193,6 +193,7 @@ function displayMessage(message) {
     
     
     rect.dblclick(function(event) {
+        $("#emailModal")
         var oridomi = document.getElementById("oridomi");
         oridomi.style = "display: block;"
         var temp = new OriDomi('#oridomi', {
