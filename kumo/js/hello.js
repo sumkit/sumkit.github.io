@@ -8,9 +8,10 @@ var SCOPES = ['https://www.googleapis.com/auth/gmail.readonly',
 var windowWidth = $(window).width();
 var windowHeight = $(window).height();
 
-var unreadMsgs = [];
-var inboxMsgs = [];
-var i = 1;
+var unreadMsgs = []; //array of message objects that are unread (max 20)
+var inboxMsgs = []; //array of message objects from inbox (max 20)
+
+var envelopes = []; //envelopes currently on screen
 
 $(document).ready(function() {
     drawClouds();
@@ -135,6 +136,17 @@ function getInbox() {
   });
 }
 
+//Create Raphael close button
+function createX() {
+    var paper = Raphael((7/8)*windowWidth, windowHeight/8,windowWidth/8,windowHeight/8);
+    var x = paper.text("x", windowWidth/8,windowHeight/8);
+    x.attr('fill', 'red');
+    x.attr("stroke", "#ffffff");
+    x.attr("font-size", "70px");
+    x.attr("font-weight", "bold");
+    t.attr("font-family", "arial");
+}
+
 //fetch only unread emails from user's inbox
 function getUnread() {
     unreadMsgs = [];
@@ -143,7 +155,7 @@ function getUnread() {
   var request = gapi.client.gmail.users.messages.list({
     'userId': 'me',
     'labelIds': 'UNREAD',
-    'maxResults': 30
+    'maxResults': 20
   });
 
   request.execute(function(response) {
@@ -159,19 +171,20 @@ function getUnread() {
 
 function handleUnread(message) {
     unreadMsgs.push(message);
-    displayMessage(message);
+    displayMessage(message, "unread");
 }
 function handleInbox(message) {
     inboxMsgs.push(message);
-    displayMessage(message);
+    displayMessage(message, "inbox");
 }
 
-function displayMessage(message) {
-    var bodyMsg = "";
-    if(message.payload.body.data != null) {
-        bodyMsg = atob(message.payload.body.data);
-    } 
-    
+/** 
+ * Display the message by creating an "envelope" rectangle  
+ *
+ * @param {Message} message 
+ * @param {String} tag indicates if the message has an "UNREAD" or "INBOX" tag
+ */
+function displayMessage(message, tag) {
   var headers = message.payload.headers;
   var paper = Raphael(windowWidth/8, windowHeight/3, windowWidth, (5/8)*windowHeight);
     
@@ -188,15 +201,19 @@ function displayMessage(message) {
         
     // Creates rectangle with rounded corners (10) at x = 50, y = 0
     var rect = paper.rect(windowWidth/8,0, (2/3)*windowWidth, windowHeight/2, 10);
-//    var rect = paper.rect(210,0, 500, 300, 10);
     // Sets the fill attribute of the rectangle to white
     rect.attr("fill", "#ffffff");
     // Sets the stroke attribute of the rectangle to green with width 8
     rect.attr("stroke", "#507C5C");
     rect.attr("stroke-width", "8");
     
-    
     rect.dblclick(function(event) {
+        var bodyText = "";
+        if(message.payload.body.data != null) {
+            bodyText = atob(message.payload.body.data);
+        } 
+        
+        
         $("#emailModal").modal('toggle');
         var oridomi = document.getElementById("emailOridomi");
         var temp = new OriDomi('#oridomi', {
@@ -204,23 +221,6 @@ function displayMessage(message) {
                 ripple: 0
         });
         temp.setRipple().stairs(50, 'bottom');
-        
-//        var paper2 = Raphael(windowWidth/8, windowHeight/3, windowWidth, (5/8)*windowHeight);
-//        var letter = paper2.image("media/papers.png",0,0,windowWidth/3, windowHeight/2);
-//        var svgs = document.getElementsByTagName("svg");
-//        var svg = svgs[svgs.length-1];
-//        var img = svg.getElementsByTagName("image")[0];
-        
-//        var folded = new OriDomi(img);
-//        folded.accordion(30);
-
-//        var bodyText = paper.text(20, 20, atob(thisMsg.payload.body.data));
-//        bodyText.attr("fill", "#000");
-//        bodyText.attr("stroke", "none");
-//        bodyText.attr("font-size", "12px");
-//        bodyText.attr("font-weight", "normal");
-//        bodyText.attr("font-family", "arial");
-//        bodyText.attr("text-anchor", "start");
     });
 
     var frontStr = "From: "+from+"\nSubject: "+subject;
