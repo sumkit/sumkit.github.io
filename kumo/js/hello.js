@@ -211,6 +211,8 @@ function displayMessage(message, tag) {
         if(message.payload.body.data != null) {
             bodyText = atob(message.payload.body.data);
         }
+        var elemP = document.getElementById("emailOridomiText");
+        elemP.innerHTML = bodyText;
         
         $("#emailModal").modal('toggle');
         var temp = new OriDomi('#emailOridomi', {
