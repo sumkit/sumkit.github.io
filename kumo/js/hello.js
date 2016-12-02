@@ -249,10 +249,9 @@ function displayMessage(message, tag) {
 
     var frontStr = "From: "+from+"\nSubject: "+subject;
     var t = paper.text(windowWidth/4,windowHeight/4, frontStr);
-    console.log(windowHeight);
     t.attr("fill", "#000");
     t.attr("stroke", "none");
-    t.attr("font-size", "20px");
+    t.attr("font-size", (windowHeight/9)+"px");
     t.attr("font-weight", "normal");
     t.attr("font-family", "arial");
     t.attr("text-anchor", "start");
