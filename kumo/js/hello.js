@@ -153,7 +153,7 @@ function createX() {
             text.remove();
             var anim = Raphael.animation({x: windowWidth}, 2000, ">", function() {
                  env.remove(); //remove element after animating off of the screen
-            });
+            }).delay(100*(envelopes.length-i+1));
             env.animate(anim);
         }
         envelopes = []; //clear envelopes -> no envelopes on the screen
