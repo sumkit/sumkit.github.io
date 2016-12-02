@@ -196,6 +196,7 @@ function handleUnread(message) {
 function handleInbox(message) {
     inboxMsgs.push(message);
     displayMessage(message, "inbox");
+    console.log(animDelay);
 }
 
 /** 
