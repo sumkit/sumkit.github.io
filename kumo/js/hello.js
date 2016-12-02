@@ -61,7 +61,6 @@ function drawClouds() {
 }
 
 function start() {
-    console.log("start");
   gapi.client.init({
     'apiKey': API_KEY,
     'discoveryDocs': SCOPES,
@@ -81,7 +80,6 @@ function handleClientLoad() {
  * Check if current user has authorized this application.
  */
 function checkAuth() {
-    console.log("Check auth");
   gapi.auth.authorize(
     {
       'client_id': CLIENT_ID,
@@ -100,10 +98,7 @@ function checkAuth() {
  * @param {Object} authResult Authorization result.
  */
 function handleAuthResult(authResult) {
-    console.log("handle auth res");
   var authorizeDiv = document.getElementById('authorize-div');
-    console.log("auth res: "+authResult);
-    console.log("error: "+authResult.error);
    
   if (authResult && !authResult.error) {
     // Hide auth UI, then load client library.
@@ -162,7 +157,6 @@ function getUnread() {
   });
 
   request.execute(function(response) {
-      console.log(response.messages);
     $.each(response.messages.reverse(), function() {
       var messageRequest = gapi.client.gmail.users.messages.get({
         'userId': 'me',
@@ -240,6 +234,7 @@ function displayMessage(message, tag) {
     var anim2 = Raphael.animation({x: windowWidth/6}, 2000, "backOut",function() {});
     rect.animate(anim1);
     t.animateWith(rect, anim1, anim2);
+    animDelay++;
 }
 
 /**
