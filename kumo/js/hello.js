@@ -165,6 +165,7 @@ function getUnread() {
   });
 
   request.execute(function(response) {
+      console.log(response.messages);
     $.each(response.messages.reverse(), function() {
       var messageRequest = gapi.client.gmail.users.messages.get({
         'userId': 'me',
