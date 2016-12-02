@@ -152,7 +152,6 @@ function createX() {
             var env = envelopes[i-1];
             var text = envelopes[i];
             var anim = Raphael.animation({x: windowWidth}, 2000, "<", function() {
-                console.log("remove env");
                  env.remove(); //remove element after animating off of the screen
             }).delay(100*(envelopes.length-i+1));
             env.animate(anim);
@@ -196,7 +195,6 @@ function handleUnread(message) {
 function handleInbox(message) {
     inboxMsgs.push(message);
     displayMessage(message, "inbox");
-    console.log(animDelay);
 }
 
 /** 
@@ -206,6 +204,7 @@ function handleInbox(message) {
 function formatText(text, lineLength, raphText) {
     var newText = "";
     var words = text.split(" ");
+    console.log(lineLength);
     if(words.length > 1) {
         console.log("if");
         //email addresses don't have spaces 
