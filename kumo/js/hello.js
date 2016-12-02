@@ -207,14 +207,24 @@ function formatText(text, lineLength) {
     var tempPaper = Raphael((-1)*windowWidth, (-1)*windowHeight);
     var tempText = tempPaper.text((-1)*windowWidth, (-1)*windowHeight);
     tempText.attr('text-anchor', 'start');
-    for (var i=0; i<words.length; i++) {   
-      tempText.attr("text", newText + " " + words[i]);
-      if (t.getBBox().width > maxWidth) {
-        newText += "\n" + words[i];
-      } else {
-        newText += " " + words[i];
-      }
+    if(words.length > 1) {
+        //email addresses don't have spaces 
+        for (var i=0; i<words.length; i++) {   
+          tempText.attr("text", newText + " " + words[i]);
+          if (t.getBBox().width > lineLength) {
+            newText += "\n" + words[i];
+          } else {
+            newText += " " + words[i];
+          }
+        }
+    } else {
+        var count = 0;
+        while(count < text.length) {
+            newText += text.substr(count, lineLength);
+            count += lineLength;
+        }
     }
+    
 //    tempText.remove();
     return newText;
 }
@@ -264,7 +274,8 @@ function displayMessage(message, tag) {
         temp.setRipple().stairs(50, 'bottom');
     });
     envelopes.push(rect);
-
+    from=formatText(from);
+    subject=formatText(subject);
     var frontStr = "From: "+from+"\nSubject: "+subject;
     var t = paper.text(windowWidth/4,windowHeight/4, frontStr);
     t.attr("fill", "#000");
