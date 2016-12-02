@@ -285,7 +285,7 @@ function displayMessage(message, tag) {
     t.attr("font-family", "arial");
     t.attr("text-anchor", "start");
     envelopes.push(t);
-    frontStr = formatText(frontStr, (windowHeight/2)-5, t);
+    formatText(frontStr, (windowHeight/2)-5, t);
     
     var anim1 = Raphael.animation({x: 10}, 2000, "backOut", function() {}).delay(200*animDelay);
     var anim2 = Raphael.animation({x: windowWidth/6}, 2000, "backOut",function() {});
