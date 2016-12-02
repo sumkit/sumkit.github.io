@@ -135,9 +135,9 @@ function getInbox() {
         'userId': 'me',
         'id': this.id
       });
-
       messageRequest.execute(handleInbox);
     });
+    createX();
   });
 }
 
@@ -149,7 +149,8 @@ function createX() {
     x.attr("stroke", "#ffffff");
     x.attr("font-size", "70px");
     x.attr("font-weight", "bold");
-    t.attr("font-family", "arial");
+    x.attr("font-family", "arial");
+    
 }
 
 //fetch only unread emails from user's inbox
@@ -171,6 +172,7 @@ function getUnread() {
       });
       messageRequest.execute(handleUnread);
     });
+    createX();
   });
 } 
 
@@ -225,6 +227,7 @@ function displayMessage(message, tag) {
         });
         temp.setRipple().stairs(50, 'bottom');
     });
+    envelopes.push(rect);
 
     var frontStr = "From: "+from+"\nSubject: "+subject;
     var t = paper.text((3/4)*windowWidth,windowHeight/4, frontStr);
