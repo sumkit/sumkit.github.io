@@ -140,7 +140,7 @@ function createX() {
     var x = paper.text(0,0, "xabc");
     x.attr('fill', 'red');
     x.attr("stroke", "#ffffff");
-    x.attr("font-size", "50px");
+    x.attr("font-size", "12px");
     x.attr("font-weight", "bold");
     x.attr("font-family", "arial");
     x.attr("text-anchor", "start");
