@@ -141,7 +141,7 @@ function createX() {
     var x = paper.text(0, 10, "Close");
     x.attr('fill', green);
     x.attr("stroke", "none");
-    x.attr("font-size", (windowHeight/20)+"px");
+    x.attr("font-size", (windowHeight/22)+"px");
     x.attr("font-weight", "bold");
     x.attr("text-anchor", "start");
     
@@ -211,7 +211,7 @@ function formatText(text, lineLength, raphText) {
         //email addresses don't have spaces 
         for (var i=0; i<words.length; i++) {   
           raphText.attr("text", newText + " " + words[i]);
-          if (raphTexts.getBBox().width > lineLength) {
+          if (raphText.getBBox().width > lineLength) {
             newText += "\n" + words[i];
           } else {
             newText += " " + words[i];
@@ -219,14 +219,15 @@ function formatText(text, lineLength, raphText) {
         }
     } else {
         var count = 0;
-        while(count < text.length) {
-            newText += text.substr(count, lineLength);
-            newText += "\n";
-            count += lineLength;
+        for(var i=0;i<text.length;i++) {
+            raphText.attr("text", newText+text.substr(i,1));
+            if (raphText.getBBox().width > lineLength) {
+                newText += "\n" + words[i];
+              } else {
+                newText += words[i];
+              }
         }
-        raphText.attr("text", newText);
     }
-    
 //    tempText.remove();
 }
 
@@ -279,7 +280,7 @@ function displayMessage(message, tag) {
     var t = paper.text(windowWidth/4,windowHeight/4, "");
     t.attr("fill", "#000");
     t.attr("stroke", "none");
-    t.attr("font-size", (windowHeight/20)+"px");
+    t.attr("font-size", (windowHeight/22)+"px");
     t.attr("font-weight", "normal");
     t.attr("font-family", "arial");
     t.attr("text-anchor", "start");
