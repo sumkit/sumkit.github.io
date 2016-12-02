@@ -12,7 +12,8 @@ var unreadMsgs = []; //array of message objects that are unread (max 20)
 var inboxMsgs = []; //array of message objects from inbox (max 20)
 var animDelay = 1;
 
-var envelopes = []; //envelopes currently on screen
+//envelopes currently on screen (store Raphael rectangle then text for each envelope)
+var envelopes = [];
 
 $(document).ready(function() {
     drawClouds();
@@ -143,6 +144,20 @@ function createX() {
     x.attr("font-weight", "bold");
     x.attr("font-family", "arial");
     
+    x.click(function() {
+        //remove each envelope and address text
+        for(var i = envelopes.length-1; i >= 0; i-=2) {
+            //last envelope is top of the pile
+            var env = envelopes[i-1];
+            var text = envelopes[i];
+            text.remove();
+            var anim = Raphael.animation({x: windowWidth}, 2000, ">", function() {
+                 env.remove(); //remove element after animating off of the screen
+            });
+            env.animate(anim);
+        }
+        envelopes = []; //clear envelopes -> no envelopes on the screen
+    })
 }
 
 //fetch only unread emails from user's inbox
@@ -231,6 +246,7 @@ function displayMessage(message, tag) {
     t.attr("font-weight", "normal");
     t.attr("font-family", "arial");
     t.attr("text-anchor", "start");
+    envelopes.push(t);
     
     var anim1 = Raphael.animation({x: 10}, 2000, "backOut", function() {}).delay(200*animDelay);
     var anim2 = Raphael.animation({x: windowWidth/6}, 2000, "backOut",function() {});
