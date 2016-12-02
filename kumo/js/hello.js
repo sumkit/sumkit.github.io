@@ -137,12 +137,13 @@ function getInbox() {
 //Create Raphael close button
 function createX() {
     var paper = Raphael((7/8)*windowWidth, windowHeight/6,windowWidth/4,windowHeight/4);
-    var x = paper.text(0,0, "x");
+    var x = paper.text(0,0, "xabc");
     x.attr('fill', 'red');
     x.attr("stroke", "#ffffff");
     x.attr("font-size", "50px");
     x.attr("font-weight", "bold");
     x.attr("font-family", "arial");
+    x.attr("text-anchor", "start");
     
     x.click(function() {
         //remove each envelope and address text
