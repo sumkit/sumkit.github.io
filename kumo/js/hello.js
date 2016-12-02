@@ -152,6 +152,7 @@ function createX() {
             var env = envelopes[i-1];
             var text = envelopes[i];
             var anim = Raphael.animation({x: windowWidth}, 2000, "<", function() {
+                console.log("remove env");
                  env.remove(); //remove element after animating off of the screen
             }).delay(100*(envelopes.length-i+1));
             env.animate(anim);
