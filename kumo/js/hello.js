@@ -211,7 +211,7 @@ function formatText(text, lineLength, raphText) {
         //email addresses don't have spaces 
         for (var i=0; i<words.length; i++) {   
           raphText.attr("text", newText + " " + words[i]);
-          if (t.getBBox().width > lineLength) {
+          if (raphTexts.getBBox().width > lineLength) {
             newText += "\n" + words[i];
           } else {
             newText += " " + words[i];
@@ -279,7 +279,7 @@ function displayMessage(message, tag) {
     var t = paper.text(windowWidth/4,windowHeight/4, "");
     t.attr("fill", "#000");
     t.attr("stroke", "none");
-    t.attr("font-size", (windowHeight/9)+"px");
+    t.attr("font-size", (windowHeight/20)+"px");
     t.attr("font-weight", "normal");
     t.attr("font-family", "arial");
     t.attr("text-anchor", "start");
