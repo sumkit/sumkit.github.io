@@ -201,16 +201,16 @@ function handleInbox(message) {
  * @param {String} text is the text 
  * @param {int} lineLength 
  */
-function formatText(text, lineLength) {
+function formatText(text, lineLength, raphText) {
     var newText = "";
     var words = text.split(" ");
-    var tempPaper = Raphael((-1)*windowWidth, (-1)*windowHeight);
-    var tempText = tempPaper.text((-1)*windowWidth, (-1)*windowHeight);
-    tempText.attr('text-anchor', 'start');
+//    var tempPaper = Raphael(0,0);
+//    var tempText = tempPaper.text((-1)*windowWidth, (-1)*windowHeight);
+//    tempText.attr('text-anchor', 'start');
     if(words.length > 1) {
         //email addresses don't have spaces 
         for (var i=0; i<words.length; i++) {   
-          tempText.attr("text", newText + " " + words[i]);
+          raphText.attr("text", newText + " " + words[i]);
           if (t.getBBox().width > lineLength) {
             newText += "\n" + words[i];
           } else {
@@ -221,12 +221,13 @@ function formatText(text, lineLength) {
         var count = 0;
         while(count < text.length) {
             newText += text.substr(count, lineLength);
+            newText += "\n";
             count += lineLength;
         }
+        raphText.attr("text", newText);
     }
     
 //    tempText.remove();
-    return newText;
 }
 
 /** 
