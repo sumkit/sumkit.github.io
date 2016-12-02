@@ -263,7 +263,7 @@ function displayMessage(message, tag) {
                 hPanels: 3,
                 ripple: 0
         });
-        temp.setRipple().stairs(50, 'bottom');
+        temp.setRipple().stairs(50, 'top');
     });
     envelopes.push(rect);
     var frontStr = "From: "+from+"\nSubject: "+subject;
