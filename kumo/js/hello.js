@@ -33,11 +33,11 @@ $(document).ready(function() {
     var pencil = paper.image("media/crayon.png",0,0.75*windowHeight,windowWidth/15,windowHeight/12);
     pencil.click(function() {
         $("#writeModal").modal('toggle');
-        var temp = new OriDomi('#writeOridomi', {
-                hPanels: 3,
-                ripple: 0
-        });
-        temp.setRipple().stairs(50, 'bottom');
+//        var temp = new OriDomi('#writeOridomi', {
+//                hPanels: 3,
+//                ripple: 0
+//        });
+//        temp.setRipple().stairs(50, 'bottom');
     });
 });
 
