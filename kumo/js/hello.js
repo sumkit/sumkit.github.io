@@ -136,7 +136,7 @@ function getInbox() {
 
 //Create Raphael close button
 function createX() {
-    var paper = Raphael((7/8)*windowWidth,(windowHeight/3)+((5/6)*windowHeight),windowWidth/8,windowHeight/4);
+    var paper = Raphael((7/8)*windowWidth,(5/6)*windowHeight,windowWidth/8,windowHeight/4);
     var x = paper.text(0, windowHeight/8, "Close");
     x.attr('fill', 'white');
     x.attr("stroke", "none");
@@ -204,7 +204,7 @@ function handleInbox(message) {
  */
 function displayMessage(message, tag) {
   var headers = message.payload.headers;
-  var paper = Raphael(windowWidth/8, windowHeight/3, windowWidth, (5/6)*windowHeight);
+  var paper = Raphael(windowWidth/8, windowHeight/3, windowWidth, windowHeight/2);
     
   var subject = "";
   var from = "";
