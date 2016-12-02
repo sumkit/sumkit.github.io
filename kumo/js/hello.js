@@ -10,6 +10,7 @@ var windowHeight = $(window).height();
 
 var unreadMsgs = []; //array of message objects that are unread (max 20)
 var inboxMsgs = []; //array of message objects from inbox (max 20)
+var animDelay = 1;
 
 var envelopes = []; //envelopes currently on screen
 
@@ -59,6 +60,18 @@ function drawClouds() {
     }
 }
 
+function start() {
+    console.log("start");
+  gapi.client.init({
+    'apiKey': API_KEY,
+    'discoveryDocs': SCOPES,
+    'clientId':CLIENT_ID,
+    'scope':'profile'
+  }).then(function() {
+    window.setTimeout(checkAuth, 1);
+  });
+};
+
 function handleClientLoad() {
   gapi.client.setApiKey(API_KEY);
   window.setTimeout(checkAuth, 1);
@@ -76,6 +89,10 @@ function checkAuth() {
       'immediate': false
     }, handleAuthResult);
 }
+
+//function handleAuthClick(event) {
+//  gapi.auth2.getAuthInstance().signIn();
+//}
 
 /**
  * Handle response from authorization server.
@@ -98,24 +115,11 @@ function handleAuthResult(authResult) {
   }
 }
 
-function handleAuthClick(event) {
-  gapi.auth2.getAuthInstance().signIn();
-}
-
-function start() {
-    console.log("start");
-  gapi.client.init({
-    'apiKey': API_KEY,
-    'discoveryDocs': SCOPES,
-    'clientId':CLIENT_ID,
-    'scope':'profile'
-  }).then(function() {
-    window.setTimeout(checkAuth, 1);
-  });
-};
-
 //Get all emails in inbox (read and unread)
 function getInbox() {
+  inboxMsgs = [];
+  animDelay = 1;
+    
   var request = gapi.client.gmail.users.messages.list({
     'userId': 'me',
     'labelIds': 'INBOX',
@@ -149,7 +153,7 @@ function createX() {
 //fetch only unread emails from user's inbox
 function getUnread() {
     unreadMsgs = [];
-    i=1;
+    animDelay = 1;
     
   var request = gapi.client.gmail.users.messages.list({
     'userId': 'me',
@@ -232,7 +236,7 @@ function displayMessage(message, tag) {
     t.attr("font-family", "arial");
     t.attr("text-anchor", "start");
     
-    var anim1 = Raphael.animation({x: 10}, 2000, "backOut", function() {}).delay(200*i);
+    var anim1 = Raphael.animation({x: 10}, 2000, "backOut", function() {}).delay(200*animDelay);
     var anim2 = Raphael.animation({x: windowWidth/6}, 2000, "backOut",function() {});
     rect.animate(anim1);
     t.animateWith(rect, anim1, anim2);
