@@ -172,14 +172,17 @@ function getUnread() {
   });
 
   request.execute(function(response) {
-    $.each(response.messages.reverse(), function() {
-      var messageRequest = gapi.client.gmail.users.messages.get({
-        'userId': 'me',
-        'id': this.id
-      });
-      messageRequest.execute(handleUnread);
-    });
-    createX();
+      //null response.messages means no new messages
+      if(response.messages != null) {
+          $.each(response.messages.reverse(), function() {
+              var messageRequest = gapi.client.gmail.users.messages.get({
+                'userId': 'me',
+                'id': this.id
+              });
+              messageRequest.execute(handleUnread);
+            });
+            createX();
+      }
   });
 } 
 
