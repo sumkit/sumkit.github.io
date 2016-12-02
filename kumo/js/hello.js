@@ -141,7 +141,7 @@ function createX() {
     var x = paper.text(0, 10, "Close");
     x.attr('fill', green);
     x.attr("stroke", "none");
-    x.attr("font-size", (windowHeight/22)+"px");
+    x.attr("font-size", (windowHeight/30)+"px");
     x.attr("font-weight", "bold");
     x.attr("text-anchor", "start");
     
@@ -269,7 +269,7 @@ function displayMessage(message, tag) {
     var t = paper.text(windowWidth/4,windowHeight/4, "");
     t.attr("fill", "#000");
     t.attr("stroke", "none");
-    t.attr("font-size", (windowHeight/22)+"px");
+    t.attr("font-size", (windowHeight/30)+"px");
     t.attr("font-weight", "normal");
     t.attr("font-family", "arial");
     t.attr("text-anchor", "start");
