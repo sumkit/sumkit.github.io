@@ -136,7 +136,7 @@ function getInbox() {
 
 //Create Raphael close button
 function createX() {
-    var paper = Raphael((7/8)*windowWidth, windowHeight/8,windowWidth/8,windowHeight/8);
+    var paper = Raphael((7/8)*windowWidth, windowHeight/3,windowWidth/8,windowHeight/8);
     var x = paper.text(0,0, "x");
     x.attr('fill', 'red');
     x.attr("stroke", "#ffffff");
@@ -150,13 +150,14 @@ function createX() {
             //last envelope is top of the pile
             var env = envelopes[i-1];
             var text = envelopes[i];
-            text.remove();
-            var anim = Raphael.animation({x: windowWidth}, 2000, ">", function() {
+            var anim = Raphael.animation({x: windowWidth}, 2000, "<", function() {
                  env.remove(); //remove element after animating off of the screen
             }).delay(100*(envelopes.length-i+1));
             env.animate(anim);
+            text.remove();
         }
         envelopes = []; //clear envelopes -> no envelopes on the screen
+        x.remove(); //remove x from page after clearing all envelopes 
     })
 }
 
@@ -205,8 +206,8 @@ function displayMessage(message, tag) {
   var headers = message.payload.headers;
   var paper = Raphael(windowWidth/8, windowHeight/3, windowWidth, (5/8)*windowHeight);
     
-    var subject = "";
-    var from = "";
+  var subject = "";
+  var from = "";
   $.each(headers, function() {
     if(this.name.toLowerCase() === "subject") {
         subject = this.value;
