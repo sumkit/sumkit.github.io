@@ -141,7 +141,7 @@ function createX() {
     var x = paper.text(0, 10, "Close");
     x.attr('fill', green);
     x.attr("stroke", "none");
-    x.attr("font-size", (windowHeight/9)+"px");
+    x.attr("font-size", (windowHeight/20)+"px");
     x.attr("font-weight", "bold");
     x.attr("text-anchor", "start");
     
@@ -275,10 +275,8 @@ function displayMessage(message, tag) {
         temp.setRipple().stairs(50, 'bottom');
     });
     envelopes.push(rect);
-    from=formatText(from);
-    subject=formatText(subject);
     var frontStr = "From: "+from+"\nSubject: "+subject;
-    var t = paper.text(windowWidth/4,windowHeight/4, frontStr);
+    var t = paper.text(windowWidth/4,windowHeight/4, "");
     t.attr("fill", "#000");
     t.attr("stroke", "none");
     t.attr("font-size", (windowHeight/9)+"px");
@@ -286,6 +284,7 @@ function displayMessage(message, tag) {
     t.attr("font-family", "arial");
     t.attr("text-anchor", "start");
     envelopes.push(t);
+    frontStr = formatText(frontStr, (windowHeight/2)-5, t);
     
     var anim1 = Raphael.animation({x: 10}, 2000, "backOut", function() {}).delay(200*animDelay);
     var anim2 = Raphael.animation({x: windowWidth/6}, 2000, "backOut",function() {});
