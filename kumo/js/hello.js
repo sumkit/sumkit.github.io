@@ -136,11 +136,11 @@ function getInbox() {
 
 //Create Raphael close button
 function createX() {
-    var paper = Raphael((7/8)*windowWidth, windowHeight/3,windowWidth/4,windowHeight/4);
-    var x = paper.text(0,10, "xabc");
+    var paper = Raphael((7/8)*windowWidth, windowHeight/3,windowWidth/8,windowHeight/4);
+    var x = paper.text(0,10, "x");
     x.attr('fill', 'red');
     x.attr("stroke", "none");
-    x.attr("font-size", "12px");
+    x.attr("font-size", (windowHeight/8)+"px");
     x.attr("font-weight", "bold");
     x.attr("text-anchor", "start");
     
