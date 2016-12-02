@@ -91,10 +91,6 @@ function checkAuth() {
     }, handleAuthResult);
 }
 
-//function handleAuthClick(event) {
-//  gapi.auth2.getAuthInstance().signIn();
-//}
-
 /**
  * Handle response from authorization server.
  *
@@ -145,7 +141,7 @@ function createX() {
     var x = paper.text(0, 10, "Close");
     x.attr('fill', green);
     x.attr("stroke", "none");
-    x.attr("font-size", "16px");
+    x.attr("font-size", (windowHeight/9)+"px");
     x.attr("font-weight", "bold");
     x.attr("text-anchor", "start");
     
@@ -199,6 +195,28 @@ function handleUnread(message) {
 function handleInbox(message) {
     inboxMsgs.push(message);
     displayMessage(message, "inbox");
+}
+
+/** 
+ * @param {String} text is the text 
+ * @param {int} lineLength 
+ */
+function formatText(text, lineLength) {
+    var newText = "";
+    var words = text.split(" ");
+    var tempPaper = Raphael((-1)*windowWidth, (-1)*windowHeight);
+    var tempText = tempPaper.text((-1)*windowWidth, (-1)*windowHeight);
+    tempText.attr('text-anchor', 'start');
+    for (var i=0; i<words.length; i++) {   
+      tempText.attr("text", newText + " " + words[i]);
+      if (t.getBBox().width > maxWidth) {
+        newText += "\n" + words[i];
+      } else {
+        newText += " " + words[i];
+      }
+    }
+//    tempText.remove();
+    return newText;
 }
 
 /** 
@@ -265,7 +283,7 @@ function displayMessage(message, tag) {
 }
 
 /**
- * Send Email.
+ * Send Email from authorized user to inputted address(es).
  */
 function sendEmail() {
     var textDiv = document.getElementById("text");
