@@ -206,33 +206,19 @@ function handleInbox(message) {
 function formatText(text, lineLength, raphText) {
     var newText = "";
     var words = text.split(" ");
-//    var tempPaper = Raphael(0,0);
-//    var tempText = tempPaper.text((-1)*windowWidth, (-1)*windowHeight);
-//    tempText.attr('text-anchor', 'start');
     if(words.length > 1) {
         console.log("if");
         //email addresses don't have spaces 
         for (var i=0; i<words.length; i++) {   
           raphText.attr("text", newText + " " + words[i]);
+          console.log(raphText.getBBox().width);
           if (raphText.getBBox().width > lineLength) {
-            newText += "\n" + words[i];
+            newText=newText+"\n" + words[i];
           } else {
-            newText += " " + words[i];
+            newText=newText+" " + words[i];
           }
         }
-    } else {
-        console.log("else");
-        var count = 0;
-        for(var i=0;i<text.length;i++) {
-            raphText.attr("text", newText+text.substr(i,1));
-            if (raphText.getBBox().width > lineLength) {
-                newText += "\n" + words[i];
-              } else {
-                newText += words[i];
-              }
-        }
-    }
-//    tempText.remove();
+    } 
 }
 
 /** 
