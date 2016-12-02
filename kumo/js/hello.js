@@ -5,6 +5,8 @@ var API_KEY = 'AIzaSyClrfIxWqPqslBjRtKrHi1U6zKJP7Uequk'
 var SCOPES = ['https://www.googleapis.com/auth/gmail.readonly',
              'https://www.googleapis.com/auth/gmail.send'];
 
+var green = "#507C5C";
+
 var windowWidth = $(window).width();
 var windowHeight = $(window).height();
 
@@ -138,7 +140,7 @@ function getInbox() {
 function createX() {
     var paper = Raphael((7/8)*windowWidth,(5/6)*windowHeight,windowWidth/8,windowHeight/4);
     var x = paper.text(0, 10, "Close");
-    x.attr('fill', 'white');
+    x.attr('fill', green);
     x.attr("stroke", "none");
     x.attr("font-size", "16px");
     x.attr("font-weight", "bold");
@@ -222,7 +224,7 @@ function displayMessage(message, tag) {
     // Sets the fill attribute of the rectangle to white
     rect.attr("fill", "#ffffff");
     // Sets the stroke attribute of the rectangle to green with width 8
-    rect.attr("stroke", "#507C5C");
+    rect.attr("stroke", green);
     rect.attr("stroke-width", "8");
     
     rect.dblclick(function(event) {
