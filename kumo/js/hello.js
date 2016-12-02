@@ -138,7 +138,7 @@ function getInbox() {
 
 //Create Raphael close button
 function createX() {
-    var paper = Raphael((7/8)*windowWidth,(5/6)*windowHeight,windowWidth/8,windowHeight/4);
+    var paper = Raphael(0.75*windowWidth,(5/6)*windowHeight,windowWidth/8,windowHeight/4);
     var x = paper.text(0, 10, "Close");
     x.attr('fill', green);
     x.attr("stroke", "none");
@@ -220,7 +220,7 @@ function displayMessage(message, tag) {
   });
         
     // Creates rectangle with rounded corners (10) at x = 50, y = 0
-    var rect = paper.rect(windowWidth/8,0, windowWidth/2, windowHeight/2, 10);
+    var rect = paper.rect(10,0, windowWidth/2, windowHeight/2, 10);
     // Sets the fill attribute of the rectangle to white
     rect.attr("fill", "#ffffff");
     // Sets the stroke attribute of the rectangle to green with width 8
