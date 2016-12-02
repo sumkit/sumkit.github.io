@@ -221,6 +221,9 @@ function displayMessage(message, tag) {
         from = this.value;
     }
   });
+    console.log(from);
+    console.log(subject);
+    console.log("BREAK");
         
     // Creates rectangle with rounded corners (10) at x = 50, y = 0
     var rect = paper.rect(10,0, windowWidth/2, windowHeight/2, 10);
