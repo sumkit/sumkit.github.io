@@ -136,7 +136,7 @@ function getInbox() {
 
 //Create Raphael close button
 function createX() {
-    var paper = Raphael((7/8)*windowWidth, windowHeight/3,windowWidth/8,windowHeight/8);
+    var paper = Raphael((7/8)*windowWidth, windowHeight/6,windowWidth/8,windowHeight/8);
     var x = paper.text(0,0, "x");
     x.attr('fill', 'red');
     x.attr("stroke", "#ffffff");
