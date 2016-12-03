@@ -16,6 +16,7 @@ var animDelay = 1;
 
 //envelopes currently on screen (store Raphael rectangle then text for each envelope)
 var envelopes = [];
+var envelopePaper; //Raphael canvas to show "envelopes" of received emails 
 
 $(document).ready(function() {
     drawClouds();
@@ -162,6 +163,7 @@ function createX() {
         }
         envelopes = []; //clear envelopes -> no envelopes on the screen
         x.remove(); //remove x from page after clearing all envelopes 
+        envelopePaper.clear();
     })
 }
 
@@ -232,7 +234,7 @@ function formatText(text, lineLength, raphText) {
  */
 function displayMessage(message, tag) {
   var headers = message.payload.headers;
-  var paper = Raphael(windowWidth/8, windowHeight/3, windowWidth, windowHeight/2);
+  envelopePaper = Raphael(windowWidth/8, windowHeight/3, windowWidth, windowHeight/2);
     
   var subject = "";
   var from = "";
