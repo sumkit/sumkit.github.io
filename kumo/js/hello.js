@@ -3,7 +3,7 @@
 var CLIENT_ID = '571876370007-1peoaj3v39c15glembj915jl4eaib8a2.apps.googleusercontent.com';
 var API_KEY = 'AIzaSyClrfIxWqPqslBjRtKrHi1U6zKJP7Uequk'
 var SCOPES = 'https://www.googleapis.com/auth/gmail.readonly '+
-    'https://www.googleapis.com/auth/gmail.send';
+    'https://www.googleapis.com/auth/gmail.send '+'https://www.googleapis.com/auth/gmail.modify';
 
 var green = "#507C5C";
 
