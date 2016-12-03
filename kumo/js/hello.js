@@ -233,7 +233,6 @@ function displayMessage(message, tag) {
     rect.attr("stroke-width", "8");
     
     rect.dblclick(function(event) {
-        console.log(event);
         var bodyText = "";
         if(message.payload.body.data != null) {
             bodyText = atob(message.payload.body.data);
@@ -247,10 +246,9 @@ function displayMessage(message, tag) {
                 ripple: 0
         });
         temp.setRipple().stairs(50, 'top', function() {
-            console.log(tag);
+            if(tag === "unread")
+                modifyMessage('me', unreadMsgs[unreadMsgs.length-1].id, [], ["UNREAD"]);
         });
-        if(tag === "unread")
-            modifyMessage('me', unreadMsgs[unreadMsgs.length-1].id, [], ["UNREAD"]);
     });
     var frontStr = "From: "+from+"\nSubject: "+subject;
     var t = envelopePaper.text(windowWidth,windowHeight/3, "");
@@ -359,8 +357,6 @@ function modifyMessage(userId, messageId, labelsToAdd, labelsToRemove) {
 
   //callback
   request.execute(function(response) {
-          console.log(labelsToRemove);
-      console.log(labelsToRemove.indexOf("UNREAD"));
       if(labelsToRemove.indexOf("UNREAD")>=0) {
           //labelsToRemove contains "UNREAD" -> remove read message from unread pile   
           if(envelopesShowing) {
