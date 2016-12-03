@@ -226,6 +226,7 @@ function displayMessage(message, tag) {
     rect.attr("stroke-width", "8");
     
     rect.dblclick(function(event) {
+        console.log(event);
         var bodyText = "";
         if(message.payload.body.data != null) {
             bodyText = atob(message.payload.body.data);
