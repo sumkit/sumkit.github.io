@@ -241,9 +241,9 @@ function displayMessage(message, tag) {
         });
         temp.setRipple().stairs(50, 'top', function() {
             console.log(tag);
-            if(tag === "unread")
-                modifyMessage('me', unreadMsgs[unreadMsgs.length-1].id, [], ["UNREAD"]);
         });
+        if(tag === "unread")
+            modifyMessage('me', unreadMsgs[unreadMsgs.length-1].id, [], ["UNREAD"]);
     });
     var frontStr = "From: "+from+"\nSubject: "+subject;
     var t = envelopePaper.text(windowWidth,windowHeight/3, "");
