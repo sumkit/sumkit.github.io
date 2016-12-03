@@ -357,7 +357,7 @@ function modifyMessage(userId, messageId, labelsToAdd, labelsToRemove) {
   request.execute(function(response) {
           console.log(labelsToRemove);
       console.log(labelsToRemove.indexOf("UNREAD"));
-      if(labelsToRemove.indexOf("UNREAD")>0) {
+      if(labelsToRemove.indexOf("UNREAD")>=0) {
           console.log(envelopesShowing);
           //labelsToRemove contains "UNREAD" -> remove read message from unread pile   
           if(envelopesShowing) {
