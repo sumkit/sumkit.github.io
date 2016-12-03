@@ -85,7 +85,8 @@ function loggedInDrawElements() {
     mailbox.hover(function() {
         mailbox.glow({color:'white'});
     }, function() {
-        mailbox.glow({width: 0, color:'white'});
+        console.log
+        mailbox.glow.remove();
     })
     
     var inbox = paper.image("media/inbox.png",0,0,windowWidth/5, windowWidth/5);
