@@ -25,7 +25,6 @@ $(document).ready(function() {
     var mailbox = paper.image("media/mailbox.png", 0,windowHeight/2, 
                               windowWidth/4, windowWidth/4);
     mailbox.click(function() {
-        console.log("here");
         gapi.client.load('gmail', 'v1', getUnread);
     });
     
@@ -38,12 +37,6 @@ $(document).ready(function() {
     var pencil = paper2.image("media/crayon.png",0,0,windowWidth/12,windowHeight/8);
     pencil.click(function() {
         $("#writeModal").modal('toggle');
-//        var temp = new OriDomi('#writeOridomi', {
-//                hPanels: 3,
-//                ripple: 0
-//        });
-//        temp.setRipple().stairs(50, 'bottom');
-//        document.getElementById("writeOridomi").style = "display: none";
     });
 });
 
@@ -179,7 +172,6 @@ function getUnread() {
   });
 
   request.execute(function(response) {
-      console.log(response);
       //null response.messages means no new messages
       if(response.messages != null) {
           $.each(response.messages.reverse(), function() {
@@ -210,13 +202,10 @@ function handleInbox(message) {
 function formatText(text, lineLength, raphText) {
     var newText = "";
     var words = text.split(" ");
-    console.log(lineLength);
     if(words.length > 1) {
-        console.log("if");
         //email addresses don't have spaces 
         for (var i=0; i<words.length; i++) {   
           raphText.attr("text", newText + " " + words[i]);
-          console.log(raphText.getBBox().width);
           if (raphText.getBBox().width > lineLength) {
             newText=newText+"\n" + words[i];
           } else {
@@ -224,6 +213,17 @@ function formatText(text, lineLength, raphText) {
           }
         }
     } 
+}
+
+function addressTransition() {
+    var oridomiPaper = new OriDomi('#writeOridomi', {
+        hPanels: 3,
+        ripple: 0
+    });
+    oridomiPaper.curl(-50, 'top', function() {
+        $("#writeModal").modal('toggle'); //close write modal (write email body)
+        $("#envelopeModal").modal('toggle'); //open envelope modal (address email envelope)
+    });
 }
 
 /** 
