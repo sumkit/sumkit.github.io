@@ -238,7 +238,9 @@ function displayMessage(message, tag) {
                 hPanels: 3,
                 ripple: 0
         });
-        temp.setRipple().stairs(50, 'top');
+        temp.setRipple().stairs(50, 'top', function() {
+            modifyMessage('me', unreadMsgs[unreadMsgs.length-1].id, [], ["UNREAD"]);
+        });
     });
     var frontStr = "From: "+from+"\nSubject: "+subject;
     var t = envelopePaper.text(windowWidth,windowHeight/3, "");
@@ -349,7 +351,16 @@ function modifyMessage(userId, messageId, labelsToAdd, labelsToRemove) {
       if(labelsToRemove.indexOf("UNREAD")>0) {
           //labelsToRemove contains "UNREAD" -> remove read message from unread pile   
           if(envelopesShowing) {
-              console.log(unreadMsgs[0].id)
+              for(var i=0;i<unreadMsgs.length;i++) {
+                  var ithID = unreadMsgs[i].id;
+                  if(ithID === messageId) {
+                      console.log("mark as read "+ithID);
+                      var topText = envelopePaper.getElementByPoint((windowWidth/8)+windowWidth, (2/3)*windowHeight);
+                      topText.remove();
+                      var topEnv = envelopePaper.getElementByPoint((windowWidth/8)+windowWidth, (2/3)*windowHeight);
+                      topEnv.remove();
+                  }
+              }
           }
       }
   });
