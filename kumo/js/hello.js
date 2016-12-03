@@ -106,32 +106,6 @@ function handleAuthResult(authResult) {
   }
 }
 
-//Get all emails in inbox (read and unread)
-function getInbox() {
-  inboxMsgs = [];
-  animDelay = 1;
-    
-  var request = gapi.client.gmail.users.messages.list({
-    'userId': 'me',
-    'labelIds': 'INBOX',
-    'maxResults': 20
-  });
-
-  request.execute(function(response) {
-      //check for empty inbox
-      if(response.messages != null) {
-          $.each(response.messages.reverse(), function() {
-              var messageRequest = gapi.client.gmail.users.messages.get({
-                'userId': 'me',
-                'id': this.id
-              });
-              messageRequest.execute(handleInbox);
-          });
-          createX();   
-      }
-  });
-}
-
 //Create Raphael close button
 function createX() {
     var paper = Raphael(windowWidth/2,(6/7)*windowHeight,windowWidth/8,windowHeight/4);
@@ -183,17 +157,45 @@ function getUnread() {
   request.execute(function(response) {
       //null response.messages means no new messages
       if(response.messages != null) {
+          envelopePaper = Raphael(windowWidth/8, windowHeight/3, windowWidth, windowHeight/2);
           $.each(response.messages.reverse(), function() {
               var messageRequest = gapi.client.gmail.users.messages.get({
                 'userId': 'me',
                 'id': this.id
               });
               messageRequest.execute(handleUnread);
-            });
-            createX();
+          });
+          createX();
       }
   });
 } 
+
+//Get all emails in inbox (read and unread)
+function getInbox() {
+  inboxMsgs = [];
+  animDelay = 1;
+    
+  var request = gapi.client.gmail.users.messages.list({
+    'userId': 'me',
+    'labelIds': 'INBOX',
+    'maxResults': 20
+  });
+
+  request.execute(function(response) {
+      //check for empty inbox
+      if(response.messages != null) {
+          envelopePaper = Raphael(windowWidth/8, windowHeight/3, windowWidth, windowHeight/2);
+          $.each(response.messages.reverse(), function() {
+              var messageRequest = gapi.client.gmail.users.messages.get({
+                'userId': 'me',
+                'id': this.id
+              });
+              messageRequest.execute(handleInbox);
+          });
+          createX();   
+      }
+  });
+}
 
 function handleUnread(message) {
     unreadMsgs.push(message);
@@ -243,8 +245,6 @@ function addressTransition() {
  */
 function displayMessage(message, tag) {
   var headers = message.payload.headers;
-  envelopePaper = Raphael(windowWidth/8, windowHeight/3, windowWidth, windowHeight/2);
-    
   var subject = "";
   var from = "";
   $.each(headers, function() {
