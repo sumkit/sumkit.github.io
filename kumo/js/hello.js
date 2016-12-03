@@ -328,8 +328,7 @@ function sendEmail() {
         
         //once finish sending email, empty input fields 
         request.execute(function(response) {
-            console.log($('#to'));
-            console.log($('#subject'));
+            console.log(document.getElementsByClassName("writeOridomiText")[0]);
             
             $('#to').val('');
             $('#subject').val('');
