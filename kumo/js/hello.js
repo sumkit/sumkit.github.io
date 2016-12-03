@@ -239,7 +239,8 @@ function displayMessage(message, tag) {
                 ripple: 0
         });
         temp.setRipple().stairs(50, 'top', function() {
-            modifyMessage('me', unreadMsgs[unreadMsgs.length-1].id, [], ["UNREAD"]);
+            if(tag === "unread")
+                modifyMessage('me', unreadMsgs[unreadMsgs.length-1].id, [], ["UNREAD"]);
         });
     });
     var frontStr = "From: "+from+"\nSubject: "+subject;
