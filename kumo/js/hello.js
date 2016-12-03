@@ -238,7 +238,8 @@ function displayMessage(message, tag) {
             bodyText = atob(message.payload.body.data);
         }
         var elemP = document.getElementById("emailOridomiText");
-        elemP.innerHTML = bodyText;
+//        elemP.innerHTML = bodyText;
+        elemP.innerHTML = getBody(message);
         
         $("#emailModal").modal('toggle');
         var temp = new OriDomi('#emailOridomi', {
@@ -287,6 +288,40 @@ function formatText(text, lineLength, raphText) {
     } 
 }
 
+function getBody(message) {
+    var encodedBody = '';
+    if(typeof message.parts === 'undefined')
+    {
+      encodedBody = message.body.data;
+    }
+    else
+    {
+      encodedBody = getHTMLPart(message.parts);
+    }
+    encodedBody = encodedBody.replace(/-/g, '+').replace(/_/g, '/').replace(/\s/g, '');
+    return decodeURIComponent(escape(window.atob(encodedBody)));
+}
+
+function getHTMLPart(arr) {
+    for(var x = 0; x <= arr.length; x++)
+    {
+      if(typeof arr[x].parts === 'undefined')
+      {
+        if(arr[x].mimeType === 'text/html')
+        {
+          return arr[x].body.data;
+        }
+      }
+      else
+      {
+        return getHTMLPart(arr[x].parts);
+      }
+    }
+    return '';
+}
+
+//Handle the UI aspects of transitioning between writing the email body 
+//and addressing the "envelope
 function addressTransition() {
     var oridomiPaper = new OriDomi('#writeOridomi', {
         hPanels: 3,
