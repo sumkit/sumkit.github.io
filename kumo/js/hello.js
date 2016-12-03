@@ -147,11 +147,8 @@ function createX() {
         envelopePaper.forEach(function(elem, index) {
             if(index%2 === 0)
                 index++;
-            var i = 
-            var anim = Raphael.animation({x: windowWidth}, 2000, "<", function() {
-                 env.remove(); //remove element after animating off of the screen
-            }).delay(100*(envelopes.length-i+1));
-            env.animate(anim);
+            var anim = Raphael.animation({x: windowWidth}, 2000, "<", function() {}).delay(100*index);
+            elem.animate(anim);
         });
 //        for(var i = envelopes.length-1; i >= 0; i-=2) {
 //            //last envelope is top of the pile
