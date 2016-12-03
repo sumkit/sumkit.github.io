@@ -144,16 +144,22 @@ function createX() {
     
     x.click(function() {
         //remove each envelope and address text
-        for(var i = envelopes.length-1; i >= 0; i-=2) {
-            //last envelope is top of the pile
-            var env = envelopes[i-1];
-            var text = envelopes[i];
+        envelopePaper.forEach(function(elem, index) {
             var anim = Raphael.animation({x: windowWidth}, 2000, "<", function() {
                  env.remove(); //remove element after animating off of the screen
             }).delay(100*(envelopes.length-i+1));
             env.animate(anim);
-            text.remove();
-        }
+        });
+//        for(var i = envelopes.length-1; i >= 0; i-=2) {
+//            //last envelope is top of the pile
+//            var env = envelopes[i-1];
+//            var text = envelopes[i];
+//            var anim = Raphael.animation({x: windowWidth}, 2000, "<", function() {
+//                 env.remove(); //remove element after animating off of the screen
+//            }).delay(100*(envelopes.length-i+1));
+//            env.animate(anim);
+//            text.remove();
+//        }
         envelopes = []; //clear envelopes -> no envelopes on the screen
         x.remove(); //remove x from page after clearing all envelopes 
         envelopePaper.clear();
