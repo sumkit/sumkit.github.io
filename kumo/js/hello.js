@@ -24,6 +24,7 @@ $(document).ready(function() {
     var mailbox = paper.image("media/mailbox.png", 0,windowHeight/2, 
                               windowWidth/4, windowWidth/4);
     mailbox.click(function() {
+        console.log("here");
         gapi.client.load('gmail', 'v1', getUnread);
     });
     
