@@ -268,7 +268,7 @@ function displayMessage(message, tag) {
     });
     envelopes.push(rect);
     var frontStr = "From: "+from+"\nSubject: "+subject;
-    var t = paper.text(windowWidth/4,windowHeight/4, "");
+    var t = paper.text(windowWidth/8,windowHeight/4, "");
     t.attr("fill", "#000");
     t.attr("stroke", "none");
     t.attr("font-size", (windowHeight/30)+"px");
