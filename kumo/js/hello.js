@@ -193,7 +193,6 @@ function getInbox() {
 }
 
 function handleUnread(message) {
-    console.log("here unread");
     unreadMsgs.push(message);
     displayMessage(message, "unread");
 }
@@ -353,7 +352,7 @@ function modifyMessage(userId, messageId, labelsToAdd, labelsToRemove) {
     'addLabelIds': labelsToAdd,
     'removeLabelIds': labelsToRemove
   });
-  console.log('here');
+    console.log(messageId);
 
   //callback
   request.execute(function(response) {
@@ -364,6 +363,7 @@ function modifyMessage(userId, messageId, labelsToAdd, labelsToRemove) {
               console.log(unreadMsgs.length);
               for(var i=0;i<unreadMsgs.length;i++) {
                   var ithID = unreadMsgs[i].id;
+                  console.log(ithID);
                   if(ithID === messageId) {
                       console.log("mark as read "+ithID);
                       var topText = envelopePaper.getElementByPoint((windowWidth/8)+windowWidth, (2/3)*windowHeight);
