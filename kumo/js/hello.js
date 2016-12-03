@@ -108,6 +108,12 @@ function handleAuthResult(authResult) {
   }
 }
 
+function removeEnvelopes() {        
+    //envelopePaper.clear();
+    envelopePaper.remove();
+    envelopesShowing=false;
+}
+
 //Create Raphael close button
 function createX() {
     var paper = Raphael(windowWidth/2,(6/7)*windowHeight,windowWidth/8,windowHeight/4);
@@ -128,10 +134,7 @@ function createX() {
             elem.animate(anim);
         });
         x.remove(); //remove x from page after clearing all envelopes 
-        
-//        envelopePaper.clear();
-        envelopePaper.remove();
-        envelopesShowing=false;
+        removeEnvelopes();
     });
 }
 
@@ -370,6 +373,10 @@ function modifyMessage(userId, messageId, labelsToAdd, labelsToRemove) {
                       topText.remove();
                       var topEnv = envelopePaper.getElementByPoint((windowWidth/8)+windowWidth, (2/3)*windowHeight);
                       topEnv.remove();
+                      unreadMsgs.splice(i,1); //remove message from list of unread messages
+                      if(unreadMsgs.length == 0) {
+                          removeEnvelopes();
+                      }
                       return; //only remove 1 envelope
                   }
               }
