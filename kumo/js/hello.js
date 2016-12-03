@@ -138,14 +138,14 @@ function createX() {
     
     x.click(function() {
         //remove each envelope and address text
-        var index = 1;
-        envelopePaper.forEach(function(elem) {
-            if(index%2 === 0)
-                index++;
-            var anim = Raphael.animation({x: windowWidth}, 2000, "<", function() {}).delay(100*index);
-            elem.animate(anim);
-            index++;
-        });
+//        var index = 1;
+//        envelopePaper.forEach(function(elem) {
+//            if(index%2 === 0)
+//                index++;
+//            var anim = Raphael.animation({x: windowWidth}, 2000, "<", function() {}).delay(100*index);
+//            elem.animate(anim);
+//            index++;
+//        });
         x.remove(); //remove x from page after clearing all envelopes 
         removeEnvelopes();
     });
