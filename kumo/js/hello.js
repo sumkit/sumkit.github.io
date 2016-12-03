@@ -82,12 +82,14 @@ function loggedInDrawElements() {
 //    mailbox.mouseout(function() {
 //       //unhighlight mailbox 
 //    });
+    var glow;
     mailbox.hover(function() {
         console.log("in");
-        mailbox.glow({opacity: 1, color:'white'});
+        glow = mailbox.glow({opacity: 1, color:'white'});
     }, function() {
         console.log("out");
-        mailbox.glow({color:'black'});
+//        mailbox.glow({color:'#8ac5ff'});
+        glow.remove();
     });
     
     var inbox = paper.image("media/inbox.png",0,0,windowWidth/5, windowWidth/5);
