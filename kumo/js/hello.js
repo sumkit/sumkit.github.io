@@ -328,9 +328,12 @@ function sendEmail() {
         
         //empty input fields 
         request.execute(function(response) {
-            $('.writeOridomiText').val('');
-            $('#subject').val('');
-            $('#to').val('');
+//            $('.writeOridomiText').val('');
+//            $('#subject').val('');
+//            $('#to').val('');
+           
+            console.log(response);
+            console.log(response.error);
         });
     }
 }
