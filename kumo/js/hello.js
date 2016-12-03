@@ -144,7 +144,9 @@ function createX() {
     
     x.click(function() {
         //remove each envelope and address text
-        envelopePaper.forEach(function(elem, index) {
+        envelopePaper.forEach(function(elem) {
+            var index = 1;
+            console.log(elem);
             if(index%2 === 0)
                 index++;
             var anim = Raphael.animation({x: windowWidth}, 2000, "<", function() {}).delay(100*index);
@@ -164,7 +166,7 @@ function createX() {
         x.remove(); //remove x from page after clearing all envelopes 
         envelopePaper.clear();
         envelopePaper.remove();
-    })
+    });
 }
 
 //fetch only unread emails from user's inbox
