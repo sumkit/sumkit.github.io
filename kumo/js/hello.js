@@ -301,7 +301,8 @@ function displayMessage(message, tag) {
  */
 function sendEmail() {
     var textDiv = document.getElementsByClassName("writeOridomiText")[0].value;
-    var addresses = document.getElementById("to").value;
+//    var addresses = document.getElementById("to").value;
+    var addresses = document.getElementById("address").value;
     var subject = document.getElementById("subject").value;
     addresses = addresses.replace(/\s/g,'').split(',');
     for(var i=0; i < addresses.length; i++) {
