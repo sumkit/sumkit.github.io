@@ -328,7 +328,7 @@ function sendEmail() {
         
         //empty input fields 
         request.execute(function(response) {
-            $('.writeOridomiText')[0].val('');
+            $('.writeOridomiText').val('');
             $('#subject').val('');
             $('#to').val('');
         });
