@@ -232,10 +232,10 @@ function addressTransition() {
         hPanels: 3,
         ripple: 0
     });
-    oridomiPaper.reveal(10,'top', function() {
+    oridomiPaper.reveal(10, function() {
         $("#writeModal").modal('toggle'); //close write modal (write email body)
         $("#envelopeModal").modal('toggle'); //open envelope modal (address email envelope)
-    });
+    }).wait(200).fracture(-30);
 }
 
 /** 
