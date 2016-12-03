@@ -190,6 +190,7 @@ function getInbox() {
 }
 
 function handleUnread(message) {
+    console.log("here unread");
     unreadMsgs.push(message);
     displayMessage(message, "unread");
 }
