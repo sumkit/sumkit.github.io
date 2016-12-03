@@ -93,6 +93,10 @@ function checkAuth() {
     }, handleAuthResult);
 }
 
+function handleAuthClick(event) {
+  gapi.auth2.getAuthInstance().signIn();
+}
+
 /**
  * Handle response from authorization server.
  *
