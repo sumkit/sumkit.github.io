@@ -121,7 +121,7 @@ function handleAuthResult(authResult) {
 }
 
 function removeEnvelopes() {        
-    //envelopePaper.clear();
+    envelopePaper.clear();
     envelopePaper.remove();
     envelopesShowing=false;
 }
@@ -166,7 +166,7 @@ function getUnread() {
   request.execute(function(response) {
       //null response.messages means no new messages
       if(response.messages != null) {
-          envelopePaper = Raphael(windowWidth/8, windowHeight/3, windowWidth, windowHeight/2);
+          envelopePaper = Raphael(windowWidth/8, windowHeight/3, 0.625*windowWidth, windowHeight/2);
           envelopesShowing=true;
           $.each(response.messages.reverse(), function() {
               var messageRequest = gapi.client.gmail.users.messages.get({
@@ -194,7 +194,7 @@ function getInbox() {
   request.execute(function(response) {
       //check for empty inbox
       if(response.messages != null) {
-          envelopePaper = Raphael(windowWidth/8, windowHeight/3, windowWidth, windowHeight/2);
+          envelopePaper = Raphael(windowWidth/8, windowHeight/3, 0.625*windowWidth, windowHeight/2);
           envelopesShowing=true;
           $.each(response.messages.reverse(), function() {
               var messageRequest = gapi.client.gmail.users.messages.get({
