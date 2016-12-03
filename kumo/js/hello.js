@@ -373,7 +373,7 @@ function sendEmail() {
         
         // Using the js-base64 library for encoding: https://www.npmjs.com/package/js-base64
         var base64EncodedEmail = btoa(email);
-        console.log(gapi.client.gmail);
+        console.log(gapi.client);
         var request = gapi.client.gmail.users.messages.send({
           'userId': 'me',
           'resource': {
