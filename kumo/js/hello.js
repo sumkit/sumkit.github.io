@@ -72,6 +72,7 @@ function loggedInDrawElements() {
     var mailbox = paper.image("media/mailbox.png", 0,windowHeight/2, 
                               windowWidth/4, windowWidth/4);
     mailbox.click(function() {
+        console.log("mailbox clicked");
         gapi.client.load('gmail', 'v1', getUnread);
     });
     
