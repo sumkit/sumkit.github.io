@@ -244,7 +244,7 @@ function displayMessage(message, tag) {
         }
         var elemP = document.getElementById("emailOridomiText");
 //        elemP.innerHTML = bodyText;
-        elemP.innerHTML = getBody(message);
+        elemP.innerHTML = getBody(message.payload);
         
         $("#emailModal").modal('toggle');
         var temp = new OriDomi('#emailOridomi', {
