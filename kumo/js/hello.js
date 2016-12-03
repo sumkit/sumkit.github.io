@@ -352,14 +352,17 @@ function modifyMessage(userId, messageId, labelsToAdd, labelsToRemove) {
       if(labelsToRemove.indexOf("UNREAD")>0) {
           //labelsToRemove contains "UNREAD" -> remove read message from unread pile   
           if(envelopesShowing) {
+              console.log(unreadMsgs.length);
               for(var i=0;i<unreadMsgs.length;i++) {
                   var ithID = unreadMsgs[i].id;
                   if(ithID === messageId) {
                       console.log("mark as read "+ithID);
                       var topText = envelopePaper.getElementByPoint((windowWidth/8)+windowWidth, (2/3)*windowHeight);
+                      console.log(topText);
                       topText.remove();
                       var topEnv = envelopePaper.getElementByPoint((windowWidth/8)+windowWidth, (2/3)*windowHeight);
                       topEnv.remove();
+                      return; //only remove 1 envelope
                   }
               }
           }
