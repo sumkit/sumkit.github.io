@@ -157,6 +157,7 @@ function createX() {
         envelopes = []; //clear envelopes -> no envelopes on the screen
         x.remove(); //remove x from page after clearing all envelopes 
         envelopePaper.clear();
+        envelopePaper.remove();
     })
 }
 
