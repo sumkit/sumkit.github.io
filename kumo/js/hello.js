@@ -109,7 +109,6 @@ function handleAuthClick() {
  * @param {Object} authResult Authorization result.
  */
 function handleAuthResult(authResult) {
-    console.log(authResult);
   var authorizeDiv = document.getElementById('authorize-div');
   if (authResult && !authResult.error) {
     // Hide auth UI, then load client library.
