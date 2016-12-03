@@ -98,14 +98,12 @@ function handleClientLoad() {
 //};
 
 function initClient() {
-    console.log("init client");
     gapi.client.init({
         apiKey: API_KEY,
         discoveryDocs: SCOPES,
         clientId: CLIENT_ID,
         scope: 'profile'
     }).then(function () {
-        console.log("here");
       // Listen for sign-in state changes.
       gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
 
@@ -136,8 +134,6 @@ function handleSignoutClick() {
  */
 function handleAuthResult(authResult) {
   var authorizeDiv = document.getElementById('authorize-div');
-   console.log(authResult);
-    console.log(authResult.error);
   if (authResult && !authResult.error) {
     // Hide auth UI, then load client library.
     authorizeDiv.style.display = 'none';
@@ -377,6 +373,7 @@ function sendEmail() {
         
         // Using the js-base64 library for encoding: https://www.npmjs.com/package/js-base64
         var base64EncodedEmail = btoa(email);
+        console.log(gapi.client.gmail);
         var request = gapi.client.gmail.users.messages.send({
           'userId': 'me',
           'resource': {
