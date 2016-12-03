@@ -33,8 +33,31 @@
         </div>  
         <div class="modal-body">
             <div id="writeOridomi">
-                <img src="media/papers.png" alt="" style="width:75%; height:100%;">
+                <img src="media/papers.png" alt="" style="width:75%; height:75%;">
                 <textarea class="writeOridomiText" style="width:66%; height:75%; left: 5%; top: 5%; position: absolute;"></textarea>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#envelopeModal">Address</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+  <!-- Envelope Modal -->
+  <div class="modal fade" id="envelopeModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>  
+        <div class="modal-body">
+            <div id="envelopeOridomi">
+                <img src="media/envelope_front.png" alt="" style="width:75%; height:75%;">
+                <p style="width:66%; height:75%; left: 5%; top: 5%; position: absolute;">To: \nFrom: </p>
+                <input type="text" id="to">
+                <input type="text" id="subject">
             </div>
         </div>
         <div class="modal-footer">
