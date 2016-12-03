@@ -331,3 +331,4 @@ function sendEmail() {
             $('#to').val('');
         });
     }
+}
