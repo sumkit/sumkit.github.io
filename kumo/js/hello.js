@@ -118,9 +118,7 @@ function createX() {
     
     x.click(function() {
         //remove each envelope and address text
-        envelopePaper.forEach(function(elem) {
-            var index = 1;
-            console.log(elem);
+        envelopePaper.forEach(function(elem, index) {
             if(index%2 === 0)
                 index++;
             var anim = Raphael.animation({x: windowWidth}, 2000, "<", function() {}).delay(100*index);
