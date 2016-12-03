@@ -291,8 +291,8 @@ function displayMessage(message, tag) {
 function sendEmail() {
 //    var textDiv = document.getElementById("text");
     var textDiv = document.getElementsByClassName("writeOridomiText")[0].value;
-    var addresses = textDiv.getElementById("to").value;
-    var subject = textDiv.getElementById("subject").value;
+    var addresses = document.getElementById("to").value;
+    var subject = document.getElementById("subject").value;
     addresses = addresses.replace(/\s/g,'').split(',');
     for(var i=0; i < addresses.length; i++) {
         var email = ''; //email RFC 5322 formatted String
