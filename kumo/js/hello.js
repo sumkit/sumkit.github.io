@@ -75,10 +75,18 @@ function loggedInDrawElements() {
     mailbox.click(function() {
         gapi.client.load('gmail', 'v1', getUnread);
     });
-    mailbox.mouseover(function() {
-       //highlight mailbox
-        mailbox.glow({});
-    });
+//    mailbox.mouseover(function() {
+//       //highlight mailbox
+//        mailbox.glow({});
+//    });
+//    mailbox.mouseout(function() {
+//       //unhighlight mailbox 
+//    });
+    mailbox.hover(function() {
+        mailbox.glow({color:'white'});
+    }, function() {
+        mailbox.glow({width: 0, color:'white'});
+    })
     
     var inbox = paper.image("media/inbox.png",0,0,windowWidth/5, windowWidth/5);
     inbox.click(function() {
