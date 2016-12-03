@@ -227,7 +227,7 @@ function displayMessage(message, tag) {
   });
         
     // Creates rectangle with rounded corners (10) at x = 50, y = 0
-    var rect = envelopePaper.rect(10,0, windowWidth/2, windowHeight/2, 10);
+    var rect = envelopePaper.rect(windowWidth,0, windowWidth/2, windowHeight/2, 10);
     // Sets the fill attribute of the rectangle to white
     rect.attr("fill", "#ffffff");
     // Sets the stroke attribute of the rectangle to green with width 8
@@ -261,7 +261,7 @@ function displayMessage(message, tag) {
     envelopes.push(t);
     formatText(frontStr, (windowHeight/2)-5, t);
     
-    var anim1 = Raphael.animation({x: 0}, 2000, "backOut", function() {
+    var anim1 = Raphael.animation({x: 10}, 2000, "backOut", function() {
         console.log("animation")
     }).delay(200*animDelay);
     var anim2 = Raphael.animation({x: windowWidth/6}, 2000, "backOut",function() {});
