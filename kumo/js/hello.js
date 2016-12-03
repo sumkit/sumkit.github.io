@@ -261,7 +261,7 @@ function displayMessage(message, tag) {
     envelopes.push(t);
     formatText(frontStr, (windowHeight/2)-5, t);
     
-    var anim1 = Raphael.animation({x: 10}, 2000, "backOut", function() {
+    var anim1 = Raphael.animation({x: 0}, 2000, "backOut", function() {
         console.log("animation")
     }).delay(200*animDelay);
     var anim2 = Raphael.animation({x: windowWidth/6}, 2000, "backOut",function() {});
