@@ -301,21 +301,19 @@ function displayMessage(message, tag) {
  */
 function sendEmail() {
     var textDiv = document.getElementsByClassName("writeOridomiText")[0].value;
-//    var addresses = document.getElementById("to").value;
-    var addresses = document.getElementById("address").value;
-    var subject = document.getElementById("subject").value;
+    var addresses = $('#to').val();
     addresses = addresses.replace(/\s/g,'').split(',');
+    var subject = $('#subject').val();
+    
     for(var i=0; i < addresses.length; i++) {
         var email = ''; //email RFC 5322 formatted String
-        var headers = {'To': addresses[i],
-            'Subject': subject};
-        
+        var headers = {'To': addresses[i], 'Subject': subject};
         for(var header in headers) {
             email += header;
             email += ": "+headers[header]+"\r\n";
         }
         email += "\r\n";
-        email += $('#body').val();
+        email += $('.writeOridomiText').val();
         email += "\r\n\r\nSent from kumo. Try it at www.summerkitahara.com/kumo/hello"
         
         // Using the js-base64 library for encoding: https://www.npmjs.com/package/js-base64
@@ -327,14 +325,11 @@ function sendEmail() {
           }
         });
         
-        //empty input fields 
+        //once finish sending email, empty input fields 
         request.execute(function(response) {
-            $('#body').val('');
+            $("#envelopeModal").modal('toggle');
+            $('#to').val('');
             $('#subject').val('');
-            $('#address').val('');
-           
-            console.log(response);
-            console.log(response.error);
         });
     }
 }
