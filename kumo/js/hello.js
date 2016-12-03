@@ -14,6 +14,7 @@ var unreadMsgs = []; //array of message objects that are unread (max 20)
 var inboxMsgs = []; //array of message objects from inbox (max 20)
 var animDelay = 1;
 var envelopePaper; //Raphael canvas to show "envelopes" of received emails 
+var x; //close button to remove envelopes from screen
 var envelopesShowing=false;
 
 $(document).ready(function() {
@@ -117,7 +118,7 @@ function removeEnvelopes() {
 //Create Raphael close button
 function createX() {
     var paper = Raphael(windowWidth/2,(6/7)*windowHeight,windowWidth/8,windowHeight/4);
-    var x = paper.text(0, 10, "Close");
+    x = paper.text(0, 10, "Close");
     x.attr('fill', green);
     x.attr("stroke", "none");
     x.attr("font-size", (windowHeight/30)+"px");
@@ -365,6 +366,7 @@ function modifyMessage(userId, messageId, labelsToAdd, labelsToRemove) {
           if(envelopesShowing) {
               //redraw unread messages
               envelopePaper.remove();
+              x.remove();
               gapi.client.load('gmail', 'v1', getUnread);
           }
       }
