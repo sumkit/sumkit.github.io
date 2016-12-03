@@ -84,7 +84,7 @@ function loggedInDrawElements() {
 //    });
     var glow;
     mailbox.hover(function() {
-        glow = mailbox.glow({opacity: 2, color:'white'});
+        glow = mailbox.glow({opacity: 10, color:'white'});
     }, function() {
         glow.remove();
     });
