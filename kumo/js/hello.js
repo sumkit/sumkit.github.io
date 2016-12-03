@@ -176,6 +176,7 @@ function getUnread() {
   });
 
   request.execute(function(response) {
+      console.log(response);
       //null response.messages means no new messages
       if(response.messages != null) {
           $.each(response.messages.reverse(), function() {
