@@ -82,17 +82,6 @@ function checkAuth() {
     }, handleAuthResult);
 }
 
-//function initClient() {
-//  gapi.client.init({
-//    'apiKey': API_KEY,
-//    'discoveryDocs': SCOPES,
-//    'clientId':CLIENT_ID,
-//    'scope':'profile'
-//  }).then(function() {
-//    window.setTimeout(checkAuth, 1);
-//  });
-//};
-
 //Initiate auth flow in response to user clicking authorize button
 function handleAuthClick() {
     gapi.auth.authorize({
@@ -113,7 +102,7 @@ function handleAuthResult(authResult) {
   if (authResult && !authResult.error) {
     // Hide auth UI, then load client library.
     authorizeDiv.style.display = 'none';
-    gapi.client.load('gmail', 'v1', getUnread);
+//    gapi.client.load('gmail', 'v1', getUnread);
   } else {
     // Show auth UI, allowing the user to initiate authorization by
     // clicking authorize button.
@@ -327,12 +316,14 @@ function sendEmail() {
         });
         
         //once finish sending email, empty input fields 
-        request.execute(function(response) {
-            console.log(document.getElementsByClassName("writeOridomiText")[0]);
-            
+        request.execute(function(response) {            
             $('#to').val('');
             $('#subject').val('');
             $(".writeOridomiText").val('');
         });
     }
+}
+
+function handleLogoutClick() {
+    gapi.auth.signOut();
 }
