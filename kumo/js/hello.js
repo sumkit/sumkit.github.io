@@ -121,7 +121,7 @@ function handleAuthResult(authResult) {
 }
 
 function removeEnvelopes() {        
-    envelopePaper.clear();
+//    envelopePaper.clear();
     envelopePaper.remove();
     envelopesShowing=false;
 }
