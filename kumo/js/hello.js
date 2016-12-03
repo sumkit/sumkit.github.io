@@ -233,8 +233,10 @@ function addressTransition() {
         ripple: 0
     });
     oridomiPaper.foldUp('top', function() {
-        $("#writeModal").modal('toggle'); //close write modal (write email body)
-        $("#envelopeModal").modal('toggle'); //open envelope modal (address email envelope)
+        window.setTimeout(function(){
+            $("#writeModal").modal('toggle'); //close write modal (write email body)
+            $("#envelopeModal").modal('toggle'); //open envelope modal (address email envelope)   
+        },500);
     });
 }
 
