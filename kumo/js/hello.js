@@ -105,7 +105,7 @@ function handleAuthResult(authResult) {
   } else {
     // Show auth UI, allowing the user to initiate authorization by
     // clicking authorize button.
-    authorizeDiv.style.display = 'inline';
+    authorizeDiv.style.display = 'block';
   }
 }
 
