@@ -102,7 +102,7 @@ function handleAuthResult(authResult) {
   if (authResult && !authResult.error) {
     // Hide auth UI, then load client library.
     authorizeDiv.style.display = 'none';
-//    gapi.client.load('gmail', 'v1', getUnread);
+    gapi.client.load('gmail', 'v1', getUnread);
   } else {
     // Show auth UI, allowing the user to initiate authorization by
     // clicking authorize button.
@@ -294,7 +294,7 @@ function sendEmail() {
     console.log(addresses);
     var subject = $('#subject').val();
     console.log(subject);
-    
+        
     for(var i=0; i < addresses.length; i++) {
         var email = ''; //email RFC 5322 formatted String
         var headers = {'To': addresses[i], 'Subject': subject};
