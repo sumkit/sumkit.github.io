@@ -113,6 +113,7 @@ function initClient() {
   }
 
   function updateSigninStatus(isSignedIn) {
+      console.log(isSignedIn);
     if (isSignedIn) {
       makeApiCall();
     }
