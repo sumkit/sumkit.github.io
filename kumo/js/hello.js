@@ -350,7 +350,7 @@ function modifyMessage(userId, messageId, labelsToAdd, labelsToRemove) {
       if(labelsToRemove.indexOf("UNREAD")>0) {
           //labelsToRemove contains "UNREAD" -> remove read message from unread pile   
           if(envelopesShowing) {
-              
+              console.log(unreadMsgs[0].id)
           }
       }
   });
