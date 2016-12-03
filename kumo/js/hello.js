@@ -20,24 +20,6 @@ var envelopePaper; //Raphael canvas to show "envelopes" of received emails
 
 $(document).ready(function() {
     drawClouds();
-
-    var paper = Raphael((3/4)*windowWidth, 0, windowWidth, windowHeight);
-    var mailbox = paper.image("media/mailbox.png", 0,windowHeight/2, 
-                              windowWidth/4, windowWidth/4);
-    mailbox.click(function() {
-        gapi.client.load('gmail', 'v1', getUnread);
-    });
-    
-    var inbox = paper.image("media/inbox.png",0,0,windowWidth/5, windowWidth/5);
-    inbox.click(function() {
-        gapi.client.load('gmail', 'v1', getInbox);
-    });
-    
-    var paper2 = Raphael(0,windowWidth/4,windowWidth/11,windowHeight/7)
-    var pencil = paper2.image("media/crayon.png",0,0,windowWidth/12,windowHeight/8);
-    pencil.click(function() {
-        $("#writeModal").modal('toggle');
-    });
 });
 
 //draw clouds made up of white circles on top of page
@@ -87,6 +69,26 @@ function handleAuthClick() {
     return false;
 }
 
+function loggedInDrawElements() {
+    var paper = Raphael((3/4)*windowWidth, 0, windowWidth, windowHeight);
+    var mailbox = paper.image("media/mailbox.png", 0,windowHeight/2, 
+                              windowWidth/4, windowWidth/4);
+    mailbox.click(function() {
+        gapi.client.load('gmail', 'v1', getUnread);
+    });
+    
+    var inbox = paper.image("media/inbox.png",0,0,windowWidth/5, windowWidth/5);
+    inbox.click(function() {
+        gapi.client.load('gmail', 'v1', getInbox);
+    });
+    
+    var paper2 = Raphael(0,windowWidth/4,windowWidth/11,windowHeight/7)
+    var pencil = paper2.image("media/crayon.png",0,0,windowWidth/12,windowHeight/8);
+    pencil.click(function() {
+        $("#writeModal").modal('toggle');
+    });
+}
+
 /**
  * Handle response from authorization server.
  *
@@ -98,6 +100,7 @@ function handleAuthResult(authResult) {
     // Hide auth UI, then load client library.
     authorizeDiv.style.display = 'none';
     document.getElementById("logoutBtn").style.display='inline'; //show logout button
+    loggedInDrawElements();
     gapi.client.load('gmail', 'v1', getUnread);
   } else {
     // Show auth UI, allowing the user to initiate authorization by
@@ -332,8 +335,4 @@ function sendEmail() {
             $(".writeOridomiText").val('');
         });
     }
-}
-
-function handleLogoutClick() {
-    gapi.auth.signOut();
 }
