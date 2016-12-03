@@ -83,10 +83,9 @@ function loggedInDrawElements() {
 //       //unhighlight mailbox 
 //    });
     mailbox.hover(function() {
-        console.log(this);
-        this.glow = this.glow({opacity: 1, color:'white'});
+        mailbox.glow({opacity: 1, color:'white'});
     }, function() {
-        this.glow.remove();
+        mailbox.glow({width: 0, opacity: 0});
     })
     
     var inbox = paper.image("media/inbox.png",0,0,windowWidth/5, windowWidth/5);
