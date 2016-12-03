@@ -289,9 +289,10 @@ function displayMessage(message, tag) {
  * Send Email from authorized user to inputted address(es).
  */
 function sendEmail() {
-    var textDiv = document.getElementById("text");
-    var addresses = textDiv.getElementsByClassName("addresses")[0].value;
-    var subject = textDiv.getElementsByClassName("subject")[0].value;
+//    var textDiv = document.getElementById("text");
+    var textDiv = document.getElementsByClassName("writeOridomiText")[0].value;
+    var addresses = textDiv.getElementById("to").value;
+    var subject = textDiv.getElementById("subject").value;
     addresses = addresses.replace(/\s/g,'').split(',');
     for(var i=0; i < addresses.length; i++) {
         var email = ''; //email RFC 5322 formatted String
