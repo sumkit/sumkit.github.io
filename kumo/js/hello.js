@@ -318,9 +318,9 @@ function sendEmail() {
         
         //empty input fields 
         request.execute(function(response) {
-            $('#address').val('');
+            $('.writeOridomiText')[0].val('');
             $('#subject').val('');
-            $('#body').val('');
+            $('#to').val('');
         });
     }
 }
