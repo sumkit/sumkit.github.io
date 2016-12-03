@@ -41,7 +41,7 @@ $(document).ready(function() {
 //                ripple: 0
 //        });
 //        temp.setRipple().stairs(50, 'bottom');
-        document.getElementById("writeOridomi").style = "display: none";
+//        document.getElementById("writeOridomi").style = "display: none";
     });
 });
 
