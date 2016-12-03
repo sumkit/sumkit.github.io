@@ -2,8 +2,8 @@
 // Developer Console, https://console.developers.google.com
 var CLIENT_ID = '571876370007-1peoaj3v39c15glembj915jl4eaib8a2.apps.googleusercontent.com';
 var API_KEY = 'AIzaSyClrfIxWqPqslBjRtKrHi1U6zKJP7Uequk'
-var SCOPES = ['https://www.googleapis.com/auth/gmail.send', 
-              'https://www.googleapis.com/auth/gmail.readonly'];
+var SCOPES = 'https://www.googleapis.com/auth/gmail.readonly '+
+    'https://www.googleapis.com/auth/gmail.send';
 
 var green = "#507C5C";
 
@@ -65,6 +65,11 @@ function drawClouds() {
     }
 }
 
+function handleClientLoad() {
+  gapi.client.setApiKey(API_KEY);
+  window.setTimeout(checkAuth, 1);
+}
+
 /**
  * Check if current user has authorized this application.
  */
@@ -72,18 +77,9 @@ function checkAuth() {
   gapi.auth.authorize(
     {
       'client_id': CLIENT_ID,
-      'scope': SCOPES.join(' '),
-      'immediate': false
+      'scope': SCOPES,
+      'immediate': true
     }, handleAuthResult);
-}
-
-//function handleClientLoad() {
-//  gapi.client.setApiKey(API_KEY);
-//  window.setTimeout(initClient, 1);
-//}
-function handleClientLoad() {
-    // Load the API client and auth2 library
-    gapi.load('client:auth2', initClient);
 }
 
 //function initClient() {
@@ -97,31 +93,13 @@ function handleClientLoad() {
 //  });
 //};
 
-function initClient() {
-    gapi.client.init({
-        apiKey: API_KEY,
-        discoveryDocs: SCOPES,
-        clientId: CLIENT_ID,
-        scope: 'profile'
-    }).then(function () {
-      // Listen for sign-in state changes.
-      gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
-
-      // Handle the initial sign-in state.
-      updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-    });
-  }
-
-
-/**
-    * Initiate auth flow in response to user clicking authorize button.
-    *
-    * @param {Event} event Button click event.
-    */
-function handleAuthClick(event) {
-    gapi.auth.authorize(
-      {client_id: CLIENT_ID, scope: SCOPES, immediate: false},
-      handleAuthResult);
+//Initiate auth flow in response to user clicking authorize button
+function handleAuthClick() {
+    gapi.auth.authorize({
+        client_id: CLIENT_ID,
+        scope: SCOPES,
+        immediate: false
+    }, handleAuthResult);
     return false;
 }
 
