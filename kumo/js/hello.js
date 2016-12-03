@@ -356,11 +356,11 @@ function modifyMessage(userId, messageId, labelsToAdd, labelsToRemove) {
   //callback
   request.execute(function(response) {
           console.log(labelsToRemove);
+      console.log(labelsToRemove.indexOf("UNREAD"));
       if(labelsToRemove.indexOf("UNREAD")>0) {
           console.log(envelopesShowing);
           //labelsToRemove contains "UNREAD" -> remove read message from unread pile   
           if(envelopesShowing) {
-              console.log(unreadMsgs.length);
               for(var i=0;i<unreadMsgs.length;i++) {
                   var ithID = unreadMsgs[i].id;
                   console.log(ithID);
