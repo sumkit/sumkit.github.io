@@ -239,6 +239,7 @@ function displayMessage(message, tag) {
                 ripple: 0
         });
         temp.setRipple().stairs(50, 'top', function() {
+            console.log(tag);
             if(tag === "unread")
                 modifyMessage('me', unreadMsgs[unreadMsgs.length-1].id, [], ["UNREAD"]);
         });
