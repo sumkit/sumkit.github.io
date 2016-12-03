@@ -140,7 +140,6 @@ function createX() {
         //remove each envelope and address text
         var index = 1;
         envelopePaper.forEach(function(elem) {
-            console.log(elem);
             if(index%2 === 0)
                 index++;
             var anim = Raphael.animation({x: windowWidth}, 2000, "<", function() {}).delay(100*index);
