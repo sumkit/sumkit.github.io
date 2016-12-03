@@ -331,6 +331,7 @@ function sendEmail() {
             
             $('#to').val('');
             $('#subject').val('');
+            document.getElementsByClassName("writeOridomiText")[0].innerHTML = "";
         });
     }
 }
