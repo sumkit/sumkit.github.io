@@ -363,8 +363,9 @@ function modifyMessage(userId, messageId, labelsToAdd, labelsToRemove) {
       if(labelsToRemove.indexOf("UNREAD")>=0) {
           //labelsToRemove contains "UNREAD" -> remove read message from unread pile   
           if(envelopesShowing) {
+              //redraw unread messages
+              envelopePaper.remove();
               gapi.client.load('gmail', 'v1', getUnread);
-              
           }
       }
   });
