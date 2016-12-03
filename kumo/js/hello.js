@@ -141,6 +141,8 @@ function createX() {
         envelopePaper.forEach(function(elem) {
             if(elem != null) {
                 console.log(elem);
+                var anim = Raphael.animation({x: windowWidth}, 2000, "<", function() {}).delay(200);
+                elem.animate(anim);
                 return true;
             } else {
                 return false;
@@ -149,10 +151,6 @@ function createX() {
         x.remove(); //remove x from page after clearing all envelopes 
         removeEnvelopes();
     });
-}
-function animateEnvelope(elem) {
-    var anim = Raphael.animation({x: windowWidth}, 2000, "<", function() {}).delay(200);
-    elem.animate(anim);
 }
 
 //fetch only unread emails from user's inbox
