@@ -102,6 +102,7 @@ function handleAuthResult(authResult) {
   if (authResult && !authResult.error) {
     // Hide auth UI, then load client library.
     authorizeDiv.style.display = 'none';
+    document.getElementById("logoutBtn").style="display: inline"; //show logout button
     gapi.client.load('gmail', 'v1', getUnread);
   } else {
     // Show auth UI, allowing the user to initiate authorization by
