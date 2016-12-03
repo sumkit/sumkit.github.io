@@ -8,7 +8,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     
 	<script type="text/javascript" src="js/hello.js"></script>
-    <script src="https://apis.google.com/js/client.js?onload=start"></script>
+<!--    <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>-->
+    
+    <script async defer src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){};handleClientLoad()"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
 	
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
@@ -17,7 +22,7 @@
   <div id="authorize-div" style="display: none; top: 75%; left: 25%; position: absolute;">
     <span>Authorize access to Gmail API</span>
     <!--Button for the user to click to initiate auth sequence -->
-    <button type="button" class="btn btn-default" id="authorize-button" onclick="handleAuthClick(event)">
+    <button type="button" class="btn btn-default" id="authorize-button" onclick="handleAuthClick()">
         Authorize Your Account
     </button>
   </div>

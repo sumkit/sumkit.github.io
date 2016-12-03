@@ -65,22 +65,6 @@ function drawClouds() {
     }
 }
 
-function start() {
-  gapi.client.init({
-    'apiKey': API_KEY,
-    'discoveryDocs': SCOPES,
-    'clientId':CLIENT_ID,
-    'scope':'profile'
-  }).then(function() {
-    window.setTimeout(checkAuth, 1);
-  });
-};
-
-function handleClientLoad() {
-  gapi.client.setApiKey(API_KEY);
-  window.setTimeout(checkAuth, 1);
-}
-
 /**
  * Check if current user has authorized this application.
  */
@@ -93,8 +77,53 @@ function checkAuth() {
     }, handleAuthResult);
 }
 
-function handleAuthClick(event) {
+//function handleClientLoad() {
+//  gapi.client.setApiKey(API_KEY);
+//  window.setTimeout(initClient, 1);
+//}
+function handleClientLoad() {
+    // Load the API client and auth2 library
+    gapi.load('client:auth2', initClient);
+}
+
+//function initClient() {
+//  gapi.client.init({
+//    'apiKey': API_KEY,
+//    'discoveryDocs': SCOPES,
+//    'clientId':CLIENT_ID,
+//    'scope':'profile'
+//  }).then(function() {
+//    window.setTimeout(checkAuth, 1);
+//  });
+//};
+
+function initClient() {
+    gapi.client.init({
+        apiKey: API_KEY,
+        discoveryDocs: SCOPES,
+        clientId: CLIENT_ID,
+        scope: 'profile'
+    }).then(function () {
+      // Listen for sign-in state changes.
+      gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+
+      // Handle the initial sign-in state.
+      updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+    });
+  }
+
+  function updateSigninStatus(isSignedIn) {
+    if (isSignedIn) {
+      makeApiCall();
+    }
+  }
+
+
+function handleAuthClick() {
   gapi.auth2.getAuthInstance().signIn();
+}
+function handleSignoutClick() {
+  gapi.auth2.getAuthInstance().signOut();
 }
 
 /**
