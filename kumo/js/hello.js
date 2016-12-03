@@ -120,12 +120,13 @@ function createX() {
     
     x.click(function() {
         //remove each envelope and address text
-//        envelopePaper.forEach(function(elem, index) {
-//            if(index%2 === 0)
-//                index++;
-//            var anim = Raphael.animation({x: windowWidth}, 2000, "<", function() {}).delay(100*index);
-//            elem.animate(anim);
-//        });
+        envelopePaper.forEach(function(elem, index) {
+            console.log(index);
+            if(index%2 === 0)
+                index++;
+            var anim = Raphael.animation({x: windowWidth}, 2000, "<", function() {}).delay(100*index);
+            elem.animate(anim);
+        });
         x.remove(); //remove x from page after clearing all envelopes 
         
 //        envelopePaper.clear();
