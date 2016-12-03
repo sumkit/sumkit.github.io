@@ -125,9 +125,10 @@ function createX() {
             elem.animate(anim);
         });
         x.remove(); //remove x from page after clearing all envelopes 
+        
         envelopePaper.clear();
-        envelopePaper.remove();
         console.log(envelopePaper);
+        envelopePaper.remove();
     });
 }
 
@@ -345,6 +346,9 @@ function modifyMessage(userId, messageId, labelsToAdd, labelsToRemove) {
   request.execute(function() {
       if(labelsToRemove.indexOf("UNREAD")>0) {
           //labelsToRemove contains "UNREAD" -> remove read message from unread pile   
+          if(envelopePaper.canvas == null) {
+              
+          }
       }
   });
 }
