@@ -14,6 +14,7 @@ var unreadMsgs = []; //array of message objects that are unread (max 20)
 var inboxMsgs = []; //array of message objects from inbox (max 20)
 var animDelay = 1;
 var envelopePaper; //Raphael canvas to show "envelopes" of received emails 
+var envelopesShowing=false;
 
 $(document).ready(function() {
     drawClouds();
@@ -126,9 +127,9 @@ function createX() {
         });
         x.remove(); //remove x from page after clearing all envelopes 
         
-        envelopePaper.clear();
-        console.log(envelopePaper);
+//        envelopePaper.clear();
         envelopePaper.remove();
+        envelopesShowing=false;
     });
 }
 
@@ -147,6 +148,7 @@ function getUnread() {
       //null response.messages means no new messages
       if(response.messages != null) {
           envelopePaper = Raphael(windowWidth/8, windowHeight/3, windowWidth, windowHeight/2);
+          envelopesShowing=true;
           $.each(response.messages.reverse(), function() {
               var messageRequest = gapi.client.gmail.users.messages.get({
                 'userId': 'me',
@@ -174,6 +176,7 @@ function getInbox() {
       //check for empty inbox
       if(response.messages != null) {
           envelopePaper = Raphael(windowWidth/8, windowHeight/3, windowWidth, windowHeight/2);
+          envelopesShowing=true;
           $.each(response.messages.reverse(), function() {
               var messageRequest = gapi.client.gmail.users.messages.get({
                 'userId': 'me',
@@ -346,7 +349,7 @@ function modifyMessage(userId, messageId, labelsToAdd, labelsToRemove) {
   request.execute(function() {
       if(labelsToRemove.indexOf("UNREAD")>0) {
           //labelsToRemove contains "UNREAD" -> remove read message from unread pile   
-          if(envelopePaper.canvas == null) {
+          if(envelopesShowing) {
               
           }
       }
