@@ -135,6 +135,7 @@ function createX() {
 
 //fetch only unread emails from user's inbox
 function getUnread() {
+    console.log("WTF CRYING");
     unreadMsgs = [];
     animDelay = 1;
     
