@@ -32,8 +32,8 @@ $(document).ready(function() {
         gapi.client.load('gmail', 'v1', getInbox);
     });
     
-    var paper2 = Raphael(0,0,windowWidth/10,windowHeight/10)
-    var pencil = paper2.image("media/crayon.png",0,0,windowWidth/15,windowHeight/12);
+    var paper2 = Raphael(0,0,windowWidth/4,windowHeight/10)
+    var pencil = paper2.image("media/crayon.png",0,0,windowWidth/12,windowHeight/8);
     pencil.click(function() {
         $("#writeModal").modal('toggle');
 //        var temp = new OriDomi('#writeOridomi', {
@@ -41,6 +41,7 @@ $(document).ready(function() {
 //                ripple: 0
 //        });
 //        temp.setRipple().stairs(50, 'bottom');
+        document.getElementById("writeOridomi").style = "display: none";
     });
 });
 
