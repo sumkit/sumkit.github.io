@@ -363,23 +363,8 @@ function modifyMessage(userId, messageId, labelsToAdd, labelsToRemove) {
       if(labelsToRemove.indexOf("UNREAD")>=0) {
           //labelsToRemove contains "UNREAD" -> remove read message from unread pile   
           if(envelopesShowing) {
-              for(var i=0;i<unreadMsgs.length;i++) {
-                  var ithID = unreadMsgs[i].id;
-                  console.log(ithID);
-                  if(ithID === messageId) {
-                      console.log("mark as read "+ithID);
-                      var topText = envelopePaper.getElementByPoint((windowWidth/8)+windowWidth, (2/3)*windowHeight);
-                      console.log(topText);
-                      topText.remove();
-                      var topEnv = envelopePaper.getElementByPoint((windowWidth/8)+windowWidth, (2/3)*windowHeight);
-                      topEnv.remove();
-                      unreadMsgs.splice(i,1); //remove message from list of unread messages
-                      if(unreadMsgs.length == 0) {
-                          removeEnvelopes();
-                      }
-                      return; //only remove 1 envelope
-                  }
-              }
+              gapi.client.load('gmail', 'v1', getUnread);
+              
           }
       }
   });
