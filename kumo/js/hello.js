@@ -326,7 +326,9 @@ function sendEmail() {
         
         //once finish sending email, empty input fields 
         request.execute(function(response) {
-            $("#envelopeModal").modal('toggle');
+            console.log($('#to'));
+            console.log($('#subject'));
+            
             $('#to').val('');
             $('#subject').val('');
         });
