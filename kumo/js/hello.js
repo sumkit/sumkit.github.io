@@ -208,39 +208,6 @@ function handleInbox(message) {
 }
 
 /** 
- * @param {String} text is the text 
- * @param {int} lineLength 
- */
-function formatText(text, lineLength, raphText) {
-    var newText = "";
-    var words = text.split(" ");
-    if(words.length > 1) {
-        //email addresses don't have spaces 
-        for (var i=0; i<words.length; i++) {   
-          raphText.attr("text", newText + " " + words[i]);
-          if (raphText.getBBox().width > lineLength) {
-            newText=newText+"\n" + words[i];
-          } else {
-            newText=newText+" " + words[i];
-          }
-        }
-    } 
-}
-
-function addressTransition() {
-    var oridomiPaper = new OriDomi('#writeOridomi', {
-        hPanels: 3,
-        ripple: 0
-    });
-    oridomiPaper.foldUp('top', function() {
-        window.setTimeout(function(){
-            $("#writeModal").modal('toggle'); //close write modal (write email body)
-            $("#envelopeModal").modal('toggle'); //open envelope modal (address email envelope)   
-        },500);
-    });
-}
-
-/** 
  * Display the message by creating an "envelope" rectangle  
  *
  * @param {Message} message 
@@ -294,11 +261,46 @@ function displayMessage(message, tag) {
     envelopes.push(t);
     formatText(frontStr, (windowHeight/2)-5, t);
     
-    var anim1 = Raphael.animation({x: 10}, 2000, "backOut", function() {}).delay(200*animDelay);
+    var anim1 = Raphael.animation({x: 10}, 2000, "backOut", function() {
+        console.log("animation")
+    }).delay(200*animDelay);
     var anim2 = Raphael.animation({x: windowWidth/6}, 2000, "backOut",function() {});
     rect.animate(anim1);
     t.animateWith(rect, anim1, anim2);
     animDelay++;
+}
+
+/** 
+ * @param {String} text is the text 
+ * @param {int} lineLength 
+ */
+function formatText(text, lineLength, raphText) {
+    var newText = "";
+    var words = text.split(" ");
+    if(words.length > 1) {
+        //email addresses don't have spaces 
+        for (var i=0; i<words.length; i++) {   
+          raphText.attr("text", newText + " " + words[i]);
+          if (raphText.getBBox().width > lineLength) {
+            newText=newText+"\n" + words[i];
+          } else {
+            newText=newText+" " + words[i];
+          }
+        }
+    } 
+}
+
+function addressTransition() {
+    var oridomiPaper = new OriDomi('#writeOridomi', {
+        hPanels: 3,
+        ripple: 0
+    });
+    oridomiPaper.foldUp('top', function() {
+        window.setTimeout(function(){
+            $("#writeModal").modal('toggle'); //close write modal (write email body)
+            $("#envelopeModal").modal('toggle'); //open envelope modal (address email envelope)   
+        },500);
+    });
 }
 
 /**
