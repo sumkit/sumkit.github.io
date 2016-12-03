@@ -248,7 +248,7 @@ function displayMessage(message, tag) {
   });
         
     // Creates rectangle with rounded corners (10) at x = 50, y = 0
-    var rect = paper.rect(10,0, windowWidth/2, windowHeight/2, 10);
+    var rect = envelopePaper.rect(10,0, windowWidth/2, windowHeight/2, 10);
     // Sets the fill attribute of the rectangle to white
     rect.attr("fill", "#ffffff");
     // Sets the stroke attribute of the rectangle to green with width 8
@@ -272,7 +272,7 @@ function displayMessage(message, tag) {
     });
     envelopes.push(rect);
     var frontStr = "From: "+from+"\nSubject: "+subject;
-    var t = paper.text(windowWidth/8,windowHeight/4, "");
+    var t = envelopePaper.text(windowWidth/8,windowHeight/3, "");
     t.attr("fill", "#000");
     t.attr("stroke", "none");
     t.attr("font-size", (windowHeight/40)+"px");
