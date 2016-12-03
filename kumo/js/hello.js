@@ -232,7 +232,7 @@ function addressTransition() {
         hPanels: 3,
         ripple: 0
     });
-    oridomiPaper.reveal(-30, function() {
+    oridomiPaper.foldUp(function() {
         $("#writeModal").modal('toggle'); //close write modal (write email body)
         $("#envelopeModal").modal('toggle'); //open envelope modal (address email envelope)
     }).wait(200);
