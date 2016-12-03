@@ -292,12 +292,43 @@ function displayMessage(message, tag) {
 /**
  * Send Email from authorized user to inputted address(es).
  */
+//function sendEmail() {
+//    var textDiv = document.getElementsByClassName("writeOridomiText")[0].value;
+//    var addresses = document.getElementById("to").value;
+//    var subject = document.getElementById("subject").value;
+//    addresses = addresses.replace(/\s/g,'').split(',');
+//    for(var i=0; i < addresses.length; i++) {
+//        var email = ''; //email RFC 5322 formatted String
+//        var headers = {'To': addresses[i],
+//            'Subject': subject};
+//        
+//        for(var header in headers) {
+//            email += header;
+//            email += ": "+headers[header]+"\r\n";
+//        }
+//        email += "\r\n";
+//        email += $('#body').val();
+//        email += "\r\n\r\nSent from kumo. Try it at www.summerkitahara.com/kumo/hello"
+//        
+//        // Using the js-base64 library for encoding: https://www.npmjs.com/package/js-base64
+//        var base64EncodedEmail = btoa(email);
+//        var request = gapi.client.gmail.users.messages.send({
+//          'userId': 'me',
+//          'resource': {
+//            'raw': base64EncodedEmail
+//          }
+//        });
+//        
+//        //empty input fields 
+//        request.execute(function(response) {
+//            $('.writeOridomiText')[0].val('');
+//            $('#subject').val('');
+//            $('#to').val('');
+//        });
+//    }
 function sendEmail() {
-//    var textDiv = document.getElementById("text");
-    var textDiv = document.getElementsByClassName("writeOridomiText")[0].value;
-    var addresses = document.getElementById("to").value;
-    var subject = document.getElementById("subject").value;
-    addresses = addresses.replace(/\s/g,'').split(',');
+    var addresses = $('#address').val().replace(/\s/g,'').split(',');
+    var subject = $('#subject').val();
     for(var i=0; i < addresses.length; i++) {
         var email = ''; //email RFC 5322 formatted String
         var headers = {'To': addresses[i],
@@ -318,13 +349,12 @@ function sendEmail() {
           'resource': {
             'raw': base64EncodedEmail
           }
-        });
-        
-        //empty input fields 
+        }); 
         request.execute(function(response) {
-            $('.writeOridomiText')[0].val('');
+            console.log(response.code == null);
+            $('#address').val('');
             $('#subject').val('');
-            $('#to').val('');
+            $('#body').val('');
         });
     }
 }
