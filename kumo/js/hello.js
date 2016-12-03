@@ -77,8 +77,7 @@ function loggedInDrawElements() {
     });
     mailbox.mouseover(function() {
        //highlight mailbox
-        mailbox.attr('stroke', 'white');
-        mailbox.attr('stroke-width', '4');
+        mailbox.glow({});
     });
     
     var inbox = paper.image("media/inbox.png",0,0,windowWidth/5, windowWidth/5);
