@@ -119,12 +119,12 @@ function createX() {
     
     x.click(function() {
         //remove each envelope and address text
-        envelopePaper.forEach(function(elem, index) {
-            if(index%2 === 0)
-                index++;
-            var anim = Raphael.animation({x: windowWidth}, 2000, "<", function() {}).delay(100*index);
-            elem.animate(anim);
-        });
+//        envelopePaper.forEach(function(elem, index) {
+//            if(index%2 === 0)
+//                index++;
+//            var anim = Raphael.animation({x: windowWidth}, 2000, "<", function() {}).delay(100*index);
+//            elem.animate(anim);
+//        });
         x.remove(); //remove x from page after clearing all envelopes 
         
 //        envelopePaper.clear();
@@ -250,12 +250,11 @@ function displayMessage(message, tag) {
     t.attr("text-anchor", "start");
     formatText(frontStr, (windowHeight/2)-5, t);
     
-    var anim1 = Raphael.animation({x: 10}, 2000, "backOut", function() {
-    }).delay(200*animDelay);
+    var anim1 = Raphael.animation({x: 10}, 2000, "backOut", function() {}).delay(200*animDelay);
     var anim2 = Raphael.animation({x: windowWidth/6}, 2000, "backOut",function() {});
+    animDelay++;
     rect.animate(anim1);
     t.animateWith(rect, anim1, anim2);
-    animDelay++;
 }
 
 /** 
