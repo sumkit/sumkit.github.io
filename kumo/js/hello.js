@@ -13,9 +13,6 @@ var windowHeight = $(window).height();
 var unreadMsgs = []; //array of message objects that are unread (max 20)
 var inboxMsgs = []; //array of message objects from inbox (max 20)
 var animDelay = 1;
-
-//envelopes currently on screen (store Raphael rectangle then text for each envelope)
-var envelopes = [];
 var envelopePaper; //Raphael canvas to show "envelopes" of received emails 
 
 $(document).ready(function() {
@@ -127,20 +124,10 @@ function createX() {
             var anim = Raphael.animation({x: windowWidth}, 2000, "<", function() {}).delay(100*index);
             elem.animate(anim);
         });
-//        for(var i = envelopes.length-1; i >= 0; i-=2) {
-//            //last envelope is top of the pile
-//            var env = envelopes[i-1];
-//            var text = envelopes[i];
-//            var anim = Raphael.animation({x: windowWidth}, 2000, "<", function() {
-//                 env.remove(); //remove element after animating off of the screen
-//            }).delay(100*(envelopes.length-i+1));
-//            env.animate(anim);
-//            text.remove();
-//        }
-        envelopes = []; //clear envelopes -> no envelopes on the screen
         x.remove(); //remove x from page after clearing all envelopes 
         envelopePaper.clear();
         envelopePaper.remove();
+        console.log(envelopePaper);
     });
 }
 
@@ -249,7 +236,6 @@ function displayMessage(message, tag) {
         });
         temp.setRipple().stairs(50, 'top');
     });
-    envelopes.push(rect);
     var frontStr = "From: "+from+"\nSubject: "+subject;
     var t = envelopePaper.text(windowWidth,windowHeight/3, "");
     t.attr("fill", "#000");
@@ -258,11 +244,9 @@ function displayMessage(message, tag) {
     t.attr("font-weight", "normal");
     t.attr("font-family", "arial");
     t.attr("text-anchor", "start");
-    envelopes.push(t);
     formatText(frontStr, (windowHeight/2)-5, t);
     
     var anim1 = Raphael.animation({x: 10}, 2000, "backOut", function() {
-        console.log("animation")
     }).delay(200*animDelay);
     var anim2 = Raphael.animation({x: windowWidth/6}, 2000, "backOut",function() {});
     rect.animate(anim1);
@@ -339,4 +323,28 @@ function sendEmail() {
             $(".writeOridomiText").val('');
         });
     }
+}
+
+/**
+ * Modify the Labels a Message is associated with.
+ *
+ * @param  {String} userId User's email address. The special value 'me'
+ * can be used to indicate the authenticated user.
+ * @param  {String} messageId ID of Message to modify.
+ * @param  {Array} labelsToAdd Array of Labels to add.
+ * @param  {Array} labelsToRemove Array of Labels to remove.
+ */
+function modifyMessage(userId, messageId, labelsToAdd, labelsToRemove) {
+  var request = gapi.client.gmail.users.messages.modify({
+    'userId': userId,
+    'id': messageId,
+    'addLabelIds': labelsToAdd,
+    'removeLabelIds': labelsToRemove
+  });
+  //callback
+  request.execute(function() {
+      if(labelsToRemove.indexOf("UNREAD")>0) {
+          //labelsToRemove contains "UNREAD" -> remove read message from unread pile   
+      }
+  });
 }
