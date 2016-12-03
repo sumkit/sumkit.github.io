@@ -302,7 +302,9 @@ function sendEmail() {
     var textDiv = document.getElementsByClassName("writeOridomiText")[0].value;
     var addresses = $('#to').val();
     addresses = addresses.replace(/\s/g,'').split(',');
+    console.log(addresses);
     var subject = $('#subject').val();
+    console.log(subject);
     
     for(var i=0; i < addresses.length; i++) {
         var email = ''; //email RFC 5322 formatted String
