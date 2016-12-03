@@ -254,14 +254,16 @@ function displayMessage(message, tag) {
         elemP.innerHTML = getBody(message.payload);
         
         $("#emailModal").modal('toggle');
-        var temp = new OriDomi('#emailOridomi', {
-                hPanels: 3,
-                ripple: 0
-        });
-        temp.setRipple().stairs(50, 'top', function() {
-            if(tag === "unread")
-                modifyMessage('me', unreadMsgs[unreadMsgs.length-1].id, [], ["UNREAD"]);
-        });
+//        var temp = new OriDomi('#emailOridomi', {
+//                hPanels: 3,
+//                ripple: 0
+//        });
+//        temp.setRipple().stairs(50, 'top', function() {
+//            if(tag === "unread")
+//                modifyMessage('me', unreadMsgs[unreadMsgs.length-1].id, [], ["UNREAD"]);
+//        });
+        if(tag === "unread")
+            modifyMessage('me', unreadMsgs[unreadMsgs.length-1].id, [], ["UNREAD"]);
     });
     var frontStr = "From: "+from+"\nSubject: "+subject;
     var t = envelopePaper.text(0.75*windowWidth,windowHeight/3, "");
