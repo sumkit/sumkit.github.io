@@ -136,7 +136,6 @@ function createX() {
 
 //fetch only unread emails from user's inbox
 function getUnread() {
-    console.log("WTF CRYING");
     unreadMsgs = [];
     animDelay = 1;
     
@@ -147,6 +146,7 @@ function getUnread() {
   });
 
   request.execute(function(response) {
+      console.log(response);
       //null response.messages means no new messages
       if(response.messages != null) {
           envelopePaper = Raphael(windowWidth/8, windowHeight/3, windowWidth, windowHeight/2);
