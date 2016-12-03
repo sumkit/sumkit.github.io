@@ -102,7 +102,7 @@ function handleAuthResult(authResult) {
   if (authResult && !authResult.error) {
     // Hide auth UI, then load client library.
     authorizeDiv.style.display = 'none';
-    document.getElementById("logoutBtn").style="display: inline"; //show logout button
+    document.getElementById("logoutBtn").style="display: block"; //show logout button
     gapi.client.load('gmail', 'v1', getUnread);
   } else {
     // Show auth UI, allowing the user to initiate authorization by
@@ -292,9 +292,7 @@ function sendEmail() {
     var textDiv = document.getElementsByClassName("writeOridomiText")[0].value;
     var addresses = $('#to').val();
     addresses = addresses.replace(/\s/g,'').split(',');
-    console.log(addresses);
     var subject = $('#subject').val();
-    console.log(subject);
         
     for(var i=0; i < addresses.length; i++) {
         var email = ''; //email RFC 5322 formatted String
