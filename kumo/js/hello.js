@@ -73,7 +73,6 @@ function loggedInDrawElements() {
     var mailbox = paper.image("media/mailbox.png", 0,windowHeight/2, 
                               windowWidth/4, windowWidth/4);
     mailbox.click(function() {
-        console.log("mailbox clicked");
         gapi.client.load('gmail', 'v1', getUnread);
     });
     
@@ -128,7 +127,7 @@ function createX() {
     x.click(function() {
         //remove each envelope and address text
         envelopePaper.forEach(function(elem, index) {
-            console.log(index);
+            console.log(elem);
             if(index%2 === 0)
                 index++;
             var anim = Raphael.animation({x: windowWidth}, 2000, "<", function() {}).delay(100*index);
@@ -151,7 +150,6 @@ function getUnread() {
   });
 
   request.execute(function(response) {
-      console.log(response);
       //null response.messages means no new messages
       if(response.messages != null) {
           envelopePaper = Raphael(windowWidth/8, windowHeight/3, windowWidth, windowHeight/2);
