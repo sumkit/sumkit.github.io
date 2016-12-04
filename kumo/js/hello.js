@@ -129,15 +129,17 @@ function createX() {
     
     x.click(function() {
         //remove each envelope and address text
-        envelopePaper.forEach(function(elem) {
-            if(elem != null) {
-                var anim = Raphael.animation({x: windowWidth}, 2000, "<", function() {}).delay(200);
-                elem.animate(anim);
-                return true;
-            } else {
-                return false;
-            }
-        });
+        var anim = Raphael.animation({x: windowWidth}, 2000, "<").delay(200);
+        envelopePaper.animate(anim);
+//        envelopePaper.forEach(function(elem) {
+//            if(elem != null) {
+//                var anim = Raphael.animation({x: windowWidth}, 2000, "<").delay(200);
+//                elem.animate(anim);
+//                return true;
+//            } else {
+//                return false; //stop looping
+//            }
+//        });
         x.remove(); //remove x from page after clearing all envelopes 
         removeEnvelopes();
     });
