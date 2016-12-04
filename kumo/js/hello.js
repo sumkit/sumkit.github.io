@@ -292,6 +292,7 @@ function displayMessage(message, tag) {
         //come from mailbox
         rect = envelopePaper.rect(0.75*windowWidth,0, windowWidth/4, windowHeight/4, 10);
     } else {
+        //come from inbox
         rect = envelopePaper.rect(0.75*windowWidth,windowWidth/4, windowWidth/4, windowHeight/4, 10);
     }
     // Sets the fill attribute of the rectangle to white
@@ -304,7 +305,7 @@ function displayMessage(message, tag) {
         rotation=-1;
     }
     var frontStr = "From: "+from+"\nSubject: "+subject;
-    var t = envelopePaper.text(0.75*windowWidth,windowHeight/4, "");
+    var t = envelopePaper.text(0.75*windowWidth,(3/8)*windowWidth, "");
     t.attr("fill", "#000");
     t.attr("stroke", "none");
     t.attr("font-size", (windowHeight/42)+"px");
