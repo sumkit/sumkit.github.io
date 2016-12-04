@@ -72,12 +72,12 @@ function handleAuthClick() {
 
 function loggedInDrawElements() {
     var paper = Raphael((3/4)*windowWidth, 0, (windowWidth/4)+5, windowHeight);
-    var mailbox = paper.image("media/mailbox.png",0,windowHeight/8,windowWidth/5, windowWidth/5);
+    var mailbox = paper.image("media/mailbox.png",0,windowHeight/8,windowWidth/6, windowWidth/6);
     mailbox.click(function() {
         gapi.client.load('gmail', 'v1', getUnread);
     });
     
-    var inbox = paper.image("media/inbox.png",0,windowHeight/2,windowWidth/4,windowWidth/4); 
+    var inbox = paper.image("media/inbox.png",0,windowHeight/2,windowWidth/6,windowWidth/6); 
     inbox.click(function() {
         gapi.client.load('gmail', 'v1', getInbox);
     });
