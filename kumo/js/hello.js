@@ -132,12 +132,10 @@ function handleAuthResult(authResult) {
             switch(String.fromCharCode(event.charCode)) {
                 case "l":
                     //logout
-                    console.log("logout");
                     document.getElementById("logoutBtn").click();
                     break;
                 case "h":
                     //help
-                    console.log("help");
                     document.getElementById("helpBtn").click();
                     break;
                 case "u":
@@ -438,6 +436,7 @@ function addressTransition() {
         window.setTimeout(function(){
             $("#writeModal").modal('toggle'); //close write modal (write email body)
             $("#envelopeModal").modal('toggle'); //open envelope modal (address email envelope)   
+            oridomiPaper.unfold();
         },500);
     });
 }
