@@ -391,6 +391,7 @@ function formatText(text, lineLength, raphText) {
             console.log(charsPerLine);
             var firstHalf=words[i].substr(0,charsPerLine);
             var secondHalf=words[i].substr(charsPerLine, words[i].length-charsPerLine);
+            newText=newText+firstHalf+"\n"+secondHalf;
         } else {
             newText=newText+"\n"+words[i];
         }
