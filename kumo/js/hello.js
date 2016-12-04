@@ -111,10 +111,12 @@ function handleAuthResult(authResult) {
         switch(String.fromCharCode(event.charCode)) {
             case "l":
                 //logout
+                console.log("logout");
                 $("#logoutBtn").trigger('click');
                 break;
             case "h":
                 //help
+                console.log("help");
                 $("helpModal").modal("toggle");
                 break;
             default:
