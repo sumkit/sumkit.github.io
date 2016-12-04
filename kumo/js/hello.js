@@ -378,33 +378,48 @@ function displayMessage(message, tag) {
  * @param {String} text is the text 
  * @param {int} lineLength 
  */
+//function formatText(text, lineLength, raphText) {
+//    var newText = "";
+//    var words = text.split(" ");
+//    var fontSize = windowWidth/48;
+//    //email addresses don't have spaces 
+//    for (var i=0; i<words.length; i++) {   
+//      var tempRaph = raphText.clone();
+//      tempRaph.attr("text", newText + " " + words[i]);
+//        
+//      if(tempRaph.getBBox().width > lineLength) {
+//        if(newText.endsWith("\n")) {
+//            console.log(tempRaph.getBBox().width);
+//            //already tried to fit it on the previous line too, split up word
+//            var charsPerLine = words[i].length/fontSize;
+////            console.log(charsPerLine);
+//            var firstHalf=words[i].substr(0,charsPerLine);
+//            var secondHalf=words[i].substr(charsPerLine, words[i].length-charsPerLine);
+//            newText=newText+firstHalf+"\n"+secondHalf;
+//        } else {
+//            newText=newText+"\n"+words[i];
+//        }
+//      } else {
+//        newText=newText+" "+words[i];
+//      }
+//      tempRaph.remove();
+//    }
+//    raphText.attr("text", newText);
+//}
 function formatText(text, lineLength, raphText) {
     var newText = "";
     var words = text.split(" ");
-    var fontSize = windowWidth/48;
-    //email addresses don't have spaces 
-    for (var i=0; i<words.length; i++) {   
-      var tempRaph = raphText.clone();
-      tempRaph.attr("text", newText + " " + words[i]);
-        
-      if(tempRaph.getBBox().width > lineLength) {
-        if(newText.endsWith("\n")) {
-            console.log(tempRaph.getBBox().width);
-            //already tried to fit it on the previous line too, split up word
-            var charsPerLine = words[i].length/fontSize;
-//            console.log(charsPerLine);
-            var firstHalf=words[i].substr(0,charsPerLine);
-            var secondHalf=words[i].substr(charsPerLine, words[i].length-charsPerLine);
-            newText=newText+firstHalf+"\n"+secondHalf;
-        } else {
-            newText=newText+"\n"+words[i];
+    if(words.length > 1) {
+        //email addresses don't have spaces 
+        for (var i=0; i<words.length; i++) {   
+          raphText.attr("text", newText + " " + words[i]);
+          if (raphText.getBBox().width > lineLength) {
+            newText=newText+"\n" + words[i];
+          } else {
+            newText=newText+" " + words[i];
+          }
         }
-      } else {
-        newText=newText+" "+words[i];
-      }
-      tempRaph.remove();
-    }
-    raphText.attr("text", newText);
+    } 
 }
 
 /**
