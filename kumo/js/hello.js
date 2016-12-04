@@ -132,10 +132,8 @@ function handleAuthResult(authResult) {
                 break;
             case "x":
                 //remove each envelope and address text, if there are any showing
-                if(envelopesShowing) {
-                    x.remove(); //remove x from page after clearing all envelopes 
+                if(envelopesShowing) 
                     removeEnvelopes();
-                }
                 break;
             default:
                 //do nothing
@@ -153,6 +151,7 @@ function removeEnvelopes() {
 //    envelopePaper.clear();
     envelopePaper.remove();
     envelopesShowing=false;
+    x.remove(); //remove x from page after clearing all envelopes 
 }
 
 //Create Raphael close button
@@ -167,7 +166,6 @@ function createX() {
     
     x.click(function() {
         //remove each envelope and address text
-        x.remove(); //remove x from page after clearing all envelopes 
         removeEnvelopes();
     });
 }
