@@ -321,7 +321,6 @@ function displayMessage(message, tag) {
         t.attr({x: x2, y: y2});
     }, function() {
         //on start (mouse down)
-        console.log("move");
         this.ox = this.attr("x");
         this.oy = this.attr("y");
         t.ox = t.attr("x");
