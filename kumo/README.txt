@@ -2,7 +2,7 @@ Welcome to kumo!
 
 URL: http://summerkitahara.com/kumo/hello
 
-Login with your Gmail to read and write emails. Click the ? button or the h key for help and keyboard shortcuts.
+Login with your Gmail to read and write emails. Click the Help button or the h key for help and keyboard shortcuts.
 
 This website is WAVE acessible and compatible with a screen reader.
 
