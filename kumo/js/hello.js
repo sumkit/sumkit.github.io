@@ -548,6 +548,7 @@ function replyEmail(message) {
     });
     oridomiPaper.foldUp('top', function() {
         window.setTimeout(function(){  
+            $('#replyModal').modal('toggle');
             oridomiPaper.unfold();
             document.getElementById("replyOridomiTextID").display="block";
         },500);
