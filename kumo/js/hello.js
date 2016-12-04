@@ -251,7 +251,6 @@ function displayMessage(message, tag) {
             bodyText = atob(message.payload.body.data);
         }
         var elemP = document.getElementById("emailOridomiText");
-//        elemP.innerHTML = bodyText;
         elemP.innerHTML = getBody(message.payload);
         
         $("#emailModal").modal('toggle');
@@ -275,6 +274,22 @@ function displayMessage(message, tag) {
     t.attr("font-family", "arial");
     t.attr("text-anchor", "start");
     formatText(frontStr, (windowHeight/2)-5, t);
+    
+    rect.click(function(event) {
+        if(tag === "unread") {
+            var lastIndex = unreadMsgs.length-1;
+            var last = unreadMsgs[lastIndex];
+            unreadMsgs.splice(lastIndex, 1);
+            unreadMsgs.unshift(last);
+        } else {
+            var lastIndex = inboxMsgs.length-1;
+            var last = inboxMsgs[lastIndex];
+            inboxMsgs.splice(lastIndex, 1);
+            inboxMsgs.unshift(last);
+        }
+        t.toBack();
+        rect.toBack();
+    });
     
     var anim1 = Raphael.animation({x: 10}, 2000, "backOut", function() {}).delay(200*animDelay);
     var anim2 = Raphael.animation({x: windowWidth/6}, 2000, "backOut",function() {});
