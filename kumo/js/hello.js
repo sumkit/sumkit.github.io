@@ -298,6 +298,8 @@ function displayMessage(message, tag) {
         rect = envelopePaper.rect((0.75*windowWidth),0,envWidth,(windowWidth/8), 10);
     } else {
         //come from inbox
+        console.log(envWidth);
+        console.log(windowWidth/8);
         rect = envelopePaper.rect((0.75*windowWidth),(windowWidth/8),envWidth,(windowWidth/8), 10);
     }
     // Sets the fill attribute of the rectangle to white
