@@ -83,7 +83,7 @@ function loggedInDrawElements() {
         gapi.client.load('gmail', 'v1', getInbox);
     });
     
-    var pencil = paper.image("media/crayon.png",0,(5/6)*windowHeight,windowHeight/12,windowHeight/12);
+    var pencil = paper.image("media/crayon.png",0,(3/4)*windowHeight,windowHeight/12,windowHeight/12);
     pencil.click(function() {
         $("#writeModal").modal('toggle');
     });
