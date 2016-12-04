@@ -20,7 +20,7 @@ var envelopesShowing=false;
 var replyMsgId=0;
 
 $(document).ready(function() {
-    drawClouds();
+    drawClouds(); //clouds are drawn regardless of authorization status 
 });
 
 //draw clouds made up of white circles on top of page
@@ -43,6 +43,7 @@ function drawClouds() {
     }
 }
 
+//on window load function 
 function handleClientLoad() {
   gapi.client.setApiKey(API_KEY);
   window.setTimeout(checkAuth, 1);
@@ -70,6 +71,7 @@ function handleAuthClick() {
     return false;
 }
 
+//Draw mailbox, inbox, and pencil Raphael images after authorization has been confirmed
 function loggedInDrawElements() {
     var paper = Raphael((3/4)*windowWidth, 0, (windowWidth/4)+5, windowHeight);
     var mailbox = paper.image("media/mailbox.png",0,windowHeight/8,windowWidth/6, windowWidth/6);
