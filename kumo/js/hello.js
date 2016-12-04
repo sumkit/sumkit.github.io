@@ -309,6 +309,7 @@ function displayMessage(message, tag) {
         rotation=-1;
     }
     var frontStr = "From: "+from+"\nSubject: "+subject;
+    console.log(windowWidth/16)
     var t = envelopePaper.text(0.75*windowWidth, windowWidth/16, "");
     t.attr("fill", "#000");
     t.attr("stroke", "none");
