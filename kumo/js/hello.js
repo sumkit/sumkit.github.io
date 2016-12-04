@@ -377,11 +377,11 @@ function displayMessage(message, tag) {
  * @param {int} lineLength 
  */
 function formatText(text, lineLength, raphText) {
-    console.log(lineLength);
     var newText = "";
     var words = text.split(" ");
     var fontSize = raphText.attr("font-size");
     //email addresses don't have spaces 
+    console.log(words.length);
     for (var i=0; i<words.length; i++) {   
       var tempRaph = raphText.clone();
       tempRaph.attr("text", newText + " " + words[i]);
