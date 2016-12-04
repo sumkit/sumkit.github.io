@@ -379,8 +379,7 @@ function displayMessage(message, tag) {
 function formatText(text, lineLength, raphText) {
     var newText = "";
     var words = text.split(" ");
-    var fontSize = raphText.attr("font-size");
-    console.log(raphText);
+    var fontSize = windowWidth/48;
     console.log(lineLength);
 
     //email addresses don't have spaces 
@@ -388,7 +387,7 @@ function formatText(text, lineLength, raphText) {
       var tempRaph = raphText.clone();
       tempRaph.attr("text", newText + " " + words[i]);
       if ((raphText.getBBox().width* fontSize) > lineLength) {
-          console.log(raphText.getBBox().width*fontSize);
+          console.log(raphText.getBBox().width);
         if(newText.endsWith("\n")) {
             //already tried to fit it on the previous line too, split up word
             var charsPerLine = words[i].length/fontSize;
