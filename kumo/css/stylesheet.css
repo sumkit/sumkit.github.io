@@ -1,4 +1,19 @@
-/* The snackbar - position it at the bottom and in the middle of the screen */
+/* set background to "sky" blue. !important to override Bootstrap styles */
+body {
+    background:#8ac5ff !important;
+}
+
+/* Div with logout button inside of it (placement) */
+#logoutBtnDiv {
+    margin: 0 auto; 
+    width: 25%; 
+    top: 85%; 
+    text-align:center; 
+    position: absolute; 
+    display:none; /* initially, if unauthorized then show login button */
+}
+
+/* SNACKBAR - position it at the bottom and in the middle of the screen */
 #snackbar {
     visibility: hidden; /* Hidden by default. Visible on click */
     min-width: 250px; /* Set a default minimum width */
