@@ -380,14 +380,15 @@ function formatText(text, lineLength, raphText) {
     var newText = "";
     var words = text.split(" ");
     var fontSize = raphText.attr("font-size");
+    console.log(fontSize);
+    console.log(lineLength);
+
     //email addresses don't have spaces 
     for (var i=0; i<words.length; i++) {   
       var tempRaph = raphText.clone();
       tempRaph.attr("text", newText + " " + words[i]);
-        console.log(raphText.getBBox().width * fontSize);
       if ((raphText.getBBox().width* fontSize) > lineLength) {
-          console.log(raphText.getBBox().width* fontSize);
-          console.log(lineLength);
+          console.log(raphText.getBBox().width*fontSize);
         if(newText.endsWith("\n")) {
             //already tried to fit it on the previous line too, split up word
             var charsPerLine = words[i].length/fontSize;
