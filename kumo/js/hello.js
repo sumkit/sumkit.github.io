@@ -305,11 +305,10 @@ function displayMessage(message, tag) {
     rect.attr("stroke", green);
     rect.attr("stroke-width", "8");
     var frontStr = "From: "+from+"\nSubject: "+subject;
-    console.log(windowWidth/16)
-    var t = envelopePaper.text((0.75*windowWidth),(windowWidth/16),"");
+    var t = envelopePaper.text((0.75*windowWidth),(windowWidth/9),"");
     t.attr("fill", "#000");
     t.attr("stroke", "none");
-    t.attr("font-size", (windowHeight/40)+"px");
+    t.attr("font-size", (windowWidth/32)+"px");
     t.attr("font-weight", "normal");
     t.attr("font-family", "arial");
     t.attr("text-anchor", "start");
