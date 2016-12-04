@@ -155,16 +155,20 @@ function getUnread() {
   request.execute(function(response) {
       //null response.messages means no new messages
       if(response.messages != null) {
-          envelopePaper = Raphael(windowWidth/8, windowHeight/3, 0.625*windowWidth, windowHeight/2);
-          envelopesShowing=true;
-          $.each(response.messages.reverse(), function() {
-              var messageRequest = gapi.client.gmail.users.messages.get({
-                'userId': 'me',
-                'id': this.id
+          if(response.messages.length == 0) {
+              showSnackbar("0 unread emails.");
+          } else {
+              envelopePaper = Raphael(windowWidth/8, windowHeight/3, 0.625*windowWidth, windowHeight/2);
+              envelopesShowing=true;
+              $.each(response.messages.reverse(), function() {
+                  var messageRequest = gapi.client.gmail.users.messages.get({
+                    'userId': 'me',
+                    'id': this.id
+                  });
+                  messageRequest.execute(handleUnread);
               });
-              messageRequest.execute(handleUnread);
-          });
-          createX();
+              createX();
+          }
       }
   });
 } 
@@ -490,4 +494,18 @@ function modifyMessage(userId, messageId, labelsToAdd, labelsToRemove) {
           }
       }
   });
+}
+
+
+/**
+ * Show a snackbar at the bottom of the webpage with the specified text
+ * @param {String} text to display in the snackbar 
+ */
+function showSnackbar(text) {
+    var snack = document.getElementById("snackbar"); // Get the snackbar DIV
+    snack.innerHTML = text; //set snackbar text
+    snack.className = "show"; // Add the "show" class to DIV
+
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function(){snack.className = snack.className.replace("show", ""); }, 3000);
 }
