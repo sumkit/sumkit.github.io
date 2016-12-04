@@ -127,7 +127,6 @@ function handleAuthResult(authResult) {
     });
     
     $(document).keypress(function(event) {
-        console.log(String.fromCharCode(event.charCode));
         if(!isModalShowing()) {
             switch(String.fromCharCode(event.charCode)) {
                 case "l":
