@@ -20,9 +20,6 @@ var envelopesShowing=false;
 var replyMsgId=0;
 
 $(document).ready(function() {
-    $(document).keypress(function(event) {
-        console.log('Handler for .keypress() called. - ' + event.charCode);
-    });
     drawClouds(); //clouds are drawn regardless of authorization status 
 });
 
@@ -106,7 +103,24 @@ function handleAuthResult(authResult) {
     authorizeDiv.style.display = 'none';
     document.getElementById("logoutBtnDiv").style.display='block'; //show logout button
     loggedInDrawElements();
+      
     gapi.client.load('gmail', 'v1', getUnread);
+      
+    $(document).keypress(function(event) {
+        switch(String.fromCharCode(event.charCode)) {
+            case "l":
+                //logout
+                $("#logoutBtn").trigger('click');
+                break;
+            case "h":
+                //help
+                $("helpModal").modal("toggle");
+                break;
+            default:
+                //do nothing
+                break;
+        }
+    });
   } else {
     // Show auth UI, allowing the user to initiate authorization by
     // clicking authorize button.
