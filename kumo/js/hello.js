@@ -309,7 +309,7 @@ function displayMessage(message, tag) {
     var t = envelopePaper.text((0.75*windowWidth),(windowWidth/16),"");
     t.attr("fill", "#000");
     t.attr("stroke", "none");
-    t.attr("font-size", (windowHeight/60)+"px");
+    t.attr("font-size", (windowHeight/40)+"px");
     t.attr("font-weight", "normal");
     t.attr("font-family", "arial");
     t.attr("text-anchor", "start");
@@ -366,7 +366,7 @@ function displayMessage(message, tag) {
     });
     
     var anim1 = Raphael.animation({x: 10, y: 0, width: windowWidth/2, height: windowHeight/2}, 2000, "backOut").delay(100*animDelay);
-    var anim2 = Raphael.animation({x: windowWidth/6, fontSize: (windowHeight/35)+"px"}, 2000, "backOut");
+    var anim2 = Raphael.animation({x: windowWidth/6}, 2000, "backOut");
     animDelay++;
     rect.animate(anim1);
     t.animateWith(rect, anim1, anim2);
