@@ -177,7 +177,7 @@ function removeEnvelopes() {
 //Create Raphael close button
 function createX() {
     var paper = Raphael((3/4)*windowWidth,(windowHeight/3)-8,(windowHeight/25),(windowHeight/25));
-    x = paper.text(5, 10, "X");
+    x = paper.text(0, 0, "X");
     x.attr('fill', "red");
     x.attr("stroke", "none");
     x.attr("font-size", (windowHeight/25)+"px");
@@ -290,10 +290,10 @@ function displayMessage(message, tag) {
     var rect;
     if(tag === "unread") {
         //come from mailbox
-        rect = envelopePaper.rect(0.75*windowWidth,0, windowWidth/4, windowHeight/4, 10);
+        rect = envelopePaper.rect(0.75*windowWidth,0, windowWidth/4, windowWidth/8, 10);
     } else {
         //come from inbox
-        rect = envelopePaper.rect(0.75*windowWidth,windowWidth/4, windowWidth/4, windowHeight/4, 10);
+        rect = envelopePaper.rect(0.75*windowWidth,windowWidth/4, windowWidth/4, windowWidth/8, 10);
     }
     // Sets the fill attribute of the rectangle to white
     rect.attr("fill", "#ffffff");
@@ -305,7 +305,7 @@ function displayMessage(message, tag) {
         rotation=-1;
     }
     var frontStr = "From: "+from+"\nSubject: "+subject;
-    var t = envelopePaper.text(0.75*windowWidth,(3/8)*windowWidth, "");
+    var t = envelopePaper.text(0.75*windowWidth,windowWidth/4, "");
     t.attr("fill", "#000");
     t.attr("stroke", "none");
     t.attr("font-size", (windowHeight/42)+"px");
