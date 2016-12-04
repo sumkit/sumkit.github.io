@@ -17,6 +17,8 @@ var envelopePaper; //Raphael canvas to show "envelopes" of received emails
 var x; //close button to remove envelopes from screen
 var envelopesShowing=false;
 
+var replyMsgId=0;
+
 $(document).ready(function() {
     drawClouds();
 });
@@ -73,19 +75,6 @@ function loggedInDrawElements() {
     var mailbox = paper.image("media/mailbox.png",0,windowHeight/2,windowWidth/4,windowWidth/4);
     mailbox.click(function() {
         gapi.client.load('gmail', 'v1', getUnread);
-    });
-//    mailbox.mouseover(function() {
-//       //highlight mailbox
-//        mailbox.glow({});
-//    });
-//    mailbox.mouseout(function() {
-//       //unhighlight mailbox 
-//    });
-    var glow;
-    mailbox.hover(function() {
-        glow = mailbox.glow({opacity: 10, color:'white'});
-    }, function() {
-        glow.remove();
     });
     
     var inbox = paper.image("media/inbox.png",0,windowWidth/8,windowWidth/5, windowWidth/5);
@@ -275,12 +264,15 @@ function displayMessage(message, tag) {
         if(Math.abs(this.ox-this.attr("x"))<3 &&
           Math.abs(this.oy-this.attr("y"))<3) {
             //click, not drag
-            var bodyText = "";
+            var bodyText="";
             if(message.payload.body.data != null) {
-                bodyText = atob(message.payload.body.data);
+                bodyText=atob(message.payload.body.data);
             }
-            var elemP = document.getElementById("emailOridomiText");
-            elemP.innerHTML = getBody(message.payload);
+            var elemP=document.getElementById("emailOridomiText");
+            elemP.innerHTML=getBody(message.payload);
+            
+            var hiddenP=document.getElementById("messageId");
+            hiddenP.innerHTML=message.id;
 
             $("#emailModal").modal('toggle');
             if(tag === "unread")
@@ -380,39 +372,69 @@ function addressTransition() {
 /**
  * Send Email from authorized user to inputted address(es).
  */
-function sendEmail() {
+function sendEmail(address, subject, body) {
+    var email = ''; //email RFC 5322 formatted String
+    var headers = {'To': address, 'Subject': subject};
+    for(var header in headers) {
+        email += header;
+        email += ": "+headers[header]+"\r\n";
+    }
+    email += "\r\n";
+    email += body;
+    email += "\r\n\r\nSent from kumo. Try it at www.summerkitahara.com/kumo/hello"
+
+    // Using the js-base64 library for encoding: https://www.npmjs.com/package/js-base64
+    var base64EncodedEmail = btoa(email);
+    var request = gapi.client.gmail.users.messages.send({
+      'userId': 'me',
+      'resource': {
+        'raw': base64EncodedEmail
+      }
+    });
+
+    //once finish sending email, empty input fields 
+    request.execute(function(response) {            
+        $('#to').val('');
+        $('#subject').val('');
+        $(".writeOridomiText").val('');
+        $(".replyOridomiText").val('');
+    });   
+}
+
+function sendEmailClick() {
     var textDiv = document.getElementsByClassName("writeOridomiText")[0].value;
     var addresses = $('#to').val();
     addresses = addresses.replace(/\s/g,'').split(',');
     var subject = $('#subject').val();
-        
     for(var i=0; i < addresses.length; i++) {
-        var email = ''; //email RFC 5322 formatted String
-        var headers = {'To': addresses[i], 'Subject': subject};
-        for(var header in headers) {
-            email += header;
-            email += ": "+headers[header]+"\r\n";
-        }
-        email += "\r\n";
-        email += $('.writeOridomiText').val();
-        email += "\r\n\r\nSent from kumo. Try it at www.summerkitahara.com/kumo/hello"
-        
-        // Using the js-base64 library for encoding: https://www.npmjs.com/package/js-base64
-        var base64EncodedEmail = btoa(email);
-        var request = gapi.client.gmail.users.messages.send({
-          'userId': 'me',
-          'resource': {
-            'raw': base64EncodedEmail
-          }
-        });
-        
-        //once finish sending email, empty input fields 
-        request.execute(function(response) {            
-            $('#to').val('');
-            $('#subject').val('');
-            $(".writeOridomiText").val('');
-        });
+        sendEmail(addresses[i], subject, $('.writeOridomiText').val());   
     }
+}
+
+function startReplyClick() {
+    replyMsgId=document.getElementById("messageId").innerHTML;
+}
+
+function replyEmailClick() {
+    var request = gapi.client.gmail.users.messages.get({
+        'userId': 'me',
+        'id': replyMsgId
+    });
+    request.execute(replyMessage);
+}
+function replyEmail(message) {
+    var headers = message.payload.headers;
+    var subject = "";
+    var from = "";
+    $.each(headers, function() {
+        if(this.name.toLowerCase() === "subject") {
+            subject = this.value;
+        }
+        if(this.name.toLowerCase() === "from") {
+            from = this.value;
+        }
+    });
+    sendEmail(from, 'Re: '+subject, $(".replyOridomiText").val());
 }
 
 /**

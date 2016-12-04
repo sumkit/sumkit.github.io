@@ -66,13 +66,13 @@
             </div>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" onclick="sendEmail()">Send</button>
+            <button type="button" class="btn btn-success" data-dismiss="modal" onclick="sendEmailClick()">Send</button>
         </div>
       </div>
     </div>
   </div>
         
-    <!-- View Email Message Modal -->
+  <!-- View New Email Message Modal -->
   <div class="modal fade" id="emailModal" role="dialog">
     <div class="modal-dialog">
       <!-- Modal content-->
@@ -85,15 +85,41 @@
                 <img src="media/papers.png" alt="email message" style="width:75%; height:75%;">
                 <div style="padding: 20px; left: 4%; top: 7%; width:50%; height:75%; position: absolute; overflow-y: scroll;">
                     <p id="emailOridomiText"></p>
+                    <p style="display:none" id="messageId"></p>
                 </div>
             </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" data-target="#replyModal" onclick="startReplyClick()">Reply</button>
         </div>
       </div>
     </div>
   </div>
-    <div style="margin: 0 auto; width: 100%; top: 75%; text-align:center; position: absolute; display:none;" id="logoutBtnDiv">
-        <a class="btn btn-lg btn-warning" role="button" href="https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://www.summerkitahara.com/kumo/hello">Logout</a>
+    
+  <!-- View Reply Message Modal -->
+  <div class="modal fade" id="replyModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div id="replyOridomi">
+                <img src="media/papers.png" alt="empty page" style="width:100%; height:75%;">
+                <textarea class="replyOridomiText" style="width:60%; height:60%; left: 15%; top: 5%; position: absolute;"></textarea>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal" onclick="replyEmailClick()">Send</button>
+        </div>
+      </div>
     </div>
-  
+  </div>
+    
+  <div style="margin: 0 auto; width: 100%; top: 85%; text-align:center; position: absolute; display:none;" id="logoutBtnDiv">
+    <a class="btn btn-lg btn-warning" role="button" href="https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://www.summerkitahara.com/kumo/hello">Logout</a>
+  </div>
+
 </body>
 </html>
