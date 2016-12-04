@@ -309,7 +309,7 @@ function displayMessage(message, tag) {
         rotation=-1;
     }
     var frontStr = "From: "+from+"\nSubject: "+subject;
-    var t = envelopePaper.text(0.75*windowWidth,windowWidth/8, "");
+    var t = envelopePaper.text(0.75*windowWidth,0, "");
     t.attr("fill", "#000");
     t.attr("stroke", "none");
     t.attr("font-size", (windowHeight/42)+"px");
