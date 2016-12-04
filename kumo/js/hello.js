@@ -176,7 +176,7 @@ function removeEnvelopes() {
 
 //Create Raphael close button
 function createX() {
-    var paper = Raphael((3/4)*windowWidth,(windowHeight/3)-8,(windowHeight/25),(windowHeight/25));
+    var paper = Raphael((windowWidth/2)+10,(6/7)*windowHeight,windowWidth/8,windowHeight/4);
     x = paper.text(0, 10, "Close");
     x.attr('fill', "white");
     x.attr("stroke", "none");
@@ -306,7 +306,7 @@ function displayMessage(message, tag) {
         rotation=-1;
     }
     var frontStr = "From: "+from+"\nSubject: "+subject;
-    var t = envelopePaper.text(0.75*windowWidth,windowWidth/4, "");
+    var t = envelopePaper.text(0.75*windowWidth,(3/8)*windowWidth, "");
     t.attr("fill", "#000");
     t.attr("stroke", "none");
     t.attr("font-size", (windowHeight/42)+"px");
