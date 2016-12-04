@@ -118,6 +118,15 @@ function handleAuthResult(authResult) {
                 console.log("help");
                 document.getElementById("helpBtn").click();
                 break;
+            case "u":
+                //open unread emails
+                gapi.client.load('gmail', 'v1', getUnread);
+            case "i":
+                //open inbox
+                gapi.client.load('gmail', 'v1', getInbox);
+            case "n":
+                //write new email
+                $("#writeModal").modal('toggle');
             default:
                 //do nothing
                 break;
