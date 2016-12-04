@@ -237,7 +237,7 @@ function displayMessage(message, tag) {
     });
         
     // Creates rectangle with rounded corners (10) at x = 50, y = 0
-    var rect = envelopePaper.rect(0.75*windowWidth,0, windowWidth/2, windowHeight/2, 10);
+    var rect = envelopePaper.rect(0.75*windowWidth,0, windowWidth/4, windowHeight/4, 10);
     // Sets the fill attribute of the rectangle to white
     rect.attr("fill", "#ffffff");
     // Sets the stroke attribute of the rectangle to green with width 8
@@ -248,7 +248,7 @@ function displayMessage(message, tag) {
     var t = envelopePaper.text(0.75*windowWidth,windowHeight/4, "");
     t.attr("fill", "#000");
     t.attr("stroke", "none");
-    t.attr("font-size", (windowHeight/40)+"px");
+    t.attr("font-size", (windowHeight/60)+"px");
     t.attr("font-weight", "normal");
     t.attr("font-family", "arial");
     t.attr("text-anchor", "start");
@@ -301,8 +301,8 @@ function displayMessage(message, tag) {
         }
     });
     
-    var anim1 = Raphael.animation({x: 10}, 2000, "backOut", function() {}).delay(100*animDelay);
-    var anim2 = Raphael.animation({x: windowWidth/6}, 2000, "backOut",function() {});
+    var anim1 = Raphael.animation({x: 10, width: windowWidth/2, height: windowHeight/2}, 2000, "backOut", function() {}).delay(100*animDelay);
+    var anim2 = Raphael.animation({x: windowWidth/6, font-size: (windowHeight/40)+"px"}, 2000, "backOut",function() {});
     animDelay++;
     rect.animate(anim1);
     t.animateWith(rect, anim1, anim2);
