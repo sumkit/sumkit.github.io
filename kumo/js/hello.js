@@ -75,12 +75,16 @@ function loggedInDrawElements() {
     var paper = Raphael((3/4)*windowWidth,0,(windowWidth/4)+5, windowHeight);
     var mailbox = paper.image("media/mailbox.png",0,windowHeight/3,windowHeight/6, windowHeight/6);
     mailbox.click(function() {
-        gapi.client.load('gmail', 'v1', getUnread);
+        if(!envelopesShowing) {
+            gapi.client.load('gmail', 'v1', getUnread);
+        }
     });
     
     var inbox = paper.image("media/inbox.png",0,windowHeight/2,windowHeight/6,windowHeight/6); 
     inbox.click(function() {
-        gapi.client.load('gmail', 'v1', getInbox);
+        if(!envelopesShowing) {
+            gapi.client.load('gmail', 'v1', getInbox);    
+        }
     });
     
     var pencil = paper.image("media/crayon.png",0,(2/3)*windowHeight,windowHeight/12,windowHeight/12);
