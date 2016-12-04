@@ -300,7 +300,11 @@ function displayMessage(message, tag) {
     // Sets the stroke attribute of the rectangle to green with width 8
     rect.attr("stroke", green);
     rect.attr("stroke-width", "8");
-    rect.rotate(animDelay*2);
+    var rotation=1;
+    if(animDelay%2===0) {
+        rotation=-1;
+    }
+    rect.rotate(animDelay*2*rotation);
     var frontStr = "From: "+from+"\nSubject: "+subject;
     var t = envelopePaper.text(0.75*windowWidth,windowHeight/4, "");
     t.attr("fill", "#000");
@@ -309,7 +313,7 @@ function displayMessage(message, tag) {
     t.attr("font-weight", "normal");
     t.attr("font-family", "arial");
     t.attr("text-anchor", "start");
-    t.rotate(animDelay*2);
+    t.rotate(animDelay*2*rotation);
     formatText(frontStr, (windowHeight/2)-5, t);
     
     rect.drag(function(dx, dy) {
