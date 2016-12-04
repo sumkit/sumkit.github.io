@@ -13,7 +13,7 @@ h1, h2, h3, h4, label {
     margin: 0 auto; 
     width: 100%; 
     top: 90%; 
-    text-align:center; 
+    left: 75%;
     position: absolute; 
     display:none; /* initially, if unauthorized then show login button */
 }
