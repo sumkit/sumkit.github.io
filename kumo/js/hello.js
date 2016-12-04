@@ -275,7 +275,12 @@ function displayMessage(message, tag) {
     t.attr("text-anchor", "start");
     formatText(frontStr, (windowHeight/2)-5, t);
     
-    rect.click(function(event) {
+    rect.drag(function(event) {
+        console.log("move");
+    }, function() {
+        console.log("drag start");
+    }, function(){
+        console.log("drag end");
         if(tag === "unread") {
             var lastIndex = unreadMsgs.length-1;
             var last = unreadMsgs[lastIndex];
