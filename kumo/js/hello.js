@@ -293,7 +293,7 @@ function displayMessage(message, tag) {
         rect = envelopePaper.rect(0.75*windowWidth,0, windowWidth/4, windowWidth/8, 10);
     } else {
         //come from inbox
-        rect = envelopePaper.rect(0.75*windowWidth,windowWidth/4, windowWidth/4, windowWidth/8, 10);
+        rect = envelopePaper.rect(0.75*windowWidth,windowWidth/8, windowWidth/4, windowWidth/8, 10);
     }
     // Sets the fill attribute of the rectangle to white
     rect.attr("fill", "#ffffff");
