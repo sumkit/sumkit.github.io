@@ -533,7 +533,10 @@ function replyEmail(message) {
             document.getElementById("replyOridomiTextID").visibility="visible";
         },500);
     });
-    sendEmail(from, 'Re: '+subject, $(".replyOridomiText").val());
+    if(!subject.toLowerCase.startsWith("re: ")) {
+        subject = "Re: "+subject;
+    }
+    sendEmail(from, subject, $(".replyOridomiText").val());
 }
 
 /**
