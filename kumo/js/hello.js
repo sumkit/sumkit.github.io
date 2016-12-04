@@ -296,11 +296,10 @@ function displayMessage(message, tag) {
     var envX = (3/4)*windowWidth;
     if(tag == "unread") {
         //come from mailbox
-//        rect = envelopePaper.rect(envX,0,envWidth,envHeight, 10);
-        rect = envelopePaper.rect(envX,windowWidth/8,envWidth,envHeight, 10);
+        rect = envelopePaper.rect(envX,0,envWidth,envHeight, 10);
     } else {
         //come from inbox
-        rect = envelopePaper.rect(envX,windowWidth/8,envWidth,envHeight, 10);
+        rect = envelopePaper.rect(envX,(windowHeight*0.17),envWidth,envHeight, 10);
     }
     // Sets the fill attribute of the rectangle to white
     rect.attr("fill", "#ffffff");
