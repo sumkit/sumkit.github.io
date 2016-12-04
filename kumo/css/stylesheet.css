@@ -3,6 +3,11 @@ body {
     background:#8ac5ff !important;
 }
 
+/* Labels to make website accessible, but do not want them to appear */
+label {
+    display:none;
+}
+
 /* Div with logout button inside of it (placement) */
 #logoutBtnDiv {
     margin: 0 auto; 
