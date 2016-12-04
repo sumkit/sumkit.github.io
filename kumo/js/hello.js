@@ -377,6 +377,7 @@ function displayMessage(message, tag) {
  * @param {int} lineLength 
  */
 function formatText(text, lineLength, raphText) {
+    console.log(lineLength);
     var newText = "";
     var words = text.split(" ");
     var fontSize = raphText.attr("font-size");
