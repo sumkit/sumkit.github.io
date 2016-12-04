@@ -278,28 +278,48 @@ function displayMessage(message, tag) {
     rect.drag(function(dx, dy) {
         console.log("move");
         x1 = this.ox + dx;
-        y1 = this.oy + dy;           
+        y1 = this.oy + dy; 
+        x2 = t.ox + dx;
+        y2 = t.oy + dy;
         this.attr({x: x1, y: y1});
+        t.attr({x: x2, y: y2});
     }, function() {
         console.log("drag start");
         this.ox = this.attr("x");
         this.oy = this.attr("y");
-    }, function(){
+        t.ox = t.attr("x");
+        t.oy = t.attr("y");
+    }, function() {
         console.log("drag end");
-        //move top envelope to the bottom of the pile
-        if(tag === "unread") {
-            var lastIndex = unreadMsgs.length-1;
-            var last = unreadMsgs[lastIndex];
-            unreadMsgs.splice(lastIndex, 1);
-            unreadMsgs.unshift(last);
+        if(Math.abs(this.ox-this.attr("x")) < 2 &&
+          Math.abs(this.oy-this.attr("y")) < 2) {
+            //click, not drag
+            var bodyText = "";
+            if(message.payload.body.data != null) {
+                bodyText = atob(message.payload.body.data);
+            }
+            var elemP = document.getElementById("emailOridomiText");
+            elemP.innerHTML = getBody(message.payload);
+
+            $("#emailModal").modal('toggle');
+            if(tag === "unread")
+                modifyMessage('me', unreadMsgs[unreadMsgs.length-1].id, [], ["UNREAD"]);
         } else {
-            var lastIndex = inboxMsgs.length-1;
-            var last = inboxMsgs[lastIndex];
-            inboxMsgs.splice(lastIndex, 1);
-            inboxMsgs.unshift(last);
+            //move top envelope to the bottom of the pile
+            if(tag === "unread") {
+                var lastIndex = unreadMsgs.length-1;
+                var last = unreadMsgs[lastIndex];
+                unreadMsgs.splice(lastIndex, 1);
+                unreadMsgs.unshift(last);
+            } else {
+                var lastIndex = inboxMsgs.length-1;
+                var last = inboxMsgs[lastIndex];
+                inboxMsgs.splice(lastIndex, 1);
+                inboxMsgs.unshift(last);
+            }
+            t.toBack();
+            rect.toBack();
         }
-        t.toBack();
-        rect.toBack();
     });
     
     var anim1 = Raphael.animation({x: 10}, 2000, "backOut", function() {}).delay(200*animDelay);
