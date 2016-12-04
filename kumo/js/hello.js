@@ -375,8 +375,10 @@ function displayMessage(message, tag) {
 }
 
 /** 
+ * format the text to fit within a certain line length by adding '\n' characters where needed
  * @param {String} text is the text 
- * @param {int} lineLength 
+ * @param {int} lineLength
+ * @param {Element} raphText Raphael text element to put formatted text into
  */
 //function formatText(text, lineLength, raphText) {
 //    var newText = "";
