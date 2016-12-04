@@ -389,8 +389,8 @@ function formatText(text, lineLength, raphText) {
             //already tried to fit it on the previous line too, split up word
             var charsPerLine = words[i].length/fontSize;
             console.log(charsPerLine);
-            var firstHalf=str.substr(0,charsPerLine);
-            var secondHalf(charsPerLine, words[i].length-charsPerLine);
+            var firstHalf=words[i].substr(0,charsPerLine);
+            var secondHalf=words[i].substr(charsPerLine, words[i].length-charsPerLine);
         } else {
             newText=newText+"\n"+words[i];
         }
