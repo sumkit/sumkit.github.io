@@ -183,7 +183,6 @@ function createX() {
     x.attr("font-size", (windowHeight/30)+"px");
     x.attr("font-weight", "bold");
     x.attr("text-anchor", "start");
-    
     x.click(function() {
         //remove each envelope and address text
         removeEnvelopes();
@@ -306,7 +305,7 @@ function displayMessage(message, tag) {
         rotation=-1;
     }
     var frontStr = "From: "+from+"\nSubject: "+subject;
-    var t = envelopePaper.text(0.75*windowWidth,(3/8)*windowWidth, "");
+    var t = envelopePaper.text(0.75*windowWidth,windowWidth/8, "");
     t.attr("fill", "#000");
     t.attr("stroke", "none");
     t.attr("font-size", (windowHeight/42)+"px");
