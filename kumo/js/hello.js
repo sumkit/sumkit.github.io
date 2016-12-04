@@ -115,7 +115,7 @@ function handleAuthResult(authResult) {
     document.getElementById("logoutBtnDiv").style.display='block'; //show logout button
     loggedInDrawElements();
       
-    showSnackbar("Click the Help button or press 'h' for help.");
+    showSnackbar("Click the Help button or press 'h' for help and tips.");
       
     gapi.client.load('gmail', 'v1', function() {
         //need to load something initially
