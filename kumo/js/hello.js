@@ -130,6 +130,13 @@ function handleAuthResult(authResult) {
                 //write new email
                 $("#writeModal").modal('toggle');
                 break;
+            case "x":
+                //remove each envelope and address text, if there are any showing
+                if(envelopesShowing) {
+                    x.remove(); //remove x from page after clearing all envelopes 
+                    removeEnvelopes();
+                }
+                break;
             default:
                 //do nothing
                 break;

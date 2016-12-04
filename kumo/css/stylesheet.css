@@ -4,7 +4,7 @@ body {
 }
 
 /* Labels to make website accessible, but do not want them to appear */
-label {
+h1, label {
     display:none;
 }
 
