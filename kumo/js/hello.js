@@ -292,25 +292,21 @@ function displayMessage(message, tag) {
         
     // Creates rectangle with rounded corners (10)
     var rect;
-    if(tag === "unread") {
+    if(tag == "unread") {
         //come from mailbox
-        rect = envelopePaper.rect(0.75*windowWidth,0, windowWidth/4, windowWidth/8, 10);
+        rect = envelopePaper.rect((0.75*windowWidth),0,(windowWidth/4),(windowWidth/8), 10);
     } else {
         //come from inbox
-        rect = envelopePaper.rect(0.75*windowWidth,windowWidth/8, windowWidth/4, windowWidth/8, 10);
+        rect = envelopePaper.rect((0.75*windowWidth),(windowWidth/8),(windowWidth/4),(windowWidth/8), 10);
     }
     // Sets the fill attribute of the rectangle to white
     rect.attr("fill", "#ffffff");
     // Sets the stroke attribute of the rectangle to green with width 8
     rect.attr("stroke", green);
     rect.attr("stroke-width", "8");
-    var rotation=1;
-    if(animDelay%2===0) {
-        rotation=-1;
-    }
     var frontStr = "From: "+from+"\nSubject: "+subject;
     console.log(windowWidth/16)
-    var t = envelopePaper.text(0.75*windowWidth, windowWidth/16, "");
+    var t = envelopePaper.text((0.75*windowWidth),(windowWidth/16),"");
     t.attr("fill", "#000");
     t.attr("stroke", "none");
     t.attr("font-size", (windowHeight/60)+"px");
