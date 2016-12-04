@@ -293,7 +293,7 @@ function displayMessage(message, tag) {
     // Creates rectangle with rounded corners (10)
     var rect;
     var envWidth = windowWidth/4;
-    var envHeight = windowWidth/8;
+    var envHeight = windowWidth/16;
     var envX = (3/4)*windowWidth;
     if(tag == "unread") {
         //come from mailbox
@@ -367,7 +367,7 @@ function displayMessage(message, tag) {
         }
     });
     
-    var anim1 = Raphael.animation({x: 10, y: 0, width: windowWidth/2, height: windowHeight/2}, 2000, "backOut").delay(100*animDelay);
+    var anim1 = Raphael.animation({x: 10, y: 0, width: windowWidth/2, height: windowWidth/8}, 2000, "backOut").delay(100*animDelay);
     var anim2 = Raphael.animation({x: windowWidth/7}, 2000, "backOut");
     animDelay++;
     rect.animate(anim1);
