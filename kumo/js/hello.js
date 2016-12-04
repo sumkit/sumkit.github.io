@@ -292,7 +292,7 @@ function displayMessage(message, tag) {
         
     // Creates rectangle with rounded corners (10)
     var rect;
-    var envWidth=(windowWidth/4);
+    var envWidth = windowWidth/4;
     if(tag == "unread") {
         //come from mailbox
         rect = envelopePaper.rect((0.75*windowWidth),0,envWidth,(windowWidth/8), 10);
@@ -380,7 +380,7 @@ function formatText(text, lineLength, raphText) {
     var newText = "";
     var words = text.split(" ");
     var fontSize = raphText.attr("font-size");
-    console.log(fontSize);
+    console.log(raphText);
     console.log(lineLength);
 
     //email addresses don't have spaces 
