@@ -308,10 +308,10 @@ function displayMessage(message, tag) {
     rect.attr("stroke", green);
     rect.attr("stroke-width", "8");
     var frontStr = "From: "+from+"\nSubject: "+subject;
-    var t = envelopePaper.text(windowWidth/4,(windowWidth/9),"");
+    var t = envelopePaper.text((0.75*windowWidth),(windowWidth/9),"");
     t.attr("fill", "#000");
     t.attr("stroke", "none");
-    t.attr("font-size", (windowWidth/48));
+    t.attr("font-size", (windowWidth/52));
     t.attr("font-weight", "normal");
     t.attr("font-family", "arial");
     t.attr("text-anchor", "start");
@@ -368,7 +368,7 @@ function displayMessage(message, tag) {
     });
     
     var anim1 = Raphael.animation({x: 10, y: 0, width: windowWidth/2, height: windowHeight/2}, 2000, "backOut").delay(100*animDelay);
-    var anim2 = Raphael.animation({x: windowWidth/6}, 2000, "backOut");
+    var anim2 = Raphael.animation({x: windowWidth/7}, 2000, "backOut");
     animDelay++;
     rect.animate(anim1);
     t.animateWith(rect, anim1, anim2);
