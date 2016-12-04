@@ -198,10 +198,21 @@ function getInbox() {
   });
 }
 
+/**
+ * Called for each unread message. Add the message to a global list of unread messages. 
+ * Call displayMessage() to display the addressed envelope on the screen
+ * @param {Message} message that is unread 
+ */
 function handleUnread(message) {
     unreadMsgs.push(message);
     displayMessage(message, "unread");
 }
+
+/**
+ * Called for each message from the inbox. Add the message to a global list of messages. 
+ * Call displayMessage() to display the addressed envelope on the screen
+ * @param {Message} message that is in the inbox 
+ */
 function handleInbox(message) {
     inboxMsgs.push(message);
     displayMessage(message, "inbox");
@@ -214,17 +225,17 @@ function handleInbox(message) {
  * @param {String} tag indicates if the message has an "UNREAD" or "INBOX" tag
  */
 function displayMessage(message, tag) {
-  var headers = message.payload.headers;
-  var subject = "";
-  var from = "";
-  $.each(headers, function() {
-    if(this.name.toLowerCase() === "subject") {
-        subject = this.value;
-    }
-    if(this.name.toLowerCase() === "from") {
-        from = this.value;
-    }
-  });
+    var headers = message.payload.headers;
+    var subject = "";
+    var from = "";
+    $.each(headers, function() {
+        if(this.name.toLowerCase() === "subject") {
+            subject = this.value;
+        }
+        if(this.name.toLowerCase() === "from") {
+            from = this.value;
+        }
+    });
         
     // Creates rectangle with rounded corners (10) at x = 50, y = 0
     var rect = envelopePaper.rect(0.75*windowWidth,0, windowWidth/2, windowHeight/2, 10);
@@ -322,36 +333,40 @@ function formatText(text, lineLength, raphText) {
     } 
 }
 
-function getBody(message) {
-    var encodedBody = '';
-    if(typeof message.parts === 'undefined')
-    {
-      encodedBody = message.body.data;
-    }
-    else
-    {
-      encodedBody = getHTMLPart(message.parts);
-    }
-    encodedBody = encodedBody.replace(/-/g, '+').replace(/_/g, '/').replace(/\s/g, '');
-    return decodeURIComponent(escape(window.atob(encodedBody)));
-}
-
+/**
+ * recursively get the HTML data from message 
+ * @param {Array} arr array of message parts
+ * @return {String} 
+ */
 function getHTMLPart(arr) {
-    for(var x = 0; x <= arr.length; x++)
-    {
-      if(typeof arr[x].parts === 'undefined')
-      {
-        if(arr[x].mimeType === 'text/html')
-        {
+    for(var x = 0; x <= arr.length; x++) {
+      if(typeof arr[x].parts === 'undefined') {
+        if(arr[x].mimeType === 'text/html') {
           return arr[x].body.data;
         }
       }
-      else
-      {
+      else {
+        //not HTML type, so recurse 
         return getHTMLPart(arr[x].parts);
       }
     }
     return '';
+}
+
+/**
+ * Get the message body and decode the URI
+ * @param {Message} message that has been selected to open and view
+ * @return URI decoded body for HTML
+ */
+function getBody(message) {
+    var encodedBody = '';
+    if(typeof message.parts === 'undefined') {
+      encodedBody = message.body.data;
+    } else {
+      encodedBody = getHTMLPart(message.parts);
+    }
+    encodedBody = encodedBody.replace(/-/g, '+').replace(/_/g, '/').replace(/\s/g, '');
+    return decodeURIComponent(escape(window.atob(encodedBody)));
 }
 
 //Handle the UI aspects of transitioning between writing the email body 
@@ -401,6 +416,7 @@ function sendEmail(address, subject, body) {
     });   
 }
 
+//Called when press send button on new email
 function sendEmailClick() {
     var textDiv = document.getElementsByClassName("writeOridomiText")[0].value;
     var addresses = $('#to').val();
@@ -411,18 +427,27 @@ function sendEmailClick() {
     }
 }
 
+//Called when press reply button
 function startReplyClick() {
     replyMsgId=document.getElementById("messageId").innerHTML;
     $('#replyModal').modal('toggle');
 }
 
+//Called when press send on replying message
+//fetch the original message by ID
 function replyEmailClick() {
     var request = gapi.client.gmail.users.messages.get({
         'userId': 'me',
         'id': replyMsgId
     });
-    request.execute(replyMessage);
+    request.execute(replyEmail);
 }
+
+/**
+ * Get parameters for email address, subject, and email body to call sendEmail()
+ * 
+ * @param {Message} message to send in reply
+ */
 function replyEmail(message) {
     var headers = message.payload.headers;
     var subject = "";
