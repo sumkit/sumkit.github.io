@@ -112,12 +112,12 @@ function handleAuthResult(authResult) {
             case "l":
                 //logout
                 console.log("logout");
-                $("#logoutBtn").trigger('keypress');
+                document.getElementById("logoutBtn").click();
                 break;
             case "h":
                 //help
                 console.log("help");
-                $("#helpBtn").trigger('keypress');
+                document.getElementById("helpBtn").click();
                 break;
             default:
                 //do nothing
