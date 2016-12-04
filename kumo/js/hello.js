@@ -502,6 +502,7 @@ function modifyMessage(userId, messageId, labelsToAdd, labelsToRemove) {
  * @param {String} text to display in the snackbar 
  */
 function showSnackbar(text) {
+    console.log(text);
     var snack = document.getElementById("snackbar"); // Get the snackbar DIV
     snack.innerHTML = text; //set snackbar text
     snack.className = "show"; // Add the "show" class to DIV
