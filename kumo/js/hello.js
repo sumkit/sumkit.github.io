@@ -73,12 +73,12 @@ function handleAuthClick() {
 //Draw mailbox, inbox, and pencil Raphael images after authorization has been confirmed
 function loggedInDrawElements() {
     var paper = Raphael((3/4)*windowWidth, 0, (windowWidth/4)+5, windowHeight);
-    var mailbox = paper.image("media/mailbox.png",0,windowHeight/4,windowHeight/8, windowHeight/8);
+    var mailbox = paper.image("media/mailbox.png",0,windowHeight/4,windowHeight/7, windowHeight/7);
     mailbox.click(function() {
         gapi.client.load('gmail', 'v1', getUnread);
     });
     
-    var inbox = paper.image("media/inbox.png",0,windowHeight/2,windowHeight/8,windowHeight/8); 
+    var inbox = paper.image("media/inbox.png",0,windowHeight/2,windowHeight/7,windowHeight/7); 
     inbox.click(function() {
         gapi.client.load('gmail', 'v1', getInbox);
     });
