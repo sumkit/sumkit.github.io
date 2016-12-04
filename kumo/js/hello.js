@@ -121,7 +121,7 @@ function removeEnvelopes() {
 function createX() {
     var paper = Raphael((windowWidth/2)+10,(6/7)*windowHeight,windowWidth/8,windowHeight/4);
     x = paper.text(0, 10, "Close");
-    x.attr('fill', green);
+    x.attr('fill', "green");
     x.attr("stroke", "none");
     x.attr("font-size", (windowHeight/30)+"px");
     x.attr("font-weight", "bold");
@@ -129,17 +129,6 @@ function createX() {
     
     x.click(function() {
         //remove each envelope and address text
-        var anim = Raphael.animation({x: windowWidth}, 2000, "<").delay(200);
-        envelopePaper.animate(anim);
-//        envelopePaper.forEach(function(elem) {
-//            if(elem != null) {
-//                var anim = Raphael.animation({x: windowWidth}, 2000, "<").delay(200);
-//                elem.animate(anim);
-//                return true;
-//            } else {
-//                return false; //stop looping
-//            }
-//        });
         x.remove(); //remove x from page after clearing all envelopes 
         removeEnvelopes();
     });
