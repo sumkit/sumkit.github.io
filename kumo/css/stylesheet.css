@@ -11,7 +11,7 @@ h1, h2, h3, h4, label {
 /* Div with logout button inside of it (placement) */
 #logoutBtnDiv {
     margin: 0 auto; 
-    width: 25%; 
+    width: 100%; 
     top: 90%; 
     text-align:center; 
     position: absolute; 
