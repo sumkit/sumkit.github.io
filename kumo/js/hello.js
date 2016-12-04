@@ -381,7 +381,7 @@ function formatText(text, lineLength, raphText) {
     var words = text.split(" ");
     var fontSize = raphText.attr("font-size");
     //email addresses don't have spaces 
-    console.log(words.length);
+    console.log(typeof fontSize);
     for (var i=0; i<words.length; i++) {   
       var tempRaph = raphText.clone();
       tempRaph.attr("text", newText + " " + words[i]);
