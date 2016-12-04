@@ -413,6 +413,7 @@ function sendEmailClick() {
 
 function startReplyClick() {
     replyMsgId=document.getElementById("messageId").innerHTML;
+    $('#replyModal').modal('toggle');
 }
 
 function replyEmailClick() {
