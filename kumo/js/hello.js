@@ -117,7 +117,14 @@ function handleAuthResult(authResult) {
       
     showSnackbar("Click the ? button or press 'h' for help.");
       
-    gapi.client.load('gmail', 'v1', getUnread);
+    gapi.client.load('gmail', 'v1', function() {
+        //need to load something initially
+        gapi.client.gmail.users.messages.list({
+            'userId': 'me',
+            'labelIds': 'UNREAD',
+            'maxResults': 2
+        });
+    });
     
     $(document).keypress(function(event) {
         console.log(String.fromCharCode(event.charCode));
