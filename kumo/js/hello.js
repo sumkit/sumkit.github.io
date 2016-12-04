@@ -302,7 +302,7 @@ function displayMessage(message, tag) {
     });
     
     var anim1 = Raphael.animation({x: 10, width: windowWidth/2, height: windowHeight/2}, 2000, "backOut", function() {}).delay(100*animDelay);
-    var anim2 = Raphael.animation({x: windowWidth/6, font-size: (windowHeight/40)+"px"}, 2000, "backOut",function() {});
+    var anim2 = Raphael.animation({x: windowWidth/6, fontSize: (windowHeight/40)+"px"}, 2000, "backOut",function() {});
     animDelay++;
     rect.animate(anim1);
     t.animateWith(rect, anim1, anim2);
