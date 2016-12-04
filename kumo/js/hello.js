@@ -107,6 +107,7 @@ function handleAuthResult(authResult) {
     gapi.client.load('gmail', 'v1', getUnread);
       
     $(document).keypress(function(event) {
+        console.log(String.fromCharCode(event.charCode));
         switch(String.fromCharCode(event.charCode)) {
             case "l":
                 //logout
