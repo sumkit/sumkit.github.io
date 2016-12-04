@@ -331,7 +331,7 @@ function formatText(text, lineLength, raphText) {
 /**
  * recursively get the HTML data from message 
  * @param {Array} arr array of message parts
- * @return {String} 
+ * @return {String} data or error message to display
  */
 function getHTMLPart(arr) {
     for(var x = 0; x <= arr.length; x++) {
@@ -347,7 +347,6 @@ function getHTMLPart(arr) {
                 return getHTMLPart(arr[x].parts);
             }
         }
-      }
     }
     return "Sorry, kumo cannot load this data.";
 }
