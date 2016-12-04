@@ -16,7 +16,6 @@ var animDelay = 1;
 var envelopePaper; //Raphael canvas to show "envelopes" of received emails 
 var x; //close button to remove envelopes from screen
 var envelopesShowing=false;
-
 var replyMsgId=0;
 
 $(document).ready(function() {
@@ -90,6 +89,19 @@ function loggedInDrawElements() {
     });
 }
 
+function isModalShowing() {
+    var modals = document.getElementsByClassName("modal");
+    var showing=false;
+    for(var i=0;i<modals.length;i++) {
+        var m = modals[i];
+        var mID='#'+m.id;
+        if($(mID).hasClass('in')) {
+            showing=true;
+        }
+    }
+    return showing;
+}
+
 /**
  * Handle response from authorization server.
  *
@@ -104,40 +116,42 @@ function handleAuthResult(authResult) {
     loggedInDrawElements();
       
     gapi.client.load('gmail', 'v1', getUnread);
-      
+    
     $(document).keypress(function(event) {
         console.log(String.fromCharCode(event.charCode));
-        switch(String.fromCharCode(event.charCode)) {
-            case "l":
-                //logout
-                console.log("logout");
-                document.getElementById("logoutBtn").click();
-                break;
-            case "h":
-                //help
-                console.log("help");
-                document.getElementById("helpBtn").click();
-                break;
-            case "u":
-                //open unread emails
-                gapi.client.load('gmail', 'v1', getUnread);
-                break;
-            case "i":
-                //open inbox
-                gapi.client.load('gmail', 'v1', getInbox);
-                break;
-            case "n":
-                //write new email
-                $("#writeModal").modal('toggle');
-                break;
-            case "x":
-                //remove each envelope and address text, if there are any showing
-                if(envelopesShowing) 
-                    removeEnvelopes();
-                break;
-            default:
-                //do nothing
-                break;
+        if(!isModalShowing()) {
+            switch(String.fromCharCode(event.charCode)) {
+                case "l":
+                    //logout
+                    console.log("logout");
+                    document.getElementById("logoutBtn").click();
+                    break;
+                case "h":
+                    //help
+                    console.log("help");
+                    document.getElementById("helpBtn").click();
+                    break;
+                case "u":
+                    //open unread emails
+                    gapi.client.load('gmail', 'v1', getUnread);
+                    break;
+                case "i":
+                    //open inbox
+                    gapi.client.load('gmail', 'v1', getInbox);
+                    break;
+                case "n":
+                    //write new email
+                    $("#writeModal").modal('toggle');
+                    break;
+                case "x":
+                    //remove each envelope and address text, if there are any showing
+                    if(envelopesShowing) 
+                        removeEnvelopes();
+                    break;
+                default:
+                    //do nothing
+                    break;
+            }
         }
     });
   } else {
