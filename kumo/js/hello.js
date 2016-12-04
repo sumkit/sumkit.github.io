@@ -308,7 +308,7 @@ function displayMessage(message, tag) {
     rect.attr("stroke", green);
     rect.attr("stroke-width", "8");
     var frontStr = "From: "+from+"\nSubject: "+subject;
-    var t = envelopePaper.text((0.75*windowWidth),(windowWidth/9),"");
+    var t = envelopePaper.text(windowWidth/4,(windowWidth/9),"");
     t.attr("fill", "#000");
     t.attr("stroke", "none");
     t.attr("font-size", (windowWidth/48));
@@ -380,34 +380,6 @@ function displayMessage(message, tag) {
  * @param {int} lineLength
  * @param {Element} raphText Raphael text element to put formatted text into
  */
-//function formatText(text, lineLength, raphText) {
-//    var newText = "";
-//    var words = text.split(" ");
-//    var fontSize = windowWidth/48;
-//    //email addresses don't have spaces 
-//    for (var i=0; i<words.length; i++) {   
-//      var tempRaph = raphText.clone();
-//      tempRaph.attr("text", newText + " " + words[i]);
-//        
-//      if(tempRaph.getBBox().width > lineLength) {
-//        if(newText.endsWith("\n")) {
-//            console.log(tempRaph.getBBox().width);
-//            //already tried to fit it on the previous line too, split up word
-//            var charsPerLine = words[i].length/fontSize;
-////            console.log(charsPerLine);
-//            var firstHalf=words[i].substr(0,charsPerLine);
-//            var secondHalf=words[i].substr(charsPerLine, words[i].length-charsPerLine);
-//            newText=newText+firstHalf+"\n"+secondHalf;
-//        } else {
-//            newText=newText+"\n"+words[i];
-//        }
-//      } else {
-//        newText=newText+" "+words[i];
-//      }
-//      tempRaph.remove();
-//    }
-//    raphText.attr("text", newText);
-//}
 function formatText(text, lineLength, raphText) {
     var newText = "";
     var words = text.split(" ");
