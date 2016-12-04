@@ -162,6 +162,20 @@ function handleAuthResult(authResult) {
                     //do nothing
                     break;
             }
+        } else if(unreadMsgs.length > 0 || inboxMsgs.length > 0) {
+            switch(String.fromCharCode(event.charCode)) {
+                case "o":
+                    //open message
+                    var thisMsg;
+                    if(unreadMsgs.length > 0) {
+                        openEmail(unreadMsgs[unreadMsgs.length-1]);
+                    } else {
+                        openEmail(inboxMsgs[inboxMsgs.length-1]);
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
     });
   } else {
