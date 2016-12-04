@@ -312,6 +312,7 @@ function displayMessage(message, tag) {
     formatText(frontStr, (windowHeight/2)-5, t);
     
     rect.drag(function(dx, dy) {
+        //on move (mouse pressed)
         x1 = this.ox + dx;
         y1 = this.oy + dy; 
         x2 = t.ox + dx;
@@ -319,11 +320,14 @@ function displayMessage(message, tag) {
         this.attr({x: x1, y: y1});
         t.attr({x: x2, y: y2});
     }, function() {
+        //on start (mouse down)
+        console.log("move");
         this.ox = this.attr("x");
         this.oy = this.attr("y");
         t.ox = t.attr("x");
         t.oy = t.attr("y");
     }, function() {
+        //on end (mouse up)
         if(Math.abs(this.ox-this.attr("x"))<3 &&
           Math.abs(this.oy-this.attr("y"))<3) {
             //click, not drag
