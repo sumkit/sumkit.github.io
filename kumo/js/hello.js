@@ -129,7 +129,6 @@ function createX() {
         //remove each envelope and address text
         envelopePaper.forEach(function(elem) {
             if(elem != null) {
-                console.log(elem);
                 var anim = Raphael.animation({x: windowWidth}, 2000, "<", function() {}).delay(200);
                 elem.animate(anim);
                 return true;
@@ -256,7 +255,6 @@ function displayMessage(message, tag) {
     formatText(frontStr, (windowHeight/2)-5, t);
     
     rect.drag(function(dx, dy) {
-        console.log("move");
         x1 = this.ox + dx;
         y1 = this.oy + dy; 
         x2 = t.ox + dx;
@@ -264,14 +262,11 @@ function displayMessage(message, tag) {
         this.attr({x: x1, y: y1});
         t.attr({x: x2, y: y2});
     }, function() {
-        console.log("drag start");
         this.ox = this.attr("x");
         this.oy = this.attr("y");
         t.ox = t.attr("x");
         t.oy = t.attr("y");
     }, function() {
-        console.log("drag end");
-        console.log(Math.abs(this.ox-this.attr("x")));
         if(Math.abs(this.ox-this.attr("x"))<3 &&
           Math.abs(this.oy-this.attr("y"))<3) {
             //click, not drag
