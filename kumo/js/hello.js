@@ -20,6 +20,9 @@ var envelopesShowing=false;
 var replyMsgId=0;
 
 $(document).ready(function() {
+    $(document).keypress(function(event) {
+        console.log('Handler for .keypress() called. - ' + event.charCode);
+    });
     drawClouds(); //clouds are drawn regardless of authorization status 
 });
 

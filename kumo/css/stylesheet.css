@@ -8,10 +8,6 @@ label {
     display:none;
 }
 
-button:hover {
-    background-color: cornflowerblue;
-}
-
 /* Div with logout button inside of it (placement) */
 #logoutBtnDiv {
     margin: 0 auto; 
