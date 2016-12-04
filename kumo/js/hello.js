@@ -304,7 +304,7 @@ function displayMessage(message, tag) {
     if(animDelay%2===0) {
         rotation=-1;
     }
-    rect.rotate(animDelay*2*rotation,0,0);
+    rect.rotate(animDelay*2*rotation);
     var frontStr = "From: "+from+"\nSubject: "+subject;
     var t = envelopePaper.text(0.75*windowWidth,windowHeight/4, "");
     t.attr("fill", "#000");
@@ -313,7 +313,7 @@ function displayMessage(message, tag) {
     t.attr("font-weight", "normal");
     t.attr("font-family", "arial");
     t.attr("text-anchor", "start");
-    t.rotate(animDelay*2*rotation,0,0);
+    t.rotate(animDelay*2*rotation);
     formatText(frontStr, (windowHeight/2)-5, t);
     
     rect.drag(function(dx, dy) {
