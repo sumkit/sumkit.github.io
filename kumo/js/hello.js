@@ -335,17 +335,21 @@ function formatText(text, lineLength, raphText) {
  */
 function getHTMLPart(arr) {
     for(var x = 0; x <= arr.length; x++) {
-      if(typeof arr[x].parts === 'undefined') {
-        if(arr[x].mimeType === 'text/html') {
-          return arr[x].body.data;
+        if(typeof arr[x] === 'undefined') {
+            //do nothing
+        } else {
+            if(typeof arr[x].parts === 'undefined') {
+                if(arr[x].mimeType === 'text/html') {
+                    return arr[x].body.data;
+                }
+            } else {
+                //not HTML type, so recurse 
+                return getHTMLPart(arr[x].parts);
+            }
         }
       }
-      else {
-        //not HTML type, so recurse 
-        return getHTMLPart(arr[x].parts);
-      }
     }
-    return '';
+    return "Sorry, kumo cannot load this data.";
 }
 
 /**
