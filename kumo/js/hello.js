@@ -427,6 +427,7 @@ function getBody(message) {
 //Handle the UI aspects of transitioning between writing the email body 
 //and addressing the "envelope
 function addressTransition() {
+    document.getElementById("writeOridomiTextID").visibility="hidden";
     var oridomiPaper = new OriDomi('#writeOridomi', {
         hPanels: 3,
         ripple: 0
@@ -436,6 +437,7 @@ function addressTransition() {
             $("#writeModal").modal('toggle'); //close write modal (write email body)
             $("#envelopeModal").modal('toggle'); //open envelope modal (address email envelope)   
             oridomiPaper.unfold();
+            document.getElementById("writeOridomiTextID").visibility="visible";
         },500);
     });
 }
@@ -515,6 +517,17 @@ function replyEmail(message) {
         if(this.name.toLowerCase() === "from") {
             from = this.value;
         }
+    });
+    document.getElementById("replyOridomiTextID").visibility="hidden";
+    var oridomiPaper = new OriDomi('#replyOridomi', {
+        hPanels: 3,
+        ripple: 0
+    });
+    oridomiPaper.foldUp('top', function() {
+        window.setTimeout(function(){  
+            oridomiPaper.unfold();
+            document.getElementById("replyOridomiTextID").visibility="visible";
+        },500);
     });
     sendEmail(from, 'Re: '+subject, $(".replyOridomiText").val());
 }
