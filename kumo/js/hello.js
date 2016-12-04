@@ -271,6 +271,26 @@ function handleInbox(message) {
 }
 
 /** 
+ * open email message in new modal after clicking on envelope
+ * @param {Message} message to open
+ */
+function openEmail(message) {
+    var bodyText="";
+    if(message.payload.body.data != null) {
+        bodyText=atob(message.payload.body.data);
+    }
+    var elemP=document.getElementById("emailOridomiText");
+    elemP.innerHTML=getBody(message.payload);
+
+    var hiddenP=document.getElementById("messageId");
+    hiddenP.innerHTML=message.id;
+
+    $("#emailModal").modal('toggle');
+    if(tag === "unread")
+        modifyMessage('me', unreadMsgs[unreadMsgs.length-1].id, [], ["UNREAD"]);
+}
+
+/** 
  * Display the message by creating an "envelope" rectangle  
  *
  * @param {Message} message 
@@ -335,19 +355,7 @@ function displayMessage(message, tag) {
         if(Math.abs(this.ox-this.attr("x"))<3 &&
           Math.abs(this.oy-this.attr("y"))<3) {
             //click, not drag
-            var bodyText="";
-            if(message.payload.body.data != null) {
-                bodyText=atob(message.payload.body.data);
-            }
-            var elemP=document.getElementById("emailOridomiText");
-            elemP.innerHTML=getBody(message.payload);
-            
-            var hiddenP=document.getElementById("messageId");
-            hiddenP.innerHTML=message.id;
-
-            $("#emailModal").modal('toggle');
-            if(tag === "unread")
-                modifyMessage('me', unreadMsgs[unreadMsgs.length-1].id, [], ["UNREAD"]);
+            openEmail(message);
         } else {
             //move top envelope to the bottom of the pile
             if(tag === "unread") {
