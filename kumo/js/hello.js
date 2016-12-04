@@ -157,20 +157,18 @@ function getUnread() {
   request.execute(function(response) {
       //null response.messages means no new messages
       if(response.messages != null) {
-          if(response.messages.length == 0) {
-              showSnackbar("0 unread emails.");
-          } else {
-              envelopePaper = Raphael(windowWidth/8, windowHeight/3, 0.625*windowWidth, windowHeight/2);
-              envelopesShowing=true;
-              $.each(response.messages.reverse(), function() {
-                  var messageRequest = gapi.client.gmail.users.messages.get({
-                    'userId': 'me',
-                    'id': this.id
-                  });
-                  messageRequest.execute(handleUnread);
+          envelopePaper = Raphael(windowWidth/8, windowHeight/3, 0.625*windowWidth, windowHeight/2);
+          envelopesShowing=true;
+          $.each(response.messages.reverse(), function() {
+              var messageRequest = gapi.client.gmail.users.messages.get({
+                'userId': 'me',
+                'id': this.id
               });
-              createX();
-          }
+              messageRequest.execute(handleUnread);
+          });
+          createX();
+      } else {
+          showSnackbar("0 unread emails.");
       }
   });
 } 
