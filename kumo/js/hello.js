@@ -275,12 +275,18 @@ function displayMessage(message, tag) {
     t.attr("text-anchor", "start");
     formatText(frontStr, (windowHeight/2)-5, t);
     
-    rect.drag(function(event) {
+    rect.drag(function(dx, dy) {
         console.log("move");
+        x1 = this.ox + dx;
+        y1 = this.oy + dy;           
+        this.attr({x: x1, y: y1});
     }, function() {
         console.log("drag start");
+        this.ox = this.attr("x");
+        this.oy = this.attr("y");
     }, function(){
         console.log("drag end");
+        //move top envelope to the bottom of the pile
         if(tag === "unread") {
             var lastIndex = unreadMsgs.length-1;
             var last = unreadMsgs[lastIndex];
