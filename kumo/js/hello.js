@@ -245,26 +245,6 @@ function displayMessage(message, tag) {
     rect.attr("stroke", green);
     rect.attr("stroke-width", "8");
     
-    rect.dblclick(function(event) {
-        var bodyText = "";
-        if(message.payload.body.data != null) {
-            bodyText = atob(message.payload.body.data);
-        }
-        var elemP = document.getElementById("emailOridomiText");
-        elemP.innerHTML = getBody(message.payload);
-        
-        $("#emailModal").modal('toggle');
-//        var temp = new OriDomi('#emailOridomi', {
-//                hPanels: 3,
-//                ripple: 0
-//        });
-//        temp.setRipple().stairs(50, 'top', function() {
-//            if(tag === "unread")
-//                modifyMessage('me', unreadMsgs[unreadMsgs.length-1].id, [], ["UNREAD"]);
-//        });
-        if(tag === "unread")
-            modifyMessage('me', unreadMsgs[unreadMsgs.length-1].id, [], ["UNREAD"]);
-    });
     var frontStr = "From: "+from+"\nSubject: "+subject;
     var t = envelopePaper.text(0.75*windowWidth,windowHeight/4, "");
     t.attr("fill", "#000");
@@ -323,7 +303,7 @@ function displayMessage(message, tag) {
         }
     });
     
-    var anim1 = Raphael.animation({x: 10}, 2000, "backOut", function() {}).delay(200*animDelay);
+    var anim1 = Raphael.animation({x: 10}, 2000, "backOut", function() {}).delay(100*animDelay);
     var anim2 = Raphael.animation({x: windowWidth/6}, 2000, "backOut",function() {});
     animDelay++;
     rect.animate(anim1);
