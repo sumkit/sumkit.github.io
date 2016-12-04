@@ -272,8 +272,8 @@ function displayMessage(message, tag) {
     }, function() {
         console.log("drag end");
         console.log(Math.abs(this.ox-this.attr("x")));
-        if(Math.abs(this.ox-this.attr("x")) < 3 &&
-          Math.abs(this.oy-this.attr("y")) < 3) {
+        if(Math.abs(this.ox-this.attr("x"))<3 &&
+          Math.abs(this.oy-this.attr("y"))<3) {
             //click, not drag
             var bodyText = "";
             if(message.payload.body.data != null) {
