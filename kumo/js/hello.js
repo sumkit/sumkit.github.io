@@ -240,8 +240,14 @@ function displayMessage(message, tag) {
         }
     });
         
-    // Creates rectangle with rounded corners (10) at x = 50, y = 0
-    var rect = envelopePaper.rect(0.75*windowWidth,0, windowWidth/4, windowHeight/4, 10);
+    // Creates rectangle with rounded corners (10)
+    var rect;
+    if(tag === "unread") {
+        //come from mailbox
+        rect = envelopePaper.rect(0.75*windowWidth,0, windowWidth/4, windowHeight/4, 10);
+    } else {
+        rect = envelopePaper.rect(0.75*windowWidth,windowWidth/4, windowWidth/4, windowHeight/4, 10);
+    }
     // Sets the fill attribute of the rectangle to white
     rect.attr("fill", "#ffffff");
     // Sets the stroke attribute of the rectangle to green with width 8
