@@ -379,17 +379,26 @@ function displayMessage(message, tag) {
 function formatText(text, lineLength, raphText) {
     var newText = "";
     var words = text.split(" ");
-    if(words.length > 1) {
-        //email addresses don't have spaces 
-        for (var i=0; i<words.length; i++) {   
-          raphText.attr("text", newText + " " + words[i]);
-          if (raphText.getBBox().width > lineLength) {
-            newText=newText+"\n" + words[i];
-          } else {
-            newText=newText+" " + words[i];
-          }
+    var fontSize = raphText.attr("font-size");
+    //email addresses don't have spaces 
+    for (var i=0; i<words.length; i++) {   
+      var tempRaph = raphText.clone();
+      tempRaph.attr("text", newText + " " + words[i]);
+      if (raphText.getBBox().width > lineLength) {
+        if(newText.endsWith("\n")) {
+            //already tried to fit it on the previous line too, split up word
+            var charsPerLine = words.length/fontSize;
+            console.log(charsPerLine);
+            var 
+        } else {
+            newText=newText+"\n"+words[i];
         }
-    } 
+      } else {
+        newText=newText+" "+words[i];
+      }
+      tempRaph.remove();
+    }
+    raphText.attr("text", newText);
 }
 
 /**
