@@ -121,12 +121,15 @@ function handleAuthResult(authResult) {
             case "u":
                 //open unread emails
                 gapi.client.load('gmail', 'v1', getUnread);
+                break;
             case "i":
                 //open inbox
                 gapi.client.load('gmail', 'v1', getInbox);
+                break;
             case "n":
                 //write new email
                 $("#writeModal").modal('toggle');
+                break;
             default:
                 //do nothing
                 break;
