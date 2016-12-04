@@ -387,9 +387,10 @@ function formatText(text, lineLength, raphText) {
       if (raphText.getBBox().width > lineLength) {
         if(newText.endsWith("\n")) {
             //already tried to fit it on the previous line too, split up word
-            var charsPerLine = words.length/fontSize;
+            var charsPerLine = words[i].length/fontSize;
             console.log(charsPerLine);
-            var 
+            var firstHalf=str.substr(0,charsPerLine);
+            var secondHalf(charsPerLine, words[i].length-charsPerLine);
         } else {
             newText=newText+"\n"+words[i];
         }
