@@ -184,7 +184,7 @@ function createX() {
     x = paper.text(0, 10, "Close");
     x.attr('fill', "white");
     x.attr("stroke", "none");
-    x.attr("font-size", (windowHeight/30)+"px");
+    x.attr("font-size", (windowHeight/30));
     x.attr("font-weight", "bold");
     x.attr("text-anchor", "start");
     x.click(function() {
@@ -309,7 +309,7 @@ function displayMessage(message, tag) {
     var t = envelopePaper.text((0.75*windowWidth),(windowWidth/9),"");
     t.attr("fill", "#000");
     t.attr("stroke", "none");
-    t.attr("font-size", (windowWidth/48)+"px");
+    t.attr("font-size", (windowWidth/48));
     t.attr("font-weight", "normal");
     t.attr("font-family", "arial");
     t.attr("text-anchor", "start");
@@ -381,7 +381,6 @@ function formatText(text, lineLength, raphText) {
     var words = text.split(" ");
     var fontSize = raphText.attr("font-size");
     //email addresses don't have spaces 
-    console.log(typeof fontSize);
     for (var i=0; i<words.length; i++) {   
       var tempRaph = raphText.clone();
       tempRaph.attr("text", newText + " " + words[i]);
