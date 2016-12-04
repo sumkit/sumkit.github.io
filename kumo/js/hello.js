@@ -172,7 +172,6 @@ function handleAuthResult(authResult) {
 }
 
 function removeEnvelopes() {        
-//    envelopePaper.clear();
     envelopePaper.remove();
     envelopesShowing=false;
     x.remove(); //remove x from page after clearing all envelopes 
@@ -297,7 +296,8 @@ function displayMessage(message, tag) {
     var envX = (3/4)*windowWidth;
     if(tag == "unread") {
         //come from mailbox
-        rect = envelopePaper.rect(envX,0,envWidth,envHeight, 10);
+//        rect = envelopePaper.rect(envX,0,envWidth,envHeight, 10);
+        rect = envelopePaper.rect(envX,windowWidth/8,envWidth,envHeight, 10);
     } else {
         //come from inbox
         rect = envelopePaper.rect(envX,windowWidth/8,envWidth,envHeight, 10);
