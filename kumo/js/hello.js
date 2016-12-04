@@ -311,7 +311,7 @@ function displayMessage(message, tag) {
     var t = envelopePaper.text((0.75*windowWidth),(windowWidth/9),"");
     t.attr("fill", "#000");
     t.attr("stroke", "none");
-    t.attr("font-size", (windowWidth/52));
+    t.attr("font-size", windowWidth/60);
     t.attr("font-weight", "normal");
     t.attr("font-family", "arial");
     t.attr("text-anchor", "start");
