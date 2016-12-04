@@ -176,13 +176,12 @@ function removeEnvelopes() {
 
 //Create Raphael close button
 function createX() {
-    var paper = Raphael((3/4)*windowWidth,(windowHeight/3)-8);
-    x = paper.text(0, 10, "Close");
-    x.attr('fill', "green");
+    var paper = Raphael((3/4)*windowWidth,(windowHeight/3)-8,(windowHeight/25),(windowHeight/25));
+    x = paper.text(0, 0, "X");
+    x.attr('fill', "red");
     x.attr("stroke", "none");
-    x.attr("font-size", (windowHeight/30)+"px");
+    x.attr("font-size", (windowHeight/25)+"px");
     x.attr("font-weight", "bold");
-    x.attr("text-anchor", "start");
     
     x.click(function() {
         //remove each envelope and address text
