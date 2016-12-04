@@ -387,7 +387,7 @@ function formatText(text, lineLength, raphText) {
       tempRaph.attr("text", newText + " " + words[i]);
         console.log(raphText.getBBox().width * fontSize);
       if ((raphText.getBBox().width* fontSize) > lineLength) {
-          console.log(raphText.getBBox().width);
+          console.log(raphText.getBBox().width* fontSize);
           console.log(lineLength);
         if(newText.endsWith("\n")) {
             //already tried to fit it on the previous line too, split up word
