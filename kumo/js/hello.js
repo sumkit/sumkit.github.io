@@ -177,7 +177,7 @@ function removeEnvelopes() {
 //Create Raphael close button
 function createX() {
     var paper = Raphael((3/4)*windowWidth,(windowHeight/3)-8,(windowHeight/25),(windowHeight/25));
-    x = paper.text(0, 0, "X");
+    x = paper.text(5, 10, "X");
     x.attr('fill', "red");
     x.attr("stroke", "none");
     x.attr("font-size", (windowHeight/25)+"px");
