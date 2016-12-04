@@ -293,14 +293,16 @@ function displayMessage(message, tag) {
     // Creates rectangle with rounded corners (10)
     var rect;
     var envWidth = windowWidth/4;
+    var envHeight = windowWidth/8
+    var envX = (3/4)*windowWidth;
     if(tag == "unread") {
         //come from mailbox
-        rect = envelopePaper.rect((0.75*windowWidth),0,envWidth,(windowWidth/8), 10);
+        rect = envelopePaper.rect(envX,0,envWidth,envHeight, 10);
     } else {
         //come from inbox
-        rect = envelopePaper.rect((0.75*windowWidth),(windowWidth/8),envWidth,(windowWidth/8), 10);
+        rect = envelopePaper.rect(envX,envHeight,envWidth,envHeight, 10);
 //        console.log(envWidth);
-        console.log(windowWidth/8);
+        console.log(envHeight);
     }
     // Sets the fill attribute of the rectangle to white
     rect.attr("fill", "#ffffff");
