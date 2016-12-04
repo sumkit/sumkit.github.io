@@ -367,7 +367,7 @@ function displayMessage(message, tag) {
         }
     });
     
-    var anim1 = Raphael.animation({x: 10, y: 0, width: windowWidth/2, height: windowWidth/3}, 2000, "backOut").delay(100*animDelay);
+    var anim1 = Raphael.animation({x: 10, y: 0, width: windowWidth/2, height: windowWidth/4}, 2000, "backOut").delay(100*animDelay);
     var anim2 = Raphael.animation({x: windowWidth/7}, 2000, "backOut");
     animDelay++;
     rect.animate(anim1);
