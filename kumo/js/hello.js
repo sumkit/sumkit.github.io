@@ -385,7 +385,8 @@ function formatText(text, lineLength, raphText) {
     for (var i=0; i<words.length; i++) {   
       var tempRaph = raphText.clone();
       tempRaph.attr("text", newText + " " + words[i]);
-      if (raphText.getBBox().width > lineLength) {
+        console.log(raphText.getBBox().width * fontSize);
+      if ((raphText.getBBox().width* fontSize) > lineLength) {
           console.log(raphText.getBBox().width);
           console.log(lineLength);
         if(newText.endsWith("\n")) {
