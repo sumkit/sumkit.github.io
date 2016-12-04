@@ -291,6 +291,7 @@ function displayMessage(message, tag) {
         t.oy = t.attr("y");
     }, function() {
         console.log("drag end");
+        console.log(Math.abs(this.ox-this.attr("x")));
         if(Math.abs(this.ox-this.attr("x")) < 2 &&
           Math.abs(this.oy-this.attr("y")) < 2) {
             //click, not drag
