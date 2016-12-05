@@ -166,7 +166,8 @@ function handleAuthResult(authResult) {
                     //do nothing
                     break;
             }
-        } else if(unreadMsgs.length > 0 || inboxMsgs.length > 0) {
+        } 
+        if(unreadMsgs.length > 0 || inboxMsgs.length > 0) {
             console.log(String.fromCharCode(event.charCode));
             switch(String.fromCharCode(event.charCode)) {
                 case "o":
