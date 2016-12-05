@@ -567,7 +567,8 @@ function getBody(message) {
 //Handle the UI aspects of transitioning between writing the email body 
 //and addressing the "envelope
 function addressTransition() {
-    document.getElementById("writeOridomiTextID").display="none";
+//    document.getElementById("writeOridomiTextID").display="none";
+    $(".writeOridomiText").hide();
     var oridomiPaper = new OriDomi('#writeOridomi', {
         hPanels: 3,
         ripple: 0
@@ -577,7 +578,8 @@ function addressTransition() {
             $("#writeModal").modal('toggle'); //close write modal (write email body)
             $("#envelopeModal").modal('toggle'); //open envelope modal (address email envelope)   
             oridomiPaper.unfold();
-            parentDiv.getElementById("writeOridomiTextID").display="block";
+//            parentDiv.getElementById("writeOridomiTextID").display="block";
+            $(".writeOridomiText").show();
         },500);
     });
 }
@@ -660,7 +662,8 @@ function replyEmail(message) {
             from = this.value;
         }
     });
-    document.getElementById("replyOridomiTextID").display="none";
+//    document.getElementById("replyOridomiTextID").display="none";
+    $(".replyOridomiTextID").hide();
     var oridomiPaper = new OriDomi('#replyOridomi', {
         hPanels: 3,
         ripple: 0
@@ -669,7 +672,8 @@ function replyEmail(message) {
         window.setTimeout(function(){  
             $('#replyModal').modal('toggle');
             oridomiPaper.unfold();
-            document.getElementById("replyOridomiTextID").display="block";
+//            document.getElementById("replyOridomiTextID").display="block";
+            $(".replyOridomiTextID").show();
         },500);
     });
     if(!subject.toLowerCase().startsWith("re: ")) {
