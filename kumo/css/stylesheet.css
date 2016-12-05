@@ -4,10 +4,14 @@ body {
 }
 
 /* Labels to make website accessible, but do not want them to appear */
-h1, h2, h3, h4, h5, h6, label {
-    color:#8ac5ff;
+h1 {
+    color:#8ac5ff; /* blend in with background sky */
 }
 
+/* For text in help modal */
+label, h6 {
+    color:white; /* blend in with background of white "paper" */
+}
 /* Div with logout button inside of it (placement) */
 #logoutBtnDiv {
     top: 50%; 
