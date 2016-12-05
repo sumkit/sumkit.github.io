@@ -218,6 +218,25 @@ function handleAuthResult(authResult) {
                         openEmail(inboxMsgs[inboxMsgs.length-1], "inbox");
                     }
                     break;
+                case " ":
+                    //space, move message to bottom of pile
+                    if(unreadMsgs.length > 0) {
+                        var lastIndex = unreadMsgs.length-1;
+                        var last = unreadMsgs[lastIndex];
+                        unreadMsgs.splice(lastIndex, 1);
+                        unreadMsgs.unshift(last);
+                        $.each(response.messages, function(msg) {
+                          displayMessage(msg, "unread")
+                        });
+                    } else {
+                        var lastIndex = inboxMsgs.length-1;
+                        var last = inboxMsgs[lastIndex];
+                        inboxMsgs.splice(lastIndex, 1);
+                        inboxMsgs.unshift(last);
+                        $.each(response.messages, function(msg) {
+                          displayMessage(msg, "inbox")
+                        });
+                    }
                 default:
                     //do nothing
                     break;
