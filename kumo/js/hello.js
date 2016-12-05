@@ -600,9 +600,11 @@ function sendEmailClick() {
     var addresses = $('#to').val();
     addresses = addresses.replace(/\s/g,'').split(',');
     var subject = $('#subject').val();
+    var body = $(".writeOridomiText").val();
     for(var i=0; i < addresses.length; i++) {
-        sendEmail(addresses[i], subject, $('.writeOridomiText').val());   
+        sendEmail(addresses[i], subject, body);   
     }
+    $(".writeOridomiText").val('');
 }
 
 //Called when press reply button
