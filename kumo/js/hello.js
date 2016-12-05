@@ -76,6 +76,10 @@ function loggedInDrawElements() {
     var mailbox = paper.image("media/mailbox.png",0,windowHeight/3,windowHeight/6, windowHeight/6);
     mailbox.click(function() {
         if(!envelopesShowing) {
+            var temp = document.createElement("h2");
+            temp.innerHTML="PLEASE WORK";
+            document.appendChild(temp);
+            
             gapi.client.load('gmail', 'v1', getUnread);
         }
     });
