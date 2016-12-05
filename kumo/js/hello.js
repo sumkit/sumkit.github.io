@@ -168,9 +168,9 @@ function handleAuthResult(authResult) {
                     //open message
                     var thisMsg;
                     if(unreadMsgs.length > 0) {
-                        openEmail(unreadMsgs[unreadMsgs.length-1]);
+                        openEmail(unreadMsgs[unreadMsgs.length-1], "unread");
                     } else {
-                        openEmail(inboxMsgs[inboxMsgs.length-1]);
+                        openEmail(inboxMsgs[inboxMsgs.length-1], "inbox");
                     }
                     break;
                 default:
@@ -288,7 +288,7 @@ function handleInbox(message) {
  * open email message in new modal after clicking on envelope
  * @param {Message} message to open
  */
-function openEmail(message) {
+function openEmail(message, tag) {
     var bodyText="";
     if(message.payload.body.data != null) {
         bodyText=atob(message.payload.body.data);
@@ -369,7 +369,7 @@ function displayMessage(message, tag) {
         if(Math.abs(this.ox-this.attr("x"))<3 &&
           Math.abs(this.oy-this.attr("y"))<3) {
             //click, not drag
-            openEmail(message);
+            openEmail(message, tag);
         } else {
             //move top envelope to the bottom of the pile
             if(tag === "unread") {
