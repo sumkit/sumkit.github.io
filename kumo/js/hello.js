@@ -158,6 +158,7 @@ function handleAuthResult(authResult) {
                     break;
                 case "x":
                     //remove each envelope and address text, if there are any showing
+                    console.log(unreadMsgs.length > 0 || inboxMsgs.length > 0);
                     if(envelopesShowing) 
                         removeEnvelopes();
                     break;
