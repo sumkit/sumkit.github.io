@@ -79,9 +79,9 @@ function loggedInDrawElements() {
             gapi.client.load('gmail', 'v1', getUnread);
         }
     });
+    mailbox.node.alt="unread mailbox";
     console.log(mailbox.node);
     console.log(mailbox.node.alt);
-    mailbox.node.alt="unread mailbox";
     
     var inbox = paper.image("media/inbox.png",0,windowHeight/2,windowHeight/6,windowHeight/6); 
     inbox.click(function() {
