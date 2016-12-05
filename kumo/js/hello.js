@@ -84,6 +84,12 @@ function loggedInDrawElements() {
             gapi.client.load('gmail', 'v1', getUnread);
         }
     });
+    mailbox.hover(function() {
+        //hover in
+        showSnackbar("Mailbox of unread emails.");
+    }, function() {
+        //hover out - do nothing
+    });
     mailbox.node.alt="unread mailbox";
     
     var inbox = paper.image("media/inbox.png",0,windowHeight/2,windowHeight/6,windowHeight/6); 
@@ -92,12 +98,25 @@ function loggedInDrawElements() {
             gapi.client.load('gmail', 'v1', getInbox);    
         }
     });
+    inbox.hover(function() {
+        //hover in
+        showSnackbar("Show inbox.");
+    }, function() {
+        //hover out - do nothing
+    });
     inbox.node.alt="inbox";
     
     var pencil = paper.image("media/crayon.png",0,(2/3)*windowHeight,windowHeight/12,windowHeight/12);
     pencil.click(function() {
         $("#writeModal").modal('toggle');
     });
+    pencil.hover(function() {
+        //hover in
+        showSnackbar("Start a new email.");
+    }, function() {
+        //hover out - do nothing
+    });
+    inbox.node.alt="inbox";
     pencil.node.alt="write new email";
 }
 
