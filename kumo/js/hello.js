@@ -184,6 +184,38 @@ function handleAuthResult(authResult) {
                     if(envelopesShowing) 
                         removeEnvelopes();
                     break;
+                case "o":
+                    //open message
+                    if(!isModalShowing() && envelopesShowing) {
+                        var thisMsg;
+                        if(unreadMsgs.length > 0) {
+                            openEmail(unreadMsgs[unreadMsgs.length-1], "unread");
+                        } else {
+                            openEmail(inboxMsgs[inboxMsgs.length-1], "inbox");
+                        }
+                    }
+                    break;
+                case "r":
+                    //space, move message to bottom of pile
+                    if(envelopesShowing) {
+                        if(unreadMsgs.length > 0) {
+                            var lastIndex = unreadMsgs.length-1;
+                            var last = unreadMsgs[lastIndex];
+                            unreadMsgs.splice(lastIndex, 1);
+                            unreadMsgs.unshift(last);
+                            $.each(response.messages, function(msg) {
+                              displayMessage(msg, "unread")
+                            });
+                        } else {
+                            var lastIndex = inboxMsgs.length-1;
+                            var last = inboxMsgs[lastIndex];
+                            inboxMsgs.splice(lastIndex, 1);
+                            inboxMsgs.unshift(last);
+                            $.each(response.messages, function(msg) {
+                              displayMessage(msg, "inbox")
+                            });
+                        }
+                    }
                 default:
                     //do nothing
                     break;
@@ -202,43 +234,6 @@ function handleAuthResult(authResult) {
                         }
                     }
                     break;
-                default:
-                    //do nothing
-                    break;
-            }
-        }
-        if(unreadMsgs.length > 0 || inboxMsgs.length > 0) {
-            switch(String.fromCharCode(event.charCode)) {
-                case "o":
-                    //open message
-                    if(!isModalShowing()) {
-                        var thisMsg;
-                        if(unreadMsgs.length > 0) {
-                            openEmail(unreadMsgs[unreadMsgs.length-1], "unread");
-                        } else {
-                            openEmail(inboxMsgs[inboxMsgs.length-1], "inbox");
-                        }
-                    }
-                    break;
-                case "r":
-                    //space, move message to bottom of pile
-                    if(unreadMsgs.length > 0) {
-                        var lastIndex = unreadMsgs.length-1;
-                        var last = unreadMsgs[lastIndex];
-                        unreadMsgs.splice(lastIndex, 1);
-                        unreadMsgs.unshift(last);
-                        $.each(response.messages, function(msg) {
-                          displayMessage(msg, "unread")
-                        });
-                    } else {
-                        var lastIndex = inboxMsgs.length-1;
-                        var last = inboxMsgs[lastIndex];
-                        inboxMsgs.splice(lastIndex, 1);
-                        inboxMsgs.unshift(last);
-                        $.each(response.messages, function(msg) {
-                          displayMessage(msg, "inbox")
-                        });
-                    }
                 default:
                     //do nothing
                     break;
