@@ -166,6 +166,7 @@ function handleAuthResult(authResult) {
                     break;
             }
         } else if(unreadMsgs.length > 0 || inboxMsgs.length > 0) {
+            console.log(String.fromCharCode(event.charCode));
             switch(String.fromCharCode(event.charCode)) {
                 case "o":
                     //open message
