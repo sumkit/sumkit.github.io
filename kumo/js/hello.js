@@ -246,6 +246,8 @@ function handleAuthResult(authResult) {
   } else {
     // Show auth UI, allowing the user to initiate authorization by
     // clicking authorize button.
+    var size = windowHeight/6
+    document.getElementById("kumoTitle").style.fontSize=size.toString()+"px";
     authorizeDiv.style.display = 'block';
   }
 }
