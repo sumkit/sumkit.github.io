@@ -88,7 +88,8 @@ function loggedInDrawElements() {
         //hover in
         showSnackbar("Mailbox of unread emails.");
     }, function() {
-        //hover out - do nothing
+        //hover out
+        showSnackbar("Mailbox of unread emails.");
     });
     mailbox.node.alt="unread mailbox";
     
@@ -102,7 +103,8 @@ function loggedInDrawElements() {
         //hover in
         showSnackbar("Show inbox.");
     }, function() {
-        //hover out - do nothing
+        //hover out
+        showSnackbar("Show inbox.");
     });
     inbox.node.alt="inbox";
     
@@ -114,7 +116,8 @@ function loggedInDrawElements() {
         //hover in
         showSnackbar("Start a new email.");
     }, function() {
-        //hover out - do nothing
+        //hover out
+        showSnackbar("Start a new email.");
     });
     inbox.node.alt="inbox";
     pencil.node.alt="write new email";
