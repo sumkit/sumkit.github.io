@@ -211,11 +211,13 @@ function handleAuthResult(authResult) {
             switch(String.fromCharCode(event.charCode)) {
                 case "o":
                     //open message
-                    var thisMsg;
-                    if(unreadMsgs.length > 0) {
-                        openEmail(unreadMsgs[unreadMsgs.length-1], "unread");
-                    } else {
-                        openEmail(inboxMsgs[inboxMsgs.length-1], "inbox");
+                    if(!isModalShowing) {
+                        var thisMsg;
+                        if(unreadMsgs.length > 0) {
+                            openEmail(unreadMsgs[unreadMsgs.length-1], "unread");
+                        } else {
+                            openEmail(inboxMsgs[inboxMsgs.length-1], "inbox");
+                        }
                     }
                     break;
                 case " ":
