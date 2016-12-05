@@ -188,6 +188,7 @@ function handleAuthResult(authResult) {
                 default:
                     //do nothing
                     break;
+            }
         }
         if(unreadMsgs.length > 0 || inboxMsgs.length > 0) {
             switch(String.fromCharCode(event.charCode)) {
@@ -512,7 +513,7 @@ function getBody(message) {
 //and addressing the "envelope
 function addressTransition() {
     var parentDiv = document.getElementById('writeModal');
-    console.log(parentDiv.getElementById("writeOridomiTextID"));
+    console.log(parentDiv);
     parentDiv.getElementById("writeOridomiTextID").display="none";
     var oridomiPaper = new OriDomi('#writeOridomi', {
         hPanels: 3,
