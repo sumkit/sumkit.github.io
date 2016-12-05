@@ -91,6 +91,12 @@ function loggedInDrawElements() {
     pencil.click(function() {
         $("#writeModal").modal('toggle');
     });
+    
+    var imgs = paper.getElementsByTagName("image");
+    console.log(imgs);
+    imgs[0].alt="unread mailbox";
+    imgs[1].alt="inbox";
+    imgs[2].alt="write new email"
 }
 
 function isModalShowing() {
@@ -287,6 +293,7 @@ function handleInbox(message) {
 /** 
  * open email message in new modal after clicking on envelope
  * @param {Message} message to open
+ * @param {String} tag of the message's label
  */
 function openEmail(message, tag) {
     var bodyText="";
