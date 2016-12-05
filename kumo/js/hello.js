@@ -211,7 +211,7 @@ function handleAuthResult(authResult) {
             switch(String.fromCharCode(event.charCode)) {
                 case "o":
                     //open message
-                    if(!isModalShowing) {
+                    if(!isModalShowing()) {
                         var thisMsg;
                         if(unreadMsgs.length > 0) {
                             openEmail(unreadMsgs[unreadMsgs.length-1], "unread");
