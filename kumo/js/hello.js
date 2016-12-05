@@ -261,14 +261,35 @@ function getInbox() {
       if(response.messages != null) {
           envelopePaper = Raphael(windowWidth/8, windowHeight/3, 0.625*windowWidth, windowHeight/2);
           envelopesShowing=true;
-          $.each(response.messages.reverse(), function() {
+          $.each(response.messages, function() {
               var messageRequest = gapi.client.gmail.users.messages.get({
                 'userId': 'me',
                 'id': this.id
               });
-              messageRequest.execute(handleInbox);
+              // Gmail API is asyncronous, so wrap all server responses in a Promise.all()
+              var promise = $.Deferred();
+              promises.push(promise);
+              messageRequest.execute(function(message) {
+                  // Save the message in a collection 
+                  Messages[message.id] = message;
+                  promise.resolve(message);
+              });
+//              messageRequest.execute(handleInbox);
           });
-          createX();   
+          $.when.all(promises).then(function(messages) {
+              // Sort messages by date in descending order
+              messages.sort(function(a, b) {
+                  var d1 = new Date(getHeader(a.payload.headers, 'Date')).valueOf();
+                  var d2 = new Date(getHeader(b.payload.headers, 'Date')).valueOf();
+                  return d1 < d2 ? 1 : (d1 > d2 ? -1 : 0);
+              });
+
+              // Finally, process the messages
+              messages.forEach(function(message){
+                  handleInbox(message);
+              });
+          });
+          createX(); 
       }
   });
 }
