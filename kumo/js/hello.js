@@ -317,7 +317,7 @@ function getInbox() {
               });
 //              messageRequest.execute(handleInbox);
           });
-          $.when.all(promises).then(function(messages) {
+          Promise.all(promises).then(function(messages) {
               // Sort messages by date in descending order
               messages.sort(function(a, b) {
                   var d1 = new Date(getHeader(a.payload.headers, 'Date')).valueOf();
