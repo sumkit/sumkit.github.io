@@ -319,11 +319,7 @@ function getInbox() {
           });
           Promise.all(promises).then(function(messages) {
               // Sort messages by date in descending order
-              messages.sort(function(a, b) {
-                  var d1 = new Date(getHeader(a.payload.headers, 'Date')).valueOf();
-                  var d2 = new Date(getHeader(b.payload.headers, 'Date')).valueOf();
-                  return d1 < d2 ? 1 : (d1 > d2 ? -1 : 0);
-              });
+              messages.sort(compareMessages);
 
               // Finally, process the messages
               messages.forEach(function(message){
@@ -333,6 +329,24 @@ function getInbox() {
           createX(); 
       }
   });
+}
+
+function compareMessages(a, b) {
+    var headersA = a.payload.headers;
+    var headersB = b.payload.headers;
+    var da;
+    var db;
+    $.each(headersA, function() {
+        if(this.name.toLowerCase() === "date") {
+            da=new Date(this.value).valueOf();
+        }
+    });
+    $.each(headersB, function() {
+        if(this.name.toLowerCase() === "date") {
+            db=new Date(this.value).valueOf();
+        }
+    });
+    return da < db ? 1 : (da > db ? -1 : 0);
 }
 
 /**
