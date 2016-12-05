@@ -609,8 +609,7 @@ function modifyMessage(userId, messageId, labelsToAdd, labelsToRemove) {
  */
 function showSnackbar(text) {
     var snack = document.getElementById("snackbar"); // Get the snackbar DIV
-    var snackH1 = document.getElementById("snackbarH1");
-    snackH1.innerHTML = text; //set snackbar text
+    snack.innerHTML = text; //set snackbar text
     snack.className = "show"; // Add the "show" class to DIV
 
     // After 3 seconds, remove the show class from DIV
