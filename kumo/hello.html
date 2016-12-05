@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="css/stylesheet.css"></link>
 </head>
 <body>
-  <h1>Welcome to kumo. Press h for help.</h1>
+  <h1>Welcome to kumo. Press h for help, u to view unread emails, i to open inbox, n to start a new email, l to logout</h1>
   <div id="authorize-div" style="margin: 0 auto; width: 100%; top: 50%; text-align:center; position: absolute; display:none">
     <!--Button for the user to click to initiate auth sequence -->
     <button type="button" class="btn btn-lg btn-warning" id="authorize-button" onclick="handleAuthClick()">
@@ -134,19 +134,19 @@
         <div class="modal-dialog">
           <!-- Modal content-->
           <div class="modal-content">
-            <div class="modal-header">
-                <p>Help</p>
+            <div class="modal-header">Help
               <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
                 <p>Click on the mailbox for unread messages</p>
                 <p>Click on the message bin to view inbox</p>
-                <p style="font-weight: bold; text-decoration: none;">Keyboard shortcuts: <h6>Keyboard shortcuts:</h6></p> 
-                <p>'u' to view unread emails <h6>u to view unread emails</h6></p> 
-                <p>'i' to view inbox <h6>i to view inbox</h6></p> 
-                <p>'n' to write a new email <h6>n to write a new email</h6></p> 
-                <p>'l' to logout <h6>l to logout</h6></p> 
-                <p>'h' to exit help <h6>h to exit help</h6></p> 
+                <p style="font-weight: bold; text-decoration: none;">Keyboard shortcuts:</p> 
+                <p>'u' to view unread emails</p> 
+                <p>'i' to view inbox</p> 
+                <p>'n' to write a new email</p> 
+                <p>'l' to logout</p> 
+                <p>'h' to exit help</p> 
+                <p>'x' to close message</p> 
             </div>
           </div>
         </div>
