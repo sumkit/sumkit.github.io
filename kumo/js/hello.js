@@ -268,6 +268,7 @@ function getUnread() {
       if(response.messages != null) {
           envelopePaper = Raphael(windowWidth/8, windowHeight/3, 0.625*windowWidth, windowHeight/2);
           envelopesShowing=true;
+          var promises = [];
           $.each(response.messages, function() {
               var messageRequest = gapi.client.gmail.users.messages.get({
                 'userId': 'me',
