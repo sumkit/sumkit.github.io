@@ -298,11 +298,9 @@ function getUnread() {
               promises.push(promise);
               messageRequest.execute(function(message) {
                   // Save the message in a collection 
-//                  Messages[message.id] = message;
                   unreadMsgs.push(message);
                   promise.resolve(message);
               });
-//              messageRequest.execute(handleUnread);
           });
           Promise.all(promises).then(function(messages) {
               // Sort messages by date in descending order
@@ -347,11 +345,9 @@ function getInbox() {
               promises.push(promise);
               messageRequest.execute(function(message) {
                   // Save the message in a collection 
-//                  Messages[message.id] = message;
                   inboxMsgs.push(message);
                   promise.resolve(message);
               });
-//              messageRequest.execute(handleInbox);
           });
           Promise.all(promises).then(function(messages) {
               // Sort messages by date in descending order
@@ -586,7 +582,6 @@ function getBody(message) {
 //Handle the UI aspects of transitioning between writing the email body 
 //and addressing the "envelope
 function addressTransition() {
-//    document.getElementById("writeOridomiTextID").display="none";
     $(".writeOridomiText").hide();
     var oridomiPaper = new OriDomi('#writeOridomi', {
         hPanels: 3,
@@ -597,7 +592,6 @@ function addressTransition() {
             $("#writeModal").modal('toggle'); //close write modal (write email body)
             $("#envelopeModal").modal('toggle'); //open envelope modal (address email envelope)   
             oridomiPaper.unfold();
-//            parentDiv.getElementById("writeOridomiTextID").display="block";
             $(".writeOridomiText").show();
         },500);
     });
