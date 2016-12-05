@@ -76,6 +76,7 @@ function loggedInDrawElements() {
     var mailbox = paper.image("media/mailbox.png",0,windowHeight/3,windowHeight/6, windowHeight/6);
     mailbox.click(function() {
         if(!envelopesShowing) {
+            console.log("make h2");
             var temp = document.createElement("h2");
             temp.innerHTML="PLEASE WORK";
             document.appendChild(temp);
@@ -640,5 +641,5 @@ function showSnackbar(text) {
     snack.className = "show"; // Add the "show" class to DIV
 
     // After 3 seconds, remove the show class from DIV
-    setTimeout(function(){snack.className = snack.className.replace("show", ""); }, 4000);
+    setTimeout(function(){snack.className = snack.className.replace("show", ""); }, 3000);
 }
