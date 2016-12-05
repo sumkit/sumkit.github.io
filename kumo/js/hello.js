@@ -268,12 +268,30 @@ function getUnread() {
       if(response.messages != null) {
           envelopePaper = Raphael(windowWidth/8, windowHeight/3, 0.625*windowWidth, windowHeight/2);
           envelopesShowing=true;
-          $.each(response.messages.reverse(), function() {
+          $.each(response.messages, function() {
               var messageRequest = gapi.client.gmail.users.messages.get({
                 'userId': 'me',
                 'id': this.id
               });
-              messageRequest.execute(handleUnread);
+              // Gmail API is asyncronous, so wrap all server responses in a Promise.all()
+              var promise = $.Deferred();
+              promises.push(promise);
+              messageRequest.execute(function(message) {
+                  // Save the message in a collection 
+//                  Messages[message.id] = message;
+                  unreadMsgs.push(message);
+                  promise.resolve(message);
+              });
+//              messageRequest.execute(handleUnread);
+          });
+          Promise.all(promises).then(function(messages) {
+              // Sort messages by date in descending order
+              messages.sort(compareMessages); //unreadMsgs
+
+              // Finally, process the messages
+              messages.forEach(function(message){
+                  handleUnread(message);
+              });
           });
           createX();
       } else {
@@ -317,7 +335,7 @@ function getInbox() {
           });
           Promise.all(promises).then(function(messages) {
               // Sort messages by date in descending order
-              messages.sort(compareMessages);
+              messages.sort(compareMessages); //inboxMsgs
 
               // Finally, process the messages
               messages.forEach(function(message){
@@ -329,6 +347,11 @@ function getInbox() {
   });
 }
 
+/**
+ * sort messages from most recent to oldest
+ * @param {Message} a first message
+ * @param {Message} b second message to compare to first message
+ */
 function compareMessages(a, b) {
     var headersA = a.payload.headers;
     var headersB = b.payload.headers;
@@ -344,7 +367,7 @@ function compareMessages(a, b) {
             db=new Date(this.value).valueOf();
         }
     });
-    return da < db ? 1 : (da > db ? -1 : 0);
+    return da < db ? -1 : (da > db ? 1 : 0);
 }
 
 /**
