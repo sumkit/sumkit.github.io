@@ -4,7 +4,7 @@ URL: http://summerkitahara.com/kumo/hello
 
 Login with your Gmail to read and write emails. Click the Help button or the h key for help and keyboard shortcuts.
 
-kumo can be used from Firefox or Google Chrome on your computer or Google Chrome on your smartphone. This website is WAVE acessible and compatible with a screen reader.
+kumo can be used from Firefox or Google Chrome on your computer or Google Chrome on your smartphone. This website is acessible according to WAVE standards and compatible with a screen reader (i.e. Apple's VoiceOver).
 
 Sources:
 http://oridomi.com/
