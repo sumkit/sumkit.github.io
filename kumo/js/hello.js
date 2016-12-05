@@ -172,6 +172,23 @@ function handleAuthResult(authResult) {
                     break;
             }
         } 
+        if(isModalShowing()) {
+            switch(String.fromCharCode(event.charCode)) {
+                case "x":
+                    //exit modal
+                    var modals = document.getElementsByClassName("modal");
+                    for(var i=0;i<modals.length;i++) {
+                        var m = modals[i];
+                        var mID='#'+m.id;
+                        if($(mID).hasClass('in')) {
+                            $(mID).modal('toggle');
+                        }
+                    }
+                    break;
+                default:
+                    //do nothing
+                    break;
+        }
         if(unreadMsgs.length > 0 || inboxMsgs.length > 0) {
             switch(String.fromCharCode(event.charCode)) {
                 case "o":
@@ -184,6 +201,7 @@ function handleAuthResult(authResult) {
                     }
                     break;
                 default:
+                    //do nothing
                     break;
             }
         }
