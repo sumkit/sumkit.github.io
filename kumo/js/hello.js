@@ -619,5 +619,5 @@ function showSnackbar(text) {
     snack.className = "show"; // Add the "show" class to DIV
 
     // After 3 seconds, remove the show class from DIV
-    setTimeout(function(){snack.className = snack.className.replace("show", ""); }, 3000);
+    setTimeout(function(){snack.className = snack.className.replace("show", ""); }, 4000);
 }
