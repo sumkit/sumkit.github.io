@@ -545,9 +545,7 @@ function getBody(message) {
 //Handle the UI aspects of transitioning between writing the email body 
 //and addressing the "envelope
 function addressTransition() {
-    var parentDiv = document.getElementById('writeModal');
-    console.log(parentDiv);
-    parentDiv.getElementById("writeOridomiTextID").display="none";
+    document.getElementById("writeOridomiTextID").display="none";
     var oridomiPaper = new OriDomi('#writeOridomi', {
         hPanels: 3,
         ripple: 0
