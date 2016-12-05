@@ -205,7 +205,7 @@ function handleAuthResult(authResult) {
                             unreadMsgs.splice(lastIndex, 1);
                             unreadMsgs.unshift(last);
                             envelopePaper.clear();
-                            $.each(response.messages, function(msg) {
+                            $.each(unreadMsgs, function(msg) {
                               displayMessage(msg, "unread")
                             });
                         } else {
@@ -214,7 +214,7 @@ function handleAuthResult(authResult) {
                             inboxMsgs.splice(lastIndex, 1);
                             inboxMsgs.unshift(last);
                             envelopePaper.clear();
-                            $.each(response.messages, function(msg) {
+                            $.each(inboxMsgs, function(msg) {
                               displayMessage(msg, "inbox")
                             });
                         }
