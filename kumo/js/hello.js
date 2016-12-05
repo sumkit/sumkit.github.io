@@ -80,9 +80,6 @@ function loggedInDrawElements() {
         }
     });
     mailbox.node.alt="unread mailbox";
-    mailbox.node.href="media/crayon.png";
-    console.log(mailbox.node);
-    console.log(mailbox.node.alt);
     
     var inbox = paper.image("media/inbox.png",0,windowHeight/2,windowHeight/6,windowHeight/6); 
     inbox.click(function() {
