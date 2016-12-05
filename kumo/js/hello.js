@@ -492,7 +492,9 @@ function getBody(message) {
 //Handle the UI aspects of transitioning between writing the email body 
 //and addressing the "envelope
 function addressTransition() {
-    document.getElementById("writeOridomiTextID").display="none";
+    var parentDiv = document.getElementById('writeModal');
+    console.log(parentDiv.getElementById("writeOridomiTextID"));
+    parentDiv.getElementById("writeOridomiTextID").display="none";
     var oridomiPaper = new OriDomi('#writeOridomi', {
         hPanels: 3,
         ripple: 0
@@ -502,7 +504,7 @@ function addressTransition() {
             $("#writeModal").modal('toggle'); //close write modal (write email body)
             $("#envelopeModal").modal('toggle'); //open envelope modal (address email envelope)   
             oridomiPaper.unfold();
-            document.getElementById("writeOridomiTextID").display="block";
+            parentDiv.getElementById("writeOridomiTextID").display="block";
         },500);
     });
 }
