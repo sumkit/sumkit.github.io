@@ -220,7 +220,7 @@ function handleAuthResult(authResult) {
                         }
                     }
                     break;
-                case " ":
+                case "r":
                     //space, move message to bottom of pile
                     if(unreadMsgs.length > 0) {
                         var lastIndex = unreadMsgs.length-1;
