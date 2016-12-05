@@ -100,6 +100,7 @@ function loggedInDrawElements() {
     pencil.node.alt="write new email";
 }
 
+//Check if a modal is open so we know which keypress events to listen for
 function isModalShowing() {
     var modals = document.getElementsByClassName("modal");
     var showing=false;
@@ -162,7 +163,6 @@ function handleAuthResult(authResult) {
                     break;
                 case "x":
                     //remove each envelope and address text, if there are any showing
-                    console.log(unreadMsgs.length > 0 || inboxMsgs.length > 0);
                     if(envelopesShowing) 
                         removeEnvelopes();
                     break;
