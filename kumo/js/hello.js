@@ -195,10 +195,10 @@ function handleAuthResult(authResult) {
                         }
                     }
                     break;
-                case "r":
+                case " ":
                     //space, move message to bottom of pile
                     if(envelopesShowing) {
-                        console.log("r");
+                        console.log("space");
                         if(unreadMsgs.length > 0) {
                             var lastIndex = unreadMsgs.length-1;
                             var last = unreadMsgs[lastIndex];
@@ -392,7 +392,6 @@ function compareMessages(a, b) {
  * @param {Message} message that is unread 
  */
 function handleUnread(message) {
-    unreadMsgs.push(message);
     displayMessage(message, "unread");
 }
 
@@ -402,7 +401,6 @@ function handleUnread(message) {
  * @param {Message} message that is in the inbox 
  */
 function handleInbox(message) {
-//    inboxMsgs.push(message);
     displayMessage(message, "inbox");
 }
 
