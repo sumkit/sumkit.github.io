@@ -291,7 +291,8 @@ function getInbox() {
               promises.push(promise);
               messageRequest.execute(function(message) {
                   // Save the message in a collection 
-                  Messages[message.id] = message;
+//                  Messages[message.id] = message;
+                  inboxMsgs.push(message);
                   promise.resolve(message);
               });
 //              messageRequest.execute(handleInbox);
@@ -330,7 +331,7 @@ function handleUnread(message) {
  * @param {Message} message that is in the inbox 
  */
 function handleInbox(message) {
-    inboxMsgs.push(message);
+//    inboxMsgs.push(message);
     displayMessage(message, "inbox");
 }
 
