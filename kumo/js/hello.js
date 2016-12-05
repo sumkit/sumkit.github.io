@@ -243,7 +243,7 @@ function createX() {
     x = paper.text(0, 10, "Close");
     x.attr('fill', "white");
     x.attr("stroke", "none");
-    x.attr("font-size", (windowHeight/30));
+    x.attr("font-size", windowWidth/40);
     x.attr("font-weight", "bold");
     x.attr("text-anchor", "start");
     x.click(function() {
