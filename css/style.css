@@ -1,108 +1,52 @@
-div.content {
-	margin-left: 10px;
-	margin-right: 10px;
+@font-face {
+    font-family: nameFont;
+    src: url(Comfortaa-Regular.ttf);
 }
 
-.bubble{
-	background-color: #F2F2F2;
-	border-radius: 5px;
-	box-shadow: 0 0 6px #B2B2B2;
-	display: inline-block;
-	padding: 10px 18px;
-	position: relative;
-	vertical-align: top;
-}
-.bubble::before {
-	background-color: #F2F2F2;
-	content: "\00a0";
-	display: block;
-	height: 16px;
-	position: absolute;
-	top: 11px;
-	transform:             rotate( 29deg ) skew( -35deg );
-	  -moz-transform:    rotate( 29deg ) skew( -35deg );
-	  -ms-transform:     rotate( 29deg ) skew( -35deg );
-	  -o-transform:      rotate( 29deg ) skew( -35deg );
-	  -webkit-transform: rotate( 29deg ) skew( -35deg );
-	width:  20px;
-}
-.left {
-	float: left;   
-	margin: 5px 45px 5px 20px;         
-}
-.left::before {
-	box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4 );
-	left: -9px;           
+#name {
+    font-family: nameFont;
+    color: #EA634A;
+    font-size: 50px;
 }
 
-table {
-	width: 100%;
-	margin: 15px;
-}
-object {
-	margin: 15px;
+/* get rid of default padding with <p> tag*/
+p {
+    margin: 0;
+    padding: 0;
 }
 
-div.parallax-envoy {
-    background:rgba(255,0,0,0.25);
-    min-height: 500px;
+div {
+    font-family: nameFont;
+    padding: 10px;
 }
 
-div.parallax-umbrella {
-    background:rgba(0,0,255,0.25);
-    min-height: 500px;
+#umbrella_bot {
+    background: #61B872;
 }
-
-div.parallax-budgie {
-    background:rgba(0,255,0,0.25);
-    min-height: 500px;
+#kumo {
+    background: #A485BE;
 }
-
-div.parallax-golf {
-    background-image: url("/media/golf1.png");
-    min-height: 500px;
-     /* parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: left;
-    background-repeat: no-repeat;
-    background-size: 75%;
+#envoy {
+    background: #7383BF;
 }
-
-.transparent {
-    background-color:rgba(255,255,255,0.75);
-    color: black;
-    z-index: 9999;
+#umbrella {
+    background: #EB6A52;
 }
-
-div.parallax-home {
-    background-image: url("/media/travel/pittsburgh2.jpg");
-    min-height: 600px;
-     /* parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
+#budgie {
+    background: #61B872;
 }
-
-.transparent-home {
-    color: white;
-    bottom: 0;
-    left: 0;
-    position: absolute; 
+.title {
+    color: #EBBA16;
+    font-size: 30px;
+    display: inline;
+    margin-left: 10px;
 }
-
-.left-half {
-    width: 50%;
-    position: absolute;
-    left: 0px;
+.description {
+    padding: 10px;
 }
-
-.right-half {
-    background-color: background:rgba(0,0,0,0.25);
-    width: 50%; 
-    position: absolute; 
-    right: 0px;
-    position: fixed;
-    top: 25%;
+.section-header {
+    color: #7383BF;
+    font-size: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
 }

@@ -1,110 +1,104 @@
-$( document ).ready(function() {
-    var box = document.getElementsByClassName("right-half")[0];
-    box.style.visibility = "hidden";
+var windowWidth = 200; //init values
+var windowHeight = 200;
 
-    $('#work').waypoint(function() {
-        console.log("home");
-        var box = document.getElementsByClassName("right-half")[0];
-        box.style.visibility = "hidden";
-    }, {
-        offset: '60%'
-    });
-    $('#golf').waypoint(function() {
-        var box = document.getElementsByClassName("right-half")[0];
-        box.style.visibility = "hidden";
-    }, {
-        offset: '50%'
-    });
-    $('#golf').waypoint(function() {
-        var box = document.getElementsByClassName("right-half")[0];
-        box.style.visibility = "visible";
-        var title = document.getElementById("title");
-        title.innerHTML="Budgie";
-        var body = document.getElementById("body");
-        body.innerHTML = "Android application to manage and categorize expenses. Features include reading prices off of the receipt instead of manual input (implements Microsoft's Oxford Optical Character Recognition API) and pie charts to show spending distribution.";
-        var link = document.getElementById("link");
-        link.innerHTML="<a href=\"http://www.envoynow.co/\"><span class=\"glyphicon glyphicon-link\" aria-hidden=\"true\"></span> EnvoyNow</a>"
-    }, {
-        offset: '75%'
-    });
-    $('.parallax-envoy').waypoint(function() {
-        var box = document.getElementsByClassName("right-half")[0];
-        box.style.visibility = "visible";
-        var title = document.getElementById("title");
-        title.innerHTML="EnvoyNow";
-        var body = document.getElementById("body");
-        body.innerHTML = "Android application to manage and categorize expenses. Features include reading prices off of the receipt instead of manual input (implements Microsoft's Oxford Optical Character Recognition API) and pie charts to show spending distribution.";
-    }, {
-        offset: '30%'
-    });
-    $('.parallax-budgie').waypoint(function() {
-        var box = document.getElementsByClassName("right-half")[0];
-        box.style.visibility = "visible";
-        var title = document.getElementById("title");
-        title.innerHTML="Budgie";
-        var body = document.getElementById("body");
-        body.innerHTML = "Android application to manage and categorize expenses. Features include reading prices off of the receipt instead of manual input (implements Microsoft's Oxford Optical Character Recognition API) and pie charts to show spending distribution.";
-        var link = document.getElementById("link");
-        link.innerHTML="<a href=\"http://www.envoynow.co/\"><span class=\"glyphicon glyphicon-link\" aria-hidden=\"true\"></span> EnvoyNow</a>"
-    }, {
-        offset: '20%'
-    });
-    $('.parallax-budgie').waypoint(function() {
-        var box = document.getElementsByClassName("right-half")[0];
-        box.style.visibility = "visible";
-        var title = document.getElementById("title");
-        title.innerHTML="Budgie";
-        var body = document.getElementById("body");
-        body.innerHTML = "Android application to manage and categorize expenses. Features include reading prices off of the receipt instead of manual input (implements Microsoft's Oxford Optical Character Recognition API) and pie charts to show spending distribution.";
-        var link = document.getElementById("link");
-        link.innerHTML="<a href=\"http://www.envoynow.co/\"><span class=\"glyphicon glyphicon-link\" aria-hidden=\"true\"></span> EnvoyNow</a>"
-    }, {
-        offset: '50%'
-    });
-    $('.parallax-budgie').waypoint(function() {
-        var box = document.getElementsByClassName("right-half")[0];
-        box.style.visibility = "visible";
-        var title = document.getElementById("title");
-        title.innerHTML="Umbrella";
-        var body = document.getElementById("body");
-        body.innerHTML = "Android application uses Bluetooth-based messaging and crowdsourcing to combat gender-based violence and the bystander effect.";
-        var link = document.getElementById("link");
-        link.innerHTML="<a href=\"https://github.com/sumkit/umbrella\"><span class=\"glyphicon glyphicon-link\" aria-hidden=\"true\"></span> GitHub</a>"
-    }, {
-        offset: '65%'
-    });
-    $('.parallax-umbrella').waypoint(function() {
-        var box = document.getElementsByClassName("right-half")[0];
-        box.style.visibility = "visible";
-        var title = document.getElementById("title");
-        title.innerHTML="Umbrella";
-        var body = document.getElementById("body");
-        body.innerHTML = "Android application uses Bluetooth-based messaging and crowdsourcing to combat gender-based violence and the bystander effect.";
-        var link = document.getElementById("link");
-        link.innerHTML="<a href=\"https://github.com/sumkit/umbrella\"><span class=\"glyphicon glyphicon-link\" aria-hidden=\"true\"></span> GitHub</a>"
-    }, {
-        offset: '50%'
-    });
-    $('.parallax-umbrella').waypoint(function() {
-        var box = document.getElementsByClassName("right-half")[0];
-        box.style.visibility = "visible";
-        var title = document.getElementById("title");
-        title.innerHTML="Umbrella";
-        var body = document.getElementById("body");
-        body.innerHTML = "Android application uses Bluetooth-based messaging and crowdsourcing to combat gender-based violence and the bystander effect.";
-        var link = document.getElementById("link");
-        link.innerHTML="<a href=\"https://github.com/sumkit/umbrella\"><span class=\"glyphicon glyphicon-link\" aria-hidden=\"true\"></span> GitHub</a>"
-    }, {
-        offset: '10%'
-    });
-    $('.parallax-umbrella').waypoint(function() {
-        var box = document.getElementsByClassName("right-half")[0];
-        box.style.visibility = "visible";
-        var title = document.getElementById("title");
-        title.innerHTML="EnvoyNow";
-        var body = document.getElementById("body");
-        body.innerHTML = "Android application to manage and categorize expenses. Features include reading prices off of the receipt instead of manual input (implements Microsoft's Oxford Optical Character Recognition API) and pie charts to show spending distribution.";
-    }, {
-        offset: '70%'
-    });
+function hoverText(elem) {
+    var label = document.getElementById("label");
+    label.innerHTML=elem.id;
+    var left = elem.offsetLeft + (elem.width/5);
+    var top = elem.offsetTop;
+    top -= 30;
+    $("#label").offset({ left: left, top: top});
+}
+
+function hideElements() {
+    var divs = document.getElementsByClassName("section");
+    for(var i=0; i<divs.length; i++) {
+        var d = divs[i];
+        d.style.display="none";
+    }
+}
+
+function coffeeRain() {
+    hideElements();
+    var interval = $(window).width()/20;
+    var y1 = $(window).height();
+    var paper = Raphael(0,0,$(window).width(), y1);
+    var anim1 = Raphael.animation({y: y1}, 2000, "linear");
+    for(var i=0; i<20; i++) {
+        var x1 = i*interval;
+        var raphDrop = paper.image("media/desk/drop.png", x1, 0, y1/10, y1/10);
+        if(i==0) {
+            //show about me div
+            var anim2 = Raphael.animation({y: y1}, 2000, "linear", function() {
+                document.getElementById("about-me").style.display="inline"; 
+            });
+            anim2 = anim2.delay(800);
+            raphDrop.animate(anim2);
+        }
+        else if(i==19) {
+            //last drop
+            var anim2 = Raphael.animation({y: y1}, 2000, "linear", function() {
+                paper.remove();
+            });
+            anim2 = anim2.delay(1000);
+            raphDrop.animate(anim2);
+        } else {
+            var rand = Math.random()*10;
+            anim1 = anim1.delay(rand*100);
+            raphDrop.animate(anim1);
+        }
+    }
+}
+
+function changeX(id) {
+    var plusID = id+"_+";
+    var timesID = id+"_x";
+    var imgDiv = id+"_imgs";
+    if(document.getElementById(plusID).style.display == 'none') {
+        document.getElementById(plusID).style.display="inline";
+        document.getElementById(timesID).style.display="none";
+        document.getElementById(imgDiv).style.display="none";
+    } else {
+        document.getElementById(plusID).style.display="none";
+        document.getElementById(timesID).style.display="inline";
+        document.getElementById(imgDiv).style.display="block";
+    }
+}
+
+function showGolf() {
+    hideElements();
+    document.getElementById("golf_div").style.display="inline";
+}
+
+function showProjects() {
+    hideElements();
+    document.getElementById("projects").style.display="inline";
+}
+
+function showResume() {
+    //not already clicked
+    hideElements();
+    $("#resumeModal").modal('toggle');
+}
+
+function showContact() {
+    hideElements();
+    document.getElementById("contact_div").style.display="inline";
+}
+
+$( document ).ready(function() {
+    windowWidth = $(window).width();
+    windowHeight = $(window).height();
+    
+    if(windowWidth < windowHeight) {
+        //mobile
+        document.getElementById("desk").style.display="none";
+        document.getElementById("about-me").style.display="block";
+        document.getElementById("golf_div").style.display="block";
+        document.getElementById("projects").style.display="block";
+        document.getElementById("resume_div").style.display="block";
+        document.getElementById("contact_div").style.display="block";
+    } else {
+        //desktop
+    }
 });
