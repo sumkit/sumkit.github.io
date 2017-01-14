@@ -103,7 +103,7 @@ $( document ).ready(function() {
         $("#name").css("font-size",100+'px');
         $(".title").css("font-size",60+'px');
         $(".section-header").css("font-size",80+'px');
-        $(".description").css("font-size",28+'px');
+        $(".description").css("font-size",64+'px');
     } else {
         //desktop
     }
