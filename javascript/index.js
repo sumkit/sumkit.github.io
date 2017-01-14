@@ -98,6 +98,11 @@ $( document ).ready(function() {
         document.getElementById("projects").style.display="block";
         document.getElementById("resume_div").style.display="block";
         document.getElementById("contact_div").style.display="block";
+        
+        //change CSS
+        $("#name").css("font-size",100+'px');
+        $(".title").css("font-size",60+'px');
+        $(".section-header").css("font-size",80+'px');
     } else {
         //desktop
     }
