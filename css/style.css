@@ -51,3 +51,9 @@ div {
     padding-left: 20px;
     padding-right: 20px;
 }
+
+#about-me-p {
+    padding-left: 20px; 
+    padding-right: 20px;
+    font-size: 14px;
+}

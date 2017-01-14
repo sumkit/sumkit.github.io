@@ -87,24 +87,19 @@ function showContact() {
 }
 
 $( document ).ready(function() {
-    windowWidth = $(window).width();
-    windowHeight = $(window).height();
-    
-    if(windowWidth < windowHeight) {
-        //mobile
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         document.getElementById("desk").style.display="none";
         document.getElementById("about-me").style.display="block";
         document.getElementById("golf_div").style.display="block";
         document.getElementById("projects").style.display="block";
         document.getElementById("resume_div").style.display="block";
         document.getElementById("contact_div").style.display="block";
-        
+
         //change CSS
         $("#name").css("font-size",100+'px');
         $(".title").css("font-size",60+'px');
         $(".section-header").css("font-size",80+'px');
         $(".description").css("font-size",28+'px');
-    } else {
-        //desktop
+        $("#about-me-p").css("font-size",28+'px');
     }
 });
