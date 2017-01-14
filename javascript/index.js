@@ -101,6 +101,6 @@ $( document ).ready(function() {
         $(".section-header").css("font-size",80+'px');
         $(".description").css("font-size",28+'px');
         $("#about-me-p").css("font-size",28+'px');
-        $("li").css("font-size",28+'px');
+        $("ul").css("font-size",28+'px');
     }
 });
