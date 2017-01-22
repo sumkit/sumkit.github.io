@@ -1,0 +1,63 @@
+@font-face {
+    font-family: nameFont;
+    src: url(Comfortaa-Regular.ttf);
+}
+
+#name {
+    font-family: nameFont;
+    color: #EA634A;
+    font-size: 50px;
+}
+
+/* get rid of default padding with <p> tag*/
+p {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    font-family: nameFont;
+    padding: 10px;
+}
+
+#umbrella_bot {
+    background: #61B872;
+}
+#kumo {
+    background: #A485BE;
+}
+#envoy {
+    background: #7383BF;
+}
+#umbrella {
+    background: #EB6A52;
+}
+#budgie {
+    background: #61B872;
+}
+.title {
+    color: #EBBA16;
+    font-size: 30px;
+    display: inline;
+    margin-left: 10px;
+}
+.description {
+    padding: 10px;
+    font-size: 14px;
+}
+.section-header {
+    color: #7383BF;
+    font-size: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#about-me-p {
+    padding-left: 20px; 
+    padding-right: 20px;
+    font-size: 14px;
+}
+
+ul {
+    font-size: 14px;
+}
