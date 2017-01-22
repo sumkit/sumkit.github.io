@@ -68,7 +68,9 @@ $( document ).ready(function() {
     $("#name").css("font-size",(max/20)+'px');
     if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         //is on mobile device
+        
     } else {
+        $('.section-div').css('height', '100vh');
         drawSidebar(width, height);
     }
 });
