@@ -32,7 +32,11 @@ li {
     position:relative; 
     top: 33%;
 }
-
+#projects-div {
+    margin-left: 8%;
+    width: 80%;
+    display: block;
+}
 .sidebar {
     left = 90%;
     position: fixed;
@@ -45,12 +49,11 @@ canvas {
 }
 div.project {
     padding: 10px;
-    width: 25%;
+    width: 80%;
     margin:auto;
-    text-align: center;
-    display: inline-block;
-    max-height: 33%;
-    overflow: auto;    
     margin-top: 4%;
     margin-left: 4%;
+}
+div.screenshots {
+/*    display: none;*/
 }
