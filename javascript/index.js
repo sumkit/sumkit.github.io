@@ -4,7 +4,7 @@ var addedSectionLabel=false;
 function drawSidebar(width, height) {
     var space = height/15;
     var radius = height/80;
-    var sections=["about", "projects", "golf", "résumé", "contact"];
+    var sections=["about me", "projects", "golf", "résumé", "contact me"];
     var canvases = document.getElementsByClassName('sidebar');
     for(var i=0;i<canvases.length;i++) {
         var ctx=canvases[i].getContext("2d");
@@ -29,7 +29,7 @@ function drawSidebar(width, height) {
             
             canvases[i].addEventListener('mousemove', function(event) {
                 if(!addedSectionLabel) {
-                    addedSectionLabel = true;
+                    addedSectionLabel = true;                    
                     var id=this.id.split('-')[1];
                     var pos = $(this).position();
                     var top = pos.top;
@@ -50,7 +50,7 @@ function drawSidebar(width, height) {
             }, false);
             canvases[i].addEventListener('click', function(event) {
                 var id=this.id.split('-')[1];
-                console.log(this.hash);
+                id = id.replace(' ','-');
                 $('html, body').animate({
                     scrollTop: $("#"+id+"-div").offset().top
                 }, 1000);

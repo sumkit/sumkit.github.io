@@ -5,6 +5,9 @@
 p {
    font-family: nameFont; 
 }
+li {
+   font-family: nameFont; 
+}
 #name {
     color: #EA634A;
     font-size: 60px;
@@ -36,4 +39,7 @@ p {
 }
 svg {
     position: fixed;
+}
+canvas {
+    z-index: 1000;
 }
