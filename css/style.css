@@ -16,19 +16,17 @@ li {
     margin-top: 300px;
 }
 
-/*
-.section-div {
-    height:100vh;
-}
-*/
-
 .section-title {
-    margin-left: 8%;
     font-size: 30px;
+}
+.section-div {
+    margin-left: 8%;
+}
+.title {
+    font-size: 20px;
 }
 
 #about-me-text {
-    margin-left: 8%;
     width: 66%;
     font-size: 15px;
     position:relative; 
@@ -44,4 +42,15 @@ svg {
 }
 canvas {
     z-index: 1000;
+}
+div.project {
+    padding: 10px;
+    width: 25%;
+    margin:auto;
+    text-align: center;
+    display: inline-block;
+    max-height: 33%;
+    overflow: auto;    
+    margin-top: 4%;
+    margin-left: 4%;
 }
