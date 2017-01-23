@@ -81,11 +81,22 @@ $( document ).ready(function() {
             var id = $(this).parent()[0].id;
             id=id+"_imgs";
             var div = document.getElementById(id);
-            console.log(div.style.display);
             if(div.style.display === 'none' || div.style.display === '') {
                 div.style.display='block';
+                $(this).css({
+                    "-webkit-transform": "rotate(45deg)",
+                    "-moz-transform": "rotate(45deg)",
+                    "transform": "rotate(45deg)" /* For modern browsers(CSS3)  */
+                });
             } else {
                 div.style.display='none';
+                $(this).css({
+                    "-ms-transform": "rotate(90deg)", /* IE 9 */
+                    "-o-transform": "rotate(90deg)", /* Opera */
+                    "-webkit-transform": "rotate(90deg)", /* Safari and Chrome */
+                    "-moz-transform": "rotate(90deg)", /* Firefox */
+                    "transform": "rotate(90deg)" /* For modern browsers(CSS3)  */
+                });
             }
         });
     }
