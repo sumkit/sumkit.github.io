@@ -68,9 +68,25 @@ $( document ).ready(function() {
     $("#name").css("font-size",(max/20)+'px');
     if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         //is on mobile device
-        
+        $('#toggle').css('display', 'inline');
     } else {
         $('.section-div').css('height', '100vh');
         drawSidebar(width, height);
+    }
+    
+    var pluses = document.getElementsByClassName("plus");
+    for(var i=0; i<pluses.length; i++) {
+        var p = pluses[i];
+        p.addEventListener('click', function(event) {
+            var id = $(this).parent()[0].id;
+            id=id+"_imgs";
+            var div = document.getElementById(id);
+            console.log(div.style.display);
+            if(div.style.display === 'none' || div.style.display === '') {
+                div.style.display='block';
+            } else {
+                div.style.display='none';
+            }
+        });
     }
 });
