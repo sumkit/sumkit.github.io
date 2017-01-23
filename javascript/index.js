@@ -94,10 +94,17 @@ $( document ).ready(function() {
     var height = $( window ).height();
     var max = Math.max(width, height);
     $("#name").css("font-size",(max/20)+'px');
-    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    
+//    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+//        
+//    } 
+    if(width < height) {
         //is on mobile device
+        $("#stylesheet").attr("href", "css/style_mobile.css");
         $('#toggle').css('display', 'inline');
-    } else {
+        $('canvas').css("display","none"); //get rid of sidebar 
+    }
+    else {
         $('.section-div').css('height', '100vh');
         drawSidebar(width, height);
     }
