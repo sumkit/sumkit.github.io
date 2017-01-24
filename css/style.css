@@ -1,0 +1,13 @@
+@font-face {
+    font-family: nameFont;
+    src: url(Comfortaa-Regular.ttf);
+}
+p {
+   font-family: nameFont; 
+}
+.screenshots {
+    display: none;
+}
+.section-div {
+    margin-left: 8%;
+}

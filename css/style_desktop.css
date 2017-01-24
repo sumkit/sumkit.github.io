@@ -4,13 +4,6 @@
     display: none;
 }
 
-@font-face {
-    font-family: nameFont;
-    src: url(Comfortaa-Regular.ttf);
-}
-p {
-   font-family: nameFont; 
-}
 li {
    font-family: nameFont; 
 }
@@ -25,9 +18,7 @@ li {
 .section-title {
     font-size: 30px;
 }
-.section-div {
-    margin-left: 8%;
-}
+
 .title {
     font-size: 20px;
 }
@@ -47,21 +38,12 @@ li {
     left = 90%;
     position: fixed;
 }
-svg {
-    position: fixed;
-}
 canvas {
     z-index: 1000;
 }
 div.project {
-    padding: 10px;
     width: 80%;
-    margin:auto;
     margin-top: 4%;
-    margin-left: 4%;
-}
-.screenshots {
-    display: none;
 }
 
 img.plus {
