@@ -14,8 +14,7 @@ function drawSidebar(width, height) {
             ctx.canvas.height = (5*space);
             canvases[i].style.top="33%";
             ctx.moveTo(radius+3, (radius+1));
-            ctx.lineTo(radius+3, (4*space)+radius);
-            
+            ctx.lineTo(radius+3, (4*space)+radius);            
         } else {
             ctx.canvas.height = (2*radius)+6;
             var y=((i-1)*space)+(height/3);
@@ -89,15 +88,7 @@ function drawPluses() {
         });
     }
 }
-$( document ).ready(function() {
-    var width = $( window ).width();
-    var height = $( window ).height();
-    var max = Math.max(width, height);
-    $("#name").css("font-size",(max/20)+'px');
-    
-//    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-//        
-//    } 
+function drawOnSize(width, height) {
     if(width < height) {
         //is on mobile device
         $("#stylesheet").attr("href", "css/style_mobile.css");
@@ -105,8 +96,21 @@ $( document ).ready(function() {
         $('canvas').css("display","none"); //get rid of sidebar 
     }
     else {
-        $('.section-div').css('height', '100vh');
+        $("#stylesheet").attr("href", "css/style_desktop.css");
         drawSidebar(width, height);
     }
+}
+$( document ).ready(function() {
+    var width = $( window ).width();
+    var height = $( window ).height();
+    var max = Math.max(width, height);
+    $("#name").css("font-size",(max/20)+'px');
+    drawOnSize(width, height);
     drawPluses();
+});
+$(window).resize(function(){
+    console.log("here");
+    var width = $( window ).width();
+    var height = $( window ).height();
+    drawOnSize(width, height);
 });

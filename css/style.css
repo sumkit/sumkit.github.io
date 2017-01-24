@@ -5,9 +5,21 @@
 p {
    font-family: nameFont; 
 }
+li {
+   font-family: nameFont; 
+}
 .screenshots {
     display: none;
 }
 .section-div {
     margin-left: 8%;
+}
+
+#projects-div {
+    margin-left: 8%;
+    width: 80%;
+    display: block;
+}
+#name {
+    color: #EA634A;
 }

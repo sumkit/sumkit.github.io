@@ -1,20 +1,11 @@
-#toggle {
-    left: 80%;
-    width: 25%;
-    display: none;
-}
-
-li {
-   font-family: nameFont; 
-}
 #name {
-    color: #EA634A;
     font-size: 60px;
     width: 50%;
-    margin-left: 8%;
-    margin-top: 300px;
+    margin-top: 40vh;
 }
-
+.section-div {
+    height: 100vh;
+}
 .section-title {
     font-size: 30px;
 }
@@ -29,11 +20,7 @@ li {
     position:relative; 
     top: 33%;
 }
-#projects-div {
-    margin-left: 8%;
-    width: 80%;
-    display: block;
-}
+
 .sidebar {
     left = 90%;
     position: fixed;
