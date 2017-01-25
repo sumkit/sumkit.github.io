@@ -20,7 +20,7 @@ div.project {
     position: fixed;
     z-index: 1000;
     right: 0px;
-    margin: 5%;
+    padding: 10%;
 }
 #toggle {
     float: right;
