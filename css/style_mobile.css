@@ -20,16 +20,16 @@ div.project {
     position: fixed;
     z-index: 1000;
     right: 0px;
-    margin: 10px;
+    margin: 5%;
 }
 #toggle {
     float: right;
     width: 20%;
 }
 #toggle_menu {
-    right: 0px;
     text-align: right;
     margin-top: 10%;
-    margin-right: 10px;
     display: none;
+    float: right;
+    font-size: 20px;
 }
