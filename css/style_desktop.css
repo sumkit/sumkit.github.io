@@ -37,3 +37,7 @@ img.plus {
     position: absolute; 
     left: 75%;
 }
+
+#toggle_div {
+    display: none;
+}

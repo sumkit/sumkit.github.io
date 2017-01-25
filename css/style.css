@@ -8,6 +8,9 @@ p {
 li {
    font-family: nameFont; 
 }
+a {
+    font-family: nameFont; 
+}
 .screenshots {
     display: none;
 }

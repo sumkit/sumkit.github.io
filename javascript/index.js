@@ -1,6 +1,7 @@
 //global variables
 var addedSectionLabel=false;
 
+//create sidebar: draw on canvas and listen for mousemove, mouseleave, and onclick events
 function drawSidebar(width, height) {
     var space = height/15;
     var radius = height/80;
@@ -60,6 +61,8 @@ function drawSidebar(width, height) {
         ctx.stroke();
     }
 }
+
+//+'s show screen shots for projects. rotate between + (closed) and x (open).
 function drawPluses() {
     var pluses = document.getElementsByClassName("plus");
     for(var i=0; i<pluses.length; i++) {
@@ -88,11 +91,14 @@ function drawPluses() {
         });
     }
 }
+
+//if browser width < browser height, then mobile
+//else, desktop
 function drawOnSize(width, height) {
     if(width < height) {
         //is on mobile device
         $("#stylesheet").attr("href", "css/style_mobile.css");
-        $('#toggle').css('display', 'inline');
+        $('#toggle').css('display', 'block');
         $('canvas').css("display","none"); //get rid of sidebar 
     }
     else {
@@ -100,6 +106,25 @@ function drawOnSize(width, height) {
         drawSidebar(width, height);
     }
 }
+
+//show mobile menu options
+function toggleMenu() {
+    if($("#toggle_menu").css('display') == "none") {
+        $("#toggle_menu").css('display', "block");
+    } else {
+        $("#toggle_menu").css('display', "none");
+    }
+}
+
+//menu items onclick
+function toggleClick(elem) {
+    var id = elem.innerHTML.replace(' ','-');
+    $('html, body').animate({
+        scrollTop: $("#"+id+"-div").offset().top
+    }, 1000);
+}
+
+//runs on load 
 $( document ).ready(function() {
     var width = $( window ).width();
     var height = $( window ).height();
@@ -108,6 +133,8 @@ $( document ).ready(function() {
     drawOnSize(width, height);
     drawPluses();
 });
+
+//dynamic browser window resize
 $(window).resize(function(){
     console.log("here");
     var width = $( window ).width();
