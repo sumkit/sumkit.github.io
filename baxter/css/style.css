@@ -1,0 +1,33 @@
+@font-face {
+    font-family: ralewayFont;
+    src: url(Raleway-Regular.ttf);
+}
+body {
+    font-family: ralewayFont !important;
+}
+#baxter_img {
+    width: 100%;
+    opacity: 50%;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+} 
+#baxter_title {
+    position: absolute;
+    left: 45%;
+    top: 50%;
+    color: black;
+    font-size: 70px;
+    padding: 10px;
+    background-color:rgba(255,255,255,0.75);
+}
+#title_div {
+    position: relative;
+    text-align: center;
+}
+th {
+    text-align: center;
+}
+.section {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+}
