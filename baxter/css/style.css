@@ -2,15 +2,12 @@
     font-family: ralewayFont;
     src: url(Raleway-Regular.ttf);
 }
-body {
-    font-family: ralewayFont !important;
-}
+body { font-family: ralewayFont !important; }
 #baxter_img {
     width: 100%;
     opacity: 50%;
     filter: alpha(opacity=50); /* For IE8 and earlier */
 } 
-
 #title_div {
     position: relative;
     text-align: center;
@@ -28,7 +25,13 @@ body {
     left: 30%;
 }
 .section {
+    padding-top: 30px;
     padding-left: 15px;
     padding-right: 15px;
-    padding-bottom: 10px;
 }
+tr {
+    text-align: center;
+    width: 25%;
+}
+table { table-layout: fixed; }
+img.profile { height: 160px; }

@@ -142,7 +142,6 @@ $( document ).ready(function() {
 
 //dynamic browser window resize
 $(window).resize(function(){
-    console.log("here");
     var width = $( window ).width();
     var height = $( window ).height();
     drawOnSize(width, height);
