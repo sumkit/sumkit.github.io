@@ -10,8 +10,13 @@ body { font-family: ralewayFont !important; }
 } 
 #title_div {
     position: relative;
+    height: 75vh;
     text-align: center;
+    background-image: url('../images/baxter.jpg');
+    background-size:cover;
 }
+
+/*title span*/
 #baxter_title {
     position: absolute;
     top: 50%;
@@ -22,7 +27,7 @@ body { font-family: ralewayFont !important; }
     padding-left: 20px;
     padding-right: 20px;
     background-color:rgba(255,255,255,0.75);
-    left: 30%;
+    left: 28%;
 }
 .section {
     padding-top: 30px;
@@ -32,6 +37,24 @@ body { font-family: ralewayFont !important; }
 tr {
     text-align: center;
     width: 25%;
+}
+
+video {
+    z-index: 1;
+}
+
+/*about span*/
+#about_title {
+    position:absolute;
+    top: 100vh;
+    color: black;
+    font-size: 22px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color:rgba(255,255,255,0.75);
+    z-index: 100;
 }
 table { table-layout: fixed; }
 img.profile { height: 160px; }
