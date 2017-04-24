@@ -46,9 +46,9 @@ video {
 /*about span*/
 #about_title {
     position:absolute;
-    top: 100vh;
+    top: 110vh;
     color: black;
-    font-size: 22px;
+    font-size: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 30px;
