@@ -46,15 +46,14 @@ video {
 /*about span*/
 #about_title {
     position:absolute;
-    top: 110vh;
+/*    top: 130vh;*/
     color: black;
-    font-size: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 30px;
-    padding-right: 30px;
+    font-size:18px;
+    padding: 30px;
     background-color:rgba(255,255,255,0.75);
     z-index: 100;
+    bottom: 15px;
+    right: 0;
 }
 table { table-layout: fixed; }
 img.profile { width: 67%; }
