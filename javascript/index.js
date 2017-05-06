@@ -68,7 +68,7 @@ function drawPluses() {
     for(var i=0; i<pluses.length; i++) {
         var p = pluses[i];
         p.addEventListener('click', function(event) {
-            var id = $(this).parent()[0].id;
+            var id = $(this).parent().parent()[0].id;
             id=id+"_imgs";
             var div = document.getElementById(id);
             if(div.style.display === 'none' || div.style.display === '') {
