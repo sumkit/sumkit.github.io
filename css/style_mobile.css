@@ -15,6 +15,10 @@ div.project {
     height: auto;
     width: 80%;
 }
+.section-title {
+    font-size: 30px;
+    display: inline;
+}
 #toggle_div {
     display: block;
     position: fixed;
