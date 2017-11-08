@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- My stylesheet -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+    <link id="stylesheet" rel="stylesheet" type="text/css" href="css/style_desktop.css">
+    <title>Summer Kitahara</title>    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- My javascript -->
+    <script type="text/javascript" src="javascript/index.js"></script>
+</head>
+<body>
+    <!-- sidebar for desktop -->
+    <canvas class="sidebar" id="sidebar-line" style=""></canvas>
+    <canvas class="sidebar" id="sidebar-about me"></canvas>
+    <canvas class="sidebar" id="sidebar-projects"></canvas>
+    <canvas class="sidebar" id="sidebar-golf"></canvas>
+    <canvas class="sidebar" id="sidebar-résumé"></canvas>
+    <canvas class="sidebar" id="sidebar-contact me"></canvas>
+    
+    <!-- toggle for mobile -->
+    <div id="toggle_div">
+        <img id="toggle" src="media/menu.png" onclick="toggleMenu()">
+        <div id="toggle_menu">
+            <p onclick="toggleClick(this)">about me</p>
+            <p onclick="toggleClick(this)">projects</p>
+            <p onclick="toggleClick(this)">golf</p>
+            <p onclick="toggleClick(this)">resume</p>
+            <p onclick="toggleClick(this)">contact me</p>
+        </div>
+    </div>
+    
+    <div class="section-div">
+        <p id="name">summer kitahara</p>
+    </div>
+    <div id="résumé-div">
+        <p class="section-title">// résumé</p>
+        <a href="media/resume.pdf" target="_blank">Resume</a>
+    </div>
+</body>
+</html>

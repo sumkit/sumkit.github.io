@@ -92,42 +92,17 @@ function drawPluses() {
     }
 }
 
-//if browser width < browser height, then mobile
-//else, desktop
 function drawOnSize(width, height) {
-//    if(width < height) {
-//        //is on mobile device
-//        $("#stylesheet").attr("href", "css/style_mobile.css");
-//        $('#toggle').css('display', 'block');
-//        $('canvas').css("display","none"); //get rid of sidebar 
-//    }
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         //is on mobile device
         $("#stylesheet").attr("href", "css/style_mobile.css");
-        $('#toggle').css('display', 'block');
         $('canvas').css("display","none"); //get rid of sidebar 
+        $('#résumé-div').css("display","none"); 
     }
     else {
         $("#stylesheet").attr("href", "css/style_desktop.css");
         drawSidebar(width, height);
     }
-}
-
-//show mobile menu options
-function toggleMenu() {
-    if($("#toggle_menu").css('display') == "none") {
-        $("#toggle_menu").css('display', "block");
-    } else {
-        $("#toggle_menu").css('display', "none");
-    }
-}
-
-//menu items onclick
-function toggleClick(elem) {
-    var id = elem.innerHTML.replace(' ','-');
-    $('html, body').animate({
-        scrollTop: $("#"+id+"-div").offset().top
-    }, 1000);
 }
 
 //runs on load 
