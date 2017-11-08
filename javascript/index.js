@@ -97,10 +97,11 @@ function drawOnSize(width, height) {
         //is on mobile device
         $("#stylesheet").attr("href", "css/style_mobile.css");
         $('canvas').css("display","none"); //get rid of sidebar 
-        $('#résumé-div').css("display","none"); 
+        $('#résumé-div').remove(); 
     }
     else {
         $("#stylesheet").attr("href", "css/style_desktop.css");
+        $('#mobile-résumé-div').remove(); 
         drawSidebar(width, height);
     }
 }
