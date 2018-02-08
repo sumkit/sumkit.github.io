@@ -3,13 +3,13 @@
     src: url(Comfortaa-Regular.ttf);
 }
 p {
-   font-family: nameFont; 
+   font-family: nameFont;
 }
 li {
-   font-family: nameFont; 
+   font-family: nameFont;
 }
 a {
-    font-family: nameFont; 
+    font-family: nameFont;
 }
 .screenshots {
     display: none;
@@ -27,12 +27,12 @@ a {
     color: #EA634A;
 }
 
-#résumé-div {
-    margin-left: 8%; 
+#resume-div {
+    margin-left: 8%;
     margin-bottom: 10%;
 }
 
 #contact-me-div {
-    margin-left: 8%; 
+    margin-left: 8%;
     margin-bottom: 10%;
 }

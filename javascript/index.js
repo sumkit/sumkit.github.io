@@ -5,7 +5,7 @@ var addedSectionLabel=false;
 function drawSidebar(width, height) {
     var space = height/15;
     var radius = height/80;
-    var sections=["about me", "projects", "golf", "résumé", "contact me"];
+    var sections=["about me", "projects", "golf", "resume", "contact me"];
     var canvases = document.getElementsByClassName('sidebar');
     for(var i=0;i<canvases.length;i++) {
         var ctx=canvases[i].getContext("2d");
@@ -15,7 +15,7 @@ function drawSidebar(width, height) {
             ctx.canvas.height = (5*space);
             canvases[i].style.top="33%";
             ctx.moveTo(radius+3, (radius+1));
-            ctx.lineTo(radius+3, (4*space)+radius);            
+            ctx.lineTo(radius+3, (4*space)+radius);
         } else {
             ctx.canvas.height = (2*radius)+6;
             var y=((i-1)*space)+(height/3);
@@ -26,10 +26,10 @@ function drawSidebar(width, height) {
             ctx.fill();
             ctx.strokeStyle="#7383BF";
             ctx.stroke();
-            
+
             canvases[i].addEventListener('mousemove', function(event) {
                 if(!addedSectionLabel) {
-                    addedSectionLabel = true;                    
+                    addedSectionLabel = true;
                     var id=this.id.split('-')[1];
                     var pos = $(this).position();
                     var top = pos.top;
@@ -96,17 +96,17 @@ function drawOnSize(width, height) {
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         //is on mobile device
         $("#stylesheet").attr("href", "css/style_mobile.css");
-        $('canvas').css("display","none"); //get rid of sidebar 
-        $('#résumé-div').remove(); 
+        $('canvas').css("display","none"); //get rid of sidebar
+        $('#resume-div').remove();
     }
     else {
         $("#stylesheet").attr("href", "css/style_desktop.css");
-        $('#mobile-résumé-div').remove(); 
+        $('#mobile-resume-div').remove();
         drawSidebar(width, height);
     }
 }
 
-//runs on load 
+//runs on load
 $( document ).ready(function() {
     var width = $( window ).width();
     var height = $( window ).height();
